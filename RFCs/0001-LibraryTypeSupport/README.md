@@ -8,9 +8,9 @@
 ## Summary
 Expand the library types supported in the OCA Repository {OCA Repo Base URL}/{Namespace}/Lib/...
 
-We would like the full REST API support for the generalized pattern:  {OCA-Repo-Base-URL}/FHIR-OCA/Lib/"<profile>"/"<project>"/"<type>"
+We would like the full REST API support for the generalized pattern:  {OCA-Repo-Base-URL}/FHIR-OCA/Lib/\<\profile\>\/\<\project\>\/\<\type\>\
 
-Extend content types supported to  "content-type" -> "application/fhir+json"
+Extend content types supported,  "content-type" -> "application/fhir+json"
 
                                                 -> "application/json"
 
@@ -26,7 +26,7 @@ Extend content types supported to  "content-type" -> "application/fhir+json"
             {OCA Repo Base URL}/FHIR-OCA/Lib/us-core/USImmunize/json-schema/ -> supports "application/schema+json"
                                                     
             {OCA Repo Base URL}/FHIR-OCA/Lib/us-core/USImmunize/json/ -> supports "application/json"
-                          						                      -> supports "application/fhir+json"
+                                                                    -> supports "application/fhir+json"
 
             {OCA Repo Base URL}/FHIR-OCA/Lib/us-core/USImmunize/reference-list/ -> supports "text/plain"
                                                                                 -> supports "application/json"
