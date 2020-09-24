@@ -23,10 +23,11 @@ Extend content types supported,  "content-type" -> "application/fhir+json"
 "Project" would be the implementable project the profile will be used in, per example: "USImmunize"
 
 "Type" would map to:
-            {OCA Repo Base URL}/FHIR-OCA/Lib/us-core/USImmunize/json-schema/ -> supports "application/schema+json"
+
+            {OCA Repo Base URL}/FHIR-OCA/Lib/us-core/USImmunize/json-schema/ -> support for "application/schema+json"
                                                     
-            {OCA Repo Base URL}/FHIR-OCA/Lib/us-core/USImmunize/json/ -> supports "application/json"
-                                                                    -> supports "application/fhir+json"
+            {OCA Repo Base URL}/FHIR-OCA/Lib/us-core/USImmunize/json/ -> support for "application/json"
+                                                                      -> support for "application/fhir+json"
 
             {OCA Repo Base URL}/FHIR-OCA/Lib/us-core/USImmunize/reference-list/ -> supports "text/plain"
                                                                                 -> supports "application/json"
