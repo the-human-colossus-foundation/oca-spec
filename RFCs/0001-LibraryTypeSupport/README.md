@@ -1,4 +1,4 @@
-# Title 0001: OCA Repository Library Type Support)
+# Title 0001: OCA Repository Library Type Support
 - Authors: John Walker, (jwalker@semanticclarity.com), Mukundan Parthasarathy, (mukund@semanticclarity.com)
 - Status: [PROPOSED](/README.md#proposed)
 - Status Note: Just starting RFC proposal.
