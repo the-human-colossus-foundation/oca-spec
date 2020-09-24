@@ -10,13 +10,16 @@ Expand the library types supported in the OCA Repository {OCA Repo URL}/{Namespa
 
 We would like the full REST API support for the generalized pattern:  {OCA-Repo-Base-URL}/FHIR-OCA/Lib/\<profile>/\<project>/\<type>
 
-Extend content types supported,  "content-type" -> "application/fhir+json"
+Extend types supported,  "content-type" values:
+
+                                                -> "application/fhir+json"
 
                                                 -> "application/json"
 
                                                 -> "application/schema+json"
 
                                                 -> "text/plain"
+
 
 "Profile" maps to the FHIR Profile used as reference to build the FHIR OCA schema from, per example: "us-core"
 
