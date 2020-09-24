@@ -6,9 +6,9 @@
 - Start Date: 2020-09-21
 
 ## Summary
-Expand the library types supported in the OCA Repository {OCA Repo URL}/{Namespace}/Lib/...
+Expand the content types supported in the OCA Repository {OCA Repo URL}/{Namespace}/Lib/...
 
-We would like the full REST API support for the generalized pattern:  {OCA-Repo-Base-URL}/FHIR-OCA/Lib/\<profile>/\<project>/\<type>
+We would like the full REST API support for the generalized pattern:  {OCA Repo URL}/FHIR-OCA/Lib/\<profile>/\<project>/\<type>
 
 Extend types supported,  "content-type" values:
 
@@ -27,14 +27,14 @@ Extend types supported,  "content-type" values:
 
 "Type"  maps to the content type necessary to build the required schema, per example: "application/schema+json"
 
-            {OCA Repo Base URL}/FHIR-OCA/Lib/us-core/USImmunize/json-schema/ -> support for "application/schema+json"
+            {OCA Repo URL}/FHIR-OCA/Lib/us-core/USImmunize/json-schema/ -> support for "application/schema+json"
                                                     
-            {OCA Repo Base URL}/FHIR-OCA/Lib/us-core/USImmunize/json/ -> support for "application/json"
-                                                                      -> support for "application/fhir+json"
+            {OCA Repo URL}/FHIR-OCA/Lib/us-core/USImmunize/json/ -> supports "application/json"
+                                                                 -> supports "application/fhir+json"
 
-            {OCA Repo Base URL}/FHIR-OCA/Lib/us-core/USImmunize/reference-list/ -> supports "text/plain"
-                                                                                -> supports "application/json"
-                                                                                -> supports "application/fhir+json"        							 
+            {OCA Repo URL}/FHIR-OCA/Lib/us-core/USImmunize/reference-list/ -> supports "text/plain"
+                                                                           -> supports "application/json"
+                                                                           -> supports "application/fhir+json"        							 
 ## Motivation
 
 We are requesting this to support the FHIR base schema and overlay authoring process for FHIR OCA.
@@ -57,7 +57,7 @@ To create a new FHIR OCA base schema and overlays for a use case as example supp
 	- For each supported content type requested above, provide the ability to create and populate the following container types:
 
 	  Profile   e.g. "us-core"
-      
+
 	  Profile/Project   e.g. "us-core"/"USImmunize"
 
 
