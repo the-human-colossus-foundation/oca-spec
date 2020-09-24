@@ -53,9 +53,11 @@ To create a new FHIR OCA base schema and overlays for a use case as example supp
 
 - All lookups for these resources will be supported by hashlinks returned during the above POST request.
 
-- FHIR-OCA authoring roles shall be able to create and retrieve and operate on sub-directories of "{OCA Repo Base URL}/FHIR-OCA/Lib/..."
-	- For each lib types above, ability to create and populate the following container types:
+- FHIR-OCA authoring roles shall be able to create, retrieve and operate on sub-directories below  "{OCA Repo Base URL}/FHIR-OCA/Lib/..."
+	- For each supported content type requested above, provide the ability to create and populate the following container types:
+
 	  Profile   e.g. "us-core"
+      
 	  Profile/Project   e.g. "us-core"/"USImmunize"
 
 
@@ -64,7 +66,8 @@ This enhancement proposal is aimed at FHIR OCA contributors.
 
 ## Reference
 
-To be provided later in the RFC lifecyce - Provide guidance for implementers, procedures to inform testing,
+To be provided later in the RFC lifecyce - 
+Provide guidance for implementers, procedures to inform testing,
 interface definitions, formal function prototypes, error codes,
 diagrams, and other technical details that might be looked up.
 Strive to guarantee that:
