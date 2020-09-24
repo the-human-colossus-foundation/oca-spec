@@ -6,15 +6,23 @@
 - Start Date: 2020-09-21
 
 ## Summary
-Support for expanding the libray types supported in the OCA Repository {OCA Repo Base URL}/{Namespace}/Lib/...
-We would like the full REST API support for the generalized pattern:  {OCA-Repo-Base-URL}/FHIR-OCA/Lib/<profile>/<project>/<type>
+Expand the library types supported in the OCA Repository {OCA Repo Base URL}/{Namespace}/Lib/...
 
-Extend Content types supported:  "content-type" -> "application/fhir+json" 
+We would like the full REST API support for the generalized pattern:  {OCA-Repo-Base-URL}/FHIR-OCA/Lib/"<profile>"/"<project>"/"<type>"
+
+Extend content types supported to  "content-type" -> "application/fhir+json"
+
                                                 -> "application/json"
+
                                                 -> "application/schema+json"
+
                                                 -> "text/plain"
 
-Type would map to:
+"Profile" would map to the FHIR Profile used as reference to build the FHIR OCA schema from, per example: "us-core"
+
+"Project" would be the implementable project the profile will be used in, per example: "USImmunize"
+
+"Type" would map to:
             {OCA Repo Base URL}/FHIR-OCA/Lib/us-core/USImmunize/json-schema/ -> supports "application/schema+json"
                                                     
             {OCA Repo Base URL}/FHIR-OCA/Lib/us-core/USImmunize/json/ -> supports "application/json"
@@ -22,12 +30,7 @@ Type would map to:
 
             {OCA Repo Base URL}/FHIR-OCA/Lib/us-core/USImmunize/reference-list/ -> supports "text/plain"
                                                                                 -> supports "application/json"
-                                                                                -> supports "application/fhir+json"        							  
-
-Profile would map per example: "us-core"
-
-Project would map per example: "USImmunize"
-
+                                                                                -> supports "application/fhir+json"        							 
 ## Motivation
 
 We are requesting this to support the FHIR base schema and overlay authoring process for FHIR OCA.
