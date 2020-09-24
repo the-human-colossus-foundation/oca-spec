@@ -8,7 +8,7 @@
 ## Summary
 Expand the library types supported in the OCA Repository {OCA Repo Base URL}/{Namespace}/Lib/...
 
-We would like the full REST API support for the generalized pattern:  {OCA-Repo-Base-URL}/FHIR-OCA/Lib/\<\profile\>\/\<\project\>\/\<\type\>\
+We would like the full REST API support for the generalized pattern:  {OCA-Repo-Base-URL}/FHIR-OCA/Lib/\<profile>/\<project>/<type>\
 
 Extend content types supported,  "content-type" -> "application/fhir+json"
 
