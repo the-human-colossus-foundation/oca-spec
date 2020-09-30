@@ -51,10 +51,10 @@ None, this is required for clinical use of FHIR-OCA in major healthcare ecosyste
 
 - Other designs considered: Because of the significant nesting depth and context inclusion that exists in FHIR resource json objects it is not realistic to construct FHIR OCA Base schemas from "scratch". This approach would be extremely complex and error prone.
 
-- Impact of not doing this will be serious: FHIR-OCA cannot be used for any real-world use cases based on FHIR.
+- Impact of not doing this will be serious: FHIR-OCA cannot be used for any real-world use cases based on FHIR profiles or extensions.
 
 ## Prior art
-- FHIR community has defined a very mature model for profiles and extensions. There is a mature ecosystem of tools and technologies: FHIRPath for expressing structural and semantic constraints over multiple formats (xml,json etc), ShEx
+- FHIR community has defined a very mature model for profiles and extensions. There is a mature ecosystem of tools and technologies: FHIRPath for expressing structural and semantic constraints over multiple formats (xml,json etc)
 http://www.hl7.org/fhir/structuredefinition.html
 https://hl7.org/fhir/2018May/fhirpath.html
 http://www.fhir.org/guides/registry/
