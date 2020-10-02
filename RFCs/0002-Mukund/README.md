@@ -53,6 +53,10 @@ None, this is required for clinical use of FHIR-OCA in major healthcare ecosyste
 
 - Impact of not doing this will be serious: FHIR-OCA cannot be used for any real-world use cases based on FHIR profiles or extensions.
 
+Alternatives considered:
+
+Please refer to: https://docs.google.com/presentation/d/10bgJyEWA6uiVNS6HZppdRw4Ip-PjElB8q-1qV__y8IE/edit?usp=sharing
+
 ## Prior art
 - FHIR community has defined a very mature model for profiles and extensions. There is a mature ecosystem of tools and technologies: FHIRPath for expressing structural and semantic constraints over multiple formats (xml,json etc)
 http://www.hl7.org/fhir/structuredefinition.html
