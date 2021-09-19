@@ -1,13 +1,21 @@
+<h2>Capture base</h2>
+
+<section>
+  <h3>Introduction</h3>
+
+  Capture base is the minimalistic object which allows to preserve context of captured data. In addition 
+</section>
+
 <h2>Overlays</h2>
 <section>
     <h3>Introduction</h3>
 
 
-    A linked object that provides an extra layer of contextual and/or conditional information to a schema base. Overlays
+    A linked object that provides an extra layer of contextual and/or conditional information to a capture base. Overlays
     can be used by an issuer or viewer to transform how information is displayed to a viewer or to guide a verifier or
     holder in how to apply a custom process to schema data.
     <br /><br />
-    The purpose of the Overlay is introduce dynamic properties to static schema base.
+    The purpose of the Overlay is introduce dynamic properties to static capture base.
 
 </section>
 
@@ -15,7 +23,7 @@
 
     <h3>Core overlays</h3>
 
-    Core overlays are the overlays which are mandatory in certian conditions for each schema base.
+    Core overlays are the overlays which are mandatory in certian conditions for each capture base.
     Core overlays are necessary for overall data harmonization and facilitiating unify data language.
 
     <section>
@@ -34,7 +42,7 @@
     "role": "",
     // the purpose of the overlay
     "purpose": "",
-    // the linking identifier for the schema base
+    // the linking identifier for the capture base
     "schema_base": "hl:5vLMW87oJu5wzQPDtQmD2PQ5auPBxneiMKtW7Yck6hsH",
     // default character set encoding
     "default_character_encoding": "utf-8",
@@ -64,7 +72,7 @@
         "role": "",
         // the purpose of the overlay
         "purpose": "",
-        // the linking identifier for the schema base
+        // the linking identifier for the capture base
         "schema_base": "hl:5vLMW87oJu5wzQPDtQmD2PQ5auPBxneiMKtW7Yck6hsH",
         // specified language
         "language": "en_US",
@@ -99,7 +107,7 @@
         "role": "",
         // the purpose of the overlay
         "purpose": "",
-        // the linking identifier for the schema base
+        // the linking identifier for the capture base
         "schema_base": "hl:5vLMW87oJu5wzQPDtQmD2PQ5auPBxneiMKtW7Yck6hsH",
         // defined formats
         "attr_formats": {
@@ -111,7 +119,7 @@
 
     <section>
         <h5>Label overlay</h5>
-        Label overlay is used to add human readable labels to schema base attributes (incl. category labels).
+        Label overlay is used to add human readable labels to capture base attributes (incl. category labels).
         <pre class="example">
     {
         // set the context - establishing the special terms to be used
@@ -124,7 +132,7 @@
         "role": "",
         // the purpose of the overlay
         "purpose": "",
-        // the linking identifier for the schema base
+        // the linking identifier for the capture base
         "schema_base": "hl:5vLMW87oJu5wzQPDtQmD2PQ5auPBxneiMKtW7Yck6hsH",
         // specified language
         "language": "en_US",
@@ -179,7 +187,7 @@
         "role": "Data manager",
         // the purpose of the overlay
         "purpose": "Internal system identifiers",
-        // the linking identifier for the schema base
+        // the linking identifier for the capture base
         "schema_base": "hl:5vLMW87oJu5wzQPDtQmD2PQ5auPBxneiMKtW7Yck6hsH",
         // defined mappings
         "attr_mapping": {
@@ -210,7 +218,7 @@
     "role": "",
     // the purpose of the overlay
     "purpose": "",
-    // the linking identifier for the schema base
+    // the linking identifier for the capture base
     "schema_base": "hl:5vLMW87oJu5wzQPDtQmD2PQ5auPBxneiMKtW7Yck6hsH",
     // specified language
     "language": "en_US",
@@ -242,7 +250,7 @@
         "role": "Data scientist",
         // the purpose of the overlay
         "purpose": "Date shifting",
-        // the linking identifier for the schema base
+        // the linking identifier for the capture base
         "schema_base": "hl:5vLMW87oJu5wzQPDtQmD2PQ5auPBxneiMKtW7Yck6hsH",
         // defined data masks
         "attr_masking": {
@@ -253,7 +261,7 @@
     </section>
     <section>
         <h5>Risk Overlay</h5>
-        
+
         <pre class="example">
     {
         // set the context - establishing the special terms to be used
@@ -266,7 +274,7 @@
         "role": "",
         // the purpose of the overlay
         "purpose": "",
-        // the linking identifier for the schema base
+        // the linking identifier for the capture base
         "schema_base": "hl:5vLMW87oJu5wzQPDtQmD2PQ5auPBxneiMKtW7Yck6hsH",
         // defined risk values
         "attr_risks": {
@@ -295,7 +303,7 @@
         "role": "Human Resources",
         // the purpose of the overlay
         "purpose": "Internal curation",
-        // the linking identifier for the schema base
+        // the linking identifier for the capture base
         "schema_base": "hl:5vLMW87oJu5wzQPDtQmD2PQ5auPBxneiMKtW7Yck6hsH",
         // defined source endpoints
         "attr_source": {
@@ -306,16 +314,16 @@
     </section>
     <section>
         <h5>Subset overlay</h5>
-        Subset overlay allows to create subset of schema base. E.g. limit the amount of attributes needed for specific use case without loosing the context of used schema base.
+        Subset overlay allows to create subset of capture base. E.g. limit the amount of attributes needed for specific use case without loosing the context of used capture base.
         <pre class="example">
     {
         // set the context - establishing the special terms to be used
         "@context": "https://oca.tech/overlays/v1",
         // the object type - declaring the structure of the object
         "type": "spec/overlay/subset/1.0",
-        // the linking identifier for the schema base
+        // the linking identifier for the capture base
         "schema_base": "hl:5vLMW87oJu5wzQPDtQmD2PQ5auPBxneiMKtW7Yck6hsH",
-        // list of attributes to be included in the schema subset 
+        // list of attributes to be included in the schema subset
         "attr_subset": [
           "firstname",
           "lastname"
@@ -336,7 +344,7 @@
 
     <section>
         <h5>Binary-to-text and Order Overlay</h5>
-        Binary-to-text overaly provides information about algorithms used to encode specific attributes. Used in ZKP.  
+        Binary-to-text overaly provides information about algorithms used to encode specific attributes. Used in ZKP.
     </section>
 
 </section>
