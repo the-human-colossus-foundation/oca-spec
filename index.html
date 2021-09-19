@@ -1,71 +1,75 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset='utf-8'>
-    <title>OCA Specification</title>
-    <style>
-        #instructions {
-          border: dashed 1px black;
-          padding: 1em;
-          background-color:#d0d0d0;
-        }
-        .replace-me {
-          font-style:italic;
-          color:magenta
-        }
 
-    </style>
-    <script src='https://www.w3.org/Tools/respec/respec-w3c-common' class='remove'></script>
-    <script class='remove'>
-var respecConfig = {
-    specStatus: "unofficial",
-    logos: [{
-        src: 'https://github.com/the-human-colossus-foundation/media-assets/raw/master/HCF/_rgb/_png/LOGO_base_black.png',
+<head>
+  <meta charset='utf-8'>
+  <title>OCA Specification</title>
+  <style>
+    #instructions {
+      border: dashed 1px black;
+      padding: 1em;
+      background-color: #d0d0d0;
+    }
+
+    .replace-me {
+      font-style: italic;
+      color: magenta
+    }
+  </style>
+  <script src='./respec-hcf.js' class='remove'></script>
+  <script class='remove'>
+    var respecConfig = {
+      thisVersion: "https://the-human-colossus-foundation.github.io/oca-spec/",
+      latestVersion: "https://the-human-colossus-foundation.github.io/oca-spec/",
+      specStatus: "hcf",
+      logos: [{
+        src: "https://raw.githubusercontent.com/the-human-colossus-foundation/media-assets/master/HCF/_rgb/_png/LOGO_base_black.png",
         href: "https://humancolosus.org",
         alt: "The Human Colossus Foundation",
         width: 193,
         height: 184,
         id: 'hcf-logo',
-    }],
-    editors: [
-      {
-        name: "Robert Mitwicki",
-        url: "https://www.linkedin.com/in/robertmitwicki",
-        company: "The Human Colossus Foundation",
-        companyURL: "https://humancolossus.foundation",
-        mailto: "robert.mitwicki@humancolossus.org"
-      }
-    ],
-    authors: [
-      {
-        name: "Robert Mitwicki",
-        url: "https://www.linkedin.com/in/robertmitwicki",
-        company: "The Human Colossus Foundation",
-        companyURL: "https://humancolossus.foundation",
-        mailto: "robert.mitwicki@humancolossus.org"
-      },
-      {
-        name: "Paul Knowles",
-        url: "https://www.linkedin.com/in/jenral/",
-        company: "The Human Colossus Foundation",
-        companyURL: "https://humancolossus.foundation",
-        mailto: "paul.knowles@humancolossus.org"
-      }
-    ],
-    processVersion: 2020,
-    edDraftURI: "https://github.com/the-human-colossus-foundation/oca-spec",
-    shortName: "oca",
-    subtitle: "Overlays Capture Architecture",
-    github: "https://github.com/the-human-colossus-foundation/oca-spec",
-    wg: "The Human Colossus Foundation",
-    pluralize: true,
-    // To load highlighter for another lang, see https://github.com/w3c/respec/wiki/pre-and-code-elements
-};
-    </script>
+      }],
+      editors: [
+        {
+          name: "Robert Mitwicki",
+          url: "https://www.linkedin.com/in/robertmitwicki",
+          company: "The Human Colossus Foundation",
+          companyURL: "https://humancolossus.foundation",
+          mailto: "robert.mitwicki@humancolossus.org"
+        }
+      ],
+      authors: [
+        {
+          name: "Robert Mitwicki",
+          url: "https://www.linkedin.com/in/robertmitwicki",
+          company: "The Human Colossus Foundation",
+          companyURL: "https://humancolossus.foundation",
+          mailto: "robert.mitwicki@humancolossus.org"
+        },
+        {
+          name: "Paul Knowles",
+          url: "https://www.linkedin.com/in/jenral/",
+          company: "The Human Colossus Foundation",
+          companyURL: "https://humancolossus.foundation",
+          mailto: "paul.knowles@humancolossus.org"
+        }
+      ],
+      processVersion: 2020,
+      edDraftURI: "https://github.com/the-human-colossus-foundation/oca-spec",
+      shortName: "oca",
+      subtitle: "Overlays Capture Architecture",
+      github: "https://github.com/the-human-colossus-foundation/oca-spec",
+      wg: "The Human Colossus Foundation",
+      pluralize: true,
+      // To load highlighter for another lang, see https://github.com/w3c/respec/wiki/pre-and-code-elements
+    };
+  </script>
 </head>
+
 <body>
 
-<section id='abstract'>
+  <section id='abstract'>
     <p>
       The post millennial generation has witnessed an explosion of captured data
       points which has sparked profound possibilities in both Artificial
@@ -76,41 +80,43 @@ var respecConfig = {
       internal data silos, streamline data harmonization processes and
       ultimately resolve worldwide data duplication and storage resource issues.
     </p>
-    <p>
-      The FAIR Data Principles are a set of guiding principles in order to make
-      data findable, accessible, interoperable and reusable (Wilkinson et al.,
-      2016). These principles provide guidance for scientific data management
-      and stewardship and are relevant to all stakeholders in the current
-      digital ecosystem.
+    <p> The FAIR Data Principles are a set of guiding principles in order to
+      make data findable, accessible, interoperable and reusable (Wilkinson et
+      al., 2016). These principles provide guidance for scientific data
+      management and stewardship and are relevant to all stakeholders in the
+      current digital ecosystem.
     </p>
-    <p>
-      In line with the FAIR principles, data harmonization
-      and interoperability processes between internal departments and functions
-      is a high priority for corporate organizations but the current cognitive
+    <p> In line with the FAIR principles, data harmonization and
+      interoperability processes between internal departments and functions is a
+      high priority for corporate organizations but the current cognitive
       framework available for data capture across all industry sectors is
       hampered by limitations to the foundational data object architecture.
     </p>
-</section>
+  </section>
 
-<section id='sotd'>
-    <p>&nbsp;
-    </p>
-</section>
+  <section id='sotd'>
+    <p>This document is a specification of Overlays Capture Architecture
+      developed with efforts of different community efforts. It has no official
+      standing of any kind and does not represent the support or consensus of
+    any standards organization.  </p>
+  </section>
 
-<section id="intro" data-include="intro.html">
-</section>
 
-<section id="overlays" data-include="overlays.html">
-</section>
+  <section id="intro" data-include="intro.html">
+  </section>
 
-<section id="security-considerations" class="informative appendix" data-include="security.html">
-</section>
+  <section id="overlays" data-include="overlays.html">
+  </section>
 
-<section id="privacy-considerations" class="informative appendix" data-include="privacy.html">
-</section>
+  <section id="security-considerations" class="informative appendix" data-include="security.html">
+  </section>
 
-<section id="resources" class="informative appendix" data-include="resources.html">
-</section>
+  <section id="privacy-considerations" class="informative appendix" data-include="privacy.html">
+  </section>
+
+  <section id="resources" class="informative appendix" data-include="resources.html">
+  </section>
 
 </body>
+
 </html>
