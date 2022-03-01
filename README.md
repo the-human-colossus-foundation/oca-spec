@@ -40,9 +40,9 @@ Adopted is acknowledgment of a de facto standard and would be incorporated into 
 
 ## License
 
-This repository is licensed under an [Apache 2 License](LICENSE). It is protected
+This repository is licensed under an [EUPL1.2](LICENSE). It is protected
 by a [Developer Certificate of Origin](https://developercertificate.org/) on every commit.
-This means that any contributions you make must be licensed in an Apache-2-compatible
+This means that any contributions you make must be licensed in an EUPL1.2-compatible
 way, and must be free from patent encumbrances or additional terms and conditions. By
 raising a PR, you certify that this is the case for your contribution.
 
