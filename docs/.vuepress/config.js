@@ -43,6 +43,10 @@ module.exports = {
             text: "Use cases",
             link: '/use-cases.md',
           },
+          {
+            text: "FAQ",
+            link: '/faq.md'
+          },
         ]
       },
       {
