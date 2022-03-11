@@ -11,6 +11,7 @@ module.exports = {
     lastUpdated: true,
     logo: 'images/oca-logo.png',
     logoDark: 'images/oca-logo-white.png',
+    editLink: false,
     navbar: [
       // NavbarItem
       {
