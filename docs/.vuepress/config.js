@@ -53,11 +53,11 @@ module.exports = {
         text: 'Specification',
         children: [
           {
-            text: 'v1.1.0rc',
+            text: 'v1.1.0-rc',
             link: '/v1.1.0-rc'
           },
           {
-            text: 'v1.0.0',
+            text: 'v1.0.0-rc',
             link: '/v1.0.0',
           }
         ]
