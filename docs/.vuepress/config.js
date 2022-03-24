@@ -2,7 +2,7 @@ module.exports = {
   lang: 'en-US',
   title: 'Overlays Capture Architecture',
   description: 'Official OCA resources',
-  base: '/oca-spec/',
+  base: '/',
 
   themeConfig: {
     repo: 'the-human-colossus-foundation/oca-spec',
