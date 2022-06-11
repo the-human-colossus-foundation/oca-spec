@@ -18,4 +18,4 @@ jobs:
         TARGET_BRANCH: pages
         BUILD_SCRIPT: yarn && yarn docs:build
         BUILD_DIR: docs/.vuepress/dist
-        CNAME: https://the-human-colossus-foundation.github.io/oca-spec/
+        CNAME: oca.colossi.network
