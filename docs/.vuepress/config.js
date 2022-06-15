@@ -1,10 +1,12 @@
+const { defaultTheme } = require('@vuepress/theme-default')
+
 module.exports = {
   lang: 'en-US',
   title: 'Overlays Capture Architecture',
   description: 'Official OCA resources',
   base: '/',
 
-  themeConfig: {
+  theme: defaultTheme({
     repo: 'the-human-colossus-foundation/oca-spec',
     repoLabel: 'Source',
     docsRepo: 'the-human-colossus-foundation/oca-spec',
@@ -63,7 +65,7 @@ module.exports = {
         ]
       },
     ],
-  },
+  }),
   plugins: [
     ['@vuepress/search', {
       searchMaxSuggestions: 10
