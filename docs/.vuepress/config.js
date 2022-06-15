@@ -65,6 +65,21 @@ module.exports = {
         ]
       },
     ],
+    sidebar: {
+      '/guide/': [
+        {
+          'text': 'Guide',
+          children: [
+            '/guide/README.md',
+            '/guide/getting-started.md',
+            '/guide/oca-libraries.md',
+            '/guide/oca-ecosystem.md',
+            '/guide/oca-tools.md',
+            '/guide/references.md'
+          ]
+        }
+      ]
+    }
   }),
   plugins: [
     ['@vuepress/search', {
