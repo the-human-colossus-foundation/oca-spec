@@ -54,6 +54,8 @@ for f in examples/swiss_passport/entries/*; do;
 done;
 ```
 
+Hosting entries in Data Vault allows to reuse complex entries in many OCAs. You can link Entry Code Overlay or Entries Overlay with entries in Data Vault by it's SAI instead of keeping all entries data inside Overlays.
+
 - Go to `Preview` and select OCA Bundle file
 - As a result OCA Form and Credential are rendered with default layouts
 
@@ -67,6 +69,8 @@ for f in examples/swiss_passport/assets/*; do;
   curl -X POST "http://localhost:9293/api/v1/files" -H "accept: */*" -H "Content-Type: multipart/form-data" -F "file=@$f";
 done;
 ```
+
+Assets may be images, fonts etc. used in custom layout.
 
 - In `Develop -> XLS to OCA Converter` select XLS file as before
 - In `Select Credential Layout file` and `Select Form Layout file` fields select downloaded layouts files
@@ -85,3 +89,13 @@ done;
 > TODO: creating layouts tutorial
 
 ### OCA References
+
+## Tutorial
+
+### Defining OCA in xls file
+
+- Download [template](https://github.com/THCLab/oca-ecosystem/raw/main/examples/template.xlsx) file
+- In `Main` sheet columns A, B, C and D stores definition of [Capture Base](/v1.0.0.html#capture-base)
+- Columns from E to N stores definition of [Overlays](/v1.0.0.html#overlays) that are not language specific
+- Other sheets named by [ISO_639-1 language code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) stores definition of language specific [Overlays](/v1.0.0.html#overlays)
+
