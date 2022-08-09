@@ -26,9 +26,9 @@ features:
     details: Support for flexible credential presentation, in secure and controled way
   - title: Composability
     details: Cryptographically linked objects allow for high reusability, nesting, and referencing already existing capture base increasing interoperability of created objects.
-  - title: Ontology agnostic
-    details: With build-in extensibility allows to reuse existing ontologies and standards as a naming convention for newly create schema.
-  - title: Multiple issuers
-    details: OCA bundle allows distributing responsibility for each layer to different entities. One schema can have many issuers.
+  - title: Data validation
+    details: Ensure captured data records are OCA bundle schema compliant
+  - title: Data transformation
+    details: Datasets transformation using tranformation overlays
 footer: EUPL 1.2 Licensed | Copyright © 2018-present Human Colossus Foundation
 ---
