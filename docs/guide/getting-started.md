@@ -19,11 +19,9 @@ Due to a rapidly-evolving OCA core specification, future implementations may
 differ somewhat. The most up to date implementation is Rust, which would provide
 bindings to other languages.
 
-- [Rust](https://github.com/THCLab/oca-rust) with compile targets to other
-  languages like JavaScript, Python and more planed.
-- Deprecated: ~~[Kotlin](https://github.com/THCLab/oca-kotlin) with compile target to JavaScript~~
-- Deprecated: ~~[Ruby](https://github.com/THCLab/oca-ruby)~~
-
+- [Rust](https://github.com/THCLab/oca-rust) 
+- [Typescript/JavaScript](https://www.npmjs.com/package/oca.js) through FFI layer.
+  
 Those core libraries allow the creation, parsing and management of OCA objects.
 
 ## Quick Start
