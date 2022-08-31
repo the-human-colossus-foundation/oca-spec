@@ -45,16 +45,16 @@ module.exports = {
             link: '/ecosystem/oca-parser.md'
           },
           {
+            text: "OCA Browser",
+            link: '/ecosystem/oca-browser.md'
+          },
+          {
             text: "OCA Repository",
             link: '/ecosystem/oca-repository.md'
           },
           {
             text: "OCA Data Vault",
             link: '/ecosystem/oca-data-vault.md'
-          },
-          {
-            text: "OCA Browser",
-            link: '/ecosystem/oca-browser.md'
           },
           {
             text: "OCA Transformer",

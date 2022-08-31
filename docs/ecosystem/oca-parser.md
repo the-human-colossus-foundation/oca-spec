@@ -2,7 +2,11 @@
 
 The **OCA Parser** enables creating OCA Bundles from XLS files. Using favorite XLS editor, the OCA Capture Base along with its overlays can be constructed. See our [template file](https://github.com/THCLab/oca-ecosystem/blob/main/examples/template.xlsx) to get overview of how it has to be defined so that parser can read it properly and transform into OCA bundle.
 
-OCA Parser It is delivered as a binary and runs from command line interface.
+OCA Parser is delivered as a binary and runs from command line interface.
+
+:::tip
+It can be a viable alternative to use OCA Parser as a WEB service. Visit [OCA Browser](https://browser.oca.argo.colossi.network/#/) page that allows to create OCA Bundles as well.
+:::
 
 ## Download and installation
 
