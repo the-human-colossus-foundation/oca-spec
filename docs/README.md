@@ -5,12 +5,12 @@ description: Official OCA website
 heroImage: /images/oca-logo.png
 heroImageDark: /images/oca-logo-white.png
 actions:
-  - text: Get Started
-    link: /guide/getting-started.md
-    type: primary
   - text: Introduction
     link: /guide/
     type: secondary
+  - text: Get Started
+    link: /guide/getting-started.md
+    type: primary
 features:
   - title: Content driven
     details: Immutable objects backed by Self-Addressing Identifiers cryptographically bound to the content, assure about security and portability

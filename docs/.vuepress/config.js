@@ -27,29 +27,24 @@ module.exports = {
             text: 'Get Started',
             link: '/guide/getting-started'
           },
-        ]
-      },
-      {
-        text: 'Tools',
-        children: [
-          {
-            text: "OCA Repository",
-            link: '/tools/oca-repository.md'
-          },
-        ],
-      },
-      {
-        text: 'Learn more',
-        children: [
           {
             text: "Use cases",
-            link: '/use-cases.md',
+            link: '/guide/use-cases.md',
           },
           {
             text: "FAQ",
-            link: '/faq.md'
+            link: '/guide/faq.md'
           },
         ]
+      },
+      {
+        text: 'Ecosystem',
+        children: [
+          {
+            text: "OCA Repository",
+            link: '/ecosystem/oca-repository.md'
+          },
+        ],
       },
       {
         text: 'Specification',
