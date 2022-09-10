@@ -58,7 +58,3 @@ immutability, it can be deterministically generated directly from the content
 and verified without need to interact with any service or provider. This
 approach promotes content-based networks where we care about what it is and not
 where it is, leading towards a more decentralized ecosystem.
-## OCA Ecosystem
-
-
-![OCA Ecosystem](/images/oca-ecosystem.png)
