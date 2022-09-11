@@ -87,9 +87,8 @@ module.exports = {
           children: [
             '/guide/README.md',
             '/guide/getting-started.md',
-            '/guide/oca-libraries.md',
-            '/guide/oca-ecosystem.md',
-            '/guide/oca-tools.md',
+            '/guide/oca-ecosystem-tour.md',
+            '/guide/oca-vs-others-comparison.md',
             '/guide/references.md'
           ]
         }

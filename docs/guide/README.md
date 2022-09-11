@@ -1,5 +1,6 @@
 #  Overlays Capture Architecture
 
+TODO
 
 ![OCA](/images/oca.png)
 
@@ -18,6 +19,7 @@ custom process to schema data.
 
 
 ## Benefits
+TODO
 
 OCA offers many advantages, including:
 - Simplified data pooling. Decoupling can occur at any time as overlays are
@@ -47,7 +49,19 @@ OCA offers many advantages, including:
   attribute forms for different languages available to users, based on a
   user's locale and other language preferences.
 
-## OCA characteristics
+## Concepts
+
+TODO
+
+OCA follows a [content
+centric networking](https://en.wikipedia.org/wiki/Content_centric_networking)
+(CCN) approach with a [Self-Addressing
+Identifiers](https://datatracker.ietf.org/doc/html/draft-ssmith-said) (SAID)
+referencing each object.
+
+
+## OCA, a building block for Dynamic Data Economy
+
 OCA is built to provide data harmonization architecture for Dynamic Data Economy
 (DDE). For that reason OCA strongly relies on security characteristics which are
 necessary to achieve authenticity. Each OCA object is equipped with a

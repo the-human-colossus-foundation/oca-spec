@@ -1,4 +1,5 @@
 # OCA Repository
+TODO
 
 ## Introduction
 
@@ -12,6 +13,19 @@ private (limited access).
 ## Concepts
 
 - ...
+
+OCA Repository is a component for storing and sharing OCA objects freely. True
+object interoperability suggests that an object's storage location needs not to
+be the primary focus but instead the file content. 
+OCA Repository is decentralised by nature, synchronised with other components to
+enable OCA objects' searchability in a distributed ecosystem.
+
+An OCA repository can be a public-access or private-access repository for
+storing OCA objects.
+
+Elastic search powers the current repository implementation and exposes a simple
+API (see [OpenAPI Spec](https://repository.oca.argo.colossi.network/)) to the
+user.
 
 ## Features
 
