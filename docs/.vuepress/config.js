@@ -21,7 +21,11 @@ module.exports = {
         children: [
           {
             text: 'Introduction',
-            link: '/guide/'
+            link: '/guide/introduction'
+          },
+          {
+            text: "OCA Ecosystem Tour",
+            link: '/guide/oca-ecosystem-tour',
           },
           {
             text: 'Get Started',
@@ -29,11 +33,15 @@ module.exports = {
           },
           {
             text: "Use cases",
-            link: '/guide/use-cases.md',
+            link: '/guide/use-cases',
+          },
+          {
+            text: "OCA vs. Others comparison",
+            link: '/guide/oca-vs-others-comparison',
           },
           {
             text: "FAQ",
-            link: '/guide/faq.md'
+            link: '/guide/faq'
           },
         ]
       },
@@ -42,27 +50,27 @@ module.exports = {
         children: [
           {
             text: "OCA Parser",
-            link: '/ecosystem/oca-parser.md'
+            link: '/ecosystem/oca-parser'
           },
           {
             text: "OCA Browser",
-            link: '/ecosystem/oca-browser.md'
+            link: '/ecosystem/oca-browser'
           },
           {
             text: "OCA Repository",
-            link: '/ecosystem/oca-repository.md'
+            link: '/ecosystem/oca-repository'
           },
           {
             text: "OCA Data Vault",
-            link: '/ecosystem/oca-data-vault.md'
+            link: '/ecosystem/oca-data-vault'
           },
           {
             text: "OCA Transformer",
-            link: '/ecosystem/oca-transformer.md'
+            link: '/ecosystem/oca-transformer'
           },
           {
             text: "OCA Presenter",
-            link: '/ecosystem/oca-presenter.md'
+            link: '/ecosystem/oca-presenter'
           },
         ],
       },
@@ -80,20 +88,20 @@ module.exports = {
         ]
       },
     ],
-    sidebar: {
-      '/guide/': [
-        {
-          'text': 'Guide',
-          children: [
-            '/guide/README.md',
-            '/guide/getting-started.md',
-            '/guide/oca-ecosystem-tour.md',
-            '/guide/oca-vs-others-comparison.md',
-            '/guide/references.md'
-          ]
-        }
-      ]
-    }
+    // sidebar: {
+    //   '/guide/': [
+    //     {
+    //       'text': 'Guide',
+    //       children: [
+    //         '/guide/README.md',
+    //         '/guide/getting-started.md',
+    //         '/guide/oca-ecosystem-tour.md',
+    //         '/guide/oca-vs-others-comparison.md',
+    //         '/guide/references.md'
+    //       ]
+    //     }
+    //   ]
+    // }
   }),
   plugins: [
     ['@vuepress/search', {

@@ -6,7 +6,7 @@ heroImage: /images/oca-logo.png
 heroImageDark: /images/oca-logo-white.png
 actions:
   - text: Introduction
-    link: /guide/
+    link: /guide/introduction
     type: secondary
   - text: Get Started
     link: /guide/getting-started.md
