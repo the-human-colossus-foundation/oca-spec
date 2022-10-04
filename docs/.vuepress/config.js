@@ -87,6 +87,10 @@ module.exports = {
           }
         ]
       },
+      {
+        text: 'Community',
+        link: '/community'
+      },
     ],
     // sidebar: {
     //   '/guide/': [
