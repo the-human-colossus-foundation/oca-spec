@@ -1,0 +1,31 @@
+.references-tbl {
+  border-color: transparent;
+  border: none;
+
+  tr { border: none; }
+  td { border: none; }
+  tr:nth-child(2n) { background-color: transparent; }
+  td:nth-child(1) {
+    font-weight: bold;
+  }
+}
+
+dl {
+  display: grid;
+  grid-template: auto / 8em 40em;
+}
+
+dt {
+  font-weight: bold;
+  scroll-margin-top: 40px;
+}
+
+dt, dd {
+  margin: 0 0 1em 0;
+  padding: .3em .5em;
+  p {
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+  }
+}

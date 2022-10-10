@@ -5,15 +5,26 @@ module.exports = {
   title: 'Overlays Capture Architecture',
   description: 'Official OCA resources',
   base: '/',
+  markdown: {
+    anchor: {
+      level: [2, 3, 4, 5]
+    },
+    extractHeaders: {
+      level: [2, 3, 4, 5]
+    }
+  },
 
   theme: defaultTheme({
     repo: 'the-human-colossus-foundation/oca-spec',
-    repoLabel: 'Source',
+    repoLabel: 'Contribute',
     docsRepo: 'the-human-colossus-foundation/oca-spec',
     lastUpdated: true,
     logo: 'images/oca-logo.png',
     logoDark: 'images/oca-logo-white.png',
     editLink: false,
+    contributors: false,
+    sidebar: 'auto',
+    sidebarDepth: 4,
     navbar: [
       // NavbarItem
       {
@@ -45,48 +56,45 @@ module.exports = {
           },
         ]
       },
+    {
+      text: 'Ecosystem',
+      children: [
+        {
+          text: "OCA Parser",
+          link: '/ecosystem/oca-parser'
+        },
+        {
+          text: "OCA Browser",
+          link: '/ecosystem/oca-browser'
+        },
+        {
+          text: "OCA Repository",
+          link: '/ecosystem/oca-repository'
+        },
+        {
+          text: "OCA Data Vault",
+          link: '/ecosystem/oca-data-vault'
+        },
+        {
+          text: "OCA Transformer",
+          link: '/ecosystem/oca-transformer'
+        },
+        {
+          text: "OCA Presenter",
+          link: '/ecosystem/oca-presenter'
+        },
+      ],
+    },
+    {
+      text: 'Specification',
+      children: [
       {
-        text: 'Ecosystem',
-        children: [
-          {
-            text: "OCA Parser",
-            link: '/ecosystem/oca-parser'
-          },
-          {
-            text: "OCA Browser",
-            link: '/ecosystem/oca-browser'
-          },
-          {
-            text: "OCA Repository",
-            link: '/ecosystem/oca-repository'
-          },
-          {
-            text: "OCA Data Vault",
-            link: '/ecosystem/oca-data-vault'
-          },
-          {
-            text: "OCA Transformer",
-            link: '/ecosystem/oca-transformer'
-          },
-          {
-            text: "OCA Presenter",
-            link: '/ecosystem/oca-presenter'
-          },
-        ],
-      },
-      {
-        text: 'Specification',
-        children: [
-          {
-            text: 'v1.1.0-rc',
-            link: '/v1.1.0-rc'
-          },
-          {
-            text: 'v1.0.0-rc',
-            link: '/v1.0.0',
-          }
-        ]
-      },
+        text: 'v1.0.0',
+        link: '/v1.0.0',
+        sidebarDepth: 5,
+      }
+      ]
+    },
       {
         text: 'Community',
         link: '/community'
