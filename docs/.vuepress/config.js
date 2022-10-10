@@ -26,75 +26,74 @@ module.exports = {
     sidebar: 'auto',
     sidebarDepth: 4,
     navbar: [
-      // NavbarItem
+        // NavbarItem
+        {
+          text: 'Guide',
+          children: [
+            {
+              text: 'Introduction',
+              link: '/guide/introduction'
+            },
+            {
+              text: "OCA Ecosystem Tour",
+              link: '/guide/oca-ecosystem-tour',
+            },
+            {
+              text: 'Get Started',
+              link: '/guide/getting-started'
+            },
+            {
+              text: "Use cases",
+              link: '/guide/use-cases',
+            },
+            {
+              text: "OCA vs. Others comparison",
+              link: '/guide/oca-vs-others-comparison',
+            },
+            {
+              text: "FAQ",
+              link: '/guide/faq'
+            },
+          ]
+        },
       {
-        text: 'Guide',
+        text: 'Ecosystem',
         children: [
           {
-            text: 'Introduction',
-            link: '/guide/introduction'
+            text: "OCA Parser",
+            link: '/ecosystem/oca-parser'
           },
           {
-            text: "OCA Ecosystem Tour",
-            link: '/guide/oca-ecosystem-tour',
+            text: "OCA Browser",
+            link: '/ecosystem/oca-browser'
           },
           {
-            text: 'Get Started',
-            link: '/guide/getting-started'
+            text: "OCA Repository",
+            link: '/ecosystem/oca-repository'
           },
           {
-            text: "Use cases",
-            link: '/guide/use-cases',
+            text: "OCA Data Vault",
+            link: '/ecosystem/oca-data-vault'
           },
           {
-            text: "OCA vs. Others comparison",
-            link: '/guide/oca-vs-others-comparison',
+            text: "OCA Transformer",
+            link: '/ecosystem/oca-transformer'
           },
           {
-            text: "FAQ",
-            link: '/guide/faq'
+            text: "OCA Presenter",
+            link: '/ecosystem/oca-presenter'
           },
+        ],
+      },
+      {
+        text: 'Specification',
+        children: [
+          {
+            text: 'v1.0.0',
+            link: '/specification',
+          }
         ]
       },
-    {
-      text: 'Ecosystem',
-      children: [
-        {
-          text: "OCA Parser",
-          link: '/ecosystem/oca-parser'
-        },
-        {
-          text: "OCA Browser",
-          link: '/ecosystem/oca-browser'
-        },
-        {
-          text: "OCA Repository",
-          link: '/ecosystem/oca-repository'
-        },
-        {
-          text: "OCA Data Vault",
-          link: '/ecosystem/oca-data-vault'
-        },
-        {
-          text: "OCA Transformer",
-          link: '/ecosystem/oca-transformer'
-        },
-        {
-          text: "OCA Presenter",
-          link: '/ecosystem/oca-presenter'
-        },
-      ],
-    },
-    {
-      text: 'Specification',
-      children: [
-      {
-        text: 'v1.0.0',
-        link: '/v1.0.0',
-        sidebarDepth: 5,
-      }
-      ]
-    },
       {
         text: 'Community',
         link: '/community'

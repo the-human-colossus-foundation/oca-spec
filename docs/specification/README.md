@@ -3,6 +3,57 @@ sidebarDepth: 5
 description: Official OCA specification
 ---
 # OCA Technical Specification
+<dl>
+  <dt>
+Latest published version:
+  </dt>
+<dd>
+
+[https://oca.colossi.network/specification/](https://oca.colossi.network/specification/)
+</dd>
+  <dt>
+Author:
+  </dt>
+<dd>
+
+Paul Knowles ([ Human Colossus Foundation ](https://humancolossus.foundation/))
+</dd>
+  <dt>
+Editors:
+  </dt>
+<dd>
+
+Ryan Barrett (Stratosoft LLC)
+
+Robert Mitwicki ([ Human Colossus Foundation ](https://humancolossus.foundation/))
+
+Michal Pietrus ([ ArgonAUTHs ](https://argonauths.eu/))
+
+Marcin Olichwiruk ([ ArgonAUTHs ](https://argonauths.eu/))
+
+Philippe Page ([ Human Colossus Foundation ](https://humancolossus.foundation/))
+</dd>
+  <dt>
+Copyrights:
+  </dt>
+<dd>
+Human Colossus Foundation, EUPL v1.2 licence.
+</dd>
+  <dt>
+Governance:
+  </dt>
+<dd>
+
+The Decentralised Semantics Working Group maintains the OCA specification at [ Human Colossus Foundation ](https://humancolossus.foundation). Comments regarding this specification can be provided as issues on the official [ OCA Github ](https://humancolossus.).
+</dd>
+  <dt>
+Contact:
+  </dt>
+<dd>
+
+[ contact@humancolossus.org ](mailto:contact@humancolossus.org)
+</dd>
+</dl>
 
 ::: warning Disclaimer
 Strictly following DDE Principle 1.4 \[[HCF2022](#ref-HCF2022)\], OCA schema objects MUST be resolvable solely upon the encoded cryptographic digest of their content to ensure objectual integrity. 
