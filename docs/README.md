@@ -7,9 +7,6 @@ heroImageDark: /images/oca-logo-white.png
 actions:
   - text: Introduction
     link: /guide/introduction
-    type: secondary
-  - text: Get Started
-    link: /guide/getting-started.md
     type: primary
 features:
   - title: Content driven
