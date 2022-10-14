@@ -1,4 +1,4 @@
-# Use cases
+# Applications
 
 Although "data harmonisation" is the core characteristic of the Semantic domain, OCA must also support the "objectual integrity" of any digital object and its relationships with other objects.
 
