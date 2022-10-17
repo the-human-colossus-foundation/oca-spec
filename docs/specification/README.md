@@ -9,7 +9,7 @@ Latest published version:
   </dt>
 <dd>
 
-[https://oca.colossi.network/specification/](https://oca.colossi.network/specification/)
+[https://oca.colossi.network/specification/](https://oca.colossi.network/specification/) ([Download as PDF](https://humancolossus.foundation/s/HCF-Overlays-Capture-Architecture-OCA-v1.pdf))
 </dd>
   <dt>
 Author:

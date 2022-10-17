@@ -96,26 +96,8 @@ module.exports = {
       {
         text: 'Community',
         link: '/community'
-      },
-      {
-        text: 'Download as PDF',
-        link: 'https://humancolossus.foundation/s/HCF-Overlays-Capture-Architecture-OCA-v1.pdf'
-      },
+      }
     ],
-    // sidebar: {
-    //   '/guide/': [
-    //     {
-    //       'text': 'Guide',
-    //       children: [
-    //         '/guide/README.md',
-    //         '/guide/getting-started.md',
-    //         '/guide/oca-ecosystem-tour.md',
-    //         '/guide/oca-vs-others-comparison.md',
-    //         '/guide/references.md'
-    //       ]
-    //     }
-    //   ]
-    // }
   }),
   plugins: [
     ['@vuepress/search', {
