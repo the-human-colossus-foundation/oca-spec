@@ -1,40 +1,32 @@
 # OCA Repository
 
-## Introduction
-
-The **OCA repository** is a key service of the Overlays Capture Architecture. It enables to manage OCA Bundles.
-Through the OCA repository, a user can access consistent schemas as well as the
-capture bases and overlays used to define those structures.
+The **OCA repository** is a key concept of the OCA Ecosystem. It enables to manage and store [ OCA Bundles ](/ecosystem/oca-bundle). The interface is exposed through [ REST API ](https://repository.oca.argo.colossi.network/).
 
 The OCA repository operates under governance. It can be public (open access) or
 private (limited access).
 
+## Download and installation
+
+- Navigate to the [OCA Repository GitHub repository](https://github.com/THCLab/oca-repository) to get the sources of reference implementation.
+- A viable alternative is to directly download Docker image that contains [ the latest release ](https://hub.docker.com/r/humancolossus/oca-repository). Note OCA Repository requires Elastic Search to operate. Navigate to the [sample Ecosystem Docker Compose file](https://github.com/THCLab/oca-ecosystem/blob/main/docker-compose.yml#L22) that contains the setup.
+
+## Usage
+
+See [OpenAPI Specification](https://repository.oca.argo.colossi.network/) to get all available endpoints.
+
+
 ## Concepts
 
-- ...
+- OCA Repository implements [ content centric networking ](https://en.wikipedia.org/wiki/Content_centric_networking) (CCN) concept tu uniquely identify all the resources stored in the repository. The resources are identified through [SAID's](https://datatracker.ietf.org/doc/html/draft-ssmith-said) so by calculating the product of the one way hash function, that becomes the identifier of the resource. By deriving SAID's from the content it creates cryptographic binding between identifier and the content.
+- No ambiguity of the content thanks to unambiguous identifiers.
+- OCA Repository is searchable by employing [ Elastic Search ](https://www.elastic.co/) engine.
 
-OCA Repository is a component for storing and sharing OCA objects freely. True
-object interoperability suggests that an object's storage location needs not to
-be the primary focus but instead the file content. 
-OCA Repository is decentralised by nature, synchronised with other components to
-enable OCA objects' searchability in a distributed ecosystem.
 
-An OCA repository can be a public-access or private-access repository for
-storing OCA objects.
+## Applications
 
-Elastic search powers the current repository implementation and exposes a simple
-API (see [OpenAPI Spec](https://repository.oca.argo.colossi.network/)) to the
-user.
-
-## Features
-
-- Users can search for a schema in the repository
-- Users can retrieve a schema from the repository
-- Users can publish a schema to the repository
-
-## Reference implementation
-
-See https://github.com/THCLab/oca-repository
+- Storage for [ OCA Bundles ](/ecosystem/oca-bundle);
+- Distribute [ OCA Bundles ](/ecosystem/oca-bundle) among many co-existing repositories for high availability.
+- Access [ OCA Bundles ](/ecosystem/oca-bundle) from any OCA Repository, no matter whether it is trusted or not. 
 
 ## Sandbox
 
@@ -42,9 +34,4 @@ An example of the OCA repository is hosted under Argo playground:
 
 [https://repository.oca.argo.colossi.network/](https://repository.oca.argo.colossi.network/)
 
-It is an example of public OCA repository where anyone can publish their own
-schema. Keep in mind that for this repository there is no authentication nor
-authorization, the reason for that is that we are operating on an immutable
-object which are identified by Self-Addressing Identifiers -
-[SAID](https://datatracker.ietf.org/doc/html/draft-ssmith-said) which makes it
-impossible to override someone else content
+It is an example of public OCA repository where anyone can publish their own schema. Keep in mind that for this repository there is no authentication nor authorization.
