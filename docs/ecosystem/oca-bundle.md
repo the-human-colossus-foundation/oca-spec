@@ -1,3 +1,3 @@
 # OCA Bundle
 
-Refer to [ Specification Bundle ](/specification/#bundle) section.
+Refer to the [ Specification Bundle ](/specification/#bundle) section.

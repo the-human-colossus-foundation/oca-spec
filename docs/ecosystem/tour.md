@@ -9,6 +9,8 @@ The OCA Ecosystem consists of the following components:
 - [OCA Data Vault](/ecosystem/oca-data-vault) – stores [ OCA Bundle ](/ecosystem/oca-bundle) related assets and code tables;
 - [OCA Transformer](/ecosystem/oca-transformer) – allows to apply transformations upon [ OCA Bundle ](/ecosystem/oca-bundle).
 
+Refer also to the [Basic Concepts](/specification/#basic-concepts) section of the specification.
+
 ## Ecosystem components applications
 
 ### Preparing OCA bundle
