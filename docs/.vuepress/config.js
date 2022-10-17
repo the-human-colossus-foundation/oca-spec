@@ -84,8 +84,8 @@ module.exports = {
             link: '/ecosystem/oca-transformer'
           },
           {
-            text: "OCA Presenter",
-            link: '/ecosystem/oca-presenter'
+            text: "OCA Bundle",
+            link: '/ecosystem/oca-bundle'
           },
           {
             text: 'Get Started',

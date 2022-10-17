@@ -1,9 +1,8 @@
 # OCA Repository
-TODO
 
 ## Introduction
 
-The **OCA repository** is a key service of the Overlays Capture Architecture.
+The **OCA repository** is a key service of the Overlays Capture Architecture. It enables to manage OCA Bundles.
 Through the OCA repository, a user can access consistent schemas as well as the
 capture bases and overlays used to define those structures.
 
