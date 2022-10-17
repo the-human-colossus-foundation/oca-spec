@@ -97,6 +97,10 @@ module.exports = {
         text: 'Community',
         link: '/community'
       },
+      {
+        text: 'Download as PDF',
+        link: 'https://humancolossus.foundation/s/HCF-Overlays-Capture-Architecture-OCA-v1.pdf'
+      },
     ],
     // sidebar: {
     //   '/guide/': [
