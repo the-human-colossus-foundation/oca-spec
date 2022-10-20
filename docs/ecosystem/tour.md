@@ -7,7 +7,8 @@ The OCA Ecosystem consists of the following components:
 - [OCA Browser](/ecosystem/oca-browser) – renders [ OCA Bundle ](/ecosystem/oca-bundle) preview in a WEB browser;
 - [OCA Repository](/ecosystem/oca-repository) – manages [ OCA Bundles ](/ecosystem/oca-bundle);
 - [OCA Data Vault](/ecosystem/oca-data-vault) – stores [ OCA Bundle ](/ecosystem/oca-bundle) related assets and code tables;
-- [OCA Transformer](/ecosystem/oca-transformer) – allows to apply transformations upon [ OCA Bundle ](/ecosystem/oca-bundle).
+- [OCA Transformer](/ecosystem/oca-transformer) – allows to apply transformations upon [ OCA Bundle ](/ecosystem/oca-bundle);
+- [OCA Validator](/ecosystem/oca-validator) – validates data record against [ OCA Bundle ](/ecosystem/oca-bundle).
 
 Refer also to the [Basic Concepts](/specification/#basic-concepts) section of the specification.
 

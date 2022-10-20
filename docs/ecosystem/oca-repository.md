@@ -5,6 +5,12 @@ The **OCA repository** is a key concept of the OCA Ecosystem. It enables to mana
 The OCA repository operates under governance. It can be public (open access) or
 private (limited access).
 
+## Applications
+
+- Storage for [ OCA Bundles ](/ecosystem/oca-bundle);
+- Distribute [ OCA Bundles ](/ecosystem/oca-bundle) among many co-existing repositories for high availability.
+- Access [ OCA Bundles ](/ecosystem/oca-bundle) from any OCA Repository, no matter whether it is trusted or not. 
+
 ## Download and installation
 
 - Navigate to the [OCA Repository GitHub repository](https://github.com/THCLab/oca-repository) to get the sources of reference implementation.
@@ -21,12 +27,6 @@ See [OpenAPI Specification](https://repository.oca.argo.colossi.network/) to get
 - No ambiguity of the content thanks to unambiguous identifiers.
 - OCA Repository is searchable by employing [ Elastic Search ](https://www.elastic.co/) engine.
 
-
-## Applications
-
-- Storage for [ OCA Bundles ](/ecosystem/oca-bundle);
-- Distribute [ OCA Bundles ](/ecosystem/oca-bundle) among many co-existing repositories for high availability.
-- Access [ OCA Bundles ](/ecosystem/oca-bundle) from any OCA Repository, no matter whether it is trusted or not. 
 
 ## Sandbox
 
