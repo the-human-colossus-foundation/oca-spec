@@ -16,7 +16,13 @@ To conduct the conversion, click on the `convert` button. If it succeeds, below 
 
 As the Bundle is created, we go to the next [ OCA Browser ](/ecosystem/oca-browser) feature named [ `Preview` ](https://browser.oca.argo.colossi.network/#/preview).
 
-In the `Pick OCA Bundle ZIP file` upload the Bundle created in the previous step. As a result, in the `FORM` tab the form preview will be rendered. This is the preview of the OCA Bundle using presentation overlays in the WEB.
+In the `Pick OCA Bundle ZIP file` upload the Bundle created in the previous step. As a result, in the `FORM` tab the form preview will be rendered. This is the preview of the OCA Bundle using presentation overlays in the WEB space.
+
+::: tip Form and Credential translations
+The [pre-baked template](https://github.com/THCLab/oca-ecosystem/blob/main/examples/swiss_passport/digital_passport.xlsx) comes with two translations: English and French. Any number can be added, but for the sake of this showcase we have only these two.
+
+In the preview, both, so the Form and Credential contain a select widget to change the translation.
+:::
 
 In the `CREDENTIAL` tab a passport specimen can be seen. Notice it is only the preview of the layout and schema. The data entries are missing. For preview all these combined we will use different tool that can be accessible [here](https://demo.oca.argo.colossi.network/credential.html).
 
