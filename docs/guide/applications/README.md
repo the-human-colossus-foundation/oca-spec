@@ -61,6 +61,8 @@ Language-specific overlays include:
 - Label
 - Meta
 
+See [ Swiss Passport example ](/guide/applications/swiss-passport-example) in action.
+
 ## Use case #4: Distributed custodianship of task-specific objects
 Distributed custodianship of capture bases, overlays, code tables, and other assets enables the responsibility of separate tasks to reside with different actors without compromising the objectual integrity of the overall semantic structure. As a result, multiple actors from various institutions can contribute to developing schemas for complex use cases, supply chains, and data flows supported by multistakeholder data governance administrations and frameworks.
 
