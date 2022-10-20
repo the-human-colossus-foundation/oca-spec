@@ -33,3 +33,27 @@ For preview any data entry can be used. To do so, visit [https://data-vault.argo
 
 Changed JSON you can reupload to [https://data-vault.argo.colossi.network/](https://data-vault.argo.colossi.network/) via `POST /files` endpoint and use the returned SAID as input for the `Preview record SAID` field.
 :::
+
+## Adding authentication taste
+
+OCA is solely about data, from capturing to presentation. Whether the data can be proven to come from a verifiable source is the responsibility of an upper layer – authentication layer. Authentication layer relies on the public key cryptography and upon verification process, by veryfing the signature along with payload, it gives the non-repudiable answer whether the data was tampered.
+
+In the following demo we introduce novel, authentication layer related concepts:
+- [ACDC](https://www.ietf.org/archive/id/draft-ssmith-acdc-02.html) – Authentic Chained Data Containers;
+- [DKMS](http://dkms.colossi.network/) – Decentralised Key Management System.
+
+[Here](https://demo.oca.argo.colossi.network/acdc.html) we demonstrate a [ compact ACDC ](https://www.ietf.org/archive/id/draft-ssmith-acdc-02.html#name-compact-acdc) that is the passport credential. The sample credential is defined as follows:
+```
+{
+    "v":"ACDC10JSON00011c_",
+    "i":"DdUXsE9lsnc5vbSOQVG8khiqe-ICXd6F-Gf5nkfWRxFs",
+    "s":"Eohm-VG6JcT2HwU9IvM_Ujp6lIgwhg34TvXUtVqv_L3I",
+    "a":"ESEFRI_In7btcko9ov2IElxTKogunrDcv187n9Be7Kvc",
+    "p":[],
+    "r":[],
+    "d":"EQD7oAeqJOWoWYzrI1cu_Bzipr3RcpBsGkThK_L1eUEA"
+}-0K-AABAAbn6wxKnkerdoly2yqK6GFQ0UeYMxC-uuLAvs2_TjRZe69f3aW15zY_7AxutVwUuess5WQmwrBrS7DIRGb0JKCA
+```
+It is a map of key value attributes, where `s` and `a` are interesting in particular. `s` stands for `schema` and `a` stands for `attributes`. In `s` we use SAID of the OCA Capture Base from the above example and in `a` we use data entry SAID, also known from the above. By doing this, we embedded OCA into the ACDC so we added it into a data container and further signed using public key cryptography (`ED25519` algorithm).
+
+Skipping all the details that take place before the presentation layer can be utilized, we can finally `render credential` directly from an ACDC credential to see the passport specimen preview.
