@@ -4,9 +4,9 @@ Below we introduce a step by step guidance of utilizing [ Semantic (Label) ](/sp
 
 ## Create OCA Bundle
 
-The process starts with defining passport schema, including all the attributes, their types, formats and so on. For this purpose, [ empty XLS template ](https://github.com/THCLab/oca-ecosystem/blob/main/examples/template.xlsx) can be used or already pre-baked template, available [here](https://github.com/THCLab/oca-ecosystem/blob/main/examples/swiss_passport/digital_passport.xlsx). We will continue with the latter template.
+The process starts with defining the passport schema, including all the attributes, their types, formats, etc. For this purpose, [ an empty XLS template ](https://github.com/THCLab/oca-ecosystem/blob/main/examples/template.xlsx) can be used or an already pre-baked template, available [here](https://github.com/THCLab/oca-ecosystem/blob/main/examples/swiss_passport/digital_passport.xlsx). We will continue with the latter template.
 
-Next step is to create [ OCA Bundle ](/ecosystem/oca-bundle) from the template and to do so, we will use the [ OCA Browser ](/ecosystem/oca-browser) feature named `Develop`. Within our Sandbox, we host OCA Browser and we will use it to create the Bundle. The browser is accessible [here](https://browser.oca.argo.colossi.network/#/).
+The next step is to create [ OCA Bundle ](/ecosystem/oca-bundle) from the template and to do so, we will use the [ OCA Browser ](/ecosystem/oca-browser) feature named `Develop`. Within our Sandbox, we host OCA Browser and we will use it to create the Bundle. The browser is accessible [here](https://browser.oca.argo.colossi.network/#/).
 
 In the `Select OCA File` we use [pre-baked template](https://github.com/THCLab/oca-ecosystem/blob/main/examples/swiss_passport/digital_passport.xlsx). `Select OCA references files` we leave empty and for `Credential` and `Form` layout, we use [these layouts](https://github.com/THCLab/oca-ecosystem/tree/main/examples/swiss_passport/layouts).
 
@@ -19,7 +19,7 @@ As the Bundle is created, we go to the next [ OCA Browser ](/ecosystem/oca-brows
 In the `Pick OCA Bundle ZIP file` upload the Bundle created in the previous step. As a result, in the `FORM` tab the form preview will be rendered. This is the preview of the OCA Bundle using presentation overlays in the WEB space.
 
 ::: tip Form and Credential translations
-The [pre-baked template](https://github.com/THCLab/oca-ecosystem/blob/main/examples/swiss_passport/digital_passport.xlsx) comes with two translations: English and French. Any number can be added, but for the sake of this showcase we have only these two.
+The [pre-baked template](https://github.com/THCLab/oca-ecosystem/blob/main/examples/swiss_passport/digital_passport.xlsx) comes with two translations: English and French. Any number can be added, but for the sake of this showcase, we have only these two.
 
 In the preview, both, so the Form and Credential contain a select widget to change the translation.
 :::
@@ -36,9 +36,9 @@ Changed JSON you can reupload to [https://data-vault.argo.colossi.network/](http
 
 ## Adding authentication taste
 
-OCA is solely about data, from capturing to presentation. Whether the data can be proven to come from a verifiable source is the responsibility of an upper layer – authentication layer. Authentication layer relies on the public key cryptography and upon verification process, by veryfing the signature along with payload, it gives the non-repudiable answer whether the data was tampered.
+data, from capture to presentation. Whether the data can be proven to come from a verifiable source is the responsibility of an upper layer – the authentication layer. The authentication layer relies on public key cryptography. During the verification process, by verifying the signature along with the payload, it gives the non-repudiable answer whether the data has tampered.
 
-In the following demo we introduce novel, authentication layer related concepts:
+In the following demo we introduce novel, authentication layer-related concepts:
 - [ACDC](https://www.ietf.org/archive/id/draft-ssmith-acdc-02.html) – Authentic Chained Data Containers;
 - [DKMS](http://dkms.colossi.network/) – Decentralised Key Management System.
 
@@ -54,6 +54,6 @@ In the following demo we introduce novel, authentication layer related concepts:
     "d":"EQD7oAeqJOWoWYzrI1cu_Bzipr3RcpBsGkThK_L1eUEA"
 }-0K-AABAAbn6wxKnkerdoly2yqK6GFQ0UeYMxC-uuLAvs2_TjRZe69f3aW15zY_7AxutVwUuess5WQmwrBrS7DIRGb0JKCA
 ```
-It is a map of key value attributes, where `s` and `a` are interesting in particular. `s` stands for `schema` and `a` stands for `attributes`. In `s` we use SAID of the OCA Bundle from the above example and in `a` we use data entry SAID, also known from the above. By doing this, we embedded OCA into the ACDC so we added it into a data container and further signed using public key cryptography (`ED25519` algorithm).
+It is a map of key-value attributes, where `s` and `a` are interesting in particular. `s` stands for `schema`, and `a` stands for `attributes`. In `s` we use SAID of the OCA Bundle from the above example and in `a` we use data entry SAID, also known from the above. By doing this, we embedded OCA into the ACDC so we added it into a data container and further signed using public key cryptography (`ED25519` algorithm).
 
-Skipping all the authentication details that take place before the presentation layer can be utilized, we can finally `render credential` directly from an ACDC credential to see the passport specimen preview. The OCA Bundle containing all the details for presentation is unknown to the ACDC, therefore it has to be resolved from a third party service, where the Bundle is stored. It can be an [OCA Repository](/ecosystem/oca-repository) instance, however it is not essential. OCA Bundle can be stored anywhere from `AWS S3` to `IPFS`.
+Skipping all the authentication details that take place before the presentation layer can be utilized, we can finally `render credential` directly from an ACDC credential to see the passport specimen preview. The OCA Bundle containing all the details for presentation is unknown to the ACDC, therefore it has to be resolved from a third-party service, where the Bundle is stored. It can be an [OCA Repository](/ecosystem/oca-repository) instance, however, it is not essential. OCA Bundle can be stored anywhere from `AWS S3` to `IPFS`.
