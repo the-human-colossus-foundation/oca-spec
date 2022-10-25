@@ -3,6 +3,15 @@
 The **OCA Browser** is an utility to create and preview OCA Bundles using WEB interface. The OCA Browser supports:
 - form preview, so how the data can be captured using this bundle,
 - credential preview, so how the data can be presented using this bundle.
+
+
+## Try it
+
+An instance of the OCA Browser is ready for you, under our Argo sandbox where you can play with it without the need to look into the code.
+You can find it [HERE](https://browser.oca.argo.colossi.network/#/)
+
+But if you are brave enough and ready for hands-on activity keep reading.
+
 ## Installation
 
 Navigate to the [OCA Browser repository](https://github.com/THCLab/oca-browser) to download latest source code. It comes with a `Dockerfile` and it is possible to pack it as a service into Docker image and run as a container. 
