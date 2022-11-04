@@ -1125,7 +1125,7 @@ Knowles, P., Klingenstein, K., Wunderlich, J. Blinding Identity Taxonomy (BIT), 
 </dt>
 <dd>
 
-Knowles, P., Mitwicki, R., Page, P. Decentralised semantics in distributed data ecosystems: Ensuring the structural, definitional, and contextual harmonisation and integrity of deterministic objects and objectual relationships (2022)
+Knowles, P., Mitwicki, R., Page, P. Decentralised semantics in distributed data ecosystems: Ensuring the structural, definitional, and contextual harmonisation and integrity of deterministic objects and objectual relationships (2022) [http://star.informatik.rwth-aachen.de/Publications/CEUR-WS/Vol-3249/paper4-OSS.pdf](http://star.informatik.rwth-aachen.de/Publications/CEUR-WS/Vol-3249/paper4-OSS.pdf)
 </dd>
 
 <dt id="ref-REGEX">
