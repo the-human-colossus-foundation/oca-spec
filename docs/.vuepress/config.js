@@ -80,6 +80,10 @@ module.exports = {
             link: '/ecosystem/oca-data-vault'
           },
           {
+            text: "OCA Validator",
+            link: '/ecosystem/oca-validator'
+          },
+          {
             text: "OCA Transformer",
             link: '/ecosystem/oca-transformer'
           },
