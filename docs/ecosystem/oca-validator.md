@@ -1,7 +1,7 @@
 # OCA Validator
 
 **OCA Validator** enables entry (or an array of entries) verification against predefined rules, given by the [ OCA Bundle ](/ecosystem/oca-bundle). The verification executed on an entry, that is a map of key-value pairs, encompasses:
-- type checking, so whether a value matches expected type or can be implicitly coerced to it;
+- type checking, so whether a value matches the expected type (defined in [Capture Base](/specification/#capture-base)) or can be implicitly coerced to it;
 - task (overlay) specific verification, including:
   - [ character encoding overlay ](/specification/#character-encoding-overlay)
   - [ format overlay ](/specification/#format-overlay)
@@ -19,14 +19,9 @@ oca_zip_resolver = "0.2.6"
 ```
 ### Typescript and JavaScript (Node.JS based)
 
-- For `oca-transformer`
-  ```bash
-  npm i oca-data-transformer
-  ```
-- For `oca-validator`
-  ```bash
-  npm i oca-data-validator
-  ```
+```bash
+npm i oca-data-validator
+```
 
 ## Usage
 
