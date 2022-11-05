@@ -15,6 +15,7 @@
 ```
 [dependencies]
 oca_conductor = "0.2.6"
+oca_zip_resolver = "0.2.6"
 ```
 ### Typescript and JavaScript (Node.JS based)
 
@@ -31,7 +32,24 @@ oca_conductor = "0.2.6"
 
 ### Rust
 
-See tests available for `transformer` and `validator` modules under [ https://github.com/THCLab/oca-conductor/tree/main/conductor/src ](https://github.com/THCLab/oca-conductor/tree/main/conductor/src)
+```rust
+use oca_conductor::data_set::DataSet;
+use oca_conductor::data_set::JSONDataSet;
+use oca_conductor::Validator;
+use oca_zip_resolver::resolve_from_zip;
+
+fn main() {
+    let oca_result = resolve_from_zip("oca_bundle.zip");
+    let mut validator = Validator::new(oca_result.unwrap());
+    validator.add_data_set(JSONDataSet::new(
+        r#"{ "email": "test@example.com", "licensess": ["A"] }"#.to_string(),
+    ));
+    let validation_result = validator.validate();
+    println!("{:?}", validation_result); // Ok(())
+}
+```
+
+See also [ tests ](https://github.com/THCLab/oca-conductor/blob/main/conductor/src/validator/mod.rs) available for `validator` module.
 
 ### Typescript and JavaScript (Node.JS based)
 
@@ -49,4 +67,4 @@ const result = validator.validate({
 console.log(result); // true
 ```
 
-See [here](https://github.com/THCLab/oca-conductor/tree/main/bindings/node.js/pkg/validator/test) for more integration tests.
+See also [here](https://github.com/THCLab/oca-conductor/tree/main/bindings/node.js/pkg/validator/test) for more integration tests.
