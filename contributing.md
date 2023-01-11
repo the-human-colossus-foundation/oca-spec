@@ -10,9 +10,9 @@ changes are not RFC-worthy, and can be applied directly into the specification.
 
 Before writing an RFC, consider exploring the idea on community calls
 (see the [Decentralized Semantic WG](
-https://wiki.trustoverip.org/display/HOME/Decentralized+Semantics+Working+Group)),
-or on [decentralized-semantics-wg@lists.trustoverip.org](
-mailto:decentralized-semantics-wg@lists.trustoverip.org). Encouraging feedback from maintainers is a good sign that you're on the right track.
+https://www.meetup.com/pl-PL/geneve-new-technology-meetup-group/)),
+or on [Community Channels](
+https://oca.colossi.network/community.html). Encouraging feedback from maintainers is a good sign that you're on the right track.
 
 ### How to propose an RFC
 
