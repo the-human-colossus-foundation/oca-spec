@@ -1,6 +1,6 @@
 # OCA Parser
 
-The **OCA Parser** enables creating OCA Bundles from XLS files. Using favorite XLS editor, the OCA Capture Base along with its overlays can be constructed. See our [template file](https://github.com/THCLab/oca-ecosystem/blob/main/examples/template.xlsx) to get overview of how it has to be defined so that parser can read it properly and transform into OCA bundle.
+The **OCA Parser** enables creating OCA Bundles from XLS files. Using favorite XLS editor, the OCA Capture Base along with its overlays can be constructed. See our [template file](https://github.com/THCLab/oca-parser-xls/raw/main/templates/template.xlsx) to get overview of how it has to be defined so that parser can read it properly and transform into OCA bundle.
 
 OCA Parser is delivered as a binary and runs from command line interface.
 
@@ -10,7 +10,7 @@ It can be a viable alternative to use OCA Parser as a WEB service. Visit [OCA Br
 
 ## Download and installation
 
-Navigate to the [releases page](https://github.com/THCLab/oca-rust/releases) to get latest available release.
+Navigate to the [releases page](https://github.com/THCLab/oca-parser-xls/releases) to get latest available release.
 
 ## Usage
 
@@ -40,9 +40,9 @@ to create the OCA bundle that includes both layout files.
 
 Parser has yet another parsing utility to create proper structure. When the Entry Overlay ought to refer to an external standard, ie. country codes or simply becomes too big in size to be a part of OCA bundle, it can be referred to an external source through its digest. This external source is the OCA Code Table that provides the entries.
 
-See [example code table](https://github.com/THCLab/oca-ecosystem/blob/main/examples/ISO_3166-1_alpha-2.xlsx) created for the purpose to be ISO compliant for country codes. Using this code table, entry codes can be created using the following command:
+See [example code table](https://github.com/THCLab/oca-ecosystem/raw/main/examples/ISO_3166-1_alpha-2.xlsx) created for the purpose to be ISO compliant for country codes. Using this code table, entry codes can be created using the following command:
 ```
 ./parser.bin parse  entries -p ISO_3166-1_alpha-2.xlsx  --zip
 ```
 
-Finally, an empty template file can be found [here](https://github.com/THCLab/oca-ecosystem/blob/main/examples/oca-code-table-template.xlsx).
+Finally, an empty template file can be found [here](https://github.com/THCLab/oca-ecosystem/raw/main/examples/oca-code-table-template.xlsx).

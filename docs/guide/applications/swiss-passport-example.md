@@ -4,11 +4,11 @@ Below we introduce a step by step guidance of utilizing [ Semantic (Label) ](/sp
 
 ## Create OCA Bundle
 
-The process starts with defining the passport schema, including all the attributes, their types, formats, etc. For this purpose, [ an empty XLS template ](https://github.com/THCLab/oca-ecosystem/blob/main/examples/template.xlsx) can be used or an already pre-baked template, available [here](https://github.com/THCLab/oca-ecosystem/blob/main/examples/swiss_passport/digital_passport.xlsx). We will continue with the latter template.
+The process starts with defining the passport schema, including all the attributes, their types, formats, etc. For this purpose, [ an empty XLS template ](https://github.com/THCLab/oca-parser-xls/raw/main/templates/template.xlsx) can be used or an already pre-baked template, available [here](https://github.com/THCLab/oca-ecosystem/raw/main/examples/swiss_passport/digital_passport.xlsx). We will continue with the latter template.
 
 The next step is to create [ OCA Bundle ](/ecosystem/oca-bundle) from the template and to do so, we will use the [ OCA Browser ](/ecosystem/oca-browser) feature named `Develop`. Within our Sandbox, we host OCA Browser and we will use it to create the Bundle. The browser is accessible [here](https://browser.oca.argo.colossi.network/#/).
 
-In the `Select OCA File` we use [pre-baked template](https://github.com/THCLab/oca-ecosystem/blob/main/examples/swiss_passport/digital_passport.xlsx). `Select OCA references files` we leave empty and for `Credential` and `Form` layout, we use [these layouts](https://github.com/THCLab/oca-ecosystem/tree/main/examples/swiss_passport/layouts).
+In the `Select OCA File` we use [pre-baked template](https://github.com/THCLab/oca-ecosystem/raw/main/examples/swiss_passport/digital_passport.xlsx). `Select OCA references files` we leave empty and for `Credential` and `Form` layout, we use [these layouts](https://github.com/THCLab/oca-ecosystem/tree/main/examples/swiss_passport/layouts).
 
 To conduct the conversion, click on the `convert` button. If it succeeds, below you shall see the following: `Success! Click here to download OCA Bundle`.
 
@@ -19,7 +19,7 @@ As the Bundle is created, we go to the next [ OCA Browser ](/ecosystem/oca-brows
 In the `Pick OCA Bundle ZIP file` upload the Bundle created in the previous step. As a result, in the `FORM` tab the form preview will be rendered. This is the preview of the OCA Bundle using presentation overlays in the WEB space.
 
 ::: tip Form and Credential translations
-The [pre-baked template](https://github.com/THCLab/oca-ecosystem/blob/main/examples/swiss_passport/digital_passport.xlsx) comes with two translations: English and French. Any number can be added, but for the sake of this example, we use only these two.
+The [pre-baked template](https://github.com/THCLab/oca-ecosystem/raw/main/examples/swiss_passport/digital_passport.xlsx) comes with two translations: English and French. Any number can be added, but for the sake of this example, we use only these two.
 
 In the preview, both, so the Form and Credential contain a select widget to change the translation.
 :::
