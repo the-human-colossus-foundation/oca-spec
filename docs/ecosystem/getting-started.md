@@ -70,7 +70,7 @@ done;
 
 ### Defining OCA in xls file
 
-- Download [template](https://github.com/THCLab/oca-ecosystem/raw/main/examples/template.xlsx) file
+- Download [template](https://github.com/THCLab/oca-parser-xls/raw/main/templates/template.xlsx) file
 - In `Main` sheet columns A, B, C and D stores definition of [Capture Base](/v1.0.0.html#capture-base)
 - Columns from E to N stores definition of [Overlays](/v1.0.0.html#overlays) that are not language specific
 - Other sheets named by [ISO_639-1 language code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) stores definition of language specific [Overlays](/v1.0.0.html#overlays)
