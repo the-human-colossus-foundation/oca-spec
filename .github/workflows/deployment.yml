@@ -3,19 +3,25 @@ on:
   push:
     branches:
       - master
+    paths:
+      - 'docs/**'
+
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
+
     steps:
     - name: Checkout
-      uses: actions/checkout@master
+      uses: actions/checkout@v3
 
-    - name: vuepress-deploy
-      uses: jenkey2011/vuepress-deploy@master
+    - name: Build VuePress site
+      run: npm i && npm run docs:build
+
+    - name: Deploy to GitHub Pages
+      uses: crazy-max/ghaction-github-pages@v2
+      with:
+        target_branch: pages
+        build_dir: docs/.vuepress/dist
+        fqdn: oca.colossi.network
       env:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        TARGET_REPO: the-human-colossus-foundation/oca-spec
-        TARGET_BRANCH: pages
-        BUILD_SCRIPT: npm i && npm run docs:build
-        BUILD_DIR: docs/.vuepress/dist
-        CNAME: oca.colossi.network
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
