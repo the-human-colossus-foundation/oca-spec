@@ -1,4 +1,4 @@
-# 0002: OCA_bundle_archive
+# OCA Bundle Archive
 - Authors: Carly Huitema
 - Status: PROPOSED
 - Status Note: none
