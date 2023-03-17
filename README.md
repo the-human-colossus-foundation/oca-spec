@@ -1,3 +1,5 @@
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/E1E6JH4XP)
+
 A spec for the `OCA`
 
 To browse the spec, see the [rendering on github pages](https://the-human-colossus-foundation.github.io/oca-spec).
