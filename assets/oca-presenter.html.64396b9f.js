@@ -1,0 +1,1 @@
+import{_ as t,o,c as r,a as e}from"./app.d0e7a60d.js";const s={},c=e("h1",null,"OCA Presenter",-1),n=e("p",null,"TO DO",-1),_=[c,n];function a(l,d){return o(),r("div",null,_)}var f=t(s,[["render",a],["__file","oca-presenter.html.vue"]]);export{f as default};
