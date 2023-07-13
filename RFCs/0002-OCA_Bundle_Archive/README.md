@@ -1,4 +1,4 @@
-# 0002 - OCA Bundle Archive
+# 0002 - OCA README
 - Authors: Carly Huitema
 - Status: PROPOSED
 - Status Note: none
@@ -6,10 +6,10 @@
 - Start Date: 2023-02-10
 
 ## Summary
-OCA Bundle Archive is an archival, human-accessible version of the OCA bundle for data preservation. When archiving data, the data could be stored with both the machine-actionable OCA Bundle, and the more human readable OCA Bundle Archive versions.
+OCA README is human-accessible representation of the OCA bundle for human access, OCA discoverability, and schema preservation.
 
 ## Motivation
-For archiving data (specifically research data) we are thinking of time scales of 50+ years of accessibility after creation. Requirements for a datasets schema to be this accessible are:
+For helping humans to understand OCA Bundles. Requirements for a datasets schema to be this accessible are:
 - Human readable
 - Easy to read
 - Low tech (.txt)
