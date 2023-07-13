@@ -6,7 +6,7 @@
 - Start Date: 2023-02-10
 
 ## Summary
-OCA README is human-accessible representation of the OCA bundle for human access, OCA discoverability, and schema preservation.
+OCA README is human-accessible representation of the OCA bundle for human access, OCA discoverability, and schema preservation/archiving.
 
 ## Motivation
 For helping humans to understand OCA Bundles. Requirements for a datasets schema to be this accessible are:
@@ -15,8 +15,8 @@ For helping humans to understand OCA Bundles. Requirements for a datasets schema
 - Low tech (.txt)
 - Contains some helper information to aid interpretation
 - Easy to generate from an OCA bundle for easy development
+- Contains references to SAIDs of bundle for findability
 
-There are also mandates for depositing data that the material must be accessible (e.g. in a non-propriatary format, easy to use and understand).
 
 Based on experience with users, the JSON formats (while readable to those familiar) present a great barrier for generalist users of the OCA specification and it is a format that is all but inaccessible to people who need to use specialized devices to access information (e.g. screen readers).
 
