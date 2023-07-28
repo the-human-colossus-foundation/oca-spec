@@ -10,7 +10,9 @@ To browse the spec, see the [rendering on github pages](https://the-human-coloss
 
 ## Major change
 
-If you would like to introduce major change to the specification, like adding objects, attributes, changing meta data etc, you can achieve that via RFCs. See details below. If you are not sure about the idea start with opening up Issue for collecting community feedback.
+If you would like to introduce major change to the specification, like adding objects, attributes, changing meta data etc, you can achieve that via RFCs. See details below. 
+
+If you are not sure about the idea start with opening up Issue for collecting community feedback.
 
 ## Minor change
 
