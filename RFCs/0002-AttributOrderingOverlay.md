@@ -56,8 +56,7 @@ Discussions in the DSWG have led to the following proposal:
 
 1. *An overlay for attribute order presentation*. The "Ordering Overlay" is an optional tool for displaying the numerical ordering of attributes in a dataset, providing a reference guide for understanding its structure. There can only be one ordering overlay per OCA bundle. The decision to order or leave attributes unordered depends on the data management requirements and the downstream implementation. The flexibility allows for adaptability and accommodation of diverse data handling scenarios, optimizing data readability and accessibility for various stakeholders involved in data analysis and decision-making processes.
 
-```
-{
+```{
    "capture_base":"E6dVEHR0obA673USLKJpuvv6qZ9pKnKd-iSCHrsHBue4",
    "type":"spec/overlays/ordering/1.0",
    "attribute-order":{
@@ -67,18 +66,16 @@ Discussions in the DSWG have led to the following proposal:
       "emailAddress":"5",
       "phoneNumber":"4"
    }
-}
-```
+}```
 
-*Example 1. Code snippet for an Ordering Overlay.**
-
+*Example 1. Code snippet for an Ordering Overlay.*
 
 Customer ID | Last Name | First Name | Phone Number | Email
 ------------|-----------|------------|--------------|-----------------
 001         | Doe       | John       | 555-123-4567 | john@example.com
 002         | Smith     | Jane       | 555-987-6543 | jane@example.com
 
-*Table 2. Attribute ordering as defined in the Ordering Overlay in Example 1.
+*Table 2. Attribute ordering as defined in the Ordering Overlay in Example 1.*
 
 Following the definition supplied in the Ordering Overlay, the attribute ordering is:
 
@@ -96,9 +93,9 @@ See DSWG meeting minutes from 2023/07/23 here for more information on the groupâ
 
 ## Drawbacks
 
-Consideration #1: One drawback is that it necessitates the addition of a new overlay to the existing standard (OCA Specification v1.0). This modification implies recording the expansion of the standard to accommodate the inclusion of additional overlays. While this approach may provide attribute ordering, it could lead to complexities and possible compatibility issues with systems following the previous standard version. The proposal could consider carefully evaluating backward compatibility and a clear versioning strategy to ensure smooth integration with existing implementations.
+**Consideration #1**: One drawback is that it necessitates the addition of a new overlay to the existing standard (OCA Specification v1.0). This modification implies recording the expansion of the standard to accommodate the inclusion of additional overlays. While this approach may provide attribute ordering, it could lead to complexities and possible compatibility issues with systems following the previous standard version. The proposal could consider carefully evaluating backward compatibility and a clear versioning strategy to ensure smooth integration with existing implementations.
  
-Consideration #2: Another consideration is that it relies heavily on developers' diligence and adherence to the OCA implementation guidelines when no ordering information is in the bundle. If developers strictly adhere to the guidelines, it could result in data objects needing proper ordering information. The proposal could incorporate built-in checks and validation mechanisms that encourage adherence to the OCA guidelines to mitigate this risk. Additionally, providing more precise documentation and training for developers on adhering to the guidelines could help maintain data consistency.
+**Consideration #2**: Another consideration is that it relies heavily on developers' diligence and adherence to the OCA implementation guidelines when no ordering information is in the bundle. If developers strictly adhere to the guidelines, it could result in data objects needing proper ordering information. The proposal could incorporate built-in checks and validation mechanisms that encourage adherence to the OCA guidelines to mitigate this risk. Additionally, providing more precise documentation and training for developers on adhering to the guidelines could help maintain data consistency.
 
 
 ## Prior Art
@@ -109,6 +106,7 @@ There are similarities between attribute ordering and text block ordering in TeX
 ## Unresolved questions
 
 Technology feasibility
- 
+
+
 ## Implementations
 
