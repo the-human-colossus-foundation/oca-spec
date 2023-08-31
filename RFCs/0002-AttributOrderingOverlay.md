@@ -100,6 +100,13 @@ See DSWG meeting minutes from 2023/07/23 here for more information on the groupâ
 **Consideration #2**: Another consideration is that it relies heavily on developers' diligence and adherence to the OCA implementation guidelines when no ordering information is in the bundle. If developers strictly adhere to the guidelines, it could result in data objects needing proper ordering information. The proposal could incorporate built-in checks and validation mechanisms that encourage adherence to the OCA guidelines to mitigate this risk. Additionally, providing more precise documentation and training for developers on adhering to the guidelines could help maintain data consistency.
 
 
+## Rationale and alternatives
+
+The alternative to having a simple ordering layer is specify it as part of a (set of) presentation overlay(s). The advantage to doing that is that multiple *locale* specific orderings can be created. However the increase in complexity is considerable. A simple attribute ordering overlay can provide considerable value now. The specification and implementation are very simple.
+
+Given the high value to effort ratio this design is clearly the best option now.
+
+
 ## Prior Art
 
 There are similarities between attribute ordering and text block ordering in TeX, a typesetting system for complex document formatting. In TeX, text block ordering involves two key components. Firstly, based on the text's natural linearity, canonical ordering determines the order of all TeX objects within the document. Secondly, TeX utilizes a low-level primitive called "\counter" to define various types of counters managed at a lower level and not directly dealt with by end users. Instead, end users interact with higher-level structures like "\chapter" and "\section," which depend on these counters. Remarkably, even these higher-level structures offer parameters that can be set by end users, providing customization options (e.g., ordering references according to specific rules). The discussion highlights the importance of balancing low-level control and high-level structure when implementing effective attribute ordering mechanisms.
