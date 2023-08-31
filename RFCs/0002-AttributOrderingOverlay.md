@@ -56,7 +56,8 @@ Discussions in the DSWG have led to the following proposal:
 
 1. *An overlay for attribute order presentation*. The "Ordering Overlay" is an optional tool for displaying the numerical ordering of attributes in a dataset, providing a reference guide for understanding its structure. There can only be one ordering overlay per OCA bundle. The decision to order or leave attributes unordered depends on the data management requirements and the downstream implementation. The flexibility allows for adaptability and accommodation of diverse data handling scenarios, optimizing data readability and accessibility for various stakeholders involved in data analysis and decision-making processes.
 
-```{
+```
+{
    "capture_base":"E6dVEHR0obA673USLKJpuvv6qZ9pKnKd-iSCHrsHBue4",
    "type":"spec/overlays/ordering/1.0",
    "attribute-order":{
@@ -66,7 +67,8 @@ Discussions in the DSWG have led to the following proposal:
       "emailAddress":"5",
       "phoneNumber":"4"
    }
-}```
+}
+```
 
 *Example 1. Code snippet for an Ordering Overlay.*
 
