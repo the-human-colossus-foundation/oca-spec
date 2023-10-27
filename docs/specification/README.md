@@ -475,9 +475,9 @@ In addition to the `capture_base` and `type` attributes (see [Common attributes]
   conditional-statement = 1*conditional-expression
   conditional-expression = equality-relational / equality-relational logical-operator
   equality-relational = equality-expression / relational-expression
-  logical-operator = *SP ("&&" / "||") *SP
+  logical-operator = *SP ("and" / "or") *SP
   equality-expression = assignment eql-op assignment
-  eql-op = "=="/ "!="
+  eql-op = "=="/ "~="
   relational-expression  = assignment relational-op assignment
   relational-op = "<" / ">" / "<=" / ">="
   assignment = *SP (ALPHA / DIGIT / "\${" DIGIT "}") *SP
