@@ -118,7 +118,7 @@ There can be multiple attribute framing overlays within a single bundle, but eac
 
 For each attribute (which must be unique in the schema) there can be one or more attribute_framing terms. 
 
-There can only be one skos:exactMatch, but there may be additional framing terms for the same attribute (e.g. skos:closeMatch). Unlike attribute to attribute mapping, attribute to concept mapping can be one to many with different levels of matching (e.g. different skos terms). See example below (albumin concentration).
+For each attribute there can only be one skos:exactMatch, but there may be additional framing terms for the same attribute (e.g. skos:closeMatch). Unlike attribute to attribute mapping, attribute to concept mapping can be one to many with different levels of matching (e.g. different skos terms). See example below (albumin concentration).
 
 ```
 {
@@ -181,7 +181,7 @@ For each unique unit that appears in the schema there can be only one unit_frami
 
 There can be multiple entry code framing overlays within a single bundle, one for each specific external context source (such as a single ontology or vocabulary aka frame_id). There can be only one overlay per unique frame_id. 
 
-For each unique entry code that appears in the schema there can be one or more entry_code_framing terms. There can only be one skos:exactMatch, but there may be additional framing terms for the same entry code (e.g. skos:closeMatch).
+For each entry code of each attribute there can only be one skos:exactMatch, but there may be additional framing terms for the same entry code (e.g. skos:closeMatch).
 
 ```
 {
