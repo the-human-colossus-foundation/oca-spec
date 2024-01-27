@@ -1,7 +1,7 @@
-# 0002 - OCA README
+# 0003 - OCA README
 - Authors: Carly Huitema
-- Status: PROPOSED
-- Status Note: none
+- Status: REJECTED
+- Status Note: Decision by DSWG on 2023-10-05
 - Supersedes: none
 - Start Date: 2023-02-10
 
