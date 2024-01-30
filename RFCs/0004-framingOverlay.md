@@ -237,7 +237,7 @@ For each entry code of each attribute there can only be one skos:exactMatch, but
 * For each framing overlay there must be a frame_id
 * Within each overlay framing type (attribute, unit or entry_code) each frame_id must be unique.
 * Not every term must be framed
-* For each attribute or entry_code framing there can be only one skos:exactMatch.
+* For each attribute or entry_code framing there can be only one skos:exactMatch per term.
   * Refer to Unresolved Questions for discussion on if other ontologies can be used for framing (e.g. owl:sameAs)
 * For unit framing, each unit used in a schema can be framed only once.
 * For unit framing, each unit can only be framed using skos:exactMatch
