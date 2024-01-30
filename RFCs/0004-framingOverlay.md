@@ -1,5 +1,5 @@
 # 0004 - OCA Framing overlays
-- Authors: Decentralized Semantics Working Group
+- Authors: Carly Huitema / Paul Knowles
 - Status: PROPOSED
 - Status Note: none
 - Supersedes: none
