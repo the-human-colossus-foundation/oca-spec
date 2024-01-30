@@ -275,4 +275,5 @@ There is currently no other way to connect concepts using OCA.
 
 ## Implementations
 
-None
+[Example Excel Schema Template](RFCs/supporting_files/0004-UoG_SchemaTemplate_framing.xlsx) for the example from this RFC.
+
