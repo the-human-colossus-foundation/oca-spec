@@ -116,7 +116,7 @@ Entry overlay
 
 There can be multiple attribute framing overlays within a single bundle, but each framing overlay is specific for one external context source (such as a single ontology or vocabulary aka frame_id).  There can be only one overlay per unique frame_id. 
 
-For each attribute (which must be unique in the schema) there can be one or more attribute_framing terms. 
+In the attribute framing overlay, for each attribute (which must be unique in the schema) there can be zero or more attribute_framing terms. 
 
 For each attribute there can only be one skos:exactMatch, but there may be additional framing terms for the same attribute (e.g. skos:closeMatch). Unlike attribute to attribute mapping, attribute to concept mapping can be one to many with different levels of matching (e.g. different skos terms). See example below (albumin concentration).
 
@@ -233,6 +233,16 @@ For each entry code of each attribute there can only be one skos:exactMatch, but
 
 
 ## Reference
+### Rules for framing overlays
+* For each framing overlay there must be a frame_id
+* Within each overlay framing type (attribute, unit or entry_code) each frame_id must be unique.
+* Not every term must be framed
+* For each attribute or entry_code framing there can be only one skos:exactMatch per term.
+  * Refer to Unresolved Questions for discussion on if other ontologies can be used for framing (e.g. owl:sameAs)
+* For unit framing, each unit used in a schema can be framed only once.
+* For unit framing, each unit can only be framed using skos:exactMatch
+  * Refer to Unresolved Questions for discussion on if other ontologies can be used for framing (e.g. owl:sameAs) 
+
 ### Predicate_id
 Recommended to use skos terms for the mapping vocabulary (although other mapping schemas would be supported such as owl:)
 |Skos term|Description|
@@ -271,8 +281,10 @@ There is currently no other way to connect concepts using OCA.
 ## Prior Art
 
 ## Unresolved questions
-
+* Can other terms systems (other than skos and semapv in this example) be used? Can you mix terms systems within a single framing overlay?
+* If other terms systems can be used, then rules change such as only one of (skos:exactMatch, owl:sameAs)
 
 ## Implementations
 
-None
+[Example Excel Schema Template](/RFCs/supporting_files/0004-UoG_SchemaTemplate_framing.xlsx) for the example from this RFC.
+
