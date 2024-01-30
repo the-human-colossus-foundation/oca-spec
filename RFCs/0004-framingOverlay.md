@@ -1,5 +1,5 @@
 # 0004 - OCA Framing overlays
-- Authors: Decentralized Semantics Working Group
+- Authors: Carly Huitema, Paul Knowles, Ryan Barrett, Steven Milstein, Neil Thompson
 - Status: PROPOSED
 - Status Note: none
 - Supersedes: none
@@ -47,7 +47,7 @@ The proposed Framing Overlays will facilitate:
 
 ## Tutorial
 
-### Unit framing overlay example
+### framing overlay examples
 
 Capture base:
 ```
@@ -230,7 +230,6 @@ For each entry code of each attribute there can only be one skos:exactMatch, but
   }
 }
 ```
-
 
 ## Reference
 ### Rules for framing overlays
