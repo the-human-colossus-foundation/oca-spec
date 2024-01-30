@@ -233,6 +233,15 @@ For each entry code of each attribute there can only be one skos:exactMatch, but
 
 
 ## Reference
+### Rules for framing overlays
+* For each framing overlay there must be a frame_id
+* Within each overlay framing type (attribute, unit or entry_code) each frame_id must be unique.
+* For each attribute or entry_code framing there can be only one skos:exactMatch.
+  * Refer to Unresolved Questions for discussion on if other ontologies can be used for framing (e.g. owl:sameAs)
+* For unit framing, each unit used in a schema can be framed only once.
+* For unit framing, each unit can only be framed using skos:exactMatch
+  * Refer to Unresolved Questions for discussion on if other ontologies can be used for framing (e.g. owl:sameAs) 
+
 ### Predicate_id
 Recommended to use skos terms for the mapping vocabulary (although other mapping schemas would be supported such as owl:)
 |Skos term|Description|
@@ -271,7 +280,8 @@ There is currently no other way to connect concepts using OCA.
 ## Prior Art
 
 ## Unresolved questions
-
+* Can other terms systems (other than skos and semapv in this example) be used? Can you mix terms systems within a single framing overlay?
+* If other terms systems can be used, then rules change such as only one of (skos:exactMatch, owl:sameAs)
 
 ## Implementations
 
