@@ -6,12 +6,13 @@
 - Start Date: 2024-02-16
 
 ## Summary
-
+An overlay for providing examples of correct entries which may be used when collecting data from users.
 
 ## Motivation
 When collecting data from users, providing examples help users grasp the expected format or content of the data they need to input. This clarity reduces ambiguity and minimizes errors, enhancing overall data quality.
 
 ## Tutorial
+Examples can be provided for some or all of the attributes in a schema.
 
 ```
 {
