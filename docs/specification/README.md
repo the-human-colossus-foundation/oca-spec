@@ -475,9 +475,9 @@ In addition to the `capture_base` and `type` attributes (see [Common attributes]
   conditional-statement = 1*conditional-expression
   conditional-expression = equality-relational / equality-relational logical-operator
   equality-relational = equality-expression / relational-expression
-  logical-operator = *SP ("&&" / "||") *SP
+  logical-operator = *SP ("and" / "or") *SP
   equality-expression = assignment eql-op assignment
-  eql-op = "=="/ "!="
+  eql-op = "=="/ "~="
   relational-expression  = assignment relational-op assignment
   relational-op = "<" / ">" / "<=" / ">="
   assignment = *SP (ALPHA / DIGIT / "\${" DIGIT "}") *SP
@@ -493,16 +493,32 @@ In addition to the `capture_base` and `type` attributes (see [Common attributes]
   "capture_base":"EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
   "type":"spec/overlays/conditional/1.0",
   "attribute_conditions":{
-      "height":"${0}=='PM'"
+      "idCardNumber":"${0}=='ID_CARD'",
+      "passportNumber":"${0}=='PASSPORT'"
   },
   "attribute_dependencies":{
-      "height":[
+      "idCardNumber":[
+        "documentType"
+      ],
+      "passportNumber":[
         "documentType"
       ]
   }
 }
+
+// Entry code overlay with options for `documentType`
+{
+   "capture_base":"EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
+   "type":"spec/overlays/entry_code/1.0",
+   "attribute_entry_codes":{
+      "documentType":[
+         "ID_CARD",
+         "PASSPORT"
+      ]
+   }
+}
 ```
-_Example 9. Code snippet for a Conditional Overlay. `${0}` is an integer placeholder that refers to a replacement value during the substitution process. The `attribute_dependencies` attribute provides that replacement value through an array of attributes. Therefore, the placeholder's integer value refers to an array index that points to the value. In other words, `documentType` is bound by the integer placeholder, which triggers the evaluation process of the expression._
+_Example 9. Code snippet for a Conditional Overlay. When the condition matches for `idCardNumber,` that is, `documentType` matches `ID_CARD,` the default behavior is to apply other overlays to `idCardNumber,` i.e., conformance. `${0}` is an integer placeholder that refers to a replacement value during the substitution process. The `attribute_dependencies` attribute provides that replacement value through an array of attributes. Therefore, the placeholder's integer value refers to an array index that points to the value. In other words, `documentType` is bound by the integer placeholder, which triggers the evaluation process of the expression._
 
 ##### Conformance Overlay
 A Conformance Overlay indicates whether data entry for each attribute is mandatory or optional.
