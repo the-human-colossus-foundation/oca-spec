@@ -31,7 +31,7 @@ Examples can be provided for some or all of the attributes in a schema.
 ## Reference
 
 ## Drawbacks
-Users will need to check that their examples would pass data validation according to the schema rules (e.g. the Sample_type example must be a valid entry code).
+Creators will need to check that their examples would pass data validation according to the schema rules (e.g. the Sample_type example must be a valid entry code).
 
 ## Rational and Alternatives
 There are currently no way to provide examples except as another notation within an information overlay.
