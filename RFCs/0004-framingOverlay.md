@@ -47,7 +47,9 @@ The proposed Framing Overlays will facilitate:
 
 ## Tutorial
 
-### Unit framing overlay example
+### Schema example
+
+The following code describes an example schema to which example framing overlays will reference.
 
 Capture base:
 ```
