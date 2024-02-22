@@ -82,7 +82,7 @@ Entry overlay
 ```
 ### Examples of example overlays.
 Examples can be provided for some or all of the attributes in a schema and examples may be language/local specific.
-
+```
 {
   "capture_base": "Etszl9LgLUjllI950rd2lO6rF5-BP_jGzXGBPkFZCZFA",
   "digest": "XXXX",
@@ -108,7 +108,7 @@ Examples can be provided for some or all of the attributes in a schema and examp
     "Sample_type": "BLD003"
   }
 }
-
+```
 
 ## Reference
 
