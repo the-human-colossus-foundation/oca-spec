@@ -1,4 +1,4 @@
-# 0004 - OCA Framing overlays
+# 0005 - OCA Example overlays
 - Authors: Carly Huitema / Paul Knowles
 - Status: PROPOSED
 - Status Note: none
@@ -32,19 +32,6 @@ Capture base:
   "flagged_attributes": []
 }
 ```
-Unit overlay
-```
-{
-  "capture_base": "Etszl9LgLUjllI950rd2lO6rF5-BP_jGzXGBPkFZCZFA",
-  "digest": "Ec3I2X4FNoPhi7Raqo1PE3nP977BN4It-ZMmqLvc6z_w",
-  "type": "spec/overlays/unit/1.0",
-  "metric_system": "",
-  "attribute_units": {
-    "Albumin_concentration": "mg/dL",
-    "Glucose_concentration": "mg/dL"
-  }
-}
-```
 Entry code overlay
 ```
 {
@@ -76,6 +63,22 @@ Entry overlay
       "BLD003": "sodium_citrate",
       "BLD004": "sodium_heparin",
       "BLD005": "acid_citrate_dextrose"
+    }
+  }
+}
+
+{
+  "capture_base": "Etszl9LgLUjllI950rd2lO6rF5-BP_jGzXGBPkFZCZFA",
+  "digest": "EiX132uHOFWph3kwBvjnkalbGDYagttuKr97olGRLOy4",
+  "type": "spec/overlays/entry/1.0",
+  "language": "ar",
+  "attribute_entries": {
+    "Sample_type": {
+      "BLD001": "لا يحتوي على مواد حافظة ولا مضاد للتخثر",
+      "BLD002": "K2 EDTA",
+      "BLD003": "سترات الصوديوم",
+      "BLD004": "الهيبارين الصوديوم",
+      "BLD005": "حمض سترات الدكستروز"
     }
   }
 }
