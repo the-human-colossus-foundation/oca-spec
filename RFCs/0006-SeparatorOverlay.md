@@ -120,14 +120,14 @@ Currently, if the data uses a delimiter and escape character for any array datat
 ## Unresolved questions
 Example: arrays in a csv file where both delimiters are commas.
 When Excel exports this data, it is exported as strings with ""'s around each array entry: 
-|height|weight|
-|---|---|
-|5,2,3,4|6,6,5,3|
+|height|weight|name|
+|---|---|---|
+|5,2,3,4|6,6,5,3|sample_1
 
 Excel generated .csv file:
 ```
-height,weight
-"5,2,3,4","6,6,5,3"
+height,weight,name
+"5,2,3,4","6,6,5,3",sample_1
 ```
 
 ## Implementations
