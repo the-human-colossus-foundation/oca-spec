@@ -1,4 +1,4 @@
-# 0006 - OCA delimiter overlays
+# 0006 - OCA separator overlays
 - Authors: Carly Huitema / Paul Knowles
 - Status: PROPOSED
 - Status Note: none
@@ -6,9 +6,11 @@
 - Start Date: 2024-02-22
 
 ## Summary
-In order to understand any array attributes of a dataset it is important to know what delimiter and escape character the array data uses. This information can be supplied by an array delimiter overlay.
+In order to understand any array attributes of a dataset it is important to know what separators the data file and any array data uses. This information can be supplied by an array separator overlay.
 
 ## Motivation
+A common method of storing and moving data is in the form of tabular data files. Tabular data in a file often has separators that separate each data element in the file. When arrays are represented in the data they also have their own separators.
+
 It is important for a data users to understand what (if any) delimiters and escape characters are used for any array attributes in a dataset the schema applies to. This is important for several reasons:
 
 1. Parsing and Data Processing: Knowing the array delimiter and escape character is essential for accurately parsing and processing the dataset programmatically. Different delimiters and escape characters may require specific handling to correctly interpret the data. Without this information, developers may encounter errors or inconsistencies when working with the dataset.
@@ -80,14 +82,17 @@ Delimiters and escape characters can be provided for some or all of the array at
 {
   "capture_base": "Etszl9LgLUjllI950rd2lO6rF5-BP_jGzXGBPkFZCZFA",
   "digest": "XXXX",
-  "type": "spec/overlays/example/1.0",
-  "language": "en-CA",
-  "attribute_framing": {
-    "Albumin_concentration": {
+  "type": "spec/overlays/separator/1.0",
+  "dataset_separators":{
+    "dataset_delimiter": ",",
+    "dataset_escape": "\\"
+  },
+  "attribute_separators":{
+    "Albumin_concentration":{
       "delimiter": ",",
       "escape": "\\"
     },
-    "Glucose_concentration": {
+    "Glucose_concentration":{
       "delimiter": ";",
       "escape": ""
     }
@@ -113,6 +118,17 @@ Currently, if the data uses a delimiter and escape character for any array datat
 
 
 ## Unresolved questions
+Example: arrays in a csv file where both delimiters are commas.
+When Excel exports this data, it is exported as strings with ""'s around each array entry: 
+|height|weight|
+|---|---|
+|5,2,3,4|6,6,5,3|
+
+Excel generated .csv file:
+```
+height,weight
+"5,2,3,4","6,6,5,3"
+```
 
 ## Implementations
 
