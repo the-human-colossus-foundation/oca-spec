@@ -6,7 +6,7 @@
 - Start Date: 2024-02-22
 
 ## Summary
-In order to understand any array attributes of a dataset it is important to know what separators the data file and any array data uses. This information can be supplied by an array separator overlay.
+In order to understand datasets files it is important to know what separators (if any) the data file and any array data uses. This information can be supplied by an array separator overlay.
 
 ## Motivation
 A common method of storing and moving data is in the form of tabular data files. Tabular data in a file often has separators that separate each data element in the file. When arrays are represented in the data they also have their own separators.
