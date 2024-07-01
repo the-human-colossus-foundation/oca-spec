@@ -47,8 +47,12 @@ module.exports = {
         text: "Specification",
         children: [
           {
-            text: "v1.0.1",
+            text: "OCA v1.0.1",
             link: "/specification",
+          },
+          {
+            text: "OCAFile v1.0.0",
+            link: "/specification/ocafile",
           },
           {
             text: "Contribute",
