@@ -1,11 +1,10 @@
 # OCA Repository
 
-The **OCA repository** is a key concept of the OCA Ecosystem. It enables to manage, store and share OCA Objects like: [ OCA Bundles ](/ecosystem/oca-bundle) and [ OCAFiles ](/ecosystem/oca-file). The interface is exposed through [ REST API ](https://repository.oca.argo.colossi.network/).
+The **OCA repository** is a key concept of the OCA Ecosystem. It enables to manage, store and share OCA Objects like: [ OCA Bundles ](/ecosystem/oca-bundle) and [ OCAFiles ](/specification/ocafile). The interface is exposed through [ REST API ](https://repository.oca.argo.colossi.network/).
 
 The OCA repository operates under governance. It can be public (open access) or private (limited access).
 
 ## Applications
-
 
 The OCA repository serves as a central component in the ecosystem, providing storage, management, and sharing capabilities for various semantic needs. It supports multiple use cases, such as:
 
@@ -26,7 +25,6 @@ docker pull humancolossus/oca-repository:latest
 ## Usage
 
 See [OpenAPI Specification](https://repository.oca.argo.colossi.network/) to get all available endpoints.
-
 
 ## Concepts
 
