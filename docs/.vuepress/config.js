@@ -39,16 +39,30 @@ export default defineUserConfig({
         text: "Guide",
         children: [
           {
-            text: "Introduction",
-            link: "/guide/introduction",
+            text: "Decentralized Semantics",
+            children: [
+              {
+                text: "Introduction",
+                link: "/guide/introduction",
+              },
+              {
+                text: "Applications",
+                link: "/guide/applications/",
+              },
+              {
+                text: "FAQ",
+                link: "/guide/faq",
+              },
+            ],
           },
           {
-            text: "Applications",
-            link: "/guide/applications/",
-          },
-          {
-            text: "FAQ",
-            link: "/guide/faq",
+            text: "Practical usage",
+            children: [
+              {
+                text: "Getting Started",
+                link: "/guide/usage/getting-started",
+              },
+            ],
           },
         ],
       },

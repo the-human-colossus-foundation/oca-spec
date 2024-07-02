@@ -1,14 +1,20 @@
 # Getting started
 
+:::warning Deprecated
+
+This documentation is deprecated. Please refer to the [Getting started](/guide/mechanics/getting-started.md) section.
+:::
+
 ## Quick Start
 
 :::tip Prerequisites
- - Install [docker](https://www.docker.com/) and [docker-compose](https://docs.docker.com/compose/)
-:::
+
+- Install [docker](https://www.docker.com/) and [docker-compose](https://docs.docker.com/compose/)
+  :::
 
 To serve OCA ecosystem on your machine, run the following commands in your command line:
 
-``` bash
+```bash
 curl https://raw.githubusercontent.com/THCLab/oca-ecosystem/main/docker-compose.yml > docker-compose.yml
 docker-compose up
 ```
@@ -74,4 +80,3 @@ done;
 - In `Main` sheet columns A, B, C and D stores definition of [Capture Base](/v1.0.0.html#capture-base)
 - Columns from E to N stores definition of [Overlays](/v1.0.0.html#overlays) that are not language specific
 - Other sheets named by [ISO_639-1 language code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) stores definition of language specific [Overlays](/v1.0.0.html#overlays)
-
