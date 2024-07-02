@@ -1,6 +1,7 @@
 import { viteBundler } from "@vuepress/bundler-vite";
 import { defaultTheme } from "@vuepress/theme-default";
 import { defineUserConfig } from "vuepress";
+import { searchPlugin } from "@vuepress/plugin-search";
 
 export default defineUserConfig({
   lang: "en-US",
@@ -17,12 +18,9 @@ export default defineUserConfig({
   },
 
   plugins: [
-    [
-      "@vuepress/search",
-      {
-        searchMaxSuggestions: 10,
-      },
-    ],
+    searchPlugin({
+      searchMaxSuggestions: 10,
+    }),
   ],
   bundler: viteBundler(),
   theme: defaultTheme({
