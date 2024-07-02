@@ -1,6 +1,8 @@
-const { defaultTheme } = require("@vuepress/theme-default");
+import { viteBundler } from "@vuepress/bundler-vite";
+import { defaultTheme } from "@vuepress/theme-default";
+import { defineUserConfig } from "vuepress";
 
-module.exports = {
+export default defineUserConfig({
   lang: "en-US",
   title: "Overlays Capture Architecture",
   description: "Official OCA resources",
@@ -14,6 +16,15 @@ module.exports = {
     },
   },
 
+  plugins: [
+    [
+      "@vuepress/search",
+      {
+        searchMaxSuggestions: 10,
+      },
+    ],
+  ],
+  bundler: viteBundler(),
   theme: defaultTheme({
     repoLabel: "Contribute",
     docsRepo: "the-human-colossus-foundation/oca-spec",
@@ -35,7 +46,7 @@ module.exports = {
           },
           {
             text: "Applications",
-            link: "/guide/applications",
+            link: "/guide/applications/",
           },
           {
             text: "FAQ",
@@ -48,7 +59,7 @@ module.exports = {
         children: [
           {
             text: "OCA v1.0.1",
-            link: "/specification",
+            link: "/specification/",
           },
           {
             text: "OCAFile v1.0.0",
@@ -107,12 +118,4 @@ module.exports = {
       },
     ],
   }),
-  plugins: [
-    [
-      "@vuepress/search",
-      {
-        searchMaxSuggestions: 10,
-      },
-    ],
-  ],
-};
+});
