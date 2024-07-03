@@ -1,6 +1,6 @@
 # 0001: OCAFile
 - Authors: [Robert Mitwicki](robert.mitwicki@humancolossus.org), [Michał Pietrus](michal.pietrus@argonauths.eu)
-- Status: [PROPOSED](/README.md#proposed)
+- Status: [DEMONSTRATED](/README.md#demonstrated)
 - Status Note: Proposed concept is already in implementation phase
 - Supersedes: none
 - Start Date: 2022-01-12
