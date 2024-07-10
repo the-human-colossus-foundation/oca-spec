@@ -31,8 +31,8 @@ export default defineUserConfig({
     logoDark: "images/oca-logo-white.png",
     editLink: false,
     contributors: false,
-    sidebar: "auto",
-    sidebarDepth: 4,
+    sidebar: "heading",
+    sidebarDepth: 5,
     navbar: [
       // NavbarItem
       {
@@ -57,11 +57,11 @@ export default defineUserConfig({
         children: [
           {
             text: "OCA v1.0.1",
-            link: "/specification/",
+            link: "/specification/README.md",
           },
           {
             text: "OCAFile v1.0.0",
-            link: "/specification/ocafile",
+            link: "/specification/ocafile.md",
           },
           {
             text: "Contribute",
