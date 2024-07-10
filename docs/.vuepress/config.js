@@ -87,40 +87,24 @@ export default defineUserConfig({
         text: "Ecosystem",
         children: [
           {
+            text: "Get Started",
+            link: "/ecosystem/getting-started",
+          },
+          {
             text: "Ecosystem Tour",
             link: "/ecosystem/tour",
           },
           {
-            text: "OCA Parser",
-            link: "/ecosystem/oca-parser",
-          },
-          {
-            text: "OCA Browser",
-            link: "/ecosystem/oca-browser",
+            text: "OCA Bin",
+            link: "/ecosystem/oca-bin",
           },
           {
             text: "OCA Repository",
             link: "/ecosystem/oca-repository",
           },
           {
-            text: "OCA Data Vault",
-            link: "/ecosystem/oca-data-vault",
-          },
-          {
-            text: "OCA Validator",
-            link: "/ecosystem/oca-validator",
-          },
-          {
-            text: "OCA Transformer",
-            link: "/ecosystem/oca-transformer",
-          },
-          {
             text: "OCA Bundle",
             link: "/ecosystem/oca-bundle",
-          },
-          {
-            text: "Get Started",
-            link: "/ecosystem/getting-started",
           },
         ],
       },

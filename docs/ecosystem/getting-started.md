@@ -1,8 +1,8 @@
 # Getting started
 
-:::warning Deprecated
+:::warning Warning
 
-This documentation is deprecated. Please refer to the [Getting started](/guide/mechanics/getting-started.md) section.
+This documentation reflects the V1.0 of the OCA Ecosystem.
 :::
 
 ## Quick Start
