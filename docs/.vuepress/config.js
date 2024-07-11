@@ -87,10 +87,6 @@ export default defineUserConfig({
         text: "Ecosystem",
         children: [
           {
-            text: "Ecosystem Tour",
-            link: "/ecosystem/tour",
-          },
-          {
             text: "OCA Bin",
             link: "/ecosystem/oca-bin",
           },
