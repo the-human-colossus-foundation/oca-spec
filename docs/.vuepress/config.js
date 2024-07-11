@@ -87,10 +87,6 @@ export default defineUserConfig({
         text: "Ecosystem",
         children: [
           {
-            text: "Get Started",
-            link: "/ecosystem/getting-started",
-          },
-          {
             text: "Ecosystem Tour",
             link: "/ecosystem/tour",
           },
