@@ -91,12 +91,16 @@ export default defineUserConfig({
             link: "/ecosystem/oca-bin",
           },
           {
-            text: "OCA Repository",
-            link: "/ecosystem/oca-repository",
+            text: "OCA File",
+            link: "/ecosystem/ocafile",
           },
           {
             text: "OCA Bundle",
             link: "/ecosystem/oca-bundle",
+          },
+          {
+            text: "OCA Repository",
+            link: "/ecosystem/oca-repository",
           },
         ],
       },

@@ -129,7 +129,7 @@ The following OCA objects have the OCAFile equivalent:
   ```
 - label
   ```
-  <Operation> LABEL <2-chars country code> ATTRS <Attribute Name>="<Localized Label>"
+  <Operation> LABEL <ISO-639 country code> ATTRS <Attribute Name>="<Localized Label>"
   ```
 - meta
   ```
@@ -153,7 +153,7 @@ The following OCA objects have the OCAFile equivalent:
   ```
 - entry
   ```
-  <Operation> ENTRY ATTRS <Attribute Name>={"Option 1": "Localized Label 1", "Option 2": "Localized Label 2", "Option N": "Localized Label N"}
+  <Operation> ENTRY <ISO-639 country code> ATTRS <Attribute Name>={"Option 1": "Localized Label 1", "Option 2": "Localized Label 2", "Option N": "Localized Label N"}
   ```
 - unit
   ```
