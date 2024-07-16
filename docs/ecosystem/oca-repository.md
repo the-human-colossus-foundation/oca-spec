@@ -153,6 +153,11 @@ Result:
 
 </div>
 
+::: tip
+Notice in the response last object called "dependencies", in this example is empty but if you have nested objects, i.e. references you can add attributes `?w=true` to retrieve all dependencies in one call. For more information check [OAS](https://repository.oca.argo.colossi.network/#/Public%20API/get_oca_bundles__said_).
+:::
+
+
 ### Getting OCA Objects by their SAID
 
 Repository exposes `GET /objects?said=SAID1,SAID2,SAID N` endpoint that returns the OCA Objects by their SAID. Example:
