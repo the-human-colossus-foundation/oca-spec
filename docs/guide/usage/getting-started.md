@@ -132,7 +132,7 @@ All the above steps were executed locally, without interacting with any OCA Repo
 1. Add the OCA Repository hosted within HCF Sandbox:
 
    ```toml
-   repository_url = "https://repository.oca.argo.colossi.network/"
+   repository_url = "https://repository.oca.argo.colossi.network/api/"
    ```
 
 1. Publish the Bundle to the OCA Repository:
@@ -140,6 +140,12 @@ All the above steps were executed locally, without interacting with any OCA Repo
    ```bash
    ./oca publish --said EFhaY1-6ynjvxNUPY4HnbB-OXr05wULXE4Yet3FHzGP6
    ```
+    alternatively, specify repository url via parameter:
+
+    ```bash
+    ./oca publish --said EFhaY1-6ynjvxNUPY4HnbB-OXr05wULXE4Yet3FHzGP6 --repository-url https://repository.oca.argo.colossi.network/api/
+    ```
+
 
 1. The Bundle is now resolvable also remotely:
    ```bash
