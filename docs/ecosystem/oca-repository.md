@@ -23,7 +23,7 @@ See [OpenAPI Specification](https://repository.oca.argo.colossi.network/) to get
 ## Features
 
 ::: tip
-The example OCAFile used in the following sections is the [entrance-credential.ocafile](https://github.com/THCLab/ocafile-examples/blob/main/entrance-credential.ocafile), furthermore truncaded for clarity and brevity to the first five instructions.
+The example OCAFile used in the following sections is the [entrance-credential.ocafile](https://github.com/THCLab/ocafile-examples/blob/main/entrance-credential.ocafile), which has been truncated for clarity and brevity to the first five instructions.
 :::
 
 ### OCAFile integration
@@ -72,7 +72,7 @@ The repository recreates the OCAFile from the steps (see below) used to create t
 
 ### Getting the OCA Bundle
 
-Repository exposes `GET /oca-bundles/{said}` endpoint that returns the OCA Bundle. Example:
+Repository exposes `GET /oca-bundles/{said}` endpoint that returns the OCA Bundle. By default, it provides the Bundle for the SAID it points to. However, it can also provide the whole object graph, including all the Bundle dependencies (see [Nested object graphs](#nested-object-graphs)). Example:
 
 ```bash
 curl -X 'GET' \
@@ -152,11 +152,6 @@ Result:
 ```
 
 </div>
-
-::: tip
-Notice in the response last object called "dependencies", in this example is empty but if you have nested objects, i.e. references you can add attributes `?w=true` to retrieve all dependencies in one call. For more information check [OAS](https://repository.oca.argo.colossi.network/#/Public%20API/get_oca_bundles__said_).
-:::
-
 
 ### Getting OCA Objects by their SAID
 
@@ -624,7 +619,7 @@ ADD ENTRY pl ATTRS device_type={"o1": "Maszyna parowa", "o2": "Teleport", "o3": 
 
 </div>
 
-Repository enables to fetch the whole graph at once using the `w=true` query parameter. The following example demonstrates how to get the whole graph of the Device schema:
+The repository enables fetching of the whole graph at once using the `w=true` query parameter. The following example demonstrates how to get the whole graph of the Device schema:
 
 ```bash
 curl -X 'GET' \
