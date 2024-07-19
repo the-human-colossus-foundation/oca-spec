@@ -9,7 +9,7 @@ The **OCA repository** is a key concept of the OCA Ecosystem. It enables the man
 Download the Docker image that contains the latest release
 
 ```bash
-docker pull humancolossus/oca-repository:latest
+docker pull ghcr.io/thclab/oca-repository:latest
 ```
 
 ### Getting the sources
