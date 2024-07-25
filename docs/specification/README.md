@@ -933,14 +933,16 @@ Except when converting between temperature units, offset equals 0 in most cases.
 1.  Given 37 Celsius
 2.  Expect Kelvin
 3.  `37 * 1 + 273.15 = 310.15 K`
-    :::
+
+:::
 
 ::: tip An example of Celsius to Fahrenheit conversion:
 
 1.  Given 37 Celsius
 2.  Expect Fahrenheit
 3.  `37 * 1.8 + 32 = 98.6 F`
-    :::
+
+:::
 
 Implementers MAY find E.J. Roschke’s "Units and Unit Conversions" (2001) \[[ROS2001](#ref-ROS2001)\] a helpful resource for conversion factors.
 
