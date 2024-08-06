@@ -1,6 +1,6 @@
 # 0004 - OCA Framing overlays
 - Authors: Carly Huitema / Paul Knowles
-- Status: PROPOSED
+- Status: ACCEPTED
 - Status Note: none
 - Supersedes: none
 - Start Date: 2024-01-25
