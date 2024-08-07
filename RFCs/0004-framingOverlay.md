@@ -267,7 +267,7 @@ Recommended to use the semapv terms for framing justification although other jus
 |semapv:LexicalMatching|A matching process based on a lexical comparison between one or more syntactic features of the subject with one or more syntactic features of the object.|
 |semapv:CompositeMatching|A matching process based on multiple, possibly intertwined, matching approaches.|
 |semapv:UnspecifiedMatching|A matching process based on an unspecified comparison.|
-|semapv:SemanticSimilarityThresholdMatching||A matching process based on a minimum threshold of a score from a comparison based on a semantic similarity algorithm.|
+|semapv:SemanticSimilarityThresholdMatching|A matching process based on a minimum threshold of a score from a comparison based on a semantic similarity algorithm.|
 |semapv:LexicalSimilarityThresholdMatching|A lexical matching process based on a minimum threshold of a score from a comparison based on a lexical similarity algorithm.|
 |semapv:MappingChaining|A matching process based on the traversing of multiple mappings.|
 
