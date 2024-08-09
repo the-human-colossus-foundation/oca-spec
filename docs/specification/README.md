@@ -826,15 +826,15 @@ _Example 19. Code snippet for a Sensitive Overlay_
 
 #### Framing overlays
 
-Concepts, or the idea of something, can be codified and expressed in different types of controlled vocabularies. For example, glossaries, taxonomies and ontologies. These controlled vocabularies are often the result of a community coming together to define a shared set of terms, definitions and their relationships to help with communal understanding.
+Concepts, or the idea of something, can be codified and expressed in different types of controlled vocabularies such as glossaries, taxonomies and ontologies. These controlled vocabularies are often the result of a community coming together to define a shared set of terms, definitions and their relationships to help with communal understanding.
 
-To connect into these larger concepts OCA introduces the concept of framing and framing overlays. Different parts of a schema (e.g. attribute names) can be connected to a term in a specific controlled ontology. Framing can be useful to help understand exactly what data is being collected and how it maps to other concepts and ultimately how it can connect to other knowledge sources.
+To connect into these larger concepts OCA uses the concept of framing and framing overlays. Different parts of a schema (e.g. attribute names) can be connected to a term in a specific controlled ontology. Framing can be useful to help understand exactly what data is being collected, how it maps to other concepts, and ultimately how it can connect to other knowledge sources.
 
 Where a schema provides a systemic blueprint for structuring concrete objects, a frame provides an epistemic blueprint for representing abstract concepts.
 
-Connecting an attribute, entry code or unit to a term in a controlled vocabulary requires that the nature of the relationship is documented. Overlays Capture Architecture uses the [Simple Standard for Sharing Ontological Mappings](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9216545/) (SSSOM) [1](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9216545/) ontology to add context around framings, such as are two terms equivalent or only closely related and what is the nature of that relationship? By describing how the different terms are specifically related means that framings can be more precise.
+Connecting an attribute, entry code or unit to a term in a controlled vocabulary requires the nature of the relationship to be documented. Overlays Capture Architecture uses the [Simple Standard for Sharing Ontological Mappings](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9216545/) (SSSOM) ontology to add context to framings, such as are two terms equivalent or only closely related and what is the nature of that relationship? By describing how the different terms are specifically related means that framings can be precise.
 
-For framing overlays we will use the four required SSSOM mapping elements, and additional SSSOM metadata could be supplied external to OCA in other documentation. For OCA the naming conventions are as follows:
+For framing overlays OCA uses the four required SSSOM mapping elements. Any additional SSSOM metadata could be supplied external to OCA in other documentation. For OCA the naming conventions are as follows:
 
 |OCA|SSSOM|
 |---|---|
@@ -845,18 +845,18 @@ For framing overlays we will use the four required SSSOM mapping elements, and a
 
 When using framing in a schema multiple framing overlays are allowed, and each framing overlay is specific for a single source being mapped to. So that users can know that they are accessing the correct external concept, the external concept must be described by sufficient cataloging information provided within the framing overlay.
 
-The following four pieces of metadata will correctly identify external resources. Only the identifier (frame_id) is required.
+The following four pieces of metadata will correctly identify external resources (e.g the controlled vocabulary). Only 'frame_id' is required.
 
-1. frame_id: Identifier of resource (SAIDs, DOIs, PURLs, or common names e.g. UCUM)
-2. frame_label: Label of resource (e.g. Unified Code for Units of Measure)
-3. frame_location: Location of resource (e.g. https://ucum.org/)
-4. frame_version: Resource version (e.g. 2.1).
+1. 'frame_id': Identifier of resource (SAIDs, DOIs, PURLs, or common names e.g. UCUM)
+2. 'frame_label': Label of resource (e.g. Unified Code for Units of Measure)
+3. 'frame_location': Location of resource (e.g. https://ucum.org/)
+4. 'frame_version': Resource version (e.g. 2.1).
 
 ##### Attribute Framing Overlay
 
 Attribute Framing Overlays focus on the attributes used in schemas, mapping them to framing terms. Each attribute can have one or more framing terms, such as SKOS, indicating the mapping's degree of similarity or exactness. This allows a nuanced understanding of how schema attributes relate to broader ontological concepts.
 
-There can be multiple attribute framing overlays within a single bundle, but each framing overlay is specific for one external context source (such as a single ontology or vocabulary aka frame_id).  There can be only one overlay per unique frame_id. 
+There can be multiple attribute framing overlays within a single bundle, but each framing overlay is specific for one external context source (such as a single ontology or vocabulary aka 'frame_id').  There can be only one overlay per unique 'frame_id'. 
 
 In the attribute framing overlay, for each attribute (which must be unique in the schema) there can be zero or more attribute_framing terms. 
 
@@ -898,7 +898,7 @@ For each attribute there can only be one skos:exactMatch, but there may be addit
 
 Entry Code Framing Overlays focus on the entry codes used in schemas, mapping them to terms in external ontologies supporting detailed and precise data categorization. Like attribute framings, each entry code can have multiple framing terms to reflect varying degrees of match.
 
-There can be multiple entry code framing overlays within a single bundle, one for each specific external context source (such as a single ontology or vocabulary aka frame_id). There can be only one overlay per unique frame_id. 
+There can be multiple entry code framing overlays within a single bundle, one for each specific external context source (such as a single ontology or vocabulary aka frame_id). There can be only one overlay per unique 'frame_id'. 
 
 For each entry code of each attribute there can only be one skos:exactMatch, but there may be additional framing terms for the same entry code (e.g. skos:closeMatch).
 
@@ -954,7 +954,7 @@ For each entry code of each attribute there can only be one skos:exactMatch, but
 
 Unit Framing Overlays focus on the units used in schemas, mapping them to standardized units in external vocabularies like UCUM. Precision is paramount here, and only SKOS is permitted to ensure that quantitative data remains accurate and reliable.
 
-There can be multiple unit framing overlays within a single bundle, one for each specific external context source (such as a single unit ontology or vocabulary aka frame_id). There can be only one overlay per unique frame_id. 
+There can be multiple unit framing overlays within a single bundle, one for each specific external context source (such as a single unit ontology or vocabulary aka 'frame_id'). There can be only one overlay per unique 'frame_id'. 
 
 For each unique unit that appears in the schema there can be only one unit_framing term. This term must be skos:exactMatch and only skos:exactMatch is allowed (no other skos terms). This is because units are often associated with quantitative data and it is necessary to preserve accuracy and to use units reported to transform data.
 
