@@ -845,18 +845,18 @@ For framing overlays OCA uses the four required SSSOM mapping elements. Any addi
 
 When using framing in a schema multiple framing overlays are allowed, and each framing overlay is specific for a single source being mapped to. So that users can know that they are accessing the correct external concept, the external concept must be described by sufficient cataloging information provided within the framing overlay.
 
-The following four pieces of metadata will correctly identify external resources (e.g the controlled vocabulary). Only 'frame_id' is required.
+The following four pieces of metadata will correctly identify external resources (e.g the controlled vocabulary). Only `frame_id` is required.
 
-1. 'frame_id': Identifier of resource (SAIDs, DOIs, PURLs, or common names e.g. UCUM)
-2. 'frame_label': Label of resource (e.g. Unified Code for Units of Measure)
-3. 'frame_location': Location of resource (e.g. https://ucum.org/)
-4. 'frame_version': Resource version (e.g. 2.1).
+1. `frame_id`: Identifier of resource (SAIDs, DOIs, PURLs, or common names e.g. UCUM)
+2. `frame_label`: Label of resource (e.g. Unified Code for Units of Measure)
+3. `frame_location`: Location of resource (e.g. https://ucum.org/)
+4. `frame_version`: Resource version (e.g. 2.1).
 
 ##### Attribute Framing Overlay
 
 Attribute Framing Overlays focus on the attributes used in schemas, mapping them to framing terms. Each attribute can have one or more framing terms, such as SKOS, indicating the mapping's degree of similarity or exactness. This allows a nuanced understanding of how schema attributes relate to broader ontological concepts.
 
-There can be multiple attribute framing overlays within a single bundle, but each framing overlay is specific for one external context source (such as a single ontology or vocabulary aka 'frame_id').  There can be only one overlay per unique 'frame_id'. 
+There can be multiple attribute framing overlays within a single bundle, but each framing overlay is specific for one external context source (such as a single ontology or vocabulary aka `frame_id`).  There can be only one overlay per unique `frame_id`. 
 
 In the attribute framing overlay, for each attribute (which must be unique in the schema) there can be zero or more attribute_framing terms. 
 
@@ -898,7 +898,7 @@ For each attribute there can only be one skos:exactMatch, but there may be addit
 
 Entry Code Framing Overlays focus on the entry codes used in schemas, mapping them to terms in external ontologies supporting detailed and precise data categorization. Like attribute framings, each entry code can have multiple framing terms to reflect varying degrees of match.
 
-There can be multiple entry code framing overlays within a single bundle, one for each specific external context source (such as a single ontology or vocabulary aka frame_id). There can be only one overlay per unique 'frame_id'. 
+There can be multiple entry code framing overlays within a single bundle, one for each specific external context source (such as a single ontology or vocabulary aka frame_id). There can be only one overlay per unique `frame_id`. 
 
 For each entry code of each attribute there can only be one skos:exactMatch, but there may be additional framing terms for the same entry code (e.g. skos:closeMatch).
 
@@ -954,7 +954,7 @@ For each entry code of each attribute there can only be one skos:exactMatch, but
 
 Unit Framing Overlays focus on the units used in schemas, mapping them to standardized units in external vocabularies like UCUM. Precision is paramount here, and only SKOS is permitted to ensure that quantitative data remains accurate and reliable.
 
-There can be multiple unit framing overlays within a single bundle, one for each specific external context source (such as a single unit ontology or vocabulary aka 'frame_id'). There can be only one overlay per unique 'frame_id'. 
+There can be multiple unit framing overlays within a single bundle, one for each specific external context source (such as a single unit ontology or vocabulary aka `frame_id`). There can be only one overlay per unique `frame_id`. 
 
 For each unique unit that appears in the schema there can be only one unit_framing term. This term must be skos:exactMatch and only skos:exactMatch is allowed (no other skos terms). This is because units are often associated with quantitative data and it is necessary to preserve accuracy and to use units reported to transform data.
 
