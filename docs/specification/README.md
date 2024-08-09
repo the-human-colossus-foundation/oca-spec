@@ -826,17 +826,13 @@ _Example 19. Code snippet for a Sensitive Overlay_
 
 #### Framing overlays
 
+Concepts, or the idea of something, can be codified and expressed in different types of controlled vocabularies. For example, glossaries, taxonomies and ontologies. These controlled vocabularies are often the result of a community coming together to define a shared set of terms, definitions and their relationships to help with communal understanding.
+
+To connect into these larger concepts OCA introduces the concept of framing and framing overlays. Different parts of a schema (e.g. attribute names) can be connected to a term in a specific controlled ontology. Framing can be useful to help understand exactly what data is being collected and how it maps to other concepts and ultimately how it can connect to other knowledge sources.
+
 Where a schema provides a systemic blueprint for structuring concrete objects, a frame provides an epistemic blueprint for representing abstract concepts.
 
-Concepts, or the idea of something, can be codified and expressed in different types of controlled vocabularies. For example, as glossaries, taxonomies and ontologies.
-
-Framing overlays connect a schema to broader context, as documented in a controlled vocabulary.
-
-Different parts of a schema can be framed including attributes, entry codes and units.
-
-Overlays Capture Architecture uses the [Simple Standard for Sharing Ontological Mappings](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9216545/) (SSSOM) [1](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9216545/) ontology to address the lack of context around framings, such as "are two terms equivalent or merely related? Are they narrow or broad matches? Or are they associated in some other way? Documenting the term relationships correctly will reduce incorrect assumptions letting the framings to be used in scenarios that require a high degree of precision"[1](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9216545/).
-
-In the SSSOM specification: "Each mapping can be described by up to 38 standard metadata ‘slots’, or elements (in version 0.9). Four of these are required for any individual mapping: subject_id, object_id (the pair of entities mapped), predicate_id (the nature of the relationship between the two) and match_type (how the mapping was derived)[replaced with mapping_justification June 2022]. Additional optional metadata elements include author_id, mapping_date and many more."[1](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9216545/)
+Connecting an attribute, entry code or unit to a term in a controlled vocabulary requires that the nature of the relationship is documented. Overlays Capture Architecture uses the [Simple Standard for Sharing Ontological Mappings](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9216545/) (SSSOM) [1](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9216545/) ontology to add context around framings, such as are two terms equivalent or only closely related and what is the nature of that relationship? By describing how the different terms are specifically related means that framings can be more precise.
 
 For framing overlays we will use the four required SSSOM mapping elements, and additional SSSOM metadata could be supplied external to OCA in other documentation. For OCA the naming conventions are as follows:
 
