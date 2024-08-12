@@ -828,7 +828,7 @@ _Example 19. Code snippet for a Sensitive Overlay_
 
 Concepts, or the idea of something, can be codified and expressed in different types of controlled vocabularies such as glossaries, taxonomies and ontologies. These controlled vocabularies are often the result of a community coming together to define a shared set of terms, definitions and their relationships to help with communal understanding.
 
-To connect into these larger concepts OCA uses the concept of framing and framing overlays. Different parts of a schema (e.g. attribute names) can be connected to a term in a specific controlled ontology. Framing can be useful to help understand exactly what data is being collected, how it maps to other concepts, and ultimately how it can connect to other knowledge sources.
+To connect into these larger concepts OCA uses framing and framing overlays where different parts of a schema (e.g. attribute names) can be connected to a term in a specific controlled vocabulary. Framing can help describe what data is being collected, how it maps to other concepts, and ultimately how data can be connected to other knowledge.
 
 Where a schema provides a systemic blueprint for structuring concrete objects, a frame provides an epistemic blueprint for representing abstract concepts.
 
@@ -858,7 +858,7 @@ Attribute Framing Overlays focus on the attributes used in schemas, mapping them
 
 There can be multiple attribute framing overlays within a single bundle, but each framing overlay is specific for one external context source (such as a single ontology or vocabulary aka `frame_id`).  There can be only one overlay per unique `frame_id`. 
 
-In the attribute framing overlay, for each attribute (which must be unique in the schema) there can be zero or more attribute_framing terms. 
+In the attribute framing overlay, for each attribute (which must be unique in the schema) there can be zero or more `attribute_framing` terms. 
 
 For each attribute there can only be one skos:exactMatch, but there may be additional framing terms for the same attribute (e.g. skos:closeMatch). Unlike attribute to attribute mapping, attribute to concept mapping can be one to many with different levels of matching (e.g. different skos terms). See example below (albumin concentration).
 
@@ -898,7 +898,7 @@ For each attribute there can only be one skos:exactMatch, but there may be addit
 
 Entry Code Framing Overlays focus on the entry codes used in schemas, mapping them to terms in external ontologies supporting detailed and precise data categorization. Like attribute framings, each entry code can have multiple framing terms to reflect varying degrees of match.
 
-There can be multiple entry code framing overlays within a single bundle, one for each specific external context source (such as a single ontology or vocabulary aka frame_id). There can be only one overlay per unique `frame_id`. 
+There can be multiple entry code framing overlays within a single bundle, one for each specific external context source (such as a single ontology or vocabulary aka `frame_id`). There can be only one overlay per unique `frame_id`. 
 
 For each entry code of each attribute there can only be one skos:exactMatch, but there may be additional framing terms for the same entry code (e.g. skos:closeMatch).
 
@@ -956,7 +956,7 @@ Unit Framing Overlays focus on the units used in schemas, mapping them to standa
 
 There can be multiple unit framing overlays within a single bundle, one for each specific external context source (such as a single unit ontology or vocabulary aka `frame_id`). There can be only one overlay per unique `frame_id`. 
 
-For each unique unit that appears in the schema there can be only one unit_framing term. This term must be skos:exactMatch and only skos:exactMatch is allowed (no other skos terms). This is because units are often associated with quantitative data and it is necessary to preserve accuracy and to use units reported to transform data.
+For each unique unit that appears in the schema there can be only one `unit_framing` term. This term must be skos:exactMatch and only skos:exactMatch is allowed (no other skos terms). This is because units are often associated with quantitative data and it is necessary to preserve accuracy and to use units reported to transform data.
 
 ```
 {
@@ -980,12 +980,12 @@ For each unique unit that appears in the schema there can be only one unit_frami
 ```
 
 ##### Rules for framing overlays
-* For each framing overlay there must be a frame_id
-* Within each overlay framing type (attribute, unit or entry_code) each frame_id must be unique.
+* For each framing overlay there must be a `frame_id`
+* Within each overlay framing type (attribute, unit or entry_code) each `frame_id` must be unique.
 * Not every term must be framed
 * For each attribute or entry_code framing there can be only one skos:exactMatch (or equivalent term in another mapping vocabulary) per term.
-* For unit framing, each unit used in a schema can be framed only once.
-* For unit framing, each unit can only be framed using skos:exactMatch (or equivalent term in another mapping vocabulary).
+* For unit framing, each unique unit used in a schema can be framed only once.
+* For unit framing, each unit can only be framed using skos:exactMatch.
 
 ##### Predicate_id
 Recommended skos terms for vocabulary mapping
