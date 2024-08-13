@@ -834,7 +834,7 @@ Where a schema provides a systemic blueprint for structuring concrete objects, a
 
 Connecting an attribute, entry code or unit to a term in a controlled vocabulary requires the nature of the relationship to be documented. Overlays Capture Architecture uses the [Simple Standard for Sharing Ontological Mappings](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9216545/) (SSSOM) ontology to add context to framings, such as are two terms equivalent or only closely related and what is the nature of that relationship? By describing how the different terms are specifically related means that framings can be precise.
 
-For framing overlays OCA uses the four required SSSOM mapping elements. Any additional SSSOM metadata could be supplied external to OCA in other documentation. For OCA the naming conventions are as follows:
+For framing overlays, OCA uses the four required SSSOM mapping elements. Any additional SSSOM metadata could be supplied external to OCA in other documentation. For OCA the naming conventions are as follows:
 
 |OCA|SSSOM|
 |---|---|
