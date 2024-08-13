@@ -832,7 +832,7 @@ To connect into these larger concepts OCA uses framing and framing overlays wher
 
 Where a schema provides a systemic blueprint for structuring concrete objects, a frame provides an epistemic blueprint for representing abstract concepts.
 
-Connecting an attribute, entry code or unit to a term in a controlled vocabulary requires the nature of the relationship to be documented. Overlays Capture Architecture uses the [Simple Standard for Sharing Ontological Mappings](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9216545/) (SSSOM) ontology to add context to framings, such as are two terms equivalent or only closely related and what is the nature of that relationship? By describing how the different terms are specifically related means that framings can be precise.
+Connecting an attribute, entry code, or unit to a term in a controlled vocabulary requires the nature of the relationship to be documented. Overlays Capture Architecture uses the [Simple Standard for Sharing Ontological Mappings](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9216545/) (SSSOM) ontology to add context to framings, such as are two terms equivalent or only closely related and what is the nature of that relationship? By describing how the different terms are specifically related means that framings can be precise.
 
 For framing overlays, OCA uses the four required SSSOM mapping elements. Any additional SSSOM metadata could be supplied external to OCA in other documentation. For OCA the naming conventions are as follows:
 
@@ -843,9 +843,9 @@ For framing overlays, OCA uses the four required SSSOM mapping elements. Any add
 |predicate_id|predicate_id|
 |framing_justification|matching_justification|
 
-When using framing in a schema multiple framing overlays are allowed, and each framing overlay is specific for a single source being mapped to. So that users can know that they are accessing the correct external concept, the external concept must be described by sufficient cataloging information provided within the framing overlay.
+When using framing in a schema multiple framing overlays are allowed and each framing overlay is specific for a single source being mapped to. The external concept must be described by sufficient cataloging information provided within the framing overlay so that users can know that they are accessing the correct external concept.
 
-The following four pieces of metadata will correctly identify external resources (e.g the controlled vocabulary). Only `frame_id` is required.
+The following four pieces of metadata will correctly identify external resources (e.g. the controlled vocabulary). Only `frame_id` is required.
 
 1. `frame_id`: Identifier of resource (SAIDs, DOIs, PURLs, or common names e.g. UCUM)
 2. `frame_label`: Label of resource (e.g. Unified Code for Units of Measure)
