@@ -1,0 +1,1 @@
+import{_ as t,c as e,o as c}from"./app-CSAwYlVx.js";const r={};function n(o,a){return c(),e("div")}const s=t(r,[["render",n],["__file","contribute.html.vue"]]),_=JSON.parse('{"path":"/contribute.html","title":"","lang":"en-US","frontmatter":{},"headers":[],"git":{"updatedTime":1731606677000},"filePathRelative":"contribute.md"}');export{s as comp,_ as data};
