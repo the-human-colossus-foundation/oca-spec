@@ -6,22 +6,22 @@ description: Official OCA specification
 # OCA Technical Specification
 
 <dl>
+    <dt>
+        Version:
+    </dt>
+    <dd>
+        v1.0.2
+    </dd>
   <dt>
-      Version:
+      Latest published version:
   </dt>
-  <dd> v1.0.2 </dd>
-  <dt> Latest published version: </dt>
-  <dd>
+<dd>
 
-  [https://oca.colossi.network/specification/](https://oca.colossi.network/specification/) ([Download as PDF](https://humancolossus.foundation/s/HCF-Overlays-Capture-Architecture-OCA-v1.pdf))
-  </dd>
-  <dt> Previous version: </dt>
-  <dd>
+[https://oca.colossi.network/specification/](https://oca.colossi.network/specification/) ([Download as PDF](https://humancolossus.foundation/s/HCF-Overlays-Capture-Architecture-OCA-v1.pdf))
 
-  [https://oca.colossi.network/specification/v1.0.1/](https://oca.colossi.network/specification/v1.0.1)
-  </dd>
+</dd>
   <dt>
-    Author:
+Author:
   </dt>
 <dd>
 
@@ -832,41 +832,150 @@ _Example 19. Code snippet for a Sensitive Overlay_
 
 ### Bundle
 
-An OCA Bundle contains a set of OCA objects consisting of a Capture Base and bound Overlays. An encoded cryptographic digest of the contained objects produces a deterministic identifier for the bundle.
+An OCA Bundle is a set of OCA objects which MUST included a `Capture Base` and MAY consist of any number of `Overlays`. An encoded cryptographic digest of the contained objects produces a
+deterministic identifier for the bundle.
 
-The following object types are REQUIRED in any OCA bundle to preserve the minimum amount of structural, definitional, and contextual information to capture the meaning of inputted data.
+#### Canonical form
 
-- Capture base
-- Character encoding overlay
-- Format overlay
+OCA Bundles MUST be serializable to be transferred over the network. The
+serialization algorithm MUST be deterministic and operate on the canonical form
+of the Bundle, which ensures proper ordering of the attributes within OCA
+Objects. The serialization algorithm consists of the following rules:
 
-The cardinality of several overlay types, particularly the language-specific ones (Entry, Information, Label, and Meta), can be multiple depending on the number of defined supported languages.
+- MUST consist of following attributes in this order: `v`, `d`, `capture_base`, `overlays`
+  - `v` - version string defined per section [Bundle Version](#bundle-version)
+  - `d` - deterministic identifier of the bundle
+  - `capture_base` - the `Capture Base` object defined as per section [Capture Base](#capture-base)
+  - `overlays` - an array, containing all the overlays, sorted ASC by the `d` attribute
+
+##### Bundle Version
+
+To ensure proper versioning and identification of bundles within the OCA
+Specification, we define a standardized string format for the bundle version.
+This format encodes critical metadata about the bundle, allowing for consistent
+interpretation and management across implementations.
+
+*Bundle Version String Format*
+
+The bundle version string must adhere to the following format:
 
 ```
- EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis.json
-├── E3SAKe0z83pfBnhhcZl19PGGKBheb35WeCJ3V6RdqwY8.json
-├── Ejx0o0yuwp99vi0V-ssP6URZIXRMGj1oNKIZ1BXi4sHU.json
-├── EZv1B5nNl4Rty8CXFTALhr8T6qXeO0CcKliM03sdrkRA.json
-├── Eri3NLi1fr4QrKoFfTlK31KvWpwrSgGaZ0LLuWYQaZfI.json
-├── EY0UZ8aYAPusaWk_TON8c20gHth2tvZs4eWh7XAfXBcY.json
-├── E1mqEb4f6eOMgu5zR857WWlMUwGYwPzZgiM6sWRZkQ0M.json
-├── ESEMKWoKKIf5qvngKecV-ei8MwcQc_pPWCH1FrTWajAM.json
-├── EyzKEWuMs8kspj4r70_Lc8sdppnDx-hb9QqUQywjmDRY.json
-├── EIGknekgJFqjgQ8ah2NwL8zNWbFrllvXVLqezgB6U3Yg.json
-├── EgBxL29VsxoZso7YFirlMP334ZuC1mkel-lO7TxPxEq8.json
-├── ED9PH0ZBaOci-nbnYfPgYZWGQdkyWxA-nW3REmB3vhu0.json
-├── ElJEQGfAvfJEuB7JeNIcvmAPO2DIOaKkpkZyvxO-gQoc.json
-├── EpW9bQGs0Lk6k5cJikN0Ep-DN6z29fwZIsbVzMBgTlWY.json
-├── EIGj0LQKT9-6gCLV2QZVgi4YQZhrUl0-GKbN7sFTCSAI.json
-├── EHDwC_Ucuttrsxh2NVptgBnyG4EMbG5D8QsdbeF9G9-M.json
-└── meta.json
+OCAS<major><minor><format><size>_
 ```
 
-_Example 20. A representation of an OCA Bundle as a ZIP file containing a Capture Base (first row), multiple Overlays, and a metafile (meta.json) that provides key-value mappings between the file names and the names of the OCA object types. Apart from the metafile, each file name directly represents the encoded cryptographic digest of the file._
+Where:
 
-See [ Appendix A ](#appendix-a-an-example-of-metafile-content) for more information on the content of a metafile (`meta.json` in the above example).
+- `OCAS`: A fixed prefix indicating "OCA Structure". This identifies the string as conforming to the OCA Specification's versioning scheme.
+- `<major>`: A single-digit integer (0-9) representing the major version of the specification. A change in the major version indicates backward-incompatible updates to the structure.
+- `<minor>`: A single-digit integer (0-9) representing the minor version of the specification. A change in the minor version indicates backward-compatible updates.
+- `<format>`: A string denoting the serialization format of the bundle. Supported format is: `JSON`: JavaScript Object Notation
+- `<size>`: A six-digit, zero-padded integer representing the size of the object in hex notation, size of the object is calculated with `d` field with dummy characters the same lenght as the eventual derived value. The dummy character is #, that is, ASCII 35 decimal (23 hex).
+- '_': A version string terminator.
 
-If well-structured, the metadata in an OCA bundle can facilitate many ways for users to search for information, present results, and even manipulate and present information objects without compromising their integrity.
+*Example*:
+
+A valid bundle version string:
+```
+OCAS11JSON000646_
+```
+
+This indicates:
+- `OCAS` it is a OCA Bundle.
+- The major version is 1.
+- The minor version is 1.
+- The serialization format is JSON.
+- The object size in base64 encoding is 646 bytes.
+
+*Validation*
+
+Consumers of the OCA Specification must implement validation logic to ensure the bundle version string:
+- Matches the defined format and structure.
+- Uses only supported serialization formats.
+- Accurately represents the object's size in base64 encoding.
+
+Validation failure must result in the rejection of the bundle as non-compliant with the specification.
+
+*Example*:
+TODO update example
+```
+{
+  "bundle": {
+    "v": "OCAS11JSON000646_",
+    "d": "EKHBds6myKVIsQuT7Zr23M8Xk_gwq-2SaDRUprvqOXxa",
+    "capture_base": {
+      "d": "EBnF9U9XW1EqteIW0ucAR4CsTUqojvfIWkeifsLRuOUW",
+      "type": "spec/capture_base/1.0",
+      "attributes": {
+        "d": "Text",
+        "i": "Text",
+        "passed": "Boolean"
+      },
+      "classification": "",
+    },
+    "overlays": {
+      "character_encoding": {
+        "d": "ED6Eio9KG2jHdFg3gXQpc0PX2xEI7aHnGDOpjU6VBfjs",
+        "capture_base": "EBnF9U9XW1EqteIW0ucAR4CsTUqojvfIWkeifsLRuOUW",
+        "type": "spec/overlays/character_encoding/1.0",
+        "attribute_character_encoding": {
+          "d": "utf-8",
+          "i": "utf-8",
+          "passed": "utf-8"
+        }
+      },
+      "conformance": {
+        "d": "EJSRe8DnLonKf6GVT_bC1QHoY0lQOG6-ldqxu7pqVCU8",
+        "capture_base": "EBnF9U9XW1EqteIW0ucAR4CsTUqojvfIWkeifsLRuOUW",
+        "type": "spec/overlays/conformance/1.0",
+        "attribute_conformance": {
+          "d": "M",
+          "i": "M",
+          "passed": "M"
+        }
+      },
+      "information": [
+        {
+          "d": "EIBXpVvka3_4lheeajtitiafIP78Ig8LDMVX9dXpCC2l",
+          "capture_base": "EBnF9U9XW1EqteIW0ucAR4CsTUqojvfIWkeifsLRuOUW",
+          "type": "spec/overlays/information/1.0",
+          "language": "eng",
+          "attribute_information": {
+            "d": "Schema digest",
+            "i": "Credential Issuee",
+            "passed": "Enables or disables passing"
+          }
+        }
+      ],
+      "label": [
+        {
+          "d": "ECZc26INzjxVbNo7-hln6xN3HW3e1r6NGDmA5ogRo6ef",
+          "capture_base": "EBnF9U9XW1EqteIW0ucAR4CsTUqojvfIWkeifsLRuOUW",
+          "type": "spec/overlays/label/1.0",
+          "language": "eng",
+          "attribute_categories": [],
+          "attribute_labels": {
+            "d": "Schema digest",
+            "i": "Credential Issuee",
+            "passed": "Passed"
+          },
+          "category_labels": {}
+        }
+      ],
+      "meta": [
+        {
+          "d": "EOxvie-zslkGmFzVqYAzTVtO7RyFXAG8aCqE0OougnGV",
+          "capture_base": "EBnF9U9XW1EqteIW0ucAR4CsTUqojvfIWkeifsLRuOUW",
+          "type": "spec/overlays/meta/1.0",
+          "language": "eng",
+          "description": "Entrance credential",
+          "name": "Entrance credential"
+        }
+      ]
+    }
+}
+```
+_Example 20. Code snippet for an OCA Bundle._
+
 
 ### Code Tables
 
@@ -1131,7 +1240,7 @@ Internet Assigned Numbers Authority (IANA) [https://www.iana.org/](https://www.i
 </dd>
 
 <dt id="ref-ICAO">
-[ICAO] 
+[ICAO]
 </dt>
 <dd>
 
@@ -1331,29 +1440,3 @@ United Nations. Sustainable Development Goals (SDGs) [https://sdgs.un.org/goals]
 </div>
 
 ## Appendices
-
-### Appendix A. An example of Metafile content
-
-```json
-{
-  "files": {
-    "[EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis] character_encoding": "E3SAKe0z83pfBnhhcZl19PGGKBheb35WeCJ3V6RdqwY8",
-    "[EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis] conditional": "Ejx0o0yuwp99vi0V-ssP6URZIXRMGj1oNKIZ1BXi4sHU",
-    "[EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis] conformance": "EZv1B5nNl4Rty8CXFTALhr8T6qXeO0CcKliM03sdrkRA",
-    "[EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis] entry (en)": "Eri3NLi1fr4QrKoFfTlK31KvWpwrSgGaZ0LLuWYQaZfI",
-    "[EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis] entry (fr)": "EY0UZ8aYAPusaWk_TON8c20gHth2tvZs4eWh7XAfXBcY",
-    "[EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis] entry_code": "E1mqEb4f6eOMgu5zR857WWlMUwGYwPzZgiM6sWRZkQ0M",
-    "[EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis] format": "ESEMKWoKKIf5qvngKecV-ei8MwcQc_pPWCH1FrTWajAM",
-    "[EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis] information (en)": "EyzKEWuMs8kspj4r70_Lc8sdppnDx-hb9QqUQywjmDRY",
-    "[EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis] information (fr)": "EIGknekgJFqjgQ8ah2NwL8zNWbFrllvXVLqezgB6U3Yg",
-    "[EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis] label (en)": "EgBxL29VsxoZso7YFirlMP334ZuC1mkel-lO7TxPxEq8",
-    "[EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis] label (fr)": "ED9PH0ZBaOci-nbnYfPgYZWGQdkyWxA-nW3REmB3vhu0",
-    "[EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis] layout": "ElJEQGfAvfJEuB7JeNIcvmAPO2DIOaKkpkZyvxO-gQoc",
-    "[EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis] meta (en)": "EpW9bQGs0Lk6k5cJikN0Ep-DN6z29fwZIsbVzMBgTlWY",
-    "[EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis] meta (fr)": "EIGj0LQKT9-6gCLV2QZVgi4YQZhrUl0-GKbN7sFTCSAI",
-    "[EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis] unit": "EHDwC_Ucuttrsxh2NVptgBnyG4EMbG5D8QsdbeF9G9-M",
-    "capture_base-0": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis"
-  },
-  "root": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis"
-}
-```
