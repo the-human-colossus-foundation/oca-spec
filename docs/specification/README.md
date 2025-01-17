@@ -103,8 +103,8 @@ The Capture Base consists of the following attributes:
 
 ```json
 {
-  "type": "spec/capture_base/1.0",
   "classification": "GICS:45102010",
+  "type": "spec/capture_base/1.0.0",
   "attributes": {
     "dateOfBirth": "DateTime",
     "documentNumber": "Text",
@@ -128,11 +128,11 @@ _Example 1. Code snippet for a Capture Base._
 
 #### Type
 
-The `type` attribute identifies the schema object type.
+The `type` attribute identifies the schema object type and it's version.
 
 ```abnf
 type = "spec/capture_base/" sem_ver
-sem_ver = DIGIT "." DIGIT
+sem_ver = DIGIT "." DIGIT "." DIGIT
 ```
 
 _Listing: ABNF core rules \[[RFC5234](#ref-RFC5234)\]_
