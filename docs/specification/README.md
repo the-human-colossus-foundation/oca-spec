@@ -1122,6 +1122,8 @@ Data presentation MAY involve Semantic, Inputs, and Presentation Overlays.
 
 ## Conventions and Definitions
 
+Sections marked as non-normative, along with all authoring guidelines, diagrams, examples, and notes in this specification, are for informational purposes only and are not mandatory for compliance. All other sections of this specification are normative and define the required rules and standards that must be followed to ensure conformity with the OCA Specification.
+
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted when, and only when, they appear in all capitals, as described in RFC 2119 \[[RFC2119](#ref-RFC2119)\].
 
 ## References
