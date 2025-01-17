@@ -68,12 +68,6 @@ Contact:
 </dd>
 </dl>
 
-::: warning Disclaimer
-Strictly following DDE Principle 1.4 \[[HCF2022](#ref-HCF2022)\], OCA schema objects MUST be resolvable solely upon the encoded cryptographic digest of their content to ensure objectual integrity.
-
-All code snippets in this version of the document are in JavaScript Object Notation (JSON) \[[ISO21778](#ref-ISO21778)\] format. However, any serialisation format applies as long as all OCA objects have proper semantics.
-:::
-
 ## Introduction
 
 _This section is non-normative._
@@ -86,15 +80,15 @@ OCA represents transient objects (domain-agnostic) and persistent schemas (domai
 
 #### What is a Capture Base?
 
-A Capture Base is the purest and simplest form of a schema, defining the structural characteristics of a dataset. It is the foundational layer upon which to bind task-specific objects to enhance the meaning of inputted data.
+A [Capture Base](#capture-base) is the purest and simplest form of a schema, defining the structural characteristics of a dataset. It is the foundational layer upon which to bind task-specific objects to enhance the meaning of inputted data.
 
 #### What are Overlays?
 
-Overlays are task-specific objects that provide cryptographically-bound layers of definitional or contextual metadata to a Capture Base. Any actor interacting with a published Capture Base can use Overlays to transform how inputted data and metadata are displayed to a viewer or guide an agent in applying a custom process to captured data.
+[Overlays](#overlays) are task-specific objects that provide cryptographically-bound layers of definitional or contextual metadata to a [Capture Base](#capture-base). Any actor interacting with a published [Capture Base](#capture-base) can use [Overlays](#overlays) to enrich meaning of the data, transform how inputted data and metadata are displayed to a viewer or guide an agent in applying a custom process to captured data.
 
 ## OCA object types
 
-An OCA object is either a Capture Base or a task-specific Overlay with a deterministic relationship to a Capture Base. When amalgamated as a Bundle, OCA objects provide the necessary structural, definitional, and contextual information to determine the meaning of inputted data at the time of data capture.
+An `OCA object` is either a [Capture Base](#capture-base) or a task-specific [Overlay](#overlays) with a deterministic relationship to a [Capture Base](#capture-base). When amalgamated as a [Bundle](#bundle), OCA objects provide the necessary structural, definitional, and contextual information to determine the meaning of inputted data at the time of data capture.
 
 ### Capture Base
 
