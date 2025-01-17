@@ -92,18 +92,17 @@ An `OCA object` is either a [Capture Base](#capture-base) or a task-specific [Ov
 
 ### Capture Base
 
-A Capture Base is a stable base object that defines a single dataset in its purest form, providing a structural base to harmonise data. The object defines attribute names and types. It also contains a flagging block that allows schema issuers to mark potentially dangerous attributes that may capture identifying information about entities (i.e., personally identifiable information (PII) or quasi-identifiable information (QII)). Once flagged, all corresponding data can be treated as high-risk throughout the data lifecycle and encrypted or removed at any stage, reducing the risk of re-identification attacks against blinded datasets.
+A `Capture Base` is a stable base object that defines a single dataset in its purest form, providing a structural base to harmonise data. The object defines `attribute names` and `types`.
 
-The Capture Base consists of the following attributes:
+The Capture Base consists of the following attributes in that order:
 
-- [ Type ](#type)
-- [ Classification ](#classification)
-- [ Attributes ](#attributes)
-- [ Flagged attributes ](#flagged-attributes)
+- `d` - deterministic identifier of the capture base
+- [ type ](#type)
+- [ attributes ](#attributes)
 
 ```json
 {
-  "classification": "GICS:45102010",
+  "d": "EFEDyA__ap51wscacOwATP3c51icUeHT6D0tTbInQI9G",
   "type": "spec/capture_base/1.0.0",
   "attributes": {
     "dateOfBirth": "DateTime",
@@ -115,12 +114,6 @@ The Capture Base consists of the following attributes:
     "photoImage": "Binary",
     "sex": "Text"
   },
-  "flagged_attributes": [
-    "documentNumber",
-    "fullName",
-    "dateOfBirth",
-    "photoImage"
-  ]
 }
 ```
 
@@ -136,26 +129,6 @@ sem_ver = DIGIT "." DIGIT "." DIGIT
 ```
 
 _Listing: ABNF core rules \[[RFC5234](#ref-RFC5234)\]_
-
-#### Classification
-
-The "classification" attribute is for capturing a standardised classification scheme and taxonomy code to identify the primary sector, area, or topic of a published schema's intended use. Taxonomy codes provide a means for classifying schemas into groupings according to similar functions, markets, products, or services, ultimately leading to better search results for users interested in different categories.
-
-Note: All classification schemes are supported. RECOMMENDED schemes include the Global Industry Classification Standard (GICS) \[[GICS](#ref-GICS)\] for industry sector classification and the Sustainable Development Goals (SDGs) \[[UNSDG](#ref-UNSDG)\] for the categorisation of humanitarian advocacy and outreach activities.
-
-```abnf
-classification = taxonomy ":" identifier
-taxonomy = 1*( ALPHA / DIGIT / "-" )
-identifier = 1*( ALPHA / DIGIT / "-" / "." )
-```
-
-_Listing: ABNF core rules_
-
-::: tip Example
-For the GICS classification: `"classification": "GICS:10101010"`
-
-For the SDG classification: `"classification": "SDG:1.1"`
-:::
 
 #### Attributes
 
@@ -186,12 +159,6 @@ An attribute type determines the attribute's syntax and how attributes of that t
   :::
 
 - **Array[data type]**: a data type that defines a structure that holds several data items or elements of the same data type. When you want to store many pieces of data that are related and have the same data type, it is often better to use an array instead of many separate variables (e.g., `Array[Text]`, `Array[Numeric]`, etc.).
-
-#### Flagged attributes
-
-Any attributes defined in a Capture Base that may contain identifying information about entities (i.e., personally identifiable information (PII) or quasi-identifiable information (QII)) can be flagged.
-
-The Blinding Identity Taxonomy (BIT) \[[KAN2020](#ref-KAN2020)\] is a practical tool for any practitioner whose organisation has custody or control of a dataset containing identifiable information about entities, including a natural person, organisation, or device with signing capabilities that make that entity uniquely identifiable. For example, data protection officers and schema issuers can use the BIT to flag a list of elements which require cryptographic encoding to reduce the risk of identifying a data principal.
 
 ### Overlays
 
