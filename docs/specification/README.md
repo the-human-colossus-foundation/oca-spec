@@ -217,13 +217,26 @@ _Listing: ABNF core rules_
 
 To indicate language-specific information, some overlays would include a `language` attribute to indicate localization of that overlay.
 
-The International Organization for Standardization (ISO) \[[ISO](#ref-ISO)\] has standardised two lists of language-related codes: the language codes called ISO 639-1 alpha-2 \[[ISO639](#ref-ISO639)\] codes ("Codes for the representation of names of languages") and ISO 3166-1 alpha-2 \[[ISO3166](#ref-ISO3166)\] codes ("Codes for the representation of names of countries"). Both consist of two letters. The language code is written in lowercase while the country code is written in uppercase. However, both ISO classifications may be combined to differentiate regional languages.
+The International Organization for Standardization (ISO) \[[ISO](#ref-ISO)\] has standardised comprehansive list of language-related codes called ISO 639-3.
 
-The `language` attribute MUST contain either the two-letter language code (lowercase) for a national language or the combined language (lowercase)/country (uppercase) code for a regional language or locale.
+The `language` attribute MUST contain the three-letter language code (lowercase) according to the [ISO 639-3](#ref-ISO639).
 
-![Table 1](/images/spec-table1.png)
-_Table 1. An example of ISO standard values for language and combined language/country codes._
-
+```json
+{
+  "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
+  "type": "spec/overlays/label/1.0.1",
+  "language": "pol",
+  "attributes": {
+    "dateOfBirth": "Data urodzenia",
+    "documentNumber": "Numer paszportu",
+    "documentType": "Typ dokumentu",
+    "fullName": "Imię i nazwisko",
+    "height": "Wzrost",
+    "issuingState": "Wydający państwo",
+    "photoImage": "Zdjęcie"
+}
+```
+_Example: Code snipet of lable overlay with language attribute set to polish_
 #### Semantic Overlays
 
 Semantic overlays provide contextual meaning to describe objects and their relationships.
@@ -1175,25 +1188,7 @@ International Organization for Standardization (ISO) [https://www.iso.org/home.h
 </dt>
 <dd>
 
-ISO 639-1:2002, Codes for the representation of names of languages — Part 1: Alpha-2 code (2019) [https://www.iso.org/standard/22109.html](https://www.iso.org/standard/22109.html)
-
-</dd>
-
-<dt id="ref-ISO3166">
-[ISO3166]
-</dt>
-<dd>
-
-ISO 3166-1:2020, Codes for the representation of names of countries and their subdivisions — Part 1: Country code (2020) [https://www.iso.org/standard/72482.html](https://www.iso.org/standard/72482.html)
-
-</dd>
-
-<dt id="ref-ISO7501">
-[ISO7501]
-</dt>
-<dd>
-
-ISO/IEC 7501-1:2008, Identification cards — Machine readable travel documents — Part 1: Machine-readable passport (2021) [https://www.iso.org/standard/45562.html](https://www.iso.org/standard/45562.html)
+ISO 639-1:2002, Codes for the representation of names of languages — Part 3 (2007) [https://www.iso.org/standard/74575.html](https://www.iso.org/standard/74575.html)
 
 </dd>
 
