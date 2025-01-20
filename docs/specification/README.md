@@ -299,38 +299,6 @@ The inputted format values are dependent on the following core data types as def
 
 _Example 3. Code snippet for a Format Overlay._
 
-##### Information Overlay
-
-_[language-specific object]_
-
-An Information Overlay defines attribute field descriptions and usage notes to assist the data entry process or to add context to presented data.
-
-In addition to the `capture_base`, `type`, and `language` attributes (see [Common attributes](#common-attributes)), the Information Overlay MUST include the following attribute:
-
-- `attribute_information`
-
-  The `attribute_information` attribute maps key-value pairs where the key is the attribute name and the value is the informational prose in a specific language.
-
-```json
-{
-   "capture_base":"EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
-   "type":"spec/overlays/information/1.0",
-   "language":"en",
-   "attribute_information":{
-      "dateOfBirth":"Holder’s date of birth as recorded by the issuing State or organization.",
-      "documentNumber":"Unique identification number of the document.",
-      "documentType":"The word for "passport" in the language of the issuing State or organization.",
-      "fullName":"Full name of the passport holder.",
-      "height":"Recorded height of the passport holder.",
-      "issuingState":"Name of the State or organization responsible for issuing the passport.",
-      "photoImage":"Portrait image of the passport holder.",
-      "sex":"Sex of the passport holder."
-   }
-}
-```
-
-_Example 4. Code snippet for an Information Overlay (language: en)._
-
 ##### Label Overlay
 
 _[language-specific object]_
