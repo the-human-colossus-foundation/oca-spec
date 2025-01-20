@@ -162,20 +162,33 @@ An attribute type determines the attribute's syntax and how attributes of that t
 
 ### Overlays
 
-Overlays are cryptographically-linked objects that provide layers of task-oriented definitional or contextual information to a Capture Base. Any actor interacting with a published Capture Base can use Overlays to add metadata to the underlying object, transform how information is displayed to a viewer, or guide an agent in applying a custom process to captured data.
+`Overlay` as a task-specific object provides layers of definitional or contextual metadata. OCA specification recognize two types of overlays:
+- [Semantic overlays](#semantic-overlays) - provide contextual meaning to describe objects and their relationships.
+- [Inputs overlays](#inputs-overlays) - provide predefined inputs for data attestations.
 
-Overlays consist of the following attributes:
+Which in context of that specification are treated as core overlays which through community consensus are the most important to be included in the specification and moste commenly used.
 
-- [ Capture base ](#capture-base-1)
-- [ Type ](#type-1)
+OCA Specification intentionaly limits defined overlays in the core specification to the minmum to allow for community driven efforts to create necessary overlays and through dominat design decided which task-specific overlays would make sens.
+
+
+#### Mandatory attributes
+
+Overlays are cryptographically-linked objects that provide layers of task-oriented definitional or contextual information to a other [OCA Objects](#oca-object-types). Any actor interacting with a published Capture Base can use Overlays to add metadata to the underlying object, transform how information is displayed to a viewer, or guide an agent in applying a custom process to captured data.
+
+Overlays `MUST` consist of the following attributes in that order:
+
+- [ capture_base ](#capture-base-1) or [overlay](#overlay)
+- [ type ](#type-1)
 - Overlay-specific attributes
   - See specific overlay types for more information.
 
-#### Common attributes
-
 ##### Capture base
 
-The `capture_base` attribute contains the SAID of the Capture Base to cryptographically anchor to that parent object.
+The `capture_base` attribute contains the SAID of the [Capture Base](#capture-base) to cryptographically anchor to that parent object.
+
+##### Overlay
+
+The `overlay` attribute contains the SAID of the [Overlay](#overlays) to cryptographically anchor to that parent object.
 
 ##### Type
 
@@ -189,7 +202,11 @@ sem_ver = DIGIT "." DIGIT
 
 _Listing: ABNF core rules_
 
+#### Optional attributes
+
 ##### Language
+
+To indicate language-specific information, some overlays would include a `language` attribute to indicate localization of that overlay.
 
 The International Organization for Standardization (ISO) \[[ISO](#ref-ISO)\] has standardised two lists of language-related codes: the language codes called ISO 639-1 alpha-2 \[[ISO639](#ref-ISO639)\] codes ("Codes for the representation of names of languages") and ISO 3166-1 alpha-2 \[[ISO3166](#ref-ISO3166)\] codes ("Codes for the representation of names of countries"). Both consist of two letters. The language code is written in lowercase while the country code is written in uppercase. However, both ISO classifications may be combined to differentiate regional languages.
 
