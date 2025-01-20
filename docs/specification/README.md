@@ -68,6 +68,12 @@ Contact:
 </dd>
 </dl>
 
+## Conventions and Definitions
+
+Sections marked as non-normative, along with all authoring guidelines, diagrams, examples, and notes in this specification, are for informational purposes only and are not mandatory for compliance. All other sections of this specification are normative and define the required rules and standards that must be followed to ensure conformity with the OCA Specification.
+
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted when, and only when, they appear in all capitals, as described in RFC 2119 \[[RFC2119](#ref-RFC2119)\].
+
 ## Introduction
 
 _This section is non-normative._
@@ -1015,12 +1021,6 @@ A Code Table for Unit mappings MUST include the following attribute:
 _Example 23. Code snippet for a Code Table for Unit mappings._
 
 Code Table for Unit mappings is in denormalised form, meaning that the conversion between units and unit prefixes is pre-defined for all standard unit conversions for maximum efficiency.
-
-## Conventions and Definitions
-
-Sections marked as non-normative, along with all authoring guidelines, diagrams, examples, and notes in this specification, are for informational purposes only and are not mandatory for compliance. All other sections of this specification are normative and define the required rules and standards that must be followed to ensure conformity with the OCA Specification.
-
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted when, and only when, they appear in all capitals, as described in RFC 2119 \[[RFC2119](#ref-RFC2119)\].
 
 ## References
 
