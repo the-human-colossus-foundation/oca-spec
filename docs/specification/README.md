@@ -733,7 +733,12 @@ _Example 17. Code snippet for a Unit Mapping Overlay._
 
 ##### Sensitive Overlay
 
-A Sensitive Overlay defines attributes not necessarily flagged in the Capture Base that need protecting against unwarranted disclosure. For example, data that requires protection for legal or ethical reasons, personal privacy, or proprietary considerations.
+A Sensitive Overlay is a specialized construct used to identify and flag attributes that require protection against unauthorized or unwarranted disclosure. Attributes marked by a Sensitive Overlay typically include data subject to legal, ethical, or privacy-related considerations, including but not limited to Personally Identifiable Information (PII), Quasi-Identifiable Information (QII)) or proprietary information.
+
+Sensitive Overlays are integral to ensuring compliance with legal and ethical standards while supporting robust data governance. Implementers must incorporate mechanisms to respect and enforce the protections designated by these overlays to maintain conformity with the OCA Specification.
+
+The Blinding Identity Taxonomy (BIT) [KAN2020](#ref-KAN2020) is a practical tool for any practitioner whose organisation has custody or control of a dataset containing identifiable information about entities, including a natural person, organisation, or device with signing capabilities that make that entity uniquely identifiable. For example, data protection officers and schema issuers can use the BIT to flag a list of elements which require cryptographic encoding to reduce the risk of identifying a data principal.
+
 
 In addition to the `capture_base` and `type` attributes (see [Common attributes](#common-attributes)), the Sensitive Overlay MUST include the following attribute:
 
