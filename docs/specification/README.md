@@ -219,9 +219,6 @@ _Table 1. An example of ISO standard values for language and combined language/c
 
 Semantic overlays provide contextual meaning to describe objects and their relationships.
 
-![Fig 1](/images/spec-fig1.png)
-_Figure 1. In a balanced network, semantic overlays determine the meaning and use of what is put in, taken in, or operated on by any process or system._
-
 ##### Character Encoding Overlay
 
 A Character Encoding Overlay defines the process of assigning numbers to graphical characters, especially the written characters of human language, allowing them to be stored, transmitted, and transformed using digital computers. Character encoding using internationally accepted standards permits worldwide interchange of text in electronic form.
@@ -441,9 +438,6 @@ _Example 7. Code snippet for a Standard Overlay._
 #### Inputs Overlays
 
 Inputs overlays provide predefined inputs for data attestations.
-
-![Fig 2](/images/spec-fig2.png)
-_Figure 2. In a balanced network, inputs overlays determine what is put in, taken in, or operated on by any process or system._
 
 ##### Cardinality Overlay
 
