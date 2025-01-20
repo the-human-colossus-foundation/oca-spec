@@ -641,10 +641,6 @@ and MUST include the following attribute:
 
 _Example 13. Code snippet for a Unit Overlay._
 
-#### Transformation Overlays
-
-Transformation overlays provide information to convert data from one format or structure to another, such as raw data to processed, or unstructured to structured.
-
 ##### Attribute Mapping Overlay
 
 An Attribute Mapping Overlay defines attribute mappings between two distinct data models. Data mapping provides a preliminary step for data integration tasks, including data transformation or data mediation between a data source and a destination or consolidation of multiple databases into a single database and identifying redundant columns of data for consolidation or elimination.
