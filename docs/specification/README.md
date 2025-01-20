@@ -731,10 +731,6 @@ In addition to the `capture_base` and `type` attributes (see [Common attributes]
 
 _Example 17. Code snippet for a Unit Mapping Overlay._
 
-#### Presentation Overlays
-
-Presentation overlays provide information to display digital documents at the application layer, including digital forms and credentials.
-
 ##### Layout Overlay
 
 ::: danger [Currently under review by Decentralised Semantics Working Group]
