@@ -94,11 +94,11 @@ A [Capture Base](#capture-base) is the purest and simplest form of a schema, def
 
 ## OCA object types
 
-An `OCA object` is either a [Capture Base](#capture-base) or a task-specific [Overlay](#overlays) with a deterministic relationship to a [Capture Base](#capture-base). When amalgamated as a [Bundle](#bundle), OCA objects provide the necessary structural, definitional, and contextual information to determine the meaning of inputted data at the time of data capture.
+An `OCA object` is either a [Capture Base](#capture-base) or a task-specific [Overlay](#overlays) with a deterministic relationship to a [Capture Base](#capture-base) or another [Overlay](#overlays). When amalgamated as a [Bundle](#bundle), OCA objects provide the necessary structural, definitional, and contextual information to determine the meaning of inputted data at the time of data capture.
 
 ### Capture Base
 
-A `Capture Base` is a stable base object that defines a single dataset in its purest form, providing a structural base to harmonise data. The object defines `attribute names` and `types`.
+A `Capture Base` is a base object that defines a single dataset in its purest form, providing a structural base to harmonise data. The object defines attribute names and types.
 
 The Capture Base consists of the following attributes in that order:
 
@@ -127,7 +127,7 @@ _Example 1. Code snippet for a Capture Base._
 
 #### Type
 
-The `type` attribute identifies the schema object type and it's version.
+The `type` attribute specifies the schema object type and its associated version. The version aligns with the corresponding OCA specification version, ensuring that the schema object remains compatible with the specified OCA specification.
 
 ```abnf
 type = "spec/capture_base/" sem_ver
