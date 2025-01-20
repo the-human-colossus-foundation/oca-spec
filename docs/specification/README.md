@@ -1016,42 +1016,6 @@ _Example 23. Code snippet for a Code Table for Unit mappings._
 
 Code Table for Unit mappings is in denormalised form, meaning that the conversion between units and unit prefixes is pre-defined for all standard unit conversions for maximum efficiency.
 
-## Basic concepts
-
-_This section is non-normative._
-
-Characters provide the essential elements required for written language in the physical world. In the digital world, stored sequences of bytes known as "data" represent these elements. However, without a system of interpretation, data has no inherent morphological, definitional, or contextual meaning. This interpretation is provided by "metadata", sets of data that provide meaning to any stored sequence of bytes.
-
-OCA is a core utility architecture for capturing the metadata necessary to interpret and preserve the meaning of inputted data. In addition, the architecture introduces a comprehensive solution to support data validation, transformation, and presentation requirements throughout a data lifecycle.
-
-![Fig 4](/images/spec-fig4.png)
-
-_Figure 4. Universal OCA lifecycle._
-
-### Capture
-
-Data capture is the process of collecting structured and unstructured information electronically and converting it into data readable by a computer.
-
-Data capture MAY involve Semantic, Inputs, and Presentation Overlays.
-
-### Validation
-
-Data validation is the process of checking the integrity, accuracy and structure of data before it is used for a business operation.
-
-Data validation MAY involve Semantic and Inputs Overlays.
-
-### Transformation
-
-Data transformation is the process of converting data from one format to another, typically from the format of a source system into the required format of a destination system.
-
-Data transformation MUST involve Transformation Overlays.
-
-### Presentation
-
-Data presentation is the process of using various graphical formats to visually represent the relationship between two or more data sets so that, based on the results, the reader or verifier can make an informed decision.
-
-Data presentation MAY involve Semantic, Inputs, and Presentation Overlays.
-
 ## Conventions and Definitions
 
 Sections marked as non-normative, along with all authoring guidelines, diagrams, examples, and notes in this specification, are for informational purposes only and are not mandatory for compliance. All other sections of this specification are normative and define the required rules and standards that must be followed to ensure conformity with the OCA Specification.
