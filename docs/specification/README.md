@@ -731,17 +731,6 @@ In addition to the `capture_base` and `type` attributes (see [Common attributes]
 
 _Example 17. Code snippet for a Unit Mapping Overlay._
 
-##### Layout Overlay
-
-::: danger [Currently under review by Decentralised Semantics Working Group]
-:::
-
-A Layout Overlay defines presentation information required by an application to display a digital document, including a digital form or credential.
-
-::: warning Disclaimer:
-Collaborators in several open communities have shown an interest in leveraging OCA’s "task-specific" ethos to work on new overlay types to ensure that data presentation (see [Presentation](#presentation)) is both extensible and interoperable. Deprecation of the Layout Overlay in favour of a more granular approach is likely in the future.
-:::
-
 ##### Sensitive Overlay
 
 A Sensitive Overlay defines attributes not necessarily flagged in the Capture Base that need protecting against unwarranted disclosure. For example, data that requires protection for legal or ethical reasons, personal privacy, or proprietary considerations.
