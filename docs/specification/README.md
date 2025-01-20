@@ -142,7 +142,20 @@ The "attributes" attribute maps key-value pairs where the key is the attribute n
 
 ##### Attribute name
 
-An attribute name is a string that uniquely identifies an attribute within an OCA layer and is used to reference that attribute by other layers throughout the OCA bundle.
+An attribute name is a string that uniquely identifies an attribute within an OCA layer and is used to reference that attribute by other layers throughout the OCA bundle. The string can be any valid Unicode code point.
+Example of a valid attribute name:
+- `FullName`
+- `person/name/fullName`
+- `王小明`
+- `550e8400-e29b-41d4-a716-446655440000`
+
+```abnf
+string = 1*(character)
+character = %x0000-10FFFF
+```
+
+_Listing: ABNF representation of the attribute name_
+
 
 ##### Attribute type
 
