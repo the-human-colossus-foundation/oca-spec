@@ -167,16 +167,6 @@ An attribute type determines the attribute's syntax and how attributes of that t
 - **Boolean**: a data type where the data only has two possible variables: true or false. In computer science, Boolean is an identification classifier for calculating logical truth values and algebraic variables.
 - **Binary**: a data type that defines a binary code signal, a series of electrical pulses representing numbers, characters, and performed operations. Based on a binary number system, each digit position represents a power of two (e.g., 4, 8, 16, etc.). A set of four binary digits or bits in binary code represents each decimal number (0 to 9). Each digit has two possible states: off and on (usually symbolised by 0 and 1). Combining basic Boolean algebraic operations on binary numbers makes it possible to represent each of the four fundamental arithmetic operations of addition, subtraction, multiplication, and division.
 - **DateTime**: a data type that defines the number of seconds or clock ticks that have elapsed since the defined epoch for that computer or platform. Common formats include dates (e.g., YYYY-MM-DD), times (e.g., hh:mm:ss), dates and times concatenated (e.g., `YYYY-MM-DDThh:mm:ss.sss+zz:zz`), and durations (e.g., `PnYnMnD`).
-
-  Note: The ISO 8601 \[[ISO8601](#ref-ISO8601)\] date and time format is the RECOMMENDED representation format for the dateTime data type, in which the Unix epoch is `1970-01-01T00:00:00Z`.
-
-  :::tip For the Unix epoch example:
-  Data type: `DateTime`<br>
-  Character encoding: `UTF-8` (default)<br>
-  Standard: `ISO 8601`<br>
-  Format: `YYYY-MM-DDThh:mm:ssZ`
-  :::
-
 - **Array[data type]**: a data type that defines a structure that holds several data items or elements of the same data type. When you want to store many pieces of data that are related and have the same data type, it is often better to use an array instead of many separate variables (e.g., `Array[Text]`, `Array[Numeric]`, etc.).
 
 ### Overlays
