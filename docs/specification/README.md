@@ -201,12 +201,12 @@ The `overlay` attribute contains the SAID of the [Overlay](#overlays) to cryptog
 
 ##### Type
 
-The `type` attribute identifies the schema object type.
+The `type` attribute identifies the schema object type. The version aligns with the corresponding OCA specification version, ensuring that the object remains compatible with the specified OCA specification.
 
 ```abnf
 type = "spec/overlay/" overlay_name "/" sem_ver
 overlay_name = ALPHA
-sem_ver = DIGIT "." DIGIT
+sem_ver = DIGIT "." DIGIT "." DIGIT
 ```
 
 _Listing: ABNF core rules_
