@@ -442,7 +442,7 @@ Note that `n` and `m` are positive integers.
 ```json
 {
   "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
-  "type": "spec/overlays/cardinality/1.0",
+  "type": "spec/overlays/cardinality/1.0.2",
   "attr_cardinality": {
     "documentType": "1-2"
   }
@@ -464,7 +464,7 @@ In addition to the `capture_base` and `type` attributes (see [Common attributes]
 ```json
 {
   "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
-  "type": "spec/overlays/conformance/1.0",
+  "type": "spec/overlays/conformance/1.0.2",
   "attribute_conformance": {
     "dateOfBirth": "M",
     "documentNumber": "M",
