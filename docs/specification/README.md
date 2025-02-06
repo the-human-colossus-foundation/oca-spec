@@ -232,7 +232,7 @@ The `language` attribute MUST contain the three-letter language code (lowercase)
 ```json
 {
   "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
-  "type": "spec/overlays/label/1.0.1",
+  "type": "spec/overlays/label/1.0.2",
   "language": "pol",
   "attributes": {
     "dateOfBirth": "Data urodzenia",
@@ -253,7 +253,7 @@ Semantic overlays provide contextual meaning to describe objects and their relat
 
 A Character Encoding Overlay defines the process of assigning numbers to graphical characters, especially the written characters of human language, allowing them to be stored, transmitted, and transformed using digital computers. Character encoding using internationally accepted standards permits worldwide interchange of text in electronic form.
 
-In addition to the `capture_base` and `type` attributes (see [Common attributes](#common-attributes)), the Character Encoding Overlay MAY include the following attributes:
+In addition to the [Mandatory attributes](#mandatory-attributes), the Character Encoding Overlay MUST include at least one of the following attributes:
 
 - `default_character_encoding`
 
@@ -286,7 +286,7 @@ In addition to the `capture_base` and `type` attributes (see [Common attributes]
   ```json
   {
     "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
-    "type": "spec/overlays/character_encoding/1.0",
+    "type": "spec/overlays/character_encoding/1.0.2",
     "default_character_encoding": "utf-8",
     "attribute_character_encoding": {
       "photoImage": "base64"
@@ -300,7 +300,7 @@ In addition to the `capture_base` and `type` attributes (see [Common attributes]
 
 A Format Overlay defines an input and display format for data fields. The data format enables conversion of the input buffer to the program variable and displays program variable data to form fields.
 
-In addition to the `capture_base` and `type` attributes (see [Common attributes](#common-attributes)), the Format Overlay MUST include the following attribute:
+In addition to the [Mandatory attributes](#mandatory-attributes), the Format Overlay MUST include the following attribute:
 
 - `attribute_formats`
 
@@ -317,7 +317,7 @@ The inputted format values are dependent on the following core data types as def
 ```json
 {
   "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
-  "type": "spec/overlays/format/1.0",
+  "type": "spec/overlays/format/1.0.2",
   "attribute_formats": {
     "dateOfBirth": "YYYY-MM-DD",
     "documentNumber": "[A-Z0-9]{9}",
@@ -344,7 +344,7 @@ In addition to the [Mandatory attributes](#mandatory-attributes) and [language](
 ```json
 {
   "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
-  "type": "spec/overlays/label/1.0",
+  "type": "spec/overlays/label/1.0.2",
   "language": "eng",
   "attribute_labels": {
     "dateOfBirth": "Date of birth",
@@ -367,7 +367,7 @@ _[language-specific object]_
 
 A Meta Overlay defines any language-specific information about a schema. It is used for discovery and identification and includes elements such as the schema name and description.
 
-In addition to the `capture_base`, `type`, and `language` attributes (see [Common attributes](#common-attributes)), the Meta Overlay SHOULD include the following attributes:
+In addition to the [Mandatory attributes](#mandatory-attributes) and [language](#language), the Meta Overlay SHOULD include the following attributes:
 
 - `name`
 
@@ -382,7 +382,7 @@ and MAY include other attributes at the discretion of the overlay producer, such
 ```json
 {
   "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
-  "type": "spec/overlays/meta/1.0",
+  "type": "spec/overlays/meta/1.0.2",
   "language": "eng",
   "name": "Digital Passport",
   "description": "An example of a Digital Passport schema",
@@ -396,7 +396,7 @@ _Example 6. Code snippet for a Meta Overlay (language: en)._
 
 A Standard Overlay defines a documented agreement or technical specification published by a standards organisation used to represent, format, define, structure, tag, transmit, manipulate, use, and manage data.
 
-In addition to the `capture_base` and `type` attributes (see [Common attributes](#common-attributes)), the Standard Overlay MUST include the following attribute:
+In addition to the [Mandatory attributes](#mandatory-attributes), the Standard Overlay MUST include the following attribute:
 
 - `attr_standards`
 
@@ -407,7 +407,7 @@ There are many international standards organisations establishing tens of thousa
 ```json
 {
   "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
-  "type": "spec/overlays/standard/1.0",
+  "type": "spec/overlays/standard/1.0.2",
   "attr_standards": {
     "dateOfBirth": "ISO 8601"
   }
@@ -424,7 +424,7 @@ Inputs overlays provide predefined inputs for data attestations.
 
 A Cardinality Overlay defines the minimum and maximum number of values that an attribute can have. For a relationship, the cardinality interval specifies the minimum and maximum number of relationship targets.
 
-In addition to the `capture_base` and `type` attributes (see [Common attributes](#common-attributes)), the Cardinality Overlay MUST include the following attribute:
+In addition to the [Mandatory attributes](#mandatory-attributes), the Cardinality Overlay MUST include the following attribute:
 
 - `attr_cardinality`
 
@@ -455,7 +455,7 @@ _Example 8. Code snippet for a Cardinality Overlay._
 
 A Conformance Overlay indicates whether data entry for each attribute is mandatory or optional.
 
-In addition to the `capture_base` and `type` attributes (see [Common attributes](#common-attributes)), the Conformance Overlay MAY include the following attributes:
+In addition to the [Mandatory attributes](#mandatory-attributes), the Conformance Overlay MAY include the following attributes:
 
 - `attribute_conformance `
 
@@ -487,7 +487,7 @@ An Entry Code Overlay defines the entry keys in a series of key-value pairs stor
 ![Table 2](/images/spec-table2.png)
 _Table 2. An example of how the values in an array of key-value pairs provided by an Entry Code Overlay subsequently define a set of pre-defined entry keys in a nested series of key-value pairs. The specified values are often standardised categorisation codes, valuable data inputs for statistical analysis, machine learning (ML), and artificial intelligence (AI) algorithms._
 
-In addition to the `capture_base` and `type` attributes (see [Common attributes](#common-attributes)), the Entry Code Overlay MUST include the following attribute:
+In addition to the [Mandatory attributes](#mandatory-attributes), the Entry Code Overlay MUST include the following attribute:
 
 - `attribute_entry_codes `
 
@@ -500,7 +500,7 @@ In addition to the `capture_base` and `type` attributes (see [Common attributes]
 ```json
 {
   "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
-  "type": "spec/overlays/entry_code/1.0",
+  "type": "spec/overlays/entry_code/1.0.2",
   "attribute_entry_codes": {
     "documentType": ["PE", "PM"],
     "issuingState": "EGyWgdQR9dW_I5oHlHBMoO9AA_eMeb2p3XzcCRCBbKCM",
@@ -520,7 +520,7 @@ An Entry Overlay defines the entry values in a series of key-value pairs stored 
 ![Table 3](/images/spec-table3.png)
 _Table 3. An example of how an Entry Overlay can leverage a set of pre-defined entry keys in a nested series of key-value pairs provided by an Entry Code Overlay to provide human-meaningful values in a specified national or regional language._
 
-In addition to the `capture_base`, `type`, and `language` attributes (see [Common attributes](#common-attributes)), the Entry Overlay MUST include the following attribute:
+In addition to the [Mandatory attributes](#mandatory-attributes), and [languag](#language), the Entry Overlay MUST include the following attribute:
 
 - `attribute_entries`
 
@@ -533,8 +533,8 @@ In addition to the `capture_base`, `type`, and `language` attributes (see [Commo
 ```json
 {
   "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
-  "type": "spec/overlays/entry/1.0",
-  "language": "en",
+  "type": "spec/overlays/entry/1.0.2",
+  "language": "eng",
   "attribute_entries": {
     "documentType": {
       "PE": "DIPLOMATIC PASSPORT",
@@ -562,7 +562,7 @@ Adopted by the 11th General Conference on Weights and Measures (CGPM) in 1960, i
 
 _Figure 3. The seven defining constants of the SI._
 
-In addition to the `capture_base` and `type` attributes (see [Common attributes](#common-attributes)), the Unit Overlay SHOULD include the following attribute:
+In addition to the [Mandatory attributes](#mandatory-attributes), the Unit Overlay SHOULD include the following attribute:
 
 - `metric_system`
 
@@ -577,7 +577,7 @@ and MUST include the following attribute:
 ```json
 {
   "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
-  "type": "spec/overlays/unit/1.0",
+  "type": "spec/overlays/unit/1.0.2",
   "metric_system": "SI",
   "attribute_units": {
     "height": "cm"
@@ -594,7 +594,7 @@ An Attribute Mapping Overlay defines attribute mappings between two distinct dat
 ```json
 {
   "capture_base": "Ev_RaB-gIOn8VAB3sg40mINxjiYRxdLVQrgce0aZbFcc",
-  "type": "spec/overlays/mapping/1.0",
+  "type": "spec/overlays/mapping/1.0.2",
   "attribute_mapping": {
     "first_name": "firstName",
     "last_name": "surname"
@@ -611,7 +611,7 @@ An Entry Code Mapping Overlay defines the entry key mappings between two distinc
 ```json
 {
   "capture_base": "Ev_RaB-gIOn8VAB3sg40mINxjiYRxdLVQrgce0aZbFcc",
-  "type": "spec/overlays/entry_code_mapping/1.0",
+  "type": "spec/overlays/entry_code_mapping/1.0.2",
   "attr_entry_codes_mapping": {
     "country_code": [
       "AFG:AF",
@@ -638,7 +638,7 @@ A Subset Overlay defines a customised version of a published schema containing a
 ```json
 {
   "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
-  "type": "spec/overlays/subset/1.0",
+  "type": "spec/overlays/subset/1.0.2",
   "attributes": ["dateOfBirth", "documentNumber", "documentType"]
 }
 ```
