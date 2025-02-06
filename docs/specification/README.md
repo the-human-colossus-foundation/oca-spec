@@ -15,57 +15,58 @@ description: Official OCA specification
   <dt>
       Latest published version:
   </dt>
-<dd>
+  <dd>
 
-[https://oca.colossi.network/specification/](https://oca.colossi.network/specification/) ([Download as PDF](https://humancolossus.foundation/s/HCF-Overlays-Capture-Architecture-OCA-v1.pdf))
+  [https://oca.colossi.network/specification/](/specification/) ([Download as PDF](https://humancolossus.foundation/s/HCF-Overlays-Capture-Architecture-OCA-v1.0.2.pdf))
 
-</dd>
+  </dd>
   <dt>
-Author:
+      Previous published version:
   </dt>
-<dd>
+  <dd>
 
-Paul Knowles ([ Human Colossus Foundation ](https://humancolossus.foundation/))
+  [https://oca.colossi.network/specification/v1.0.1](/specification/v1.0.1) ([Download as PDF](https://humancolossus.foundation/s/HCF-Overlays-Capture-Architecture-OCA-v1.0.1.pdf))
 
-</dd>
+  </dd>
   <dt>
-Editors:
+      Contributors:
   </dt>
-<dd>
+  <dd>
 
-Ryan Barrett (Stratosoft LLC)
+  Paul Knowles ([ Human Colossus Foundation ](https://humancolossus.foundation/))
 
-Robert Mitwicki ([ Human Colossus Foundation ](https://humancolossus.foundation/))
+  Ryan Barrett (Stratosoft LLC)
 
-Michal Pietrus ([ ArgonAUTHs ](https://argonauths.eu/))
+  Robert Mitwicki ([ Human Colossus Foundation ](https://humancolossus.foundation/))
+  Michal Pietrus ([ ArgonAUTHs ](https://argonauths.eu/))
 
-Marcin Olichwiruk ([ ArgonAUTHs ](https://argonauths.eu/))
+  Marcin Olichwiruk ([ ArgonAUTHs ](https://argonauths.eu/))
 
-Philippe Page ([ Human Colossus Foundation ](https://humancolossus.foundation/))
+  Philippe Page ([ Human Colossus Foundation ](https://humancolossus.foundation/))
 
-</dd>
+  </dd>
   <dt>
-Copyrights:
+    Copyrights:
   </dt>
-<dd>
-Human Colossus Foundation, EUPL v1.2 licence.
-</dd>
+  <dd>
+    Human Colossus Foundation, EUPL v1.2 licence.
+  </dd>
   <dt>
-Governance:
+    Governance:
   </dt>
-<dd>
+  <dd>
 
-The Decentralised Semantics Working Group maintains the OCA specification at [ Human Colossus Foundation ](https://humancolossus.foundation). Comments regarding this specification can be provided as issues on the official [ OCA Github ](https://github.com/the-human-colossus-foundation/oca-spec/issues).
+  The Decentralised Semantics Working Group maintains the OCA specification at [ Human Colossus Foundation ](https://humancolossus.foundation). Comments regarding this specification can be provided as issues on the official [ OCA Github ](https://github.com/the-human-colossus-foundation/oca-spec/issues).
 
-</dd>
+  </dd>
   <dt>
-Contact:
+      Contact:
   </dt>
-<dd>
+  <dd>
 
-[ contact@humancolossus.org ](mailto:contact@humancolossus.org)
+  [ contact@humancolossus.org ](mailto:contact@humancolossus.org)
 
-</dd>
+  </dd>
 </dl>
 
 ## Conventions and Definitions
