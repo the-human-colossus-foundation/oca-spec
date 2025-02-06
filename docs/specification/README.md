@@ -702,6 +702,16 @@ In addition to the `capture_base` and `type` attributes (see [Common attributes]
 
 _Example 19. Code snippet for a Sensitive Overlay_
 
+#### Community Overlays
+
+Community overlays are task-specific objects which are integral part OCA Bundle.
+Defined by the community can be used to extend functionality of [OCA
+Bundle](#bundle).
+
+Community overlay needs to adhere to the OCA specification and MUST include
+[Mandatory attributes](#mandatory-attributes) and MAY include [Common
+attributes](#common-attributes) if necessary follwed by any overlay specific attributes.
+
 ### Bundle
 
 An OCA Bundle is a set of OCA objects which MUST included a `Capture Base` and MAY consist of any number of `Overlays`. An encoded cryptographic digest of the contained objects produces a
