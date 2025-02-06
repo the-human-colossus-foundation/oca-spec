@@ -172,13 +172,19 @@ An attribute type determines the attribute's syntax and how attributes of that t
 
 ### Overlays
 
-`Overlay` as a task-specific object provides layers of definitional or contextual metadata. OCA specification recognize two types of overlays:
+`Overlay` as a task-specific object provides layers of definitional or contextual metadata. OCA specification recognize two core types of overlays:
 - [Semantic overlays](#semantic-overlays) - provide contextual meaning to describe objects and their relationships.
 - [Inputs overlays](#inputs-overlays) - provide predefined inputs for data attestations.
 
-Which in context of that specification are treated as core overlays which through community consensus are the most important to be included in the specification and moste commenly used.
+In the context of this specification, these are considered **core overlays**, which, through **community consensus**, are deemed the most essential for inclusion and are among the most commonly used.
 
-OCA Specification intentionaly limits defined overlays in the core specification to the minmum to allow for community driven efforts to create necessary overlays and through dominat design decided which task-specific overlays would make sens.
+The **OCA Specification** intentionally limits the number of **predefined core
+overlays** to a **minimum**, allowing the community to take the lead in
+developing additional overlays as needed. This approach fosters a **dominant
+design** process, enabling the community to determine which **task-specific
+overlays** are most meaningful and valuable. See [Community overlays](#community-overlays) for more details.
+
+
 
 
 #### Mandatory attributes
@@ -334,21 +340,11 @@ In addition to the `capture_base`, `type`, and `language` attributes (see [Commo
 
   The `attribute_labels` attribute maps key-value pairs where the key is the attribute name and the value is a human-meaningful attribute label in a specific language.
 
-and MAY include the following attributes:
-
-- `attribute_categories`
-
-  The `attribute_categories` attribute contains category identifiers.
-
-- `category_labels `
-
-  The `attribute_categories` attribute maps key-value pairs where the key is the attribute name and the value is a human-meaningful category label in a specific language.
-
 ```json
 {
   "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
   "type": "spec/overlays/label/1.0",
-  "language": "en",
+  "language": "eng",
   "attribute_labels": {
     "dateOfBirth": "Date of birth",
     "documentNumber": "Passport Number",
@@ -359,13 +355,6 @@ and MAY include the following attributes:
     "photoImage": "Portrait image",
     "sex": "Sex"
   },
-  "attribute_categories": ["_cat-1_", "_cat-2_", "_cat-3_", "_cat-4_"],
-  "category_labels": {
-    "_cat-1_": "Mandatory header",
-    "_cat-2_": "Mandatory personal data elements",
-    "_cat-3_": "Mandatory identification feature",
-    "_cat-4_": "Optional data elements"
-  }
 }
 ```
 
@@ -393,7 +382,7 @@ and MAY include other attributes at the discretion of the overlay producer, such
 {
   "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
   "type": "spec/overlays/meta/1.0",
-  "language": "en",
+  "language": "eng",
   "name": "Digital Passport",
   "description": "An example of a Digital Passport schema",
   "affiliation": "The Government of Antarctica"
