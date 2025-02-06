@@ -218,11 +218,12 @@ sem_ver = DIGIT "." DIGIT "." DIGIT
 
 _Listing: ABNF core rules_
 
-#### Optional attributes
+#### Common attributes
 
 ##### Language
 
 To indicate language-specific information, some overlays would include a `language` attribute to indicate localization of that overlay.
+Those overlays are marked in the specification as `[lagnauge-specific object]`
 
 The International Organization for Standardization (ISO) \[[ISO](#ref-ISO)\] has standardised comprehansive list of language-related codes called ISO 639-3.
 
@@ -332,9 +333,9 @@ _Example 3. Code snippet for a Format Overlay._
 
 _[language-specific object]_
 
-A Label Overlay defines attribute and category labels. For example, for an attribute named `dateOfBirth`, you may wish to display the label as `Date of birth`, which is more meaningful and user-friendly when displayed to an end user in places such as form inputs and error messages.
+A Label Overlay defines human readable attribute names. For example, for an attribute named `dateOfBirth`, you may wish to call it `Date of birth`, which is more meaningful and user-friendly when inspected by human.
 
-In addition to the `capture_base`, `type`, and `language` attributes (see [Common attributes](#common-attributes)), the Label Overlay MUST include the following attribute:
+In addition to the [Mandatory attributes](#mandatory-attributes) and [language](#language), the Label Overlay MUST include the following attribute:
 
 - `attribute_labels`
 
