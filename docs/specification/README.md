@@ -211,12 +211,15 @@ The `overlay` attribute contains the SAID of the [Overlay](#overlays) to cryptog
 The `type` attribute identifies the schema object type. The version aligns with the corresponding OCA specification version, ensuring that the object remains compatible with the specified OCA specification.
 
 ```abnf
-type = "spec/overlay/" overlay_name "/" sem_ver
-overlay_name = ALPHA
+type = "("spec" / "community)/overlays/" overlay_name "/" sem_ver
+overlay_name = namespace ":" ALPHA / ALPHA
+namespace = ALPHA
 sem_ver = DIGIT "." DIGIT "." DIGIT
 ```
 
 _Listing: ABNF core rules_
+
+`spec` should be used when the object is defined by core specification and `community` when it is community defined object.
 
 #### Common attributes
 
