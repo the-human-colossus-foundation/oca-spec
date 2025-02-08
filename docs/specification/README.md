@@ -215,12 +215,11 @@ overlays** are most meaningful and valuable. See [Community overlays](#community
 
 Overlays are cryptographically-linked objects that provide layers of task-oriented definitional or contextual information to a other [OCA Objects](#oca-object-types). Any actor interacting with a published Capture Base can use Overlays to add metadata to the underlying object, transform how information is displayed to a viewer, or guide an agent in applying a custom process to captured data.
 
-Overlays `MUST` consist of the following attributes in that order:
-
+Overlays `MUST` comprises the following attributes, listed in order to form its canonical serialization:
 - `d` - [deterministic identifier](#deterministic-identifier) of the overlay
 - [ capture_base ](#capture-base-1) or [overlay](#overlay)
 - [ type ](#type-1)
-- Overlay-specific attributes
+- Overlay-specific attributes sorted in lexicographic order
   - See specific overlay types for more information.
 
 ##### Capture base
