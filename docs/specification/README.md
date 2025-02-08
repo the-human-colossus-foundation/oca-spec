@@ -193,6 +193,7 @@ Overlays are cryptographically-linked objects that provide layers of task-orient
 
 Overlays `MUST` consist of the following attributes in that order:
 
+- `d` - deterministic identifier of the overlay
 - [ capture_base ](#capture-base-1) or [overlay](#overlay)
 - [ type ](#type-1)
 - Overlay-specific attributes
