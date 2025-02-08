@@ -59,7 +59,7 @@ Human Colossus Foundationi, [ EUPL v1.2 licence ](https://interoperable-europe.e
   </dt>
   <dd>
 
-  The Decentralised Semantics Working Group maintains the OCA specification at [ Human Colossus Foundation ](https://humancolossus.foundation). Comments regarding this specification can be provided as issues on the official [ OCA Github ](https://github.com/the-human-colossus-foundation/oca-spec/issues).
+  The Overalays Capture Architecture (OCA) Working Group maintains the OCA specification at [ Human Colossus Foundation ](https://humancolossus.foundation). Comments regarding this specification can be provided as issues on the official [ OCA Github ](https://github.com/the-human-colossus-foundation/oca-spec/issues).
 
   </dd>
   <dt>
