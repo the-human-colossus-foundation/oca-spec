@@ -104,9 +104,9 @@ An `OCA object` is either a [Capture Base](#capture-base) or a task-specific [Ov
 
 A `Capture Base` is a base object that defines a single dataset in its purest form, providing a structural base to harmonise data. The object defines attribute names and types.
 
-The Capture Base consists of the following attributes in that order:
+The Capture Base comprises the following attributes, listed in order to form its canonical serialization:
 
-- `d` - deterministic identifier of the capture base
+- `d` - [deterministic identifier](#deterministic-identifier) of the capture base
 - [ type ](#type)
 - [ attributes ](#attributes)
 
@@ -142,7 +142,7 @@ _Listing: ABNF core rules \[[RFC5234](#ref-RFC5234)\]_
 
 #### Attributes
 
-The "attributes" attribute maps key-value pairs where the key is the attribute name and the value is the attribute type.
+The `attributes` attribute maps key-value pairs where the key is the attribute name and the value is the attribute type.
 
 ##### Attribute name
 
@@ -165,13 +165,37 @@ _Listing: ABNF representation of the attribute name_
 
 An attribute type determines the attribute's syntax and how attributes of that type are compared and sorted. A Capture Base recognises seven core data types:
 
-- **Text**: a data type that defines a human-readable sequence of characters and the words they form, subsequently encoded into computer-readable formats such as ASCII \[[RFC0020](#ref-RFC0020)\].
-- **Numeric**: a data type that defines anything relating to or containing numbers. Examples of numeric data types include 8-byte integers, fixed precision and scale numeric data, floating precision number data, integer (whole number) data, and monetary data values.
-- **Reference**: a data type that defines a Self-Addressing IDentifier (SAID) \[[SAID](#ref-SAID)\] that references a set of attributes through its associated parent. For example, the reference data type enables the development of nested data objects, where the organisation of information is in layers or where objects contain other similar objects. SAID is an identifier that is deterministically generated from and embedded in the content it identifies, making it and its data mutually tamper-evident.
-- **Boolean**: a data type where the data only has two possible variables: true or false. In computer science, Boolean is an identification classifier for calculating logical truth values and algebraic variables.
-- **Binary**: a data type that defines a binary code signal, a series of electrical pulses representing numbers, characters, and performed operations. Based on a binary number system, each digit position represents a power of two (e.g., 4, 8, 16, etc.). A set of four binary digits or bits in binary code represents each decimal number (0 to 9). Each digit has two possible states: off and on (usually symbolised by 0 and 1). Combining basic Boolean algebraic operations on binary numbers makes it possible to represent each of the four fundamental arithmetic operations of addition, subtraction, multiplication, and division.
-- **DateTime**: a data type that defines the number of seconds or clock ticks that have elapsed since the defined epoch for that computer or platform. Common formats include dates (e.g., YYYY-MM-DD), times (e.g., hh:mm:ss), dates and times concatenated (e.g., `YYYY-MM-DDThh:mm:ss.sss+zz:zz`), and durations (e.g., `PnYnMnD`).
-- **Array[data type]**: a data type that defines a structure that holds several data items or elements of the same data type. When you want to store many pieces of data that are related and have the same data type, it is often better to use an array instead of many separate variables (e.g., `Array[Text]`, `Array[Numeric]`, etc.).
+- **Numeric**: a data type that defines anything relating to or containing
+numbers. Examples of numeric data types include 8-byte integers, fixed precision
+and scale numeric data, floating precision number data, integer (whole number)
+data, and monetary data values.
+- **Reference**: a data type that defines a Self-Addressing IDentifier
+([SAID](#ref-SAID)) that references a set of attributes through its associated
+parent. For example, the `reference` data type enables the development of nested
+data objects, where the organisation of information is in layers or where
+objects contain other similar objects.
+- **Boolean**: a data type where the data only has two possible variables: true
+or false. In computer science, Boolean is an identification classifier for
+calculating logical truth values and algebraic variables.
+- **Binary**: a data type that defines a binary code signal, a series of
+electrical pulses representing numbers, characters, and performed operations.
+Based on a binary number system, each digit position represents a power of two
+(e.g., 4, 8, 16, etc.). A set of four binary digits or bits in binary code
+represents each decimal number (0 to 9). Each digit has two possible states: off
+and on (usually symbolised by 0 and 1). Combining basic Boolean algebraic
+operations on binary numbers makes it possible to represent each of the four
+fundamental arithmetic operations of addition, subtraction, multiplication, and
+division.
+- **DateTime**: a data type that defines the number of seconds or clock ticks
+that have elapsed since the defined epoch for that computer or platform. Common
+formats include dates (e.g., YYYY-MM-DD), times (e.g., hh:mm:ss), dates and
+times concatenated (e.g., `YYYY-MM-DDThh:mm:ss.sss+zz:zz`), and durations (e.g.,
+`PnYnMnD`).
+- **Array[data type]**: a data type that defines a structure that holds several
+data items or elements of the same data type. When you want to store many pieces
+of data that are related and have the same data type, it is often better to use
+an array instead of many separate variables (e.g., `Array[Text]`,
+`Array[Numeric]`, etc.).
 
 ### Overlays
 
@@ -193,7 +217,7 @@ Overlays are cryptographically-linked objects that provide layers of task-orient
 
 Overlays `MUST` consist of the following attributes in that order:
 
-- `d` - deterministic identifier of the overlay
+- `d` - [deterministic identifier](#deterministic-identifier) of the overlay
 - [ capture_base ](#capture-base-1) or [overlay](#overlay)
 - [ type ](#type-1)
 - Overlay-specific attributes
