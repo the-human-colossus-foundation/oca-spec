@@ -50,7 +50,9 @@ description: Official OCA specification
     Copyrights:
   </dt>
   <dd>
-    Human Colossus Foundation, EUPL v1.2 licence.
+
+Human Colossus Foundationi, [ EUPL v1.2 licence ](https://interoperable-europe.ec.europa.eu/collection/eupl/eupl-text-eupl-12).
+
   </dd>
   <dt>
     Governance:
