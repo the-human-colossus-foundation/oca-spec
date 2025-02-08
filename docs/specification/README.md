@@ -1265,5 +1265,3 @@ United Nations. Sustainable Development Goals (SDGs) [https://sdgs.un.org/goals]
 </dd>
 </dl>
 </div>
-
-## Appendices
