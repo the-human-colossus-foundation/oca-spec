@@ -671,46 +671,6 @@ A Subset Overlay defines a customised version of a published schema containing a
 
 _Example 16. Code snippet for a Subset Overlay._
 
-##### Unit Mapping Overlay
-
-A Unit Mapping Overlay defines target units for quantitative data when
-converting between different units of measurement. Conversion of units is the
-conversion between different units of measurement for the same quantity,
-typically through multiplicative conversion factors (see [Code Table for Unit
-mappings](#code-table-for-unit-mappings) for more information on conversion
-factors) which change the measured quantity value without changing its effects.
-The process of conversion depends on the specific situation and the intended
-purpose. This may be governed by regulation, contract, technical specifications
-or other published standards.
-
-In addition to the `capture_base` and `type` attributes (see [Common attributes](#common-attributes)), the Unit Mapping Overlay MUST include the following attributes:
-
-- `metric_system`
-
-  The `metric_system` attribute contains the acronym of the chosen system of units (a coherent system of units of measurement) used for defining attribute units.
-
-- `code_table`
-
-  The `code_table` attribute contains a [SAID](#ref-SAID) that references an external code table. See [Code Tables](#code-tables) for more information.
-
-- `attr_units`
-
-  The `attr_units` attribute maps key-value pairs where the key is the attribute name and the value is the desired unit of measurement.
-
-```json
-{
-  "capture_base": "Ev_RaB-gIOn8VAB3sg40mINxjiYRxdLVQrgce0aZbFcc",
-  "type": "spec/overlays/unit/1.0",
-  "metric_system": "SI",
-  "code_table": "E3YDLacdI1GSGWhHywzrb5B0hOL/9TYWBsUkXC8fA4EY",
-  "attr_units": {
-    "blood_glucose": "mg/dL"
-  }
-}
-```
-
-_Example 17. Code snippet for a Unit Mapping Overlay._
-
 ##### Sensitive Overlay
 
 A Sensitive Overlay is a specialized construct used to identify and flag attributes that require protection against unauthorized or unwarranted disclosure. Attributes marked by a Sensitive Overlay typically include data subject to legal, ethical, or privacy-related considerations, including but not limited to Personally Identifiable Information (PII), Quasi-Identifiable Information (QII)) or proprietary information.
@@ -985,72 +945,6 @@ A Code Table for Key-Value pairs MUST include the following attribute:
 ```
 
 _Example 22. Code snippet for a Code Table for Key-Value pairs, providing a mapping from, in this case, three-character to two-character ISO country codes._
-
-#### Code Table for Unit mappings
-
-A Code Table for Unit mappings provides a mapping of input units to output units
-for quantitative data.
-
-The unit conversion process consists of the following steps:
-
-1. Read source unit.
-1. Read target unit.
-1. Convert source unit to target unit.
-
-Conversion between units is defined as follows:
-
-```
-Target unit = source unit * conversion factor + offset
-```
-
-Except when converting between temperature units, offset equals 0 in most cases.
-
-::: tip An example of Celsius to Kelvin conversion:
-
-1.  Given 37 Celsius
-2.  Expect Kelvin
-3.  `37 * 1 + 273.15 = 310.15 K`
-
-:::
-
-::: tip An example of Celsius to Fahrenheit conversion:
-
-1.  Given 37 Celsius
-2.  Expect Fahrenheit
-3.  `37 * 1.8 + 32 = 98.6 F`
-
-:::
-
-Implementers MAY find E.J. Roschke’s "Units and Unit Conversions" (2001) \[[ROS2001](#ref-ROS2001)\] a helpful resource for conversion factors.
-
-A Code Table for Unit mappings MUST include the following attribute:
-
-- `entries`
-
-  The `entries` attribute is a map of key-value pairs, where the key denotes the conversion from source to target (e.g., `m->mm` or `deg_c->deg_f`) and the value contains the conversion factor and the offset.
-
-  All units and unit prefixes follow the "Data Protocols Lightweight Standards and Patterns for Data" \[[BER2013](#ref-BER2013)\] proposal for describing units associated with numeric quantities.
-
-```json
-{
-  "entries": {
-    "m->mm": {
-      "cf": 1000
-    },
-    "m->yd": {
-      "cf": 1.0936133
-    },
-    "deg_c->deg_f": {
-      "cf": 1.8,
-      "o": 32
-    }
-  }
-}
-```
-
-_Example 23. Code snippet for a Code Table for Unit mappings._
-
-Code Table for Unit mappings is in denormalised form, meaning that the conversion between units and unit prefixes is pre-defined for all standard unit conversions for maximum efficiency.
 
 ## References
 
