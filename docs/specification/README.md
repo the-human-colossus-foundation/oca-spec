@@ -201,11 +201,11 @@ Overlays `MUST` consist of the following attributes in that order:
 
 ##### Capture base
 
-The `capture_base` attribute contains the SAID of the [Capture Base](#capture-base) to cryptographically anchor to that parent object.
+The `capture_base` attribute contains the [SAID](#ref-SAID)  of the [Capture Base](#capture-base) to cryptographically anchor to that parent object.
 
 ##### Overlay
 
-The `overlay` attribute contains the SAID of the [Overlay](#overlays) to cryptographically anchor to that parent object.
+The `overlay` attribute contains the [SAID](#ref-SAID) of the [Overlay](#overlays) to cryptographically anchor to that parent object.
 
 ##### Type
 
@@ -499,7 +499,7 @@ In addition to the [Mandatory attributes](#mandatory-attributes), the Entry Code
 
   - a set of pre-defined entry keys for a nested series of key-value pairs; or
 
-  - a SAID that references a code table from an external data source to retrieve an array of pre-defined entry keys for a nested series of key-value pairs. See [Code Tables](#code-tables) for more information on code tables.
+  - a [SAID](#ref-SAID) that references a code table from an external data source to retrieve an array of pre-defined entry keys for a nested series of key-value pairs. See [Code Tables](#code-tables) for more information on code tables.
 
 ```json
 {
@@ -532,7 +532,7 @@ In addition to the [Mandatory attributes](#mandatory-attributes), and [languag](
 
   - a set of pre-defined values in a nested series of key-value pairs that are human-meaningful and language-dependent where the entry keys are taken from an associated Entry Code Overlay; or
 
-  - a SAID that references a code table from an external data source to retrieve an array of pre-defined values from a nested series of key-value pairs that are human-meaningful and language-dependent where the entry keys are taken from an associated Entry Code Overlay. See [Code Tables](#code-tables) for more information.
+  - a [SAID](#ref-SAID) that references a code table from an external data source to retrieve an array of pre-defined values from a nested series of key-value pairs that are human-meaningful and language-dependent where the entry keys are taken from an associated Entry Code Overlay. See [Code Tables](#code-tables) for more information.
 
 ```json
 {
@@ -661,7 +661,7 @@ In addition to the `capture_base` and `type` attributes (see [Common attributes]
 
 - `code_table`
 
-  The `code_table` attribute contains a SAID that references an external code table. See [Code Tables](#code-tables) for more information.
+  The `code_table` attribute contains a [SAID](#ref-SAID) that references an external code table. See [Code Tables](#code-tables) for more information.
 
 - `attr_units`
 
@@ -862,6 +862,40 @@ TODO update example
 ```
 _Example 20. Code snippet for an OCA Bundle._
 
+### Deterministic Identifier
+
+Within the scope of the OCA specification, Deterministic Identifiers are always
+Self-Addressing Identifiers ([SAIDs](#ref-SAID)). These identifiers are encoded
+using Base64 URL-safe characters. For detailed information on their
+functionality, please refer to the [SAID](#ref-SAID) specification. Below, we
+distill the most relevant aspects of SAIDs in the context of the OCA
+specification.
+
+#### How to calculate SAID:
+
+1. Convert the object ([bundle](#bundle) or [capture base](#capture-base) or [overlay](#overlays))
+into its canonical form, ensuring all whitespace is removed.
+2. Replace the SAID field value in the serialization with a dummy string of the
+same length as the chosen digest algorithm (e.g. BLAKE3-256 is 32 bytes, which
+is 44 characters in Base64 URL-Safe). The dummy character is `#` (ASCII 35 in
+decimal, 0x23 in hex). See [CESR](#ref-CESR) code tables for available algorithms.
+3. Compute the digest of the modified serialization, which includes the dummy
+SAID value.
+4. Replace the dummy characters with the computed SAID value.
+
+#### How to verify object
+
+1. Convert the object ([bundle](#bundle) or [capture base](#capture-base) or [overlay](#overlays))
+into its canonical form, ensuring all whitespace is removed.
+2. Replace the SAID field value in the serialization with a dummy string of the
+same length as the digest algorithm. Use the digest algorithm specified by the
+[CESR](#ref-CESR) derivation code of the copied SAID. The dummy character is #
+(ASCII 35 in decimal, 0x23 in hex).
+3. Compute the digest of the modified serialization, which includes the dummy
+SAID value. Use the digest algorithm specified by the CESR derivation code of
+the copied SAID.
+4. Replace the dummy characters with the computed SAID value.`
+
 
 ### Code Tables
 
@@ -870,7 +904,7 @@ A code table is an external dataset structured as either:
 - an array of data; or
 - a map of key-value pairs.
 
-A code table MUST be identifiable, verifiable, and resolvable by a SAID.
+A code table MUST be identifiable, verifiable, and resolvable by a [SAID](#ref-SAID).
 
 #### Code Table for Keys
 
@@ -995,6 +1029,17 @@ ISO/IEC 21778:2017, Information technology — The JSON data interchange syntax 
 <dd>
 
 Smith, S. Self-Addressing IDentifier (SAID) (2022) [ https://datatracker.ietf.org/doc/html/draft-ssmith-said ](https://datatracker.ietf.org/doc/html/draft-ssmith-said)
+
+</dd>
+</dl>
+
+<dl>
+  <dt id="ref-CESR">
+  [CESR]
+  </dt>
+<dd>
+
+Composable Event Streaming Representation (CESR) [ https://trustoverip.github.io/tswg-cesr-specification/](https://trustoverip.github.io/tswg-cesr-specification/)
 
 </dd>
 </dl>
