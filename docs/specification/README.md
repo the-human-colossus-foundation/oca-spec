@@ -38,6 +38,7 @@ description: Official OCA specification
   Ryan Barrett (Stratosoft LLC)
 
   Robert Mitwicki ([ Human Colossus Foundation ](https://humancolossus.foundation/))
+
   Michal Pietrus ([ ArgonAUTHs ](https://argonauths.eu/))
 
   Marcin Olichwiruk ([ ArgonAUTHs ](https://argonauths.eu/))
@@ -183,9 +184,6 @@ overlays** to a **minimum**, allowing the community to take the lead in
 developing additional overlays as needed. This approach fosters a **dominant
 design** process, enabling the community to determine which **task-specific
 overlays** are most meaningful and valuable. See [Community overlays](#community-overlays) for more details.
-
-
-
 
 #### Mandatory attributes
 
@@ -707,7 +705,7 @@ _Example 19. Code snippet for a Sensitive Overlay_
 
 #### Community Overlays
 
-Community overlays are task-specific objects which are integral part OCA Bundle.
+Community overlays are task-specific objects which are integral part of OCA Bundle.
 Defined by the community can be used to extend functionality of [OCA
 Bundle](#bundle).
 
