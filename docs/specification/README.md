@@ -299,6 +299,7 @@ In addition to the [Mandatory attributes](#mandatory-attributes), the Character 
 
   ```json
   {
+    "d": "EPeH3AVhmGMLRT-DGqm6B9RY2q5-bC6ckTrFd__z6FYJ",
     "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
     "type": "spec/overlays/character_encoding/1.0.2",
     "default_character_encoding": "utf-8",
@@ -330,6 +331,7 @@ The inputted format values are dependent on the following core data types as def
 
 ```json
 {
+  "d": "EIpe9Ra0tUWTPFrZU-Jo_EufovDqrbFOgwc2YppvTvFD",
   "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
   "type": "spec/overlays/format/1.0.2",
   "attribute_formats": {
@@ -357,6 +359,7 @@ In addition to the [Mandatory attributes](#mandatory-attributes) and [language](
 
 ```json
 {
+  "d": "EPstaptvuTLvr6r2b0JBLzxaQzMZKkcKaYZBQTYPrdaL",
   "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
   "type": "spec/overlays/label/1.0.2",
   "language": "en_UK",
@@ -369,7 +372,7 @@ In addition to the [Mandatory attributes](#mandatory-attributes) and [language](
     "issuingState": "Issuing State or organization (in full)",
     "photoImage": "Portrait image",
     "sex": "Sex"
-  },
+  }
 }
 ```
 
@@ -395,6 +398,7 @@ and MAY include other attributes at the discretion of the overlay producer, such
 
 ```json
 {
+  "d": "EGzJ1hFOPWD1J5Bq2TA-NR0ssPunJJO_7uxngJNDXcXs",
   "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
   "type": "spec/overlays/meta/1.0.2",
   "language": "en_UK",
@@ -420,6 +424,7 @@ There are many international standards organisations establishing tens of thousa
 
 ```json
 {
+  "d": "EMd8KksaUfkmfzzTJBx4gsTz0d8JaId3Lj4otsY9stXg",
   "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
   "type": "spec/overlays/standard/1.0.2",
   "attr_standards": {
@@ -455,6 +460,7 @@ Note that `n` and `m` are positive integers.
 
 ```json
 {
+  "d": "EMWxTY5PLoPOtyb-XgiB3BiRpqlHhxRTW7hqAI50UFsl",
   "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
   "type": "spec/overlays/cardinality/1.0.2",
   "attr_cardinality": {
@@ -477,6 +483,7 @@ In addition to the [Mandatory attributes](#mandatory-attributes), the Conformanc
 
 ```json
 {
+  "d": "EIP9FA6J_fvw0wjnvjPVQqkoYol627D-NdvkhptxfyDM",
   "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
   "type": "spec/overlays/conformance/1.0.2",
   "attribute_conformance": {
@@ -513,6 +520,7 @@ In addition to the [Mandatory attributes](#mandatory-attributes), the Entry Code
 
 ```json
 {
+  "d": "EPiSWiwDzZCVvXSSs2icINxtHC1_S7gKzhFylVz7iGw0",
   "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
   "type": "spec/overlays/entry_code/1.0.2",
   "attribute_entry_codes": {
@@ -546,6 +554,7 @@ In addition to the [Mandatory attributes](#mandatory-attributes), and [languag](
 
 ```json
 {
+  "d": "EKnniFpc80_9VqcJjHnywYtHZEaq12d5i1Bo6Va6VAiZ",
   "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
   "type": "spec/overlays/entry/1.0.2",
   "language": "en_UK",
@@ -590,6 +599,7 @@ and MUST include the following attribute:
 
 ```json
 {
+  "d": "EC7S-U_CxSesNHEEZ6eZjT1TPxvsJsuND_EeTnbajfW4",
   "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
   "type": "spec/overlays/unit/1.0.2",
   "metric_system": "SI",
@@ -607,6 +617,7 @@ An Attribute Mapping Overlay defines attribute mappings between two distinct dat
 
 ```json
 {
+  "d": "EMlNpqhCrG1uGkr6arEAKK_K5VockXzoD6ljMT-nLfxZ",
   "capture_base": "Ev_RaB-gIOn8VAB3sg40mINxjiYRxdLVQrgce0aZbFcc",
   "type": "spec/overlays/mapping/1.0.2",
   "attribute_mapping": {
@@ -624,6 +635,7 @@ An Entry Code Mapping Overlay defines the entry key mappings between two distinc
 
 ```json
 {
+  "d": "EBDUBwcC2pbACiGcTSVfGiYZktdl_SHUi7zJlSRSgABb",
   "capture_base": "Ev_RaB-gIOn8VAB3sg40mINxjiYRxdLVQrgce0aZbFcc",
   "type": "spec/overlays/entry_code_mapping/1.0.2",
   "attr_entry_codes_mapping": {
@@ -637,7 +649,6 @@ An Entry Code Mapping Overlay defines the entry key mappings between two distinc
       "AIA:AI",
       "ATA:AQ",
       "ATG:AG",
-      "..."
     ]
   }
 }
@@ -651,6 +662,7 @@ A Subset Overlay defines a customised version of a published schema containing a
 
 ```json
 {
+  "d": "ENyLjLiRetRlaDqcEASwMnk6jDKIx7ylXDB8GOfqc0d5",
   "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
   "type": "spec/overlays/subset/1.0.2",
   "attributes": ["dateOfBirth", "documentNumber", "documentType"]
@@ -661,7 +673,15 @@ _Example 16. Code snippet for a Subset Overlay._
 
 ##### Unit Mapping Overlay
 
-A Unit Mapping Overlay defines target units for quantitative data when converting between different units of measurement. Conversion of units is the conversion between different units of measurement for the same quantity, typically through multiplicative conversion factors (see [Code Table for Unit mappings](#code-table-for-unit-mappings) for more information on conversion factors) which change the measured quantity value without changing its effects. The process of conversion depends on the specific situation and the intended purpose. This may be governed by regulation, contract, technical specifications or other published standards.
+A Unit Mapping Overlay defines target units for quantitative data when
+converting between different units of measurement. Conversion of units is the
+conversion between different units of measurement for the same quantity,
+typically through multiplicative conversion factors (see [Code Table for Unit
+mappings](#code-table-for-unit-mappings) for more information on conversion
+factors) which change the measured quantity value without changing its effects.
+The process of conversion depends on the specific situation and the intended
+purpose. This may be governed by regulation, contract, technical specifications
+or other published standards.
 
 In addition to the `capture_base` and `type` attributes (see [Common attributes](#common-attributes)), the Unit Mapping Overlay MUST include the following attributes:
 
@@ -708,9 +728,10 @@ In addition to the `capture_base` and `type` attributes (see [Common attributes]
 
 ```json
 {
+  "d": "EKzY_KAP0U05dQ4_radjWu1TkbBFOh50wIgAEKTNP9R2",
   "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
   "type": "spec/overlays/sensitive/1.0",
-  "attributes": ["sex"]
+  "attributes": ["first_name", "last_name"]
 }
 ```
 
@@ -726,10 +747,15 @@ Community overlay needs to adhere to the OCA specification and MUST include
 [Mandatory attributes](#mandatory-attributes) and MAY include [Common
 attributes](#common-attributes) if necessary follwed by any overlay specific attributes.
 
+The **canonical form** of a **community overlay** follows the same rules as the
+**canonical form** of the **core overlay**.
+
 ### Bundle
 
-An OCA Bundle is a set of OCA objects which MUST included a `Capture Base` and MAY consist of any number of `Overlays`. An encoded cryptographic digest of the contained objects produces a
-deterministic identifier for the bundle.
+An OCA Bundle is a set of OCA objects which MUST included a `Capture Base` and
+MAY consist of any number of `Overlays`. An encoded cryptographic digest of the
+contained objects produces a [deterministic
+identifier](#deterministic-identifier) for the bundle.
 
 #### Canonical form
 
@@ -761,11 +787,20 @@ OCAS<major><minor><format><size>_
 
 Where:
 
-- `OCAS`: A fixed prefix indicating "OCA Structure". This identifies the string as conforming to the OCA Specification's versioning scheme.
-- `<major>`: A single-digit integer (0-9) representing the major version of the specification. A change in the major version indicates backward-incompatible updates to the structure.
-- `<minor>`: A single-digit integer (0-9) representing the minor version of the specification. A change in the minor version indicates backward-compatible updates.
-- `<format>`: A string denoting the serialization format of the bundle. Supported format is: `JSON`: JavaScript Object Notation
-- `<size>`: A six-digit, zero-padded integer representing the size of the object in hex notation, size of the object is calculated with `d` field with dummy characters the same lenght as the eventual derived value. The dummy character is #, that is, ASCII 35 decimal (23 hex).
+- `OCAS`: A fixed prefix indicating "OCA Structure". This identifies the string
+as conforming to the OCA Specification's versioning scheme.
+- `<major>`: A single-digit integer (0-9) representing the major version of the
+specification. A change in the major version indicates backward-incompatible
+updates to the structure.
+- `<minor>`: A single-digit integer (0-9) representing the minor version of the
+specification. A change in the minor version indicates backward-compatible
+updates.
+- `<format>`: A string denoting the serialization format of the bundle.
+Supported format is: `JSON`: JavaScript Object Notation
+- `<size>`: A six-digit, zero-padded integer representing the size of the object
+in hex notation, size of the object is calculated with `d` field with dummy
+characters the same lenght as the eventual derived value. The dummy character is
+#, that is, ASCII 35 decimal (23 hex).
 - '_': A version string terminator.
 
 *Example*:
@@ -792,7 +827,6 @@ Consumers of the OCA Specification must implement validation logic to ensure the
 Validation failure must result in the rejection of the bundle as non-compliant with the specification.
 
 *Example*:
-TODO update example
 ```
 {
   "bundle": {
@@ -808,66 +842,58 @@ TODO update example
       },
       "classification": "",
     },
-    "overlays": {
-      "character_encoding": {
-        "d": "ED6Eio9KG2jHdFg3gXQpc0PX2xEI7aHnGDOpjU6VBfjs",
-        "capture_base": "EBnF9U9XW1EqteIW0ucAR4CsTUqojvfIWkeifsLRuOUW",
-        "type": "spec/overlays/character_encoding/1.0",
-        "attribute_character_encoding": {
-          "d": "utf-8",
-          "i": "utf-8",
-          "passed": "utf-8"
-        }
+    "overlays": [
+      {
+          "d": "ECZc26INzjxVbNo7-hln6xN3HW3e1r6NGDmA5ogRo6ef",
+          "capture_base": "EBnF9U9XW1EqteIW0ucAR4CsTUqojvfIWkeifsLRuOUW",
+          "type": "spec/overlays/label/1.0",
+          "language": "en_UK",
+          "attribute_labels": {
+              "d": "Schema digest",
+              "i": "Credential Issuee",
+              "passed": "Passed"
+          },
       },
-      "conformance": {
-        "d": "EJSRe8DnLonKf6GVT_bC1QHoY0lQOG6-ldqxu7pqVCU8",
-        "capture_base": "EBnF9U9XW1EqteIW0ucAR4CsTUqojvfIWkeifsLRuOUW",
-        "type": "spec/overlays/conformance/1.0",
-        "attribute_conformance": {
-          "d": "M",
-          "i": "M",
-          "passed": "M"
-        }
+      {
+          "d": "ED6Eio9KG2jHdFg3gXQpc0PX2xEI7aHnGDOpjU6VBfjs",
+          "capture_base": "EBnF9U9XW1EqteIW0ucAR4CsTUqojvfIWkeifsLRuOUW",
+          "type": "spec/overlays/character_encoding/1.0",
+          "attribute_character_encoding": {
+              "d": "utf-8",
+              "i": "utf-8",
+              "passed": "utf-8"
+          }
       },
-      "information": [
-        {
+      {
           "d": "EIBXpVvka3_4lheeajtitiafIP78Ig8LDMVX9dXpCC2l",
           "capture_base": "EBnF9U9XW1EqteIW0ucAR4CsTUqojvfIWkeifsLRuOUW",
           "type": "spec/overlays/information/1.0",
           "language": "en_UK",
           "attribute_information": {
-            "d": "Schema digest",
-            "i": "Credential Issuee",
-            "passed": "Enables or disables passing"
+              "d": "Schema digest",
+              "i": "Credential Issuee",
+              "passed": "Enables or disables passing"
           }
-        }
-      ],
-      "label": [
-        {
-          "d": "ECZc26INzjxVbNo7-hln6xN3HW3e1r6NGDmA5ogRo6ef",
+      },
+      {
+          "d": "EJSRe8DnLonKf6GVT_bC1QHoY0lQOG6-ldqxu7pqVCU8",
           "capture_base": "EBnF9U9XW1EqteIW0ucAR4CsTUqojvfIWkeifsLRuOUW",
-          "type": "spec/overlays/label/1.0",
-          "language": "en_UK",
-          "attribute_categories": [],
-          "attribute_labels": {
-            "d": "Schema digest",
-            "i": "Credential Issuee",
-            "passed": "Passed"
-          },
-          "category_labels": {}
-        }
-      ],
-      "meta": [
-        {
+          "type": "spec/overlays/conformance/1.0",
+          "attribute_conformance": {
+              "d": "M",
+              "i": "M",
+              "passed": "M"
+          }
+      },
+      {
           "d": "EOxvie-zslkGmFzVqYAzTVtO7RyFXAG8aCqE0OougnGV",
           "capture_base": "EBnF9U9XW1EqteIW0ucAR4CsTUqojvfIWkeifsLRuOUW",
           "type": "spec/overlays/meta/1.0",
           "language": "en_UK",
           "description": "Entrance credential",
           "name": "Entrance credential"
-        }
-      ]
-    }
+      }
+
 }
 ```
 _Example 20. Code snippet for an OCA Bundle._
@@ -918,13 +944,18 @@ A code table MUST be identifiable, verifiable, and resolvable by a [SAID](#ref-S
 
 #### Code Table for Keys
 
-A Code Table for Keys provides an anchor to a reusable dataset for a common purpose, such as a list of country codes. Therefore, this object MAY be a reference target in an Entry Code Overlay. See [Entry Code Overlay](#entry-code-overlay) for more information.
+A Code Table for Keys provides an anchor to a reusable dataset for a common
+purpose, such as a list of country codes. Therefore, this object MAY be a
+reference target in an Entry Code Overlay. See [Entry Code
+Overlay](#entry-code-overlay) for more information.
 
 A Code Table for Keys MUST include the following attribute:
 
 - `keys`
 
-  The `keys` attribute is an array of pre-defined entry keys for a nested series of key-value pairs. A key is a unique identifier that points to an associated value.
+  The `keys` attribute is an array of pre-defined entry keys for a nested series
+  of key-value pairs. A key is a unique identifier that points to an associated
+  value.
 
 ```json
 {
@@ -957,7 +988,8 @@ _Example 22. Code snippet for a Code Table for Key-Value pairs, providing a mapp
 
 #### Code Table for Unit mappings
 
-A Code Table for Unit mappings provides a mapping of input units to output units for quantitative data.
+A Code Table for Unit mappings provides a mapping of input units to output units
+for quantitative data.
 
 The unit conversion process consists of the following steps:
 
