@@ -435,11 +435,11 @@ There are many international standards organisations establishing tens of thousa
 
 _Example 7. Code snippet for a Standard Overlay._
 
-#### Inputs Overlays
+### Inputs Overlays
 
 Inputs overlays provide predefined inputs for data attestations.
 
-##### Cardinality Overlay
+#### Cardinality Overlay
 
 A Cardinality Overlay defines the minimum and maximum number of values that an attribute can have. For a relationship, the cardinality interval specifies the minimum and maximum number of relationship targets.
 
@@ -471,7 +471,7 @@ Note that `n` and `m` are positive integers.
 
 _Example 8. Code snippet for a Cardinality Overlay._
 
-##### Conformance Overlay
+#### Conformance Overlay
 
 A Conformance Overlay indicates whether data entry for each attribute is mandatory or optional.
 
@@ -501,7 +501,7 @@ In addition to the [Mandatory attributes](#mandatory-attributes), the Conformanc
 
 _Example 10. Code snippet for a Conformance Overlay._
 
-##### Entry Code Overlay
+#### Entry Code Overlay
 
 An Entry Code Overlay defines the entry keys in a series of key-value pairs stored in a code table (also known as a "lookup table") or dataset. The key is a unique identifier that points to its associated value.
 
@@ -533,7 +533,7 @@ In addition to the [Mandatory attributes](#mandatory-attributes), the Entry Code
 
 _Example 11. Code snippet for an Entry Code Overlay._
 
-##### Entry Overlay
+#### Entry Overlay
 
 _[language-specific object]_
 
@@ -575,7 +575,7 @@ In addition to the [Mandatory attributes](#mandatory-attributes), and [languag](
 
 _Example 12. Code snippet for an Entry Overlay (language: en_UK)._
 
-##### Unit Overlay
+#### Unit Overlay
 
 A Unit Overlay defines the units of measurement adopted by convention or law, used as a standard for measuring the same kind of quantitative data. The RECOMMENDED system to use is the International System of Units (SI) \[[BIPM](#ref-BIPM)\], French Système International d’Unités, an international decimal system of weights and measures derived from and extending the metric system of units.
 
@@ -611,7 +611,7 @@ and MUST include the following attribute:
 
 _Example 13. Code snippet for a Unit Overlay._
 
-##### Attribute Mapping Overlay
+#### Attribute Mapping Overlay
 
 An Attribute Mapping Overlay defines attribute mappings between two distinct data models. Data mapping provides a preliminary step for data integration tasks, including data transformation or data mediation between a data source and a destination or consolidation of multiple databases into a single database and identifying redundant columns of data for consolidation or elimination.
 
@@ -629,7 +629,7 @@ An Attribute Mapping Overlay defines attribute mappings between two distinct dat
 
 _Example 14. Code snippet for an Attribute Mapping Overlay._
 
-##### Entry Code Mapping Overlay
+#### Entry Code Mapping Overlay
 
 An Entry Code Mapping Overlay defines the entry key mappings between two distinct code tables or datasets.
 
@@ -656,7 +656,7 @@ An Entry Code Mapping Overlay defines the entry key mappings between two distinc
 
 _Example 15. Code snippet for an Entry Code Mapping Overlay._
 
-##### Subset Overlay
+#### Subset Overlay
 
 A Subset Overlay defines a customised version of a published schema containing a subset of source attributes, including their properties, types, codes, and relationship dependencies required for the information exchange.
 
@@ -671,7 +671,7 @@ A Subset Overlay defines a customised version of a published schema containing a
 
 _Example 16. Code snippet for a Subset Overlay._
 
-##### Sensitive Overlay
+#### Sensitive Overlay
 
 A Sensitive Overlay is a specialized construct used to identify and flag attributes that require protection against unauthorized or unwarranted disclosure. Attributes marked by a Sensitive Overlay typically include data subject to legal, ethical, or privacy-related considerations, including but not limited to Personally Identifiable Information (PII), Quasi-Identifiable Information (QII)) or proprietary information.
 
@@ -697,7 +697,7 @@ In addition to the `capture_base` and `type` attributes (see [Common attributes]
 
 _Example 19. Code snippet for a Sensitive Overlay_
 
-#### Community Overlays
+### Community Overlays
 
 Community overlays are task-specific objects which are integral part of OCA Bundle.
 Defined by the community can be used to extend functionality of [OCA
@@ -730,7 +730,7 @@ Objects. The serialization algorithm consists of the following rules:
   - `capture_base` - the `Capture Base` object defined as per section [Capture Base](#capture-base)
   - `overlays` - an array, containing all the overlays, sorted ASC by the `d` attribute
 
-##### Bundle Version
+#### Bundle Version
 
 To ensure proper versioning and identification of bundles within the OCA
 Specification, we define a standardized string format for the bundle version.
@@ -867,7 +867,7 @@ functionality, please refer to the [SAID](#ref-SAID) specification. Below, we
 distill the most relevant aspects of SAIDs in the context of the OCA
 specification.
 
-#### How to calculate SAID:
+#### How to calculate SAID
 
 1. Convert the object ([bundle](#bundle) or [capture base](#capture-base) or [overlay](#overlays))
 into its canonical form, ensuring all whitespace is removed.
