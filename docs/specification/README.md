@@ -94,7 +94,7 @@ A [Capture Base](#capture-base) is the purest and simplest form of a schema, def
 
 #### What are Overlays?
 
-[Overlays](#overlays) are task-specific objects that provide cryptographically-bound layers of definitional or contextual metadata to a [Capture Base](#capture-base). Any actor interacting with a published [Capture Base](#capture-base) can use [Overlays](#overlays) to enrich meaning of the data, transform how inputted data and metadata are displayed to a viewer or guide an agent in applying a custom process to captured data.
+[Overlays](#overlays) are task-specific objects that provide cryptographically-bound layers of definitional or contextual metadata to a [Capture Base](#capture-base). Any actor interacting with a published [Capture Base](#capture-base) can use [Overlays](#overlays) to enrich the meaning of the data, transform how inputted data and metadata are displayed to a viewer or guide an agent in applying a custom process to captured data.
 
 ## OCA object types
 
