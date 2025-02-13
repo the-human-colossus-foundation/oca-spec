@@ -457,7 +457,7 @@ In addition to the [Mandatory attributes](#mandatory-attributes) and
   "d": "EPstaptvuTLvr6r2b0JBLzxaQzMZKkcKaYZBQTYPrdaL",
   "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
   "type": "spec/overlays/label/1.0.2",
-  "language": "en_UK",
+  "language": "en-UK",
   "attribute_labels": {
     "dateOfBirth": "Date of birth",
     "documentNumber": "Passport Number",
@@ -502,14 +502,14 @@ the scope of this specification.
   "d": "EGzJ1hFOPWD1J5Bq2TA-NR0ssPunJJO_7uxngJNDXcXs",
   "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
   "type": "spec/overlays/meta/1.0.2",
-  "language": "en_UK",
+  "language": "en-UK",
   "name": "Digital Passport",
   "description": "An example of a Digital Passport schema",
   "affiliation": "The Government of Antarctica"
 }
 ```
 
-_Example 6. Code snippet for a Meta Overlay (language: en_UK)._
+_Example 6. Code snippet for a Meta Overlay (language: en-UK)._
 
 #### Standard Overlay
 
@@ -700,7 +700,7 @@ In addition to the [Mandatory attributes](#mandatory-attributes), and
   "d": "EKnniFpc80_9VqcJjHnywYtHZEaq12d5i1Bo6Va6VAiZ",
   "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
   "type": "spec/overlays/entry/1.0.2",
-  "language": "en_UK",
+  "language": "en-UK",
   "attribute_entries": {
     "documentType": {
       "PE": "DIPLOMATIC PASSPORT",
@@ -716,7 +716,7 @@ In addition to the [Mandatory attributes](#mandatory-attributes), and
 }
 ```
 
-_Example 12. Code snippet for an Entry Overlay (language: en_UK)._
+_Example 12. Code snippet for an Entry Overlay (language: en-UK)._
 
 #### Unit Overlay
 
@@ -989,7 +989,7 @@ with the specification.
           "d": "ECZc26INzjxVbNo7-hln6xN3HW3e1r6NGDmA5ogRo6ef",
           "capture_base": "EBnF9U9XW1EqteIW0ucAR4CsTUqojvfIWkeifsLRuOUW",
           "type": "spec/overlays/label/1.0",
-          "language": "en_UK",
+          "language": "en-UK",
           "attribute_labels": {
               "d": "Schema digest",
               "i": "Credential Issuee",
@@ -1010,7 +1010,7 @@ with the specification.
           "d": "EIBXpVvka3_4lheeajtitiafIP78Ig8LDMVX9dXpCC2l",
           "capture_base": "EBnF9U9XW1EqteIW0ucAR4CsTUqojvfIWkeifsLRuOUW",
           "type": "spec/overlays/information/1.0",
-          "language": "en_UK",
+          "language": "en-UK",
           "attribute_information": {
               "d": "Schema digest",
               "i": "Credential Issuee",
@@ -1031,7 +1031,7 @@ with the specification.
           "d": "EOxvie-zslkGmFzVqYAzTVtO7RyFXAG8aCqE0OougnGV",
           "capture_base": "EBnF9U9XW1EqteIW0ucAR4CsTUqojvfIWkeifsLRuOUW",
           "type": "spec/overlays/meta/1.0",
-          "language": "en_UK",
+          "language": "en-UK",
           "description": "Entrance credential",
           "name": "Entrance credential"
       }
