@@ -240,15 +240,12 @@ an array instead of many separate variables (e.g., `Array[Text]`,
 ### Overlays
 
 `Overlay` as a task-specific object provides layers of definitional or
-contextual metadata. OCA specification recognize two core types of overlays:
-- [Semantic overlays](#semantic-overlays) - provide contextual meaning to
-describe objects and their relationships.
-- [Inputs overlays](#inputs-overlays) - provide predefined inputs for data
-attestations.
+contextual metadata.
 
-In the context of this specification, these are considered **core overlays**,
-which, through **community consensus**, are deemed the most essential for
-inclusion and are among the most commonly used.
+In the context of this specification, all listed **overlays** are classified as
+**core overlays**. These overlays have been identified through community
+consensus as fundamental for ensuring semantic interoperability and are among
+the most widely utilized.
 
 The **OCA Specification** intentionally limits the number of **predefined core
 overlays** to a **minimum**, allowing the community to take the lead in
@@ -327,11 +324,7 @@ The `language` attribute MUST contain either the two-letter language code
 _Table 1. An example of ISO standard values for language and combined language/country codes._
 
 
-### Semantic Overlays
-Semantic overlays provide contextual meaning to describe objects and their
-relationships.
-
-##### Character Encoding Overlay
+#### Character Encoding Overlay
 
 A Character Encoding Overlay defines the process of assigning numbers to
 graphical characters, especially the written characters of human language,
@@ -397,7 +390,7 @@ Encoding Overlay MUST include at least one of the following attributes:
 
   _Example 2. Code snippet for a Character Encoding Overlay._
 
-##### Format Overlay
+#### Format Overlay
 
 A Format Overlay defines an input and display format for data fields. The data
 format enables conversion of the input buffer to the program variable and
@@ -442,7 +435,7 @@ exchange and communication of date and time-related data.
 
 _Example 3. Code snippet for a Format Overlay._
 
-##### Label Overlay
+#### Label Overlay
 
 _[language-specific object]_
 
@@ -480,7 +473,7 @@ In addition to the [Mandatory attributes](#mandatory-attributes) and
 
 _Example 5. Code snippet for a Label Overlay (language: en)._
 
-##### Meta Overlay
+#### Meta Overlay
 
 _[language-specific object]_
 
@@ -518,7 +511,7 @@ the scope of this specification.
 
 _Example 6. Code snippet for a Meta Overlay (language: en_UK)._
 
-##### Standard Overlay
+#### Standard Overlay
 
 A Standard Overlay defines a documented agreement or technical specification
 published by a standards organisation used to represent, format, define,
@@ -553,7 +546,7 @@ standards organisation followed by an internal document identifier.
 
 _Example 7. Code snippet for a Standard Overlay._
 
-### Inputs Overlays
+#### Inputs Overlays
 
 Inputs overlays provide predefined inputs for data attestations.
 
