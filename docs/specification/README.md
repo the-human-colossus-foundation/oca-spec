@@ -74,9 +74,16 @@ Human Colossus Foundationi, [ EUPL v1.2 licence ](https://interoperable-europe.e
 
 ## Conventions and Definitions
 
-Sections marked as non-normative, along with all authoring guidelines, diagrams, examples, and notes in this specification, are for informational purposes only and are not mandatory for compliance. All other sections of this specification are normative and define the required rules and standards that must be followed to ensure conformity with the OCA Specification.
+Sections marked as non-normative, along with all authoring guidelines, diagrams,
+examples, and notes in this specification, are for informational purposes only
+and are not mandatory for compliance. All other sections of this specification
+are normative and define the required rules and standards that must be followed
+to ensure conformity with the OCA Specification.
 
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted when, and only when, they appear in all capitals, as described in RFC 2119 \[[RFC2119](#ref-RFC2119)\].
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
+"SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this
+document are to be interpreted when, and only when, they appear in all capitals,
+as described in RFC 2119 \[[RFC2119](#ref-RFC2119)\].
 
 ## Introduction
 
@@ -84,27 +91,50 @@ _This section is non-normative._
 
 ### How does OCA work?
 
-OCA is based on the FAIR data principles \[[FAIR2016](#ref-FAIR2016)\], a set of guiding principles to make data findable, accessible, interoperable, and reusable, to enable scientific data management and stewardship, and to be relevant to all digital economy stakeholders.
+OCA is based on the FAIR data principles \[[FAIR2016](#ref-FAIR2016)\], a set of
+guiding principles to make data findable, accessible, interoperable, and
+reusable, to enable scientific data management and stewardship, and to be
+relevant to all digital economy stakeholders.
 
-OCA represents transient objects (domain-agnostic) and persistent schemas (domain-specific) as multi-dimensional objects consisting of a stable capture base and interoperable overlays. By introducing overlays as linked task-specific objects within the schema stack, the architecture offers an optimal level of efficiency and interoperability in alignment with FAIR principles.
+OCA represents transient objects (domain-agnostic) and persistent schemas
+(domain-specific) as multi-dimensional objects consisting of a stable capture
+base and interoperable overlays. By introducing overlays as linked task-specific
+objects within the schema stack, the architecture offers an optimal level of
+efficiency and interoperability in alignment with FAIR principles.
 
 #### What is a Capture Base?
 
-A [Capture Base](#capture-base) is the purest and simplest form of a schema, defining the structural characteristics of a dataset. It is the foundational layer upon which to bind task-specific objects to enhance the meaning of inputted data.
+A [Capture Base](#capture-base) is the purest and simplest form of a schema,
+defining the structural characteristics of a dataset. It is the foundational
+layer upon which to bind task-specific objects to enhance the meaning of
+inputted data.
 
 #### What are Overlays?
 
-[Overlays](#overlays) are task-specific objects that provide cryptographically-bound layers of definitional or contextual metadata to a [Capture Base](#capture-base). Any actor interacting with a published [Capture Base](#capture-base) can use [Overlays](#overlays) to enrich the meaning of the data, transform how inputted data and metadata are displayed to a viewer or guide an agent in applying a custom process to captured data.
+[Overlays](#overlays) are task-specific objects that provide
+cryptographically-bound layers of definitional or contextual metadata to a
+[Capture Base](#capture-base). Any actor interacting with a published [Capture
+Base](#capture-base) can use [Overlays](#overlays) to enrich the meaning of the
+data, transform how inputted data and metadata are displayed to a viewer or
+guide an agent in applying a custom process to captured data.
 
 ## OCA object types
 
-An `OCA object` is either a [Capture Base](#capture-base) or a task-specific [Overlay](#overlays) with a deterministic relationship to a [Capture Base](#capture-base) or another [Overlay](#overlays). When amalgamated as a [Bundle](#bundle), OCA objects provide the necessary structural, definitional, and contextual information to determine the meaning of inputted data at the time of data capture.
+An `OCA object` is either a [Capture Base](#capture-base) or a task-specific
+[Overlay](#overlays) with a deterministic relationship to a [Capture
+Base](#capture-base) or another [Overlay](#overlays). When amalgamated as a
+[Bundle](#bundle), OCA objects provide the necessary structural, definitional,
+and contextual information to determine the meaning of inputted data at the time
+of data capture.
 
 ### Capture Base
 
-A `Capture Base` is a base object that defines a single dataset in its purest form, providing a structural base to harmonise data. The object defines attribute names and types.
+A `Capture Base` is a base object that defines a single dataset in its purest
+form, providing a structural base to harmonise data. The object defines
+attribute names and types.
 
-The Capture Base comprises the following attributes, listed in order to form its canonical serialization:
+The Capture Base comprises the following attributes, listed in order to form its
+canonical serialization:
 
 - `d` - [deterministic identifier](#deterministic-identifier) of the capture base
 - [ type ](#type)
@@ -131,7 +161,10 @@ _Example 1. Code snippet for a Capture Base._
 
 #### Type
 
-The `type` attribute specifies the schema object type and its associated version. The version aligns with the corresponding OCA specification version, ensuring that the schema object remains compatible with the specified OCA specification.
+The `type` attribute specifies the schema object type and its associated
+version. The version aligns with the corresponding OCA specification version,
+ensuring that the schema object remains compatible with the specified OCA
+specification.
 
 ```abnf
 type = "spec/capture_base/" sem_ver
@@ -142,11 +175,15 @@ _Listing: ABNF core rules \[[RFC5234](#ref-RFC5234)\]_
 
 #### Attributes
 
-The `attributes` attribute maps key-value pairs where the key is the attribute name and the value is the attribute type.
+The `attributes` attribute maps key-value pairs where the key is the attribute
+name and the value is the attribute type.
 
 ##### Attribute name
 
-An attribute name is a string that uniquely identifies an attribute within an OCA layer and is used to reference that attribute by other layers throughout the OCA bundle. The string can be any valid Unicode code point.
+An attribute name is a string that uniquely identifies an attribute within an
+OCA layer and is used to reference that attribute by other layers throughout the
+OCA bundle. The string can be any valid Unicode code point.
+
 Example of a valid attribute name:
 - `FullName`
 - `person/name/fullName`
@@ -160,10 +197,10 @@ character = %x0000-10FFFF
 
 _Listing: ABNF representation of the attribute name_
 
-
 ##### Attribute type
 
-An attribute type determines the attribute's syntax and how attributes of that type are compared and sorted. A Capture Base recognises seven core data types:
+An attribute type determines the attribute's syntax and how attributes of that
+type are compared and sorted. A Capture Base recognises seven core data types:
 
 - **Numeric**: a data type that defines anything relating to or containing
 numbers. Examples of numeric data types include 8-byte integers, fixed precision
@@ -199,23 +236,35 @@ an array instead of many separate variables (e.g., `Array[Text]`,
 
 ### Overlays
 
-`Overlay` as a task-specific object provides layers of definitional or contextual metadata. OCA specification recognize two core types of overlays:
-- [Semantic overlays](#semantic-overlays) - provide contextual meaning to describe objects and their relationships.
-- [Inputs overlays](#inputs-overlays) - provide predefined inputs for data attestations.
+`Overlay` as a task-specific object provides layers of definitional or
+contextual metadata. OCA specification recognize two core types of overlays:
+- [Semantic overlays](#semantic-overlays) - provide contextual meaning to
+describe objects and their relationships.
+- [Inputs overlays](#inputs-overlays) - provide predefined inputs for data
+attestations.
 
-In the context of this specification, these are considered **core overlays**, which, through **community consensus**, are deemed the most essential for inclusion and are among the most commonly used.
+In the context of this specification, these are considered **core overlays**,
+which, through **community consensus**, are deemed the most essential for
+inclusion and are among the most commonly used.
 
 The **OCA Specification** intentionally limits the number of **predefined core
 overlays** to a **minimum**, allowing the community to take the lead in
 developing additional overlays as needed. This approach fosters a **dominant
 design** process, enabling the community to determine which **task-specific
-overlays** are most meaningful and valuable. See [Community overlays](#community-overlays) for more details.
+overlays** are most meaningful and valuable. See [Community
+overlays](#community-overlays) for more details.
 
 #### Mandatory attributes
 
-Overlays are cryptographically-linked objects that provide layers of task-oriented definitional or contextual information to a other [OCA Objects](#oca-object-types). Any actor interacting with a published Capture Base can use Overlays to add metadata to the underlying object, transform how information is displayed to a viewer, or guide an agent in applying a custom process to captured data.
+Overlays are cryptographically-linked objects that provide layers of
+task-oriented definitional or contextual information to a other [OCA
+Objects](#oca-object-types). Any actor interacting with a published Capture Base
+can use Overlays to add metadata to the underlying object, transform how
+information is displayed to a viewer, or guide an agent in applying a custom
+process to captured data.
 
-Overlays `MUST` comprises the following attributes, listed in order to form its canonical serialization:
+Overlays `MUST` comprises the following attributes, listed in order to form its
+canonical serialization:
 - `d` - [deterministic identifier](#deterministic-identifier) of the overlay
 - [ capture_base ](#capture-base-1) or [overlay](#overlay)
 - [ type ](#type-1)
@@ -224,15 +273,19 @@ Overlays `MUST` comprises the following attributes, listed in order to form its 
 
 ##### Capture base
 
-The `capture_base` attribute contains the [SAID](#ref-SAID)  of the [Capture Base](#capture-base) to cryptographically anchor to that parent object.
+The `capture_base` attribute contains the [SAID](#ref-SAID) of the [Capture
+Base](#capture-base) to cryptographically anchor to that parent object.
 
 ##### Overlay
 
-The `overlay` attribute contains the [SAID](#ref-SAID) of the [Overlay](#overlays) to cryptographically anchor to that parent object.
+The `overlay` attribute contains the [SAID](#ref-SAID) of the
+[Overlay](#overlays) to cryptographically anchor to that parent object.
 
 ##### Type
 
-The `type` attribute identifies the schema object type. The version aligns with the corresponding OCA specification version, ensuring that the object remains compatible with the specified OCA specification.
+The `type` attribute identifies the schema object type. The version aligns with
+the corresponding OCA specification version, ensuring that the object remains
+compatible with the specified OCA specification.
 
 ```abnf
 type = "("spec" / "community)/overlays/" overlay_name "/" sem_ver
@@ -243,45 +296,75 @@ sem_ver = DIGIT "." DIGIT "." DIGIT
 
 _Listing: ABNF core rules_
 
-`spec` should be used when the object is defined by core specification and `community` when it is community defined object.
+`spec` should be used when the object is defined by core specification and
+`community` when it is community defined object.
 
 #### Common attributes
 
 ##### Language
 
-To indicate language-specific information, some overlays would include a `language` attribute to indicate localization of that overlay.
-Those overlays are marked in the specification as `[lagnauge-specific object]`
+To indicate language-specific information, some overlays would include a
+`language` attribute to indicate localization of that overlay. Those overlays
+are marked in the specification as `[lagnauge-specific object]`
 
-The International Organization for Standardization (ISO) \[[ISO](#ref-ISO)\] has standardised two lists of language-related codes: the language codes called ISO 639-1 alpha-2 \[[ISO639](#ref-ISO639)\] codes ("Codes for the representation of names of languages") and ISO 3166-1 alpha-2 \[[ISO3166](#ref-ISO3166)\] codes ("Codes for the representation of names of countries"). Both consist of two letters. The language code is written in lowercase while the country code is written in uppercase. However, both ISO classifications may be combined to differentiate regional languages.
+The International Organization for Standardization (ISO) \[[ISO](#ref-ISO)\] has
+standardised two lists of language-related codes: the language codes called ISO
+639-1 alpha-2 \[[ISO639](#ref-ISO639)\] codes ("Codes for the representation of
+names of languages") and ISO 3166-1 alpha-2 \[[ISO3166](#ref-ISO3166)\] codes
+("Codes for the representation of names of countries"). Both consist of two
+letters. The language code is written in lowercase while the country code is
+written in uppercase. However, both ISO classifications may be combined to
+differentiate regional languages.
 
-The `language` attribute MUST contain either the two-letter language code (lowercase) for a national language or the combined language (lowercase)/country (uppercase) code for a regional language or locale.
+The `language` attribute MUST contain either the two-letter language code
+(lowercase) for a national language or the combined language (lowercase)/country
+(uppercase) code for a regional language or locale.
 
 ![Table 1](/images/spec-table1.png)
 _Table 1. An example of ISO standard values for language and combined language/country codes._
 
 
 ### Semantic Overlays
-Semantic overlays provide contextual meaning to describe objects and their relationships.
+Semantic overlays provide contextual meaning to describe objects and their
+relationships.
 
 ##### Character Encoding Overlay
 
-A Character Encoding Overlay defines the process of assigning numbers to graphical characters, especially the written characters of human language, allowing them to be stored, transmitted, and transformed using digital computers. Character encoding using internationally accepted standards permits worldwide interchange of text in electronic form.
+A Character Encoding Overlay defines the process of assigning numbers to
+graphical characters, especially the written characters of human language,
+allowing them to be stored, transmitted, and transformed using digital
+computers. Character encoding using internationally accepted standards permits
+worldwide interchange of text in electronic form.
 
-In addition to the [Mandatory attributes](#mandatory-attributes), the Character Encoding Overlay MUST include at least one of the following attributes:
+In addition to the [Mandatory attributes](#mandatory-attributes), the Character
+Encoding Overlay MUST include at least one of the following attributes:
 
 - `default_character_encoding`
 
-  The "default_character_encoding" attribute specifies the default character encoding for the attributes contained in the parent Capture Base.
+  The "default_character_encoding" attribute specifies the default character
+  encoding for the attributes contained in the parent Capture Base.
 
-  The most common default character set is UTF-8 \[[RFC3629](#ref-RFC3629)\], which accounts for 98% of all web pages in the World Wide Web and up to 100.0% for some languages, as of 2021.
+  The most common default character set is UTF-8 \[[RFC3629](#ref-RFC3629)\],
+  which accounts for 98% of all web pages in the World Wide Web and up to 100.0%
+  for some languages, as of 2021.
 
 - `attr_character_encoding`
 
-  The `attr_character_encoding` attribute maps key-value pairs where the key is the attribute name and the value is the character encoding.
+  The `attr_character_encoding` attribute maps key-value pairs where the key is
+  the attribute name and the value is the character encoding.
 
-  Any attributes contained in the `attr_character_encoding` attribute override the behaviour of the `default_character_encoding` attribute.
+  Any attributes contained in the `attr_character_encoding` attribute override
+  the behaviour of the `default_character_encoding` attribute.
 
-  There are many encoding standards including Base64 \[[RFC4648](#ref-RFC4648)\], UTF-8, and ASCII to name a few. Each standard has a purpose, and applications using those encoding standards expect to receive data compliant with that encoding standard. The most popular types of character encoding are ASCII and Unicode \[[UNICODE](#ref-UNICODE)\]. While ASCII is still supported by nearly all text editors, Unicode is more commonly used because it supports a larger character set. Unicode is often defined as UTF-8, UTF-16 \[[RFC2781](#ref-RFC2781)\], or UTF-32 \[[ISO10646](#ref-ISO10646)\], which refer to different Unicode standards.
+  There are many encoding standards including Base64
+  \[[RFC4648](#ref-RFC4648)\], UTF-8, and ASCII to name a few. Each standard has
+  a purpose, and applications using those encoding standards expect to receive
+  data compliant with that encoding standard. The most popular types of
+  character encoding are ASCII and Unicode \[[UNICODE](#ref-UNICODE)\]. While
+  ASCII is still supported by nearly all text editors, Unicode is more commonly
+  used because it supports a larger character set. Unicode is often defined as
+  UTF-8, UTF-16 \[[RFC2781](#ref-RFC2781)\], or UTF-32
+  \[[ISO10646](#ref-ISO10646)\], which refer to different Unicode standards.
 
   :::tip An example of character encoding for a text format:
   Data type: `Text`<br>
@@ -313,21 +396,32 @@ In addition to the [Mandatory attributes](#mandatory-attributes), the Character 
 
 ##### Format Overlay
 
-A Format Overlay defines an input and display format for data fields. The data format enables conversion of the input buffer to the program variable and displays program variable data to form fields.
+A Format Overlay defines an input and display format for data fields. The data
+format enables conversion of the input buffer to the program variable and
+displays program variable data to form fields.
 
-In addition to the [Mandatory attributes](#mandatory-attributes), the Format Overlay MUST include the following attribute:
+In addition to the [Mandatory attributes](#mandatory-attributes), the Format
+Overlay MUST include the following attribute:
 
 - `attribute_formats`
 
-  The "attribute_formats" attribute maps key-value pairs where the key is the attribute name and the value is the format.
+  The "attribute_formats" attribute maps key-value pairs where the key is the
+  attribute name and the value is the format.
 
-The inputted format values are dependent on the following core data types as defined by the attribute types in the Capture Base:
+The inputted format values are dependent on the following core data types as
+defined by the attribute types in the Capture Base:
 
-- **Text**: The inputted format value for this core data type MAY be a regular expression [REGEX], a sequence of characters that specifies a search pattern in text.
+- **Text**: The inputted format value for this core data type MAY be a regular
+expression [REGEX], a sequence of characters that specifies a search pattern in
+text.
 
-- **Binary**: The inputted format value for this core data type MAY be a MIME type registered with the Internet Assigned Numbers Authority (IANA) \[[IANA](#ref-IANA)\]
+- **Binary**: The inputted format value for this core data type MAY be a MIME
+type registered with the Internet Assigned Numbers Authority (IANA)
+\[[IANA](#ref-IANA)\]
 
-- **DateTime**: The inputted format value for this core data type MAY be a date and time representation as defined by ISO 8601, a standard for the worldwide exchange and communication of date and time-related data.
+- **DateTime**: The inputted format value for this core data type MAY be a date
+and time representation as defined by ISO 8601, a standard for the worldwide
+exchange and communication of date and time-related data.
 
 ```json
 {
@@ -349,13 +443,18 @@ _Example 3. Code snippet for a Format Overlay._
 
 _[language-specific object]_
 
-A Label Overlay defines human readable attribute names. For example, for an attribute named `dateOfBirth`, you may wish to call it `Date of birth`, which is more meaningful and user-friendly when inspected by human.
+A Label Overlay defines human readable attribute names. For example, for an
+attribute named `dateOfBirth`, you may wish to call it `Date of birth`, which is
+more meaningful and user-friendly when inspected by human.
 
-In addition to the [Mandatory attributes](#mandatory-attributes) and [language](#language), the Label Overlay MUST include the following attribute:
+In addition to the [Mandatory attributes](#mandatory-attributes) and
+[language](#language), the Label Overlay MUST include the following attribute:
 
 - `attribute_labels`
 
-  The `attribute_labels` attribute maps key-value pairs where the key is the attribute name and the value is a human-meaningful attribute label in a specific language.
+  The `attribute_labels` attribute maps key-value pairs where the key is the
+  attribute name and the value is a human-meaningful attribute label in a
+  specific language.
 
 ```json
 {
@@ -382,9 +481,12 @@ _Example 5. Code snippet for a Label Overlay (language: en)._
 
 _[language-specific object]_
 
-A Meta Overlay defines any language-specific information about a schema. It is used for discovery and identification and includes elements such as the schema name and description.
+A Meta Overlay defines any language-specific information about a schema. It is
+used for discovery and identification and includes elements such as the schema
+name and description.
 
-In addition to the [Mandatory attributes](#mandatory-attributes) and [language](#language), the Meta Overlay SHOULD include the following attributes:
+In addition to the [Mandatory attributes](#mandatory-attributes) and
+[language](#language), the Meta Overlay SHOULD include the following attributes:
 
 - `name`
 
@@ -394,7 +496,10 @@ In addition to the [Mandatory attributes](#mandatory-attributes) and [language](
 
   The `description` attribute contains a description of the schema in a specific language.
 
-and MAY include other attributes at the discretion of the overlay producer, such as an "affiliation" attribute in the example below. How the overlay producer conveys the purpose of the additional attributes in the Meta Overlay is outside the scope of this specification.
+and MAY include other attributes at the discretion of the overlay producer, such
+as an "affiliation" attribute in the example below. How the overlay producer
+conveys the purpose of the additional attributes in the Meta Overlay is outside
+the scope of this specification.
 
 ```json
 {
@@ -412,15 +517,25 @@ _Example 6. Code snippet for a Meta Overlay (language: en_UK)._
 
 ##### Standard Overlay
 
-A Standard Overlay defines a documented agreement or technical specification published by a standards organisation used to represent, format, define, structure, tag, transmit, manipulate, use, and manage data.
+A Standard Overlay defines a documented agreement or technical specification
+published by a standards organisation used to represent, format, define,
+structure, tag, transmit, manipulate, use, and manage data.
 
-In addition to the [Mandatory attributes](#mandatory-attributes), the Standard Overlay MUST include the following attribute:
+In addition to the [Mandatory attributes](#mandatory-attributes), the Standard
+Overlay MUST include the following attribute:
 
 - `attr_standards`
 
-  The `attr_standards` attribute maps key-value pairs where the key is the attribute name and the value is the standard.
+  The `attr_standards` attribute maps key-value pairs where the key is the
+  attribute name and the value is the standard.
 
-There are many international standards organisations establishing tens of thousands of standards covering almost every conceivable topic. The three largest and most well-established standards organisations are the International Organization for Standardization (ISO), the International Electrotechnical Commission (IEC) \[[IEC](#ref-IEC)\], and the International Telecommunication Union (ITU) \[[ITU](#ref-ITU)\]. Standards tend to contain the acronym of the standards organisation followed by an internal document identifier.
+There are many international standards organisations establishing tens of
+thousands of standards covering almost every conceivable topic. The three
+largest and most well-established standards organisations are the International
+Organization for Standardization (ISO), the International Electrotechnical
+Commission (IEC) \[[IEC](#ref-IEC)\], and the International Telecommunication
+Union (ITU) \[[ITU](#ref-ITU)\]. Standards tend to contain the acronym of the
+standards organisation followed by an internal document identifier.
 
 ```json
 {
@@ -441,13 +556,17 @@ Inputs overlays provide predefined inputs for data attestations.
 
 #### Cardinality Overlay
 
-A Cardinality Overlay defines the minimum and maximum number of values that an attribute can have. For a relationship, the cardinality interval specifies the minimum and maximum number of relationship targets.
+A Cardinality Overlay defines the minimum and maximum number of values that an
+attribute can have. For a relationship, the cardinality interval specifies the
+minimum and maximum number of relationship targets.
 
-In addition to the [Mandatory attributes](#mandatory-attributes), the Cardinality Overlay MUST include the following attribute:
+In addition to the [Mandatory attributes](#mandatory-attributes), the
+Cardinality Overlay MUST include the following attribute:
 
 - `attr_cardinality`
 
-  The `attr_cardinality` attribute maps key-value pairs where the key is the attribute name and the value is the cardinality interval.
+  The `attr_cardinality` attribute maps key-value pairs where the key is the
+  attribute name and the value is the cardinality interval.
 
 The logic of cardinality intervals is as follows:
 
@@ -473,13 +592,17 @@ _Example 8. Code snippet for a Cardinality Overlay._
 
 #### Conformance Overlay
 
-A Conformance Overlay indicates whether data entry for each attribute is mandatory or optional.
+A Conformance Overlay indicates whether data entry for each attribute is
+mandatory or optional.
 
-In addition to the [Mandatory attributes](#mandatory-attributes), the Conformance Overlay MAY include the following attributes:
+In addition to the [Mandatory attributes](#mandatory-attributes), the
+Conformance Overlay MAY include the following attributes:
 
 - `attribute_conformance `
 
-  The `attribute_conformance` attribute maps key-value pairs where the key is the attribute name and the value is the data entry conformance of the attribute, which is set to either `M` (mandatory) or `O` (optional).
+  The `attribute_conformance` attribute maps key-value pairs where the key is
+  the attribute name and the value is the data entry conformance of the
+  attribute, which is set to either `M` (mandatory) or `O` (optional).
 
 ```json
 {
@@ -503,20 +626,31 @@ _Example 10. Code snippet for a Conformance Overlay._
 
 #### Entry Code Overlay
 
-An Entry Code Overlay defines the entry keys in a series of key-value pairs stored in a code table (also known as a "lookup table") or dataset. The key is a unique identifier that points to its associated value.
+An Entry Code Overlay defines the entry keys in a series of key-value pairs
+stored in a code table (also known as a "lookup table") or dataset. The key is a
+unique identifier that points to its associated value.
 
 ![Table 2](/images/spec-table2.png)
-_Table 2. An example of how the values in an array of key-value pairs provided by an Entry Code Overlay subsequently define a set of pre-defined entry keys in a nested series of key-value pairs. The specified values are often standardised categorisation codes, valuable data inputs for statistical analysis, machine learning (ML), and artificial intelligence (AI) algorithms._
+_Table 2. An example of how the values in an array of key-value pairs provided
+by an Entry Code Overlay subsequently define a set of pre-defined entry keys in
+a nested series of key-value pairs. The specified values are often standardised
+categorisation codes, valuable data inputs for statistical analysis, machine
+learning (ML), and artificial intelligence (AI) algorithms._
 
-In addition to the [Mandatory attributes](#mandatory-attributes), the Entry Code Overlay MUST include the following attribute:
+In addition to the [Mandatory attributes](#mandatory-attributes), the Entry Code
+Overlay MUST include the following attribute:
 
 - `attribute_entry_codes `
 
-  The `attribute_entry_codes` attribute maps key-value pairs where the key is the attribute name and the value is either:
+  The `attribute_entry_codes` attribute maps key-value pairs where the key is
+  the attribute name and the value is either:
 
   - a set of pre-defined entry keys for a nested series of key-value pairs; or
 
-  - a [SAID](#ref-SAID) that references a code table from an external data source to retrieve an array of pre-defined entry keys for a nested series of key-value pairs. See [Code Tables](#code-tables) for more information on code tables.
+  - a [SAID](#ref-SAID) that references a code table from an external data
+  source to retrieve an array of pre-defined entry keys for a nested series of
+  key-value pairs. See [Code Tables](#code-tables) for more information on code
+  tables.
 
 ```json
 {
@@ -537,20 +671,33 @@ _Example 11. Code snippet for an Entry Code Overlay._
 
 _[language-specific object]_
 
-An Entry Overlay defines the entry values in a series of key-value pairs stored in a code table (also known as a "lookup table") or dataset. A value is either the identified data or a pointer to that data.
+An Entry Overlay defines the entry values in a series of key-value pairs stored
+in a code table (also known as a "lookup table") or dataset. A value is either
+the identified data or a pointer to that data.
 
 ![Table 3](/images/spec-table3.png)
-_Table 3. An example of how an Entry Overlay can leverage a set of pre-defined entry keys in a nested series of key-value pairs provided by an Entry Code Overlay to provide human-meaningful values in a specified national or regional language._
+_Table 3. An example of how an Entry Overlay can leverage a set of pre-defined
+entry keys in a nested series of key-value pairs provided by an Entry Code
+Overlay to provide human-meaningful values in a specified national or regional
+language._
 
-In addition to the [Mandatory attributes](#mandatory-attributes), and [languag](#language), the Entry Overlay MUST include the following attribute:
+In addition to the [Mandatory attributes](#mandatory-attributes), and
+[languag](#language), the Entry Overlay MUST include the following attribute:
 
 - `attribute_entries`
 
-  The `attribute_entries` attribute maps key-value pairs where the key is the attribute name and the value is either:
+  The `attribute_entries` attribute maps key-value pairs where the key is the
+  attribute name and the value is either:
 
-  - a set of pre-defined values in a nested series of key-value pairs that are human-meaningful and language-dependent where the entry keys are taken from an associated Entry Code Overlay; or
+  - a set of pre-defined values in a nested series of key-value pairs that are
+  human-meaningful and language-dependent where the entry keys are taken from an
+  associated Entry Code Overlay; or
 
-  - a [SAID](#ref-SAID) that references a code table from an external data source to retrieve an array of pre-defined values from a nested series of key-value pairs that are human-meaningful and language-dependent where the entry keys are taken from an associated Entry Code Overlay. See [Code Tables](#code-tables) for more information.
+  - a [SAID](#ref-SAID) that references a code table from an external data
+  source to retrieve an array of pre-defined values from a nested series of
+  key-value pairs that are human-meaningful and language-dependent where the
+  entry keys are taken from an associated Entry Code Overlay. See [Code
+  Tables](#code-tables) for more information.
 
 ```json
 {
@@ -577,25 +724,38 @@ _Example 12. Code snippet for an Entry Overlay (language: en_UK)._
 
 #### Unit Overlay
 
-A Unit Overlay defines the units of measurement adopted by convention or law, used as a standard for measuring the same kind of quantitative data. The RECOMMENDED system to use is the International System of Units (SI) \[[BIPM](#ref-BIPM)\], French Système International d’Unités, an international decimal system of weights and measures derived from and extending the metric system of units.
+A Unit Overlay defines the units of measurement adopted by convention or law,
+used as a standard for measuring the same kind of quantitative data. The
+RECOMMENDED system to use is the International System of Units (SI)
+\[[BIPM](#ref-BIPM)\], French Système International d’Unités, an international
+decimal system of weights and measures derived from and extending the metric
+system of units.
 
-Adopted by the 11th General Conference on Weights and Measures (CGPM) in 1960, it is abbreviated SI in all languages. To date, the SI comprises seven base units: the meter (m), the kilogram (kg), the second (s), the ampere (A), the kelvin (K), the candela (cd) and the mole (mol).
+Adopted by the 11th General Conference on Weights and Measures (CGPM) in 1960,
+it is abbreviated SI in all languages. To date, the SI comprises seven base
+units: the meter (m), the kilogram (kg), the second (s), the ampere (A), the
+kelvin (K), the candela (cd) and the mole (mol).
 
 ![Fig 3](/images/spec-fig3.png)
 
 _Figure 3. The seven defining constants of the SI._
 
-In addition to the [Mandatory attributes](#mandatory-attributes), the Unit Overlay SHOULD include the following attribute:
+In addition to the [Mandatory attributes](#mandatory-attributes), the Unit
+Overlay SHOULD include the following attribute:
 
 - `metric_system`
 
-  The `metric_system` attribute contains the acronym of the chosen system of units (a coherent system of units of measurement) used for defining attribute units.
+  The `metric_system` attribute contains the acronym of the chosen system of
+  units (a coherent system of units of measurement) used for defining attribute
+  units.
 
 and MUST include the following attribute:
 
 - `attribute_units`
 
-  The `attribute_units` attribute maps key-value pairs where the key is the attribute name and the value is a standard unit of measurement from a known metric system.
+  The `attribute_units` attribute maps key-value pairs where the key is the
+  attribute name and the value is a standard unit of measurement from a known
+  metric system.
 
 ```json
 {
@@ -613,7 +773,11 @@ _Example 13. Code snippet for a Unit Overlay._
 
 #### Attribute Mapping Overlay
 
-An Attribute Mapping Overlay defines attribute mappings between two distinct data models. Data mapping provides a preliminary step for data integration tasks, including data transformation or data mediation between a data source and a destination or consolidation of multiple databases into a single database and identifying redundant columns of data for consolidation or elimination.
+An Attribute Mapping Overlay defines attribute mappings between two distinct
+data models. Data mapping provides a preliminary step for data integration
+tasks, including data transformation or data mediation between a data source and
+a destination or consolidation of multiple databases into a single database and
+identifying redundant columns of data for consolidation or elimination.
 
 ```json
 {
@@ -631,7 +795,8 @@ _Example 14. Code snippet for an Attribute Mapping Overlay._
 
 #### Entry Code Mapping Overlay
 
-An Entry Code Mapping Overlay defines the entry key mappings between two distinct code tables or datasets.
+An Entry Code Mapping Overlay defines the entry key mappings between two
+distinct code tables or datasets.
 
 ```json
 {
@@ -658,7 +823,9 @@ _Example 15. Code snippet for an Entry Code Mapping Overlay._
 
 #### Subset Overlay
 
-A Subset Overlay defines a customised version of a published schema containing a subset of source attributes, including their properties, types, codes, and relationship dependencies required for the information exchange.
+A Subset Overlay defines a customised version of a published schema containing a
+subset of source attributes, including their properties, types, codes, and
+relationship dependencies required for the information exchange.
 
 ```json
 {
@@ -673,14 +840,30 @@ _Example 16. Code snippet for a Subset Overlay._
 
 #### Sensitive Overlay
 
-A Sensitive Overlay is a specialized construct used to identify and flag attributes that require protection against unauthorized or unwarranted disclosure. Attributes marked by a Sensitive Overlay typically include data subject to legal, ethical, or privacy-related considerations, including but not limited to Personally Identifiable Information (PII), Quasi-Identifiable Information (QII)) or proprietary information.
+A Sensitive Overlay is a specialized construct used to identify and flag
+attributes that require protection against unauthorized or unwarranted
+disclosure. Attributes marked by a Sensitive Overlay typically include data
+subject to legal, ethical, or privacy-related considerations, including but not
+limited to Personally Identifiable Information (PII), Quasi-Identifiable
+Information (QII)) or proprietary information.
 
-Sensitive Overlays are integral to ensuring compliance with legal and ethical standards while supporting robust data governance. Implementers must incorporate mechanisms to respect and enforce the protections designated by these overlays to maintain conformity with the OCA Specification.
+Sensitive Overlays are integral to ensuring compliance with legal and ethical
+standards while supporting robust data governance. Implementers must incorporate
+mechanisms to respect and enforce the protections designated by these overlays
+to maintain conformity with the OCA Specification.
 
-The Blinding Identity Taxonomy (BIT) [KAN2020](#ref-KAN2020) is a practical tool for any practitioner whose organisation has custody or control of a dataset containing identifiable information about entities, including a natural person, organisation, or device with signing capabilities that make that entity uniquely identifiable. For example, data protection officers and schema issuers can use the BIT to flag a list of elements which require cryptographic encoding to reduce the risk of identifying a data principal.
+The Blinding Identity Taxonomy (BIT) [KAN2020](#ref-KAN2020) is a practical tool
+for any practitioner whose organisation has custody or control of a dataset
+containing identifiable information about entities, including a natural person,
+organisation, or device with signing capabilities that make that entity uniquely
+identifiable. For example, data protection officers and schema issuers can use
+the BIT to flag a list of elements which require cryptographic encoding to
+reduce the risk of identifying a data principal.
 
 
-In addition to the `capture_base` and `type` attributes (see [Common attributes](#common-attributes)), the Sensitive Overlay MUST include the following attribute:
+In addition to the `capture_base` and `type` attributes (see [Common
+attributes](#common-attributes)), the Sensitive Overlay MUST include the
+following attribute:
 
 - `attributes`
 
@@ -699,13 +882,14 @@ _Example 19. Code snippet for a Sensitive Overlay_
 
 ### Community Overlays
 
-Community overlays are task-specific objects which are integral part of OCA Bundle.
-Defined by the community can be used to extend functionality of [OCA
+Community overlays are task-specific objects which are integral part of OCA
+Bundle. Defined by the community can be used to extend functionality of [OCA
 Bundle](#bundle).
 
 Community overlay needs to adhere to the OCA specification and MUST include
 [Mandatory attributes](#mandatory-attributes) and MAY include [Common
-attributes](#common-attributes) if necessary follwed by any overlay specific attributes.
+attributes](#common-attributes) if necessary follwed by any overlay specific
+attributes.
 
 The **canonical form** of a **community overlay** follows the same rules as the
 **canonical form** of the **core overlay**.
@@ -779,12 +963,14 @@ This indicates:
 
 *Validation*
 
-Consumers of the OCA Specification must implement validation logic to ensure the bundle version string:
+Consumers of the OCA Specification must implement validation logic to ensure the
+bundle version string:
 - Matches the defined format and structure.
 - Uses only supported serialization formats.
 - Accurately represents the object's size in base64 encoding.
 
-Validation failure must result in the rejection of the bundle as non-compliant with the specification.
+Validation failure must result in the rejection of the bundle as non-compliant
+with the specification.
 
 *Example*:
 ```
@@ -869,20 +1055,23 @@ specification.
 
 #### How to calculate SAID
 
-1. Convert the object ([bundle](#bundle) or [capture base](#capture-base) or [overlay](#overlays))
-into its canonical form, ensuring all whitespace is removed.
+1. Convert the object ([bundle](#bundle) or [capture base](#capture-base) or
+[overlay](#overlays)) into its canonical form, ensuring all whitespace is
+removed.
 2. Replace the SAID field value in the serialization with a dummy string of the
 same length as the chosen digest algorithm (e.g. BLAKE3-256 is 32 bytes, which
 is 44 characters in Base64 URL-Safe). The dummy character is `#` (ASCII 35 in
-decimal, 0x23 in hex). See [CESR](#ref-CESR) code tables for available algorithms.
+decimal, 0x23 in hex). See [CESR](#ref-CESR) code tables for available
+algorithms.
 3. Compute the digest of the modified serialization, which includes the dummy
 SAID value.
 4. Replace the dummy characters with the computed SAID value.
 
 #### How to verify object
 
-1. Convert the object ([bundle](#bundle) or [capture base](#capture-base) or [overlay](#overlays))
-into its canonical form, ensuring all whitespace is removed.
+1. Convert the object ([bundle](#bundle) or [capture base](#capture-base) or
+[overlay](#overlays)) into its canonical form, ensuring all whitespace is
+removed.
 2. Replace the SAID field value in the serialization with a dummy string of the
 same length as the digest algorithm. Use the digest algorithm specified by the
 [CESR](#ref-CESR) derivation code of the copied SAID. The dummy character is #
@@ -923,17 +1112,20 @@ A Code Table for Keys MUST include the following attribute:
 }
 ```
 
-_Example 21. Code snippet for a Code Table for Keys, providing an anchor for, in this case, two-character ISO country codes._
+_Example 21. Code snippet for a Code Table for Keys, providing an anchor for, in
+this case, two-character ISO country codes._
 
 #### Code Table for Key-Value pairs
 
-A Code Table for Key-Value pairs provides a mapping of input values to output values.
+A Code Table for Key-Value pairs provides a mapping of input values to output
+values.
 
 A Code Table for Key-Value pairs MUST include the following attribute:
 
 - `entries`
 
-  The "entries" attribute is a map of key-value pairs, where the key is the input value (the source) and the value is the output value (the product).
+  The "entries" attribute is a map of key-value pairs, where the key is the
+  input value (the source) and the value is the output value (the product).
 
 ```json
 {
