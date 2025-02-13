@@ -202,6 +202,9 @@ _Listing: ABNF representation of the attribute name_
 An attribute type determines the attribute's syntax and how attributes of that
 type are compared and sorted. A Capture Base recognises seven core data types:
 
+- **Text**: a data type that defines a human-readable sequence of characters and
+the words they form, subsequently encoded into computer-readable formats such as
+ASCII \[[RFC0020](#ref-RFC0020)\].
 - **Numeric**: a data type that defines anything relating to or containing
 numbers. Examples of numeric data types include 8-byte integers, fixed precision
 and scale numeric data, floating precision number data, integer (whole number)
