@@ -127,27 +127,55 @@ Base](#capture-base) or another [Overlay](#overlays). When amalgamated as a
 and contextual information to determine the meaning of inputted data at the time
 of data capture.
 
+### Common attributes
+
+Each `OCA object` **MUST** include the following attributes, listed in that
+order to form its cannonical serialization:
+
+- `d` - [deterministic identifier](#deterministic-identifier) of the capture base
+- `t` - [type](#type) of the object
+- object specific attributes (see below)
+
+#### Type
+
+The `type` attribute specifies the OCA object type and its associated version.
+The version aligns with the corresponding OCA specification version, ensuring
+that the object remains compatible with the specified OCA specification.
+
+```abnf
+type = captura-rule / overlay-rule
+
+capture-rule = "capture_base" "/" sem_ver
+
+overlay-rule = "overlay/" overlay_name "/" sem_ver
+overlay_name = namespace ":" name / name
+namespace = 1*(ALPHA / DIGIT / "-" / "_" / ".")
+name = 1*(ALPHA / DIGIT / "-" / "_" / ".")
+sem_ver = DIGIT "." DIGIT "." DIGIT
+```
+
+_Listing: ABNF type attribute rules \[[RFC5234](#ref-RFC5234)\]_
+
 ### Capture Base
 
 A `Capture Base` is a base object that defines a single dataset in its purest
 form, providing a structural base to harmonise data. The object defines
 attribute names and types.
 
-The Capture Base comprises the following attributes, listed in order to form its
-canonical serialization:
+The Capture Base **MUST** comprises of [common attributes](#common-attributes)
+and the following attributes, listed in that order to form its canonical
+serialization:
 
-- `d` - [deterministic identifier](#deterministic-identifier) of the capture base
-- [ type ](#type)
-- [ attributes ](#attributes)
+- `a` - [attributes](#attributes) of the capture base
 
 ```json
 {
   "d": "EFEDyA__ap51wscacOwATP3c51icUeHT6D0tTbInQI9G",
-  "type": "spec/capture_base/1.0.0",
-  "attributes": {
+  "t": "capture_base/1.0.0",
+  "a": {
     "dateOfBirth": "DateTime",
     "documentNumber": "Text",
-    "documentType": "Array[Text]",
+    "documentType": [ "Text" ],
     "fullName": "Text",
     "height": "Numeric",
     "issuingState": "Text",
@@ -159,23 +187,9 @@ canonical serialization:
 
 _Example 1. Code snippet for a Capture Base._
 
-#### Type
-
-The `type` attribute specifies the schema object type and its associated
-version. The version aligns with the corresponding OCA specification version,
-ensuring that the schema object remains compatible with the specified OCA
-specification.
-
-```abnf
-type = "spec/capture_base/" sem_ver
-sem_ver = DIGIT "." DIGIT "." DIGIT
-```
-
-_Listing: ABNF core rules \[[RFC5234](#ref-RFC5234)\]_
-
 #### Attributes
 
-The `attributes` attribute maps key-value pairs where the key is the attribute
+The `a` attribute maps key-value pairs where the key is the attribute
 name and the value is the attribute type.
 
 ##### Attribute name
@@ -258,46 +272,17 @@ overlays](#community-overlays) for more details.
 
 Overlays are cryptographically-linked objects that provide layers of
 task-oriented definitional or contextual information to a other [OCA
-Objects](#oca-object-types). Any actor interacting with a published Capture Base
-can use Overlays to add metadata to the underlying object, transform how
+Objects](#oca-object-types). Any actor interacting with a published `Capture Base`
+can use `Overlays` to add metadata to the underlying object, transform how
 information is displayed to a viewer, or guide an agent in applying a custom
 process to captured data.
 
-Overlays `MUST` comprises the following attributes, listed in order to form its
-canonical serialization:
-- `d` - [deterministic identifier](#deterministic-identifier) of the overlay
-- [ capture_base ](#capture-base-1) or [overlay](#overlay)
-- [ type ](#type-1)
+Overlays in addition to the [common attributes](#common-attributes) `MUST`
+comprises the following attributes, listed in that order to form its canonical
+serialization:
+- `p` - parent [SAID](#deterministic-identifier) either for [ capture_base ](#capture-base) or [overlay](#overlays)
 - Overlay-specific attributes sorted in lexicographic order
   - See specific overlay types for more information.
-
-##### Capture base
-
-The `capture_base` attribute contains the [SAID](#ref-SAID) of the [Capture
-Base](#capture-base) to cryptographically anchor to that parent object.
-
-##### Overlay
-
-The `overlay` attribute contains the [SAID](#ref-SAID) of the
-[Overlay](#overlays) to cryptographically anchor to that parent object.
-
-##### Type
-
-The `type` attribute identifies the schema object type. The version aligns with
-the corresponding OCA specification version, ensuring that the object remains
-compatible with the specified OCA specification.
-
-```abnf
-type = "("spec" / "community)/overlays/" overlay_name "/" sem_ver
-overlay_name = namespace ":" ALPHA / ALPHA
-namespace = ALPHA
-sem_ver = DIGIT "." DIGIT "." DIGIT
-```
-
-_Listing: ABNF core rules_
-
-`spec` should be used when the object is defined by core specification and
-`community` when it is community defined object.
 
 #### Common attributes
 
