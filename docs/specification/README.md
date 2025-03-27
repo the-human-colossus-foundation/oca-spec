@@ -324,29 +324,28 @@ Encoding Overlay MUST include the following attributes:
   The `attr_character_encoding` attribute maps key-value pairs where the key is
   the attribute name and the value is the character encoding.
 
-  There are many encoding standards including Base64
-  \[[RFC4648](#ref-RFC4648)\], UTF-8, and ASCII to name a few. Each standard has
-  a purpose, and applications using those encoding standards expect to receive
-  data compliant with that encoding standard. The most popular types of
-  character encoding are ASCII and Unicode \[[UNICODE](#ref-UNICODE)\]. While
-  ASCII is still supported by nearly all text editors, Unicode is more commonly
-  used because it supports a larger character set. Unicode is often defined as
-  UTF-8, UTF-16 \[[RFC2781](#ref-RFC2781)\], or UTF-32
-  \[[ISO10646](#ref-ISO10646)\], which refer to different Unicode standards.
+There are many encoding standards including Base64
+\[[RFC4648](#ref-RFC4648)\], UTF-8, and ASCII to name a few. Each standard has
+a purpose, and applications using those encoding standards expect to receive
+data compliant with that encoding standard. The most popular types of
+character encoding are ASCII and Unicode \[[UNICODE](#ref-UNICODE)\]. While
+ASCII is still supported by nearly all text editors, Unicode is more commonly
+used because it supports a larger character set. Unicode is often defined as
+UTF-8, UTF-16 \[[RFC2781](#ref-RFC2781)\], or UTF-32
+\[[ISO10646](#ref-ISO10646)\], which refer to different Unicode standards.
 
-  :::tip An example of character encoding for a text format:
-  Data type: `Text`<br>
-  Character encoding: `UTF-8` (default)<br>
-  Standard: `ReGex`<br>
-  Format: `[A-Z0-9]{9}`
-  :::
-
-  :::tip An example of binary-to-text encoding for an image format:
-  Data type: `Binary`<br>
-  Character encoding: `Base64`<br>
-  Standard: `ISO/IEC 10918`<br>
-  Format: `image/jpeg`
-  :::
+:::tip An example of character encoding for a text format:
+Data type: `Text`<br>
+Character encoding: `UTF-8` (default)<br>
+Standard: `ReGex`<br>
+Format: `[A-Z0-9]{9}`
+:::
+:::tip An example of binary-to-text encoding for an image format:
+Data type: `Binary`<br>
+Character encoding: `Base64`<br>
+Standard: `ISO/IEC 10918`<br>
+Format: `image/jpeg`
+:::
 
   ```json
   {
