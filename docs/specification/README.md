@@ -122,10 +122,9 @@ guide an agent in applying a custom process to captured data.
 
 An `OCA object` is either a [Capture Base](#capture-base) or a task-specific
 [Overlay](#overlays) with a deterministic relationship to a [Capture
-Base](#capture-base) or another [Overlay](#overlays). When amalgamated as a
-[Bundle](#bundle), OCA objects provide the necessary structural, definitional,
-and contextual information to determine the meaning of inputted data at the time
-of data capture.
+Base](#capture-base). When amalgamated as a [Bundle](#bundle), OCA objects
+provide the necessary structural, definitional, and contextual information to
+determine the meaning of inputted data at the time of data capture.
 
 ### Common attributes
 
@@ -272,16 +271,15 @@ overlays](#community-overlays) for more details. From perspective of the specifi
 #### Mandatory attributes
 
 Overlays are cryptographically-linked objects that provide layers of
-task-oriented definitional or contextual information to a other [OCA
-Objects](#oca-object-types). Any actor interacting with a published `Capture Base`
-can use `Overlays` to add metadata to the underlying object, transform how
-information is displayed to a viewer, or guide an agent in applying a custom
-process to captured data.
+task-oriented definitional or contextual information to a `Capture Base`. Any
+actor interacting with a published `Capture Base` can use `Overlays` to add
+metadata to the underlying object, transform how information is displayed to a
+viewer, or guide an agent in applying a custom process to captured data.
 
 Overlays in addition to the [common attributes](#common-attributes) `MUST`
 comprises the following attributes, listed in that order to form its canonical
 serialization:
-- `parent` - parent [SAID](#deterministic-identifier) either for [ capture_base ](#capture-base) or [overlay](#overlays)
+- `capture_base` - [SAID](#deterministic-identifier) of [ capture_base ](#capture-base)
 - Overlay-specific attributes sorted in lexicographic order
   - See specific overlay types for more information.
 
@@ -365,7 +363,7 @@ Encoding Overlay MUST include at least one of the following attributes:
   ```json
   {
     "digest": "EPeH3AVhmGMLRT-DGqm6B9RY2q5-bC6ckTrFd__z6FYJ",
-    "parent": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
+    "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
     "type": "spec/overlays/character_encoding/1.0.2",
     "default_character_encoding": "utf-8",
     "attribute_character_encoding": {
@@ -408,7 +406,7 @@ exchange and communication of date and time-related data.
 ```json
 {
   "digest": "EIpe9Ra0tUWTPFrZU-Jo_EufovDqrbFOgwc2YppvTvFD",
-  "parent": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
+  "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
   "type": "spec/overlays/format/1.0.2",
   "attribute_formats": {
     "dateOfBirth": "YYYY-MM-DD",
@@ -441,7 +439,7 @@ In addition to the [Mandatory attributes](#mandatory-attributes) and
 ```json
 {
   "digest": "EPstaptvuTLvr6r2b0JBLzxaQzMZKkcKaYZBQTYPrdaL",
-  "parent": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
+  "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
   "type": "spec/overlays/label/1.0.2",
   "language": "en-UK",
   "attribute_labels": {
@@ -486,7 +484,7 @@ the scope of this specification.
 ```json
 {
   "digest": "EGzJ1hFOPWD1J5Bq2TA-NR0ssPunJJO_7uxngJNDXcXs",
-  "parent": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
+  "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
   "type": "spec/overlays/meta/1.0.2",
   "language": "en-UK",
   "name": "Digital Passport",
