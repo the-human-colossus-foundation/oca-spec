@@ -867,10 +867,10 @@ identifier](#deterministic-identifier) for the bundle.
 
 #### Canonical form
 
-OCA Bundles MUST be serializable to be transferred over the network. The
-serialization algorithm MUST be deterministic and operate on the canonical form
-of the Bundle, which ensures proper ordering of the attributes within OCA
-Objects. The serialization algorithm consists of the following rules:
+OCA Bundles MUST be serializable to be verfied. The serialization algorithm MUST
+be deterministic and operate on the canonical form of the Bundle, which ensures
+proper ordering of the attributes within OCA Objects. The serialization
+algorithm consists of the following rules:
 
 - MUST consist of following attributes in this order: `v`, `d`, `capture_base`, `overlays`
   - `v` - version string defined per section [Bundle Version](#bundle-version)
