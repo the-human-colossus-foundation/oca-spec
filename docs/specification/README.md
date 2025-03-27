@@ -257,16 +257,16 @@ an array instead of many separate variables (e.g., `[Text]`,
 contextual metadata.
 
 In the context of this specification, all listed **overlays** are classified as
-**core overlays**. These overlays have been identified through community
+**base overlays**. These overlays have been identified through community
 consensus as fundamental for ensuring semantic interoperability and are among
 the most widely utilized.
 
-The **OCA Specification** intentionally limits the number of **predefined core
+The **OCA Specification** intentionally limits the number of **predefined base
 overlays** to a **minimum**, allowing the community to take the lead in
 developing additional overlays as needed. This approach fosters a **dominant
 design** process, enabling the community to determine which **task-specific
 overlays** are most meaningful and valuable. See [Community
-overlays](#community-overlays) for more details. From perspective of the specification and implementation both **core overlays** and **community overlays** are treated equally.
+overlays](#community-overlays) for more details. From perspective of the specification and implementation both **base overlays** and **community overlays** are treated equally.
 
 #### Mandatory attributes
 
@@ -839,7 +839,7 @@ attributes](#common-attributes) if necessary follwed by any overlay specific
 attributes.
 
 The **canonical form** of a **community overlay** follows the same rules as the
-**canonical form** of the **core overlay**.
+**canonical form** of the **base overlay**.
 
 ## Bundle
 
