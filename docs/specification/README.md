@@ -379,7 +379,7 @@ The inputted format values are dependent on the following core data types as
 defined by the attribute types in the Capture Base:
 
 - **Text**: The inputted format value for this core data type MAY be a regular
-expression [REGEX], a sequence of characters that specifies a search pattern in
+expression [REGEX](#ref-REGEX), a sequence of characters that specifies a search pattern in
 text.
 
 - **Binary**: The inputted format value for this core data type MAY be a MIME
@@ -1089,31 +1089,12 @@ _Example 22. Code snippet for a Code Table for Key-Value pairs, providing a mapp
 ### Normative References
 
 <dl>
-  <dt id="ref-ISO21778">
-[ISO21778]
-  </dt>
-<dd>
-
-ISO/IEC 21778:2017, Information technology — The JSON data interchange syntax (2017) [ https://www.iso.org/standard/71616.html ](https://www.iso.org/standard/71616.html)
-
-</dd>
-  <dt id="ref-SAID">
-[SAID]
-  </dt>
+<dt id="ref-SAID">
+    [SAID]
+</dt>
 <dd>
 
 Smith, S. Self-Addressing IDentifier (SAID) (2022) [ https://datatracker.ietf.org/doc/html/draft-ssmith-said ](https://datatracker.ietf.org/doc/html/draft-ssmith-said)
-
-</dd>
-</dl>
-
-<dl>
-  <dt id="ref-CESR">
-  [CESR]
-  </dt>
-<dd>
-
-Composable Event Streaming Representation (CESR) [ https://trustoverip.github.io/tswg-cesr-specification/](https://trustoverip.github.io/tswg-cesr-specification/)
 
 </dd>
 </dl>
@@ -1122,32 +1103,6 @@ Composable Event Streaming Representation (CESR) [ https://trustoverip.github.io
 
 <div>
 <dl>
-  <dt id="ref-ISO21778">
-[ISO21778]
-  </dt>
-<dd>
-
-ISO/IEC 21778:2017, Information technology — The JSON data interchange syntax (2017) [ https://www.iso.org/standard/71616.html ](https://www.iso.org/standard/71616.html)
-
-</dd>
-
-<dt id="ref-SAID">
-[SAID]
-</dt>
-<dd>
-
-Smith, S. Self-Addressing IDentifier (SAID) (2022) [ https://datatracker.ietf.org/doc/html/draft-ssmith-said ](https://datatracker.ietf.org/doc/html/draft-ssmith-said)
-
-</dd>
-
-<dt id="ref-BER2013">
-[BER2013]
-</dt>
-<dd>
-
-Berkeley, A., Pollock, R., Smith, J. Data Protocols Lightweight Standards and Patterns for Data, Version 0.1 (2013) [http://dataprotocols.org/units/](http://dataprotocols.org/units/)
-
-</dd>
 
 <dt id="ref-BIPM">
 [BIPM]
@@ -1155,16 +1110,6 @@ Berkeley, A., Pollock, R., Smith, J. Data Protocols Lightweight Standards and Pa
 <dd>
 
 Bureau International des Poids et Mesures (BIPM). The International System of Units (SI) [https://www.bipm.org/en/measurement-units](https://www.bipm.org/en/measurement-units)
-
-</dd>
-
-<dt id="ref-BRU2019">
-[BRU2019]
-</dt>
-<dd>
-
-Brush, K. Digital ecosystem (2019)
-[https://www.techtarget.com/searchcio/definition/digital-ecosystem](https://www.techtarget.com/searchcio/definition/digital-ecosystem)
 
 </dd>
 
@@ -1177,48 +1122,12 @@ Wilkinson, M. et al. The FAIR Guiding Principles for scientific data management 
 
 </dd>
 
-<dt id="ref-GICS">
-[GICS]
-</dt>
-<dd>
-
-MSCI. The Global Industry Classification Standard (GICS®) [https://www.msci.com/our-solutions/indexes/gics](https://www.msci.com/our-solutions/indexes/gics)
-
-</dd>
-
-<dt id="ref-HCF2022">
-[HCF2022]
-</dt>
-<dd>
-
-Human Colossus Foundation. Principles of a Dynamic Data Economy (DDE), Version 1.0 (2022) [https://static1.squarespace.com/static/5ead4c8660689c348c80958e/t/62f288b25f9c364d7945e6eb/1660061875006/HCF+DDE+Principles+v1.0.0.pdf](https://static1.squarespace.com/static/5ead4c8660689c348c80958e/t/62f288b25f9c364d7945e6eb/1660061875006/HCF+DDE+Principles+v1.0.0.pdf)
-
-</dd>
-
 <dt id="ref-IANA">
 [IANA]
 </dt>
 <dd>
 
 Internet Assigned Numbers Authority (IANA) [https://www.iana.org/](https://www.iana.org/)
-
-</dd>
-
-<dt id="ref-ICAO">
-[ICAO]
-</dt>
-<dd>
-
-International Civil Aviation Organization (ICAO) [https://www.icao.int/Pages/default.aspx](https://www.icao.int/Pages/default.aspx)
-
-</dd>
-
-<dt id="ref-ICAO9303">
-[ICAO9303]
-</dt>
-<dd>
-
-Doc 9303, Machine Readable Travel Documents, Eighth Edition - Part 3: Specifications Common to all MRTDs (2021) [https://www.icao.int/publications/Documents/9303_p3_cons_en.pdf](https://www.icao.int/publications/Documents/9303_p3_cons_en.pdf)
 
 </dd>
 
@@ -1258,15 +1167,6 @@ ISO 3166-1:2020, Codes for the representation of names of countries and their su
 
 </dd>
 
-<dt id="ref-ISO7501">
-[ISO7501]
-</dt>
-<dd>
-
-ISO/IEC 7501-1:2008, Identification cards — Machine readable travel documents — Part 1: Machine-readable passport (2021) [https://www.iso.org/standard/45562.html](https://www.iso.org/standard/45562.html)
-
-</dd>
-
 <dt id="ref-ISO8601">
 [ISO8601]
 </dt>
@@ -1300,15 +1200,6 @@ International Telecommunication Union (ITU) [https://www.itu.int/en/Pages/defaul
 <dd>
 
 Knowles, P., Klingenstein, K., Wunderlich, J. Blinding Identity Taxonomy (BIT), Version 1.0 (2020, Kantara Initiative) [https://docs.kantarainitiative.org/Blinding-Identity-Taxonomy-Report-Version-1.0.pdf](https://docs.kantarainitiative.org/Blinding-Identity-Taxonomy-Report-Version-1.0.pdf)
-
-</dd>
-
-<dt id="ref-KNO2022">
-[KNO2022]
-</dt>
-<dd>
-
-Knowles, P., Mitwicki, R., Page, P. Decentralised semantics in distributed data ecosystems: Ensuring the structural, definitional, and contextual harmonisation and integrity of deterministic objects and objectual relationships (2022) [http://star.informatik.rwth-aachen.de/Publications/CEUR-WS/Vol-3249/paper4-OSS.pdf](http://star.informatik.rwth-aachen.de/Publications/CEUR-WS/Vol-3249/paper4-OSS.pdf)
 
 </dd>
 
@@ -1348,15 +1239,6 @@ Hoffman, P., Yergeau, F. UTF-16, an encoding of ISO 10646, RFC 2781, DOI 10.1748
 
 </dd>
 
-<dt id="ref-RFC3629">
-[RFC3629]
-</dt>
-<dd>
-
-Yergeau, F. UTF-8, a transformation format of ISO 10646, STD 63, RFC 3629, DOI 10.17487/RFC3629 (November 2003) [https://www.rfc-editor.org/rfc/rfc3629](https://www.rfc-editor.org/rfc/rfc3629)
-
-</dd>
-
 <dt id="ref-RFC4648">
 [RFC4648]
 </dt>
@@ -1372,15 +1254,6 @@ Josefsson, S. The Base16, Base32, and Base64 Data Encodings, RFC 4648, DOI 10.17
 <dd>
 
 Crocker, D., Ed., Overell, P. Augmented BNF for Syntax Specifications: ABNF, RFC 5234 (January 2008) [https://datatracker.ietf.org/doc/html/rfc5234](https://datatracker.ietf.org/doc/html/rfc5234)
-
-</dd>
-
-<dt id="ref-UN">
-[UN]
-</dt>
-<dd>
-
-United Nations [https://www.un.org/en/](https://www.un.org/en/)
 
 </dd>
 
