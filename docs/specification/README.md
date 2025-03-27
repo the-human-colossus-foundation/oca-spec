@@ -10,7 +10,7 @@ description: Official OCA specification
         Version:
     </dt>
     <dd>
-        v1.0.2
+        v2.0.0-rc1
     </dd>
   <dt>
       Latest published version:
@@ -59,7 +59,7 @@ Human Colossus Foundationi, [ EUPL v1.2 licence ](https://interoperable-europe.e
   </dt>
   <dd>
 
-  The Overalays Capture Architecture (OCA) Working Group maintains the OCA specification at [ Human Colossus Foundation ](https://humancolossus.foundation). Comments regarding this specification can be provided as issues on the official [ OCA Github ](https://github.com/the-human-colossus-foundation/oca-spec/issues).
+  Technology Council maintains the OCA specification at [ Human Colossus Foundation ](https://humancolossus.foundation). Comments regarding this specification can be provided as issues on the official [ OCA Github ](https://github.com/the-human-colossus-foundation/oca-spec/issues).
 
   </dd>
   <dt>
@@ -170,7 +170,7 @@ serialization:
 ```json
 {
   "digest": "EFEDyA__ap51wscacOwATP3c51icUeHT6D0tTbInQI9G",
-  "type": "capture_base/1.0.0",
+  "type": "capture_base/2.0.0",
   "attributes": {
     "dateOfBirth": "DateTime",
     "documentNumber": "Text",
@@ -351,7 +351,7 @@ Format: `image/jpeg`
   {
     "digest": "EPeH3AVhmGMLRT-DGqm6B9RY2q5-bC6ckTrFd__z6FYJ",
     "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
-    "type": "spec/overlays/character_encoding/1.0.2",
+    "type": "spec/overlays/character_encoding/2.0.0",
     "default_character_encoding": "utf-8",
     "attribute_character_encoding": {
       "photoImage": "base64"
@@ -387,14 +387,13 @@ type registered with the Internet Assigned Numbers Authority (IANA)
 \[[IANA](#ref-IANA)\]
 
 - **DateTime**: The inputted format value for this core data type MAY be a date
-and time representation as defined by ISO 8601, a standard for the worldwide
-exchange and communication of date and time-related data.
+and time representation as defined by [ISO 8601](#ref-ISO8601), a standard for the worldwide exchange and communication of date and time-related data.
 
 ```json
 {
   "digest": "EIpe9Ra0tUWTPFrZU-Jo_EufovDqrbFOgwc2YppvTvFD",
   "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
-  "type": "spec/overlays/format/1.0.2",
+  "type": "spec/overlays/format/2.0.0",
   "attribute_formats": {
     "dateOfBirth": "YYYY-MM-DD",
     "documentNumber": "[A-Z0-9]{9}",
@@ -427,7 +426,7 @@ In addition to the [Mandatory attributes](#mandatory-attributes) and
 {
   "digest": "EPstaptvuTLvr6r2b0JBLzxaQzMZKkcKaYZBQTYPrdaL",
   "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
-  "type": "spec/overlays/label/1.0.2",
+  "type": "spec/overlays/label/2.0.0",
   "language": "en-UK",
   "attribute_labels": {
     "dateOfBirth": "Date of birth",
@@ -472,7 +471,7 @@ the scope of this specification.
 {
   "digest": "EGzJ1hFOPWD1J5Bq2TA-NR0ssPunJJO_7uxngJNDXcXs",
   "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
-  "type": "spec/overlays/meta/1.0.2",
+  "type": "spec/overlays/meta/2.0.0",
   "language": "en-UK",
   "name": "Digital Passport",
   "description": "An example of a Digital Passport schema",
@@ -508,7 +507,7 @@ standards organisation followed by an internal document identifier or URN. The n
 {
   "digest": "EMd8KksaUfkmfzzTJBx4gsTz0d8JaId3Lj4otsY9stXg",
   "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
-  "type": "spec/overlays/standard/1.0.2",
+  "type": "spec/overlays/standard/2.0.0",
   "attr_standards": {
     "dateOfBirth": "ISO 8601"
   }
@@ -544,7 +543,7 @@ Note that `n` and `m` are positive integers.
 {
   "digest": "EMWxTY5PLoPOtyb-XgiB3BiRpqlHhxRTW7hqAI50UFsl",
   "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
-  "type": "spec/overlays/cardinality/1.0.2",
+  "type": "spec/overlays/cardinality/2.0.0",
   "attr_cardinality": {
     "documentType": "1-2"
   }
@@ -571,7 +570,7 @@ Conformance Overlay MAY include the following attributes:
 {
   "digest": "EIP9FA6J_fvw0wjnvjPVQqkoYol627D-NdvkhptxfyDM",
   "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
-  "type": "spec/overlays/conformance/1.0.2",
+  "type": "spec/overlays/conformance/2.0.0",
   "attribute_conformance": {
     "dateOfBirth": "M",
     "documentNumber": "M",
@@ -619,7 +618,7 @@ Overlay MUST include the following attribute:
 {
   "digest": "EPiSWiwDzZCVvXSSs2icINxtHC1_S7gKzhFylVz7iGw0",
   "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
-  "type": "spec/overlays/entry_code/1.0.2",
+  "type": "spec/overlays/entry_code/2.0.0",
   "attribute_entry_codes": {
     "documentType": ["PE", "PM"],
     "issuingState": "EGyWgdQR9dW_I5oHlHBMoO9AA_eMeb2p3XzcCRCBbKCM",
@@ -666,7 +665,7 @@ In addition to the [Mandatory attributes](#mandatory-attributes), and
 {
   "digest": "EKnniFpc80_9VqcJjHnywYtHZEaq12d5i1Bo6Va6VAiZ",
   "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
-  "type": "spec/overlays/entry/1.0.2",
+  "type": "spec/overlays/entry/2.0.0",
   "language": "en-UK",
   "attribute_entries": {
     "documentType": {
@@ -724,7 +723,7 @@ and MUST include the following attribute:
 {
   "digest": "EC7S-U_CxSesNHEEZ6eZjT1TPxvsJsuND_EeTnbajfW4",
   "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
-  "type": "spec/overlays/unit/1.0.2",
+  "type": "spec/overlays/unit/2.0.0",
   "metric_system": "SI",
   "attribute_units": {
     "height": "cm"
@@ -746,7 +745,7 @@ identifying redundant columns of data for consolidation or elimination.
 {
   "digest": "EMlNpqhCrG1uGkr6arEAKK_K5VockXzoD6ljMT-nLfxZ",
   "capture_base": "Ev_RaB-gIOn8VAB3sg40mINxjiYRxdLVQrgce0aZbFcc",
-  "type": "spec/overlays/mapping/1.0.2",
+  "type": "spec/overlays/mapping/2.0.0",
   "attribute_mapping": {
     "first_name": "firstName",
     "last_name": "surname"
@@ -765,7 +764,7 @@ distinct code tables or datasets.
 {
   "digest": "EBDUBwcC2pbACiGcTSVfGiYZktdl_SHUi7zJlSRSgABb",
   "capture_base": "Ev_RaB-gIOn8VAB3sg40mINxjiYRxdLVQrgce0aZbFcc",
-  "type": "spec/overlays/entry_code_mapping/1.0.2",
+  "type": "spec/overlays/entry_code_mapping/2.0.0",
   "attr_entry_codes_mapping": {
     "country_code": [
       "AFG:AF",
