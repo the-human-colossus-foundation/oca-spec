@@ -1004,30 +1004,58 @@ specification.
 1. Convert the object ([bundle](#bundle) or [capture base](#capture-base) or
 [overlay](#overlays)) into its canonical form, ensuring all whitespace is
 removed.
-2. Replace the SAID field value in the serialization with a dummy string of the
-same length as the chosen digest algorithm (e.g. BLAKE3-256 is 32 bytes, which
-is 44 characters in Base64 URL-Safe). The dummy character is `#` (ASCII 35 in
-decimal, 0x23 in hex). See [CESR](#ref-CESR) code tables for available
-algorithms.
-3. Compute the digest of the modified serialization, which includes the dummy
-SAID value.
-4. Replace the dummy characters with the computed SAID value.
+2. Chose desired digest algorithm from the list of supported algorithms. See [Appendix A](#appendix-a-list-of-supported-codes-for-said) code tables for available algorithms.
+3. Replace the `digest` field value in the serialization with a dummy string of the same length as the chosen digest algorithm, see `Total lenght` in the [table](#appendix-a-list-of-supported-codes-for-said) (e.g. BLAKE3-256 is 32 bytes, which is 44 characters in Base64 URL-Safe). The dummy character is `#` (ASCII 35 in decimal, 0x23 in hex).
+4. Compute the digest of the modified serialization, which includes the dummy
+`digest` value.
+5. Decode the computed digest to bytes, and prepend with padding from the [table](#appendix-a-list-of-supported-codes-for-said).
+6. Encode the padded digest to Base64 URL-Safe.
+7. Replace the first character of the Base64 URL-Safe output with `Code` from the [table](#appendix-a-list-of-supported-codes-for-said).
+8. Replace the dummy characters with the computed SAID value.
 
 ### How to verify object
 
-1. Convert the object ([bundle](#bundle) or [capture base](#capture-base) or
+1. Read `digest` field value from the object.
+2. Convert the object ([bundle](#bundle) or [capture base](#capture-base) or
 [overlay](#overlays)) into its canonical form, ensuring all whitespace is
 removed.
-2. Replace the SAID field value in the serialization with a dummy string of the
-same length as the digest algorithm. Use the digest algorithm specified by the
-[CESR](#ref-CESR) derivation code of the copied SAID. The dummy character is #
-(ASCII 35 in decimal, 0x23 in hex).
-3. Compute the digest of the modified serialization, which includes the dummy
-SAID value. Use the digest algorithm specified by the CESR derivation code of
-the copied SAID.
-4. Replace the dummy characters with the computed SAID value.`
+3. Read first character of the `digest`, find it in the [table](#appendix-a-list-of-supported-codes-for-said) and read `Total lenght` value and `Algorithm`.
+4. Compute the digest of the modified serialization, which includes the dummy
+`digest` value.
+5. Decode the computed digest to bytes, and prepend with padding from the [table](#appendix-a-list-of-supported-codes-for-said).
+6. Encode the padded digest to Base64 URL-Safe.
+7. Replace the first character of the Base64 URL-Safe output with `Code` from the [table](#appendix-a-list-of-supported-codes-for-said).
+4. Replace the `digest` field value in the serialization with a dummy string of the lenght of `Total length` read from previous step. The dummy character is # (ASCII 35 in decimal, 0x23 in hex).
+5. Compute the digest of the modified serialization with the algorithm from step 3.
+6. Compered the computed digest with the `digest` field value from the object.
 
+### Pseudo code
 
+Below is a pseudo code for calculating SAID. With the following assumption:
+- ALGORITHM_DIGEST_LENGTH is the length of the digest in bytes which can be read from the `Total length` in [table](#appendix-a-list-of-supported-codes-for-said).
+- ALGORITHM is the algorithm which can be read from the `Algorithm` in [table](#appendix-a-list-of-supported-codes-for-said).
+- ALGORITHM_CODE is the code which can be read from the `Code` in [table](#appendix-a-list-of-supported-codes-for-said).
+
+```python
+function calculateSAID(payload):
+    leading_byte = [0x00]
+
+    # Step 0: Temporarily replace the digest field with a dummy string of the correct length
+    payload.digest = "#".repeat(ALGORITHM_DIGEST_LENGTH)
+
+    # Step 1: Calculate the cryptographic digest of the modified payload
+    digest = calculate_hash(payload, ALGORITHM)
+
+    # Step 2: Prepend a 0x00 byte to the digest
+    combined = concatenate(leading_byte, digest)
+
+    # Step 3: Encode the result in URL-safe Base64 (no padding)
+    base64_url = base64_url_safe_encode(combined)
+
+    # Step 4: Replace the first character with the algorithm code and return
+    said = ALGORITHM_CODE + substring(base64_url, 1)
+
+```
 ## Code Tables
 
 A code table is an external dataset structured as either:
@@ -1266,13 +1294,16 @@ Unicode [https://home.unicode.org/](https://home.unicode.org/)
 
 </dd>
 
-<dt id="ref-UNSDG">
-[UNSDG]
-</dt>
-<dd>
-
-United Nations. Sustainable Development Goals (SDGs) [https://sdgs.un.org/goals](https://sdgs.un.org/goals)
-
-</dd>
 </dl>
 </div>
+
+
+### Appendix A. List of supported codes for SAID
+
+| Code | Algorithm | Total Lenght | Padding|
+|------|------------|----------|--|
+| E	| Blake3-256 Digest	|	44 | 0x00
+| F	| Blake2b-256 Digest|	44 | 0x00
+| G	| Blake2s-256 Digest|	44 | 0x00
+| H	| SHA3-256 Digest	  |	44 | 0x00
+| I	| SHA2-256 Digest	  |	44 | 0x00
