@@ -245,11 +245,11 @@ that have elapsed since the defined epoch for that computer or platform. Common
 formats include dates (e.g., YYYY-MM-DD), times (e.g., hh:mm:ss), dates and
 times concatenated (e.g., `YYYY-MM-DDThh:mm:ss.sss+zz:zz`), and durations (e.g.,
 `PnYnMnD`).
-- **Array[data type]**: a data type that defines a structure that holds several
+- **[\<data type\>]**: a data type that defines a structure that holds several
 data items or elements of the same data type. When you want to store many pieces
 of data that are related and have the same data type, it is often better to use
-an array instead of many separate variables (e.g., `Array[Text]`,
-`Array[Numeric]`, etc.).
+an array instead of many separate variables (e.g., `[Text]`,
+`[Numeric]`, `[[Text]]`, etc.).
 
 ### Overlays
 
