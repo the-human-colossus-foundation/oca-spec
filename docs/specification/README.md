@@ -317,24 +317,12 @@ computers. Character encoding using internationally accepted standards permits
 worldwide interchange of text in electronic form.
 
 In addition to the [Mandatory attributes](#mandatory-attributes), the Character
-Encoding Overlay MUST include at least one of the following attributes:
-
-- `default_character_encoding`
-
-  The "default_character_encoding" attribute specifies the default character
-  encoding for the attributes contained in the parent Capture Base.
-
-  The most common default character set is UTF-8 \[[RFC3629](#ref-RFC3629)\],
-  which accounts for 98% of all web pages in the World Wide Web and up to 100.0%
-  for some languages, as of 2021.
+Encoding Overlay MUST include the following attributes:
 
 - `attr_character_encoding`
 
   The `attr_character_encoding` attribute maps key-value pairs where the key is
   the attribute name and the value is the character encoding.
-
-  Any attributes contained in the `attr_character_encoding` attribute override
-  the behaviour of the `default_character_encoding` attribute.
 
   There are many encoding standards including Base64
   \[[RFC4648](#ref-RFC4648)\], UTF-8, and ASCII to name a few. Each standard has
