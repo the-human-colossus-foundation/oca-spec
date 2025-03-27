@@ -855,7 +855,7 @@ proper ordering of the attributes within OCA Objects. The serialization
 algorithm consists of the following rules:
 
 - MUST consist of following attributes in this order: `v`, `d`, `capture_base`, `overlays`
-  - `version` - version string defined per section [Bundle Version](#bundle-version)
+  - `v` - version string defined per section [Bundle Version](#bundle-version)
   - `digest` - deterministic identifier of the bundle
   - `capture_base` - the `Capture Base` object defined as per section [Capture Base](#capture-base)
   - `overlays` - an array, containing all the overlays, sorted ASC by the `digest` attribute
