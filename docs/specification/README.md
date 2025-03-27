@@ -132,8 +132,8 @@ of data capture.
 Each `OCA object` **MUST** include the following attributes, listed in that
 order to form its cannonical serialization:
 
-- `d` - [deterministic identifier](#deterministic-identifier) of the capture base
-- `t` - [type](#type) of the object
+- `digest` - [deterministic identifier](#deterministic-identifier) of the capture base
+- `type` - [type](#type) of the object
 - object specific attributes (see below)
 
 #### Type
@@ -166,13 +166,13 @@ The Capture Base **MUST** comprises of [common attributes](#common-attributes)
 and the following attributes, listed in that order to form its canonical
 serialization:
 
-- `a` - [attributes](#attributes) of the capture base
+- `attributes` - [attributes](#attributes) of the capture base
 
 ```json
 {
-  "d": "EFEDyA__ap51wscacOwATP3c51icUeHT6D0tTbInQI9G",
-  "t": "capture_base/1.0.0",
-  "a": {
+  "digest": "EFEDyA__ap51wscacOwATP3c51icUeHT6D0tTbInQI9G",
+  "type": "capture_base/1.0.0",
+  "attributes": {
     "dateOfBirth": "DateTime",
     "documentNumber": "Text",
     "documentType": [ "Text" ],
@@ -180,7 +180,8 @@ serialization:
     "height": "Numeric",
     "issuingState": "Text",
     "photoImage": "Binary",
-    "sex": "Text"
+    "sex": "Text",
+    "ocrTextLines": [[ "Text" ]]
   },
 }
 ```
@@ -189,7 +190,7 @@ _Example 1. Code snippet for a Capture Base._
 
 #### Attributes
 
-The `a` attribute maps key-value pairs where the key is the attribute
+The `attributes` attribute maps key-value pairs where the key is the attribute
 name and the value is the attribute type.
 
 ##### Attribute name
@@ -266,7 +267,7 @@ overlays** to a **minimum**, allowing the community to take the lead in
 developing additional overlays as needed. This approach fosters a **dominant
 design** process, enabling the community to determine which **task-specific
 overlays** are most meaningful and valuable. See [Community
-overlays](#community-overlays) for more details.
+overlays](#community-overlays) for more details. From perspective of the specification and implementation both **core overlays** and **community overlays** are treated equally.
 
 #### Mandatory attributes
 
@@ -280,7 +281,7 @@ process to captured data.
 Overlays in addition to the [common attributes](#common-attributes) `MUST`
 comprises the following attributes, listed in that order to form its canonical
 serialization:
-- `p` - parent [SAID](#deterministic-identifier) either for [ capture_base ](#capture-base) or [overlay](#overlays)
+- `parent` - parent [SAID](#deterministic-identifier) either for [ capture_base ](#capture-base) or [overlay](#overlays)
 - Overlay-specific attributes sorted in lexicographic order
   - See specific overlay types for more information.
 
@@ -363,8 +364,8 @@ Encoding Overlay MUST include at least one of the following attributes:
 
   ```json
   {
-    "d": "EPeH3AVhmGMLRT-DGqm6B9RY2q5-bC6ckTrFd__z6FYJ",
-    "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
+    "digest": "EPeH3AVhmGMLRT-DGqm6B9RY2q5-bC6ckTrFd__z6FYJ",
+    "parent": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
     "type": "spec/overlays/character_encoding/1.0.2",
     "default_character_encoding": "utf-8",
     "attribute_character_encoding": {
@@ -406,8 +407,8 @@ exchange and communication of date and time-related data.
 
 ```json
 {
-  "d": "EIpe9Ra0tUWTPFrZU-Jo_EufovDqrbFOgwc2YppvTvFD",
-  "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
+  "digest": "EIpe9Ra0tUWTPFrZU-Jo_EufovDqrbFOgwc2YppvTvFD",
+  "parent": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
   "type": "spec/overlays/format/1.0.2",
   "attribute_formats": {
     "dateOfBirth": "YYYY-MM-DD",
@@ -439,8 +440,8 @@ In addition to the [Mandatory attributes](#mandatory-attributes) and
 
 ```json
 {
-  "d": "EPstaptvuTLvr6r2b0JBLzxaQzMZKkcKaYZBQTYPrdaL",
-  "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
+  "digest": "EPstaptvuTLvr6r2b0JBLzxaQzMZKkcKaYZBQTYPrdaL",
+  "parent": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
   "type": "spec/overlays/label/1.0.2",
   "language": "en-UK",
   "attribute_labels": {
@@ -484,8 +485,8 @@ the scope of this specification.
 
 ```json
 {
-  "d": "EGzJ1hFOPWD1J5Bq2TA-NR0ssPunJJO_7uxngJNDXcXs",
-  "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
+  "digest": "EGzJ1hFOPWD1J5Bq2TA-NR0ssPunJJO_7uxngJNDXcXs",
+  "parent": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
   "type": "spec/overlays/meta/1.0.2",
   "language": "en-UK",
   "name": "Digital Passport",
@@ -516,11 +517,11 @@ largest and most well-established standards organisations are the International
 Organization for Standardization (ISO), the International Electrotechnical
 Commission (IEC) \[[IEC](#ref-IEC)\], and the International Telecommunication
 Union (ITU) \[[ITU](#ref-ITU)\]. Standards tend to contain the acronym of the
-standards organisation followed by an internal document identifier.
+standards organisation followed by an internal document identifier or URN. The naming convention is outside the scope of this specification and is up to the producer of the overlay.
 
 ```json
 {
-  "d": "EMd8KksaUfkmfzzTJBx4gsTz0d8JaId3Lj4otsY9stXg",
+  "digest": "EMd8KksaUfkmfzzTJBx4gsTz0d8JaId3Lj4otsY9stXg",
   "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
   "type": "spec/overlays/standard/1.0.2",
   "attr_standards": {
@@ -530,10 +531,6 @@ standards organisation followed by an internal document identifier.
 ```
 
 _Example 7. Code snippet for a Standard Overlay._
-
-#### Inputs Overlays
-
-Inputs overlays provide predefined inputs for data attestations.
 
 #### Cardinality Overlay
 
@@ -560,7 +557,7 @@ Note that `n` and `m` are positive integers.
 
 ```json
 {
-  "d": "EMWxTY5PLoPOtyb-XgiB3BiRpqlHhxRTW7hqAI50UFsl",
+  "digest": "EMWxTY5PLoPOtyb-XgiB3BiRpqlHhxRTW7hqAI50UFsl",
   "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
   "type": "spec/overlays/cardinality/1.0.2",
   "attr_cardinality": {
@@ -587,7 +584,7 @@ Conformance Overlay MAY include the following attributes:
 
 ```json
 {
-  "d": "EIP9FA6J_fvw0wjnvjPVQqkoYol627D-NdvkhptxfyDM",
+  "digest": "EIP9FA6J_fvw0wjnvjPVQqkoYol627D-NdvkhptxfyDM",
   "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
   "type": "spec/overlays/conformance/1.0.2",
   "attribute_conformance": {
@@ -635,7 +632,7 @@ Overlay MUST include the following attribute:
 
 ```json
 {
-  "d": "EPiSWiwDzZCVvXSSs2icINxtHC1_S7gKzhFylVz7iGw0",
+  "digest": "EPiSWiwDzZCVvXSSs2icINxtHC1_S7gKzhFylVz7iGw0",
   "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
   "type": "spec/overlays/entry_code/1.0.2",
   "attribute_entry_codes": {
@@ -682,7 +679,7 @@ In addition to the [Mandatory attributes](#mandatory-attributes), and
 
 ```json
 {
-  "d": "EKnniFpc80_9VqcJjHnywYtHZEaq12d5i1Bo6Va6VAiZ",
+  "digest": "EKnniFpc80_9VqcJjHnywYtHZEaq12d5i1Bo6Va6VAiZ",
   "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
   "type": "spec/overlays/entry/1.0.2",
   "language": "en-UK",
@@ -740,7 +737,7 @@ and MUST include the following attribute:
 
 ```json
 {
-  "d": "EC7S-U_CxSesNHEEZ6eZjT1TPxvsJsuND_EeTnbajfW4",
+  "digest": "EC7S-U_CxSesNHEEZ6eZjT1TPxvsJsuND_EeTnbajfW4",
   "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
   "type": "spec/overlays/unit/1.0.2",
   "metric_system": "SI",
@@ -762,7 +759,7 @@ identifying redundant columns of data for consolidation or elimination.
 
 ```json
 {
-  "d": "EMlNpqhCrG1uGkr6arEAKK_K5VockXzoD6ljMT-nLfxZ",
+  "digest": "EMlNpqhCrG1uGkr6arEAKK_K5VockXzoD6ljMT-nLfxZ",
   "capture_base": "Ev_RaB-gIOn8VAB3sg40mINxjiYRxdLVQrgce0aZbFcc",
   "type": "spec/overlays/mapping/1.0.2",
   "attribute_mapping": {
@@ -781,7 +778,7 @@ distinct code tables or datasets.
 
 ```json
 {
-  "d": "EBDUBwcC2pbACiGcTSVfGiYZktdl_SHUi7zJlSRSgABb",
+  "digest": "EBDUBwcC2pbACiGcTSVfGiYZktdl_SHUi7zJlSRSgABb",
   "capture_base": "Ev_RaB-gIOn8VAB3sg40mINxjiYRxdLVQrgce0aZbFcc",
   "type": "spec/overlays/entry_code_mapping/1.0.2",
   "attr_entry_codes_mapping": {
@@ -835,7 +832,7 @@ following attribute:
 
 ```json
 {
-  "d": "EKzY_KAP0U05dQ4_radjWu1TkbBFOh50wIgAEKTNP9R2",
+  "digest": "EKzY_KAP0U05dQ4_radjWu1TkbBFOh50wIgAEKTNP9R2",
   "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
   "type": "spec/overlays/sensitive/1.0",
   "attributes": ["first_name", "last_name"]
@@ -858,7 +855,7 @@ attributes.
 The **canonical form** of a **community overlay** follows the same rules as the
 **canonical form** of the **core overlay**.
 
-### Bundle
+## Bundle
 
 An OCA Bundle is a set of OCA objects which MUST included a `Capture Base` and
 MAY consist of any number of `Overlays`. An encoded cryptographic digest of the
@@ -873,10 +870,10 @@ proper ordering of the attributes within OCA Objects. The serialization
 algorithm consists of the following rules:
 
 - MUST consist of following attributes in this order: `v`, `d`, `capture_base`, `overlays`
-  - `v` - version string defined per section [Bundle Version](#bundle-version)
-  - `d` - deterministic identifier of the bundle
+  - `version` - version string defined per section [Bundle Version](#bundle-version)
+  - `digest` - deterministic identifier of the bundle
   - `capture_base` - the `Capture Base` object defined as per section [Capture Base](#capture-base)
-  - `overlays` - an array, containing all the overlays, sorted ASC by the `d` attribute
+  - `overlays` - an array, containing all the overlays, sorted ASC by the `digest` attribute
 
 #### Bundle Version
 
@@ -941,12 +938,12 @@ with the specification.
 {
   "bundle": {
     "v": "OCAS11JSON000646_",
-    "d": "EKHBds6myKVIsQuT7Zr23M8Xk_gwq-2SaDRUprvqOXxa",
+    "digest": "EKHBds6myKVIsQuT7Zr23M8Xk_gwq-2SaDRUprvqOXxa",
     "capture_base": {
-      "d": "EBnF9U9XW1EqteIW0ucAR4CsTUqojvfIWkeifsLRuOUW",
+      "digest": "EBnF9U9XW1EqteIW0ucAR4CsTUqojvfIWkeifsLRuOUW",
       "type": "spec/capture_base/1.0",
       "attributes": {
-        "d": "Text",
+        "digest": "Text",
         "i": "Text",
         "passed": "Boolean"
       },
@@ -954,49 +951,49 @@ with the specification.
     },
     "overlays": [
       {
-          "d": "ECZc26INzjxVbNo7-hln6xN3HW3e1r6NGDmA5ogRo6ef",
+          "digest": "ECZc26INzjxVbNo7-hln6xN3HW3e1r6NGDmA5ogRo6ef",
           "capture_base": "EBnF9U9XW1EqteIW0ucAR4CsTUqojvfIWkeifsLRuOUW",
           "type": "spec/overlays/label/1.0",
           "language": "en-UK",
           "attribute_labels": {
-              "d": "Schema digest",
+              "digest": "Schema digest",
               "i": "Credential Issuee",
               "passed": "Passed"
           },
       },
       {
-          "d": "ED6Eio9KG2jHdFg3gXQpc0PX2xEI7aHnGDOpjU6VBfjs",
+          "digest": "ED6Eio9KG2jHdFg3gXQpc0PX2xEI7aHnGDOpjU6VBfjs",
           "capture_base": "EBnF9U9XW1EqteIW0ucAR4CsTUqojvfIWkeifsLRuOUW",
           "type": "spec/overlays/character_encoding/1.0",
           "attribute_character_encoding": {
-              "d": "utf-8",
+              "digest": "utf-8",
               "i": "utf-8",
               "passed": "utf-8"
           }
       },
       {
-          "d": "EIBXpVvka3_4lheeajtitiafIP78Ig8LDMVX9dXpCC2l",
+          "digest": "EIBXpVvka3_4lheeajtitiafIP78Ig8LDMVX9dXpCC2l",
           "capture_base": "EBnF9U9XW1EqteIW0ucAR4CsTUqojvfIWkeifsLRuOUW",
           "type": "spec/overlays/information/1.0",
           "language": "en-UK",
           "attribute_information": {
-              "d": "Schema digest",
+              "digest": "Schema digest",
               "i": "Credential Issuee",
               "passed": "Enables or disables passing"
           }
       },
       {
-          "d": "EJSRe8DnLonKf6GVT_bC1QHoY0lQOG6-ldqxu7pqVCU8",
+          "digest": "EJSRe8DnLonKf6GVT_bC1QHoY0lQOG6-ldqxu7pqVCU8",
           "capture_base": "EBnF9U9XW1EqteIW0ucAR4CsTUqojvfIWkeifsLRuOUW",
           "type": "spec/overlays/conformance/1.0",
           "attribute_conformance": {
-              "d": "M",
+              "digest": "M",
               "i": "M",
               "passed": "M"
           }
       },
       {
-          "d": "EOxvie-zslkGmFzVqYAzTVtO7RyFXAG8aCqE0OougnGV",
+          "digest": "EOxvie-zslkGmFzVqYAzTVtO7RyFXAG8aCqE0OougnGV",
           "capture_base": "EBnF9U9XW1EqteIW0ucAR4CsTUqojvfIWkeifsLRuOUW",
           "type": "spec/overlays/meta/1.0",
           "language": "en-UK",
@@ -1008,7 +1005,7 @@ with the specification.
 ```
 _Example 20. Code snippet for an OCA Bundle._
 
-### Deterministic Identifier
+## Deterministic Identifier
 
 Within the scope of the OCA specification, Deterministic Identifiers are always
 Self-Addressing Identifiers ([SAIDs](#ref-SAID)). These identifiers are encoded
@@ -1017,7 +1014,7 @@ functionality, please refer to the [SAID](#ref-SAID) specification. Below, we
 distill the most relevant aspects of SAIDs in the context of the OCA
 specification.
 
-#### How to calculate SAID
+### How to calculate SAID
 
 1. Convert the object ([bundle](#bundle) or [capture base](#capture-base) or
 [overlay](#overlays)) into its canonical form, ensuring all whitespace is
@@ -1031,7 +1028,7 @@ algorithms.
 SAID value.
 4. Replace the dummy characters with the computed SAID value.
 
-#### How to verify object
+### How to verify object
 
 1. Convert the object ([bundle](#bundle) or [capture base](#capture-base) or
 [overlay](#overlays)) into its canonical form, ensuring all whitespace is
@@ -1046,7 +1043,7 @@ the copied SAID.
 4. Replace the dummy characters with the computed SAID value.`
 
 
-### Code Tables
+## Code Tables
 
 A code table is an external dataset structured as either:
 
@@ -1055,7 +1052,7 @@ A code table is an external dataset structured as either:
 
 A code table MUST be identifiable, verifiable, and resolvable by a [SAID](#ref-SAID).
 
-#### Code Table for Keys
+### Code Table for Keys
 
 A Code Table for Keys provides an anchor to a reusable dataset for a common
 purpose, such as a list of country codes. Therefore, this object MAY be a
@@ -1079,7 +1076,7 @@ A Code Table for Keys MUST include the following attribute:
 _Example 21. Code snippet for a Code Table for Keys, providing an anchor for, in
 this case, two-character ISO country codes._
 
-#### Code Table for Key-Value pairs
+### Code Table for Key-Value pairs
 
 A Code Table for Key-Value pairs provides a mapping of input values to output
 values.
