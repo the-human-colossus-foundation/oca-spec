@@ -802,23 +802,6 @@ distinct code tables or datasets.
 
 _Example 15. Code snippet for an Entry Code Mapping Overlay._
 
-#### Subset Overlay
-
-A Subset Overlay defines a customised version of a published schema containing a
-subset of source attributes, including their properties, types, codes, and
-relationship dependencies required for the information exchange.
-
-```json
-{
-  "d": "ENyLjLiRetRlaDqcEASwMnk6jDKIx7ylXDB8GOfqc0d5",
-  "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
-  "type": "spec/overlays/subset/1.0.2",
-  "attributes": ["dateOfBirth", "documentNumber", "documentType"]
-}
-```
-
-_Example 16. Code snippet for a Subset Overlay._
-
 #### Sensitive Overlay
 
 A Sensitive Overlay is a specialized construct used to identify and flag
