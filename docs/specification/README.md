@@ -931,7 +931,7 @@ with the specification.
         "i": "Text",
         "passed": "Boolean"
       },
-      "classification": "",
+      "classification": ""
     },
     "overlays": [
       {
@@ -943,7 +943,7 @@ with the specification.
               "digest": "Schema digest",
               "i": "Credential Issuee",
               "passed": "Passed"
-          },
+          }
       },
       {
           "digest": "ED6Eio9KG2jHdFg3gXQpc0PX2xEI7aHnGDOpjU6VBfjs",
@@ -984,9 +984,11 @@ with the specification.
           "description": "Entrance credential",
           "name": "Entrance credential"
       }
-
+    ]
+  }
 }
 ```
+
 _Example 20. Code snippet for an OCA Bundle._
 
 ## Deterministic Identifier
