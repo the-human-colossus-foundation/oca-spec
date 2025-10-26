@@ -8,6 +8,19 @@ The OCA Bin is distributed as a standalone executable. You can download the late
 
 ## Workflows
 
+### Overlayfile
+
+**OCA Bin** leverage overlayfile definitions to manage and validate OCAFiles.
+Tool comes with build in core overlays which automatically are available in local registry.
+
+You can check where your local registry is located by running `oca-bin config` and search therefore
+```
+overlay_definition_path = '~/.oca/overlay_definitions/'
+```
+You can modify that path by going to `config.toml` which you can find its location as well in the output of `oca-bin config` command.
+
+See [Overlayfile](/ecosystem/overlayfile) for more information.
+
 ### OCAFile development
 
 When working with an **OCAFile**, a typical workflow involves making changes, validating the OCAFile's correctness, and repeating as necessary. Once finalized, the OCAFile can be built and published to the OCA Repo. The commands `validate`, `build`, and `publish` are integrated directly into **OCA Bin** to streamline this process.

@@ -78,6 +78,10 @@ export default defineUserConfig({
             link: "/specification/ocafile.md",
           },
           {
+            text: "Overlayfile",
+            link: "/specification/overlayfile.md",
+          },
+          {
             text: "Contribute",
             link: "https://github.com/the-human-colossus-foundation/oca-spec",
           },
@@ -89,6 +93,10 @@ export default defineUserConfig({
           {
             text: "OCA Bin",
             link: "/ecosystem/oca-bin",
+          },
+          {
+            text: "Overlayfile",
+            link: "/ecosystem/overlayfile",
           },
           {
             text: "OCA File",
