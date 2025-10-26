@@ -167,23 +167,48 @@ serialization:
 
 - `attributes` - [attributes](#attributes) of the capture base
 
+
+:::code-tabs
+
+@tab OCA Bundle (json)
+
 ```json
 {
-  "digest": "EFEDyA__ap51wscacOwATP3c51icUeHT6D0tTbInQI9G",
-  "type": "capture_base/2.0.0",
-  "attributes": {
-    "dateOfBirth": "DateTime",
-    "documentNumber": "Text",
-    "documentType": [ "Text" ],
-    "fullName": "Text",
-    "height": "Numeric",
-    "issuingState": "Text",
-    "photoImage": "Binary",
-    "sex": "Text",
-    "ocrTextLines": [[ "Text" ]]
+  "digest": "EBcQREQMadqM_V24n_SSWqT7CvQggeYfg1xn2Aac8El0",
+  "capture_base": {
+    "digest": "EK-iSsbRjw5CvsGDK9nnCZ2JNVsa8cdQ_VwUgmpsVo_6",
+    "type": "capture_base/2.0.0",
+    "attributes": {
+      "dateOfBirth": "DateTime",
+      "documentNumber": "Text",
+      "documentType": [
+        "Text"
+      ],
+      "fullName": "Text",
+      "height": "Numeric",
+      "issuingState": "Text",
+      "ocrTextLines": [
+        [
+          "Text"
+        ]
+      ],
+      "photoImage": "Binary",
+      "sex": "Text"
+    }
   },
+  "overlays": []
 }
 ```
+
+@tab OCAFILE
+```
+--name=passport-example
+ADD ATTRIBUTE dateOfBirth=DateTime documentNumber=Text \
+               documentType=[ Text ] fullName=Text \
+               height=Numeric issuingState=Text photoImage=Binary \
+               sex=Text ocrTextLines=[[ Text ]]
+```
+:::
 
 _Example 1. Code snippet for a Capture Base._
 
@@ -347,17 +372,39 @@ Standard: `ISO/IEC 10918`<br>
 Format: `image/jpeg`
 :::
 
-  ```json
-  {
-    "digest": "EPeH3AVhmGMLRT-DGqm6B9RY2q5-bC6ckTrFd__z6FYJ",
-    "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
-    "type": "spec/overlays/character_encoding/2.0.0",
-    "default_character_encoding": "utf-8",
+::: code-tabs
+
+@tab OCA Bundle
+
+```json
+{
+    "digest": "EEck7FsgEbRQSgIM5Cxye43_3TGzX751_a3oU_Z43bsR",
+    "capture_base": "EK-iSsbRjw5CvsGDK9nnCZ2JNVsa8cdQ_VwUgmpsVo_6",
+    "type": "overlay/character_encoding/2.0.0",
     "attribute_character_encoding": {
-      "photoImage": "base64"
+        "photoImage": "base64"
     }
-  }
-  ```
+}
+```
+
+@tab OCAFILE
+
+```
+ADD OVERLAY character_encoding
+  attribute_character_encoding
+    photoImage="base64"
+
+```
+@tab OVERLAYFILE
+```
+ADD OVERLAY character_encoding
+  VERSION 2.0.0
+  ADD OBJECT attribute_character_encoding
+    WITH KEYS attr-names
+    WITH VALUES Text
+```
+
+:::
 
   _Example 2. Code snippet for a Character Encoding Overlay._
 
@@ -389,19 +436,43 @@ type registered with the Internet Assigned Numbers Authority (IANA)
 - **DateTime**: The inputted format value for this core data type MAY be a date
 and time representation as defined by [ISO 8601](#ref-ISO8601), a standard for the worldwide exchange and communication of date and time-related data.
 
+:::code-tabs
+
+@tab OCA
+
 ```json
 {
-  "digest": "EIpe9Ra0tUWTPFrZU-Jo_EufovDqrbFOgwc2YppvTvFD",
-  "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
-  "type": "spec/overlays/format/2.0.0",
-  "attribute_formats": {
-    "dateOfBirth": "YYYY-MM-DD",
-    "documentNumber": "[A-Z0-9]{9}",
-    "photoImage": "image/jpeg",
-    "sex": "[A-Z]{1}"
-  }
+    "digest": "EPFUthYTYTX-ImlicqJ3mim-v3KgT05nJwVV1Xg7T8ft",
+    "capture_base": "EK-iSsbRjw5CvsGDK9nnCZ2JNVsa8cdQ_VwUgmpsVo_6",
+    "type": "overlay/format/2.0.0",
+    "attribute_formats": {
+        "dateOfBirth": "YYYY-MM-DD",
+        "documentNumber": "[A-Z0-9]{9}",
+        "photoImage": "image/jpeg",
+        "sex": "[A-Z]{1}"
+    }
 }
 ```
+
+@tab OCAFILE
+
+```
+ADD OVERLAY format
+  attribute_formats
+    dateOfBirth="YYYY-MM-DD"
+    documentNumber="[A-Z0-9]{9}"
+    photoImage="image/jpeg"
+    sex="[A-Z]{1}"
+```
+@tab OVERLAYFILE
+```
+ADD OVERLAY format
+  version 2.0.0
+  add object attribute_formats
+    with keys attr-names
+    with values text
+```
+:::
 
 _Example 3. Code snippet for a Format Overlay._
 
@@ -422,24 +493,56 @@ In addition to the [Mandatory attributes](#mandatory-attributes) and
   attribute name and the value is a human-meaningful attribute label in a
   specific language.
 
+
+:::code-tabs
+
+@tab OCA Bundle (json)
+
 ```json
 {
-  "digest": "EPstaptvuTLvr6r2b0JBLzxaQzMZKkcKaYZBQTYPrdaL",
-  "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
-  "type": "spec/overlays/label/2.0.0",
-  "language": "en-UK",
-  "attribute_labels": {
-    "dateOfBirth": "Date of birth",
-    "documentNumber": "Passport Number",
-    "documentType": "Document",
-    "fullName": "Name",
-    "height": "Height",
-    "issuingState": "Issuing State or organization (in full)",
-    "photoImage": "Portrait image",
-    "sex": "Sex"
-  }
+    "digest": "EF-fG_9Wy3dVaBVq3wHe-VZnWtNVJeM3MMt7IOqrvuSt",
+    "capture_base": "EK-iSsbRjw5CvsGDK9nnCZ2JNVsa8cdQ_VwUgmpsVo_6",
+    "type": "overlay/label/2.0.0",
+    "language": "en",
+    "attribute_labels": {
+        "dateOfBirth": "Date of birth",
+        "documentNumber": "Passport Number",
+        "documentType": "Document",
+        "fullName": "Name",
+        "height": "Height",
+        "issuingState": "Issuing State or organization (in full)",
+        "photoImage": "Portrait image",
+        "sex": "Sex"
+    }
 }
 ```
+
+@tab OCAFILE
+
+```
+ADD OVERLAY label
+  language="en"
+  attribute_labels
+    dateOfBirth="Date of birth"
+    documentNumber="Passport Number"
+    documentType="Document"
+    fullName="Name"
+    height="Height"
+    issuingState="Issuing State or organization (in full)"
+    photoImage="Portrait image"
+    sex="Sex"
+```
+@tab OVERLAYFILE
+```
+ADD OVERLAY label
+  VERSION 2.0.0
+  UNIQUE KEYS language
+  ADD ATTRIBUTES language=Lang
+  ADD OBJECT attribute_labels
+    WITH KEYS attr-names
+    WITH VALUES Text
+```
+:::
 
 _Example 5. Code snippet for a Label Overlay (language: en)._
 
@@ -467,17 +570,41 @@ as an "affiliation" attribute in the example below. How the overlay producer
 conveys the purpose of the additional attributes in the Meta Overlay is outside
 the scope of this specification.
 
+:::code-tabs
+
+@tab OCA Bundle (json)
+
 ```json
 {
-  "digest": "EGzJ1hFOPWD1J5Bq2TA-NR0ssPunJJO_7uxngJNDXcXs",
-  "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
-  "type": "spec/overlays/meta/2.0.0",
-  "language": "en-UK",
-  "name": "Digital Passport",
-  "description": "An example of a Digital Passport schema",
-  "affiliation": "The Government of Antarctica"
+    "digest": "EPpEidVZUQ0NMb2Abte7qBoPyacFYja8VMOqCl77Pufm",
+    "capture_base": "EK-iSsbRjw5CvsGDK9nnCZ2JNVsa8cdQ_VwUgmpsVo_6",
+    "type": "overlay/meta/2.0.0",
+    "language": "en",
+    "description": "An example of a Digital Passport schema",
+    "name": "Digital Passport",
+    "affiliation": "The Goverment of Antarctica"
 }
 ```
+@tab OCAFILE
+```
+ADD Overlay meta
+  language="en"
+  name="Digital Passport"
+  description="An example of a Digital Passport schema"
+  affiliation="The Goverment of Antarctica"
+```
+@tab OVERLAYFILE
+```
+ADD OVERLAY meta
+  VERSION 2.0.0
+  UNIQUE KEYS language
+  ADD ATTRIBUTES language=Lang
+  ADD ATTRIBUTES [description, name]
+    WITH VALUES Text
+  ADD ATTRIBUTES [...]
+    WITH VALUES ANY
+```
+:::
 
 _Example 6. Code snippet for a Meta Overlay (language: en-UK)._
 
@@ -503,17 +630,37 @@ Commission (IEC) \[[IEC](#ref-IEC)\], and the International Telecommunication
 Union (ITU) \[[ITU](#ref-ITU)\]. Standards tend to contain the acronym of the
 standards organisation followed by an internal document identifier or URN. The naming convention is outside the scope of this specification and is up to the producer of the overlay.
 
+:::code-tabs
+
+@tab OCA Bundle (json)
 ```json
 {
-  "digest": "EMd8KksaUfkmfzzTJBx4gsTz0d8JaId3Lj4otsY9stXg",
-  "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
-  "type": "spec/overlays/standard/2.0.0",
-  "attr_standards": {
-    "dateOfBirth": "ISO 8601"
-  }
+    "digest": "ECqTZijMpBz-i0ReQSQAxFYsoZPV74Fz3DhH3V-7HSXV",
+    "capture_base": "EK-iSsbRjw5CvsGDK9nnCZ2JNVsa8cdQ_VwUgmpsVo_6",
+    "type": "overlay/standard/2.0.0",
+    "attribute_standards": {
+        "dateOfBirth": "ISO 8601",
+        "documentNumber": "ISO 3166-1 alpha-2"
+    }
 }
 ```
 
+@tab OCAFILE
+```
+ADD Overlay standard
+  attribute_standards
+    dateOfBirth="ISO 8601"
+    documentNumber="ISO 3166-1 alpha-2"
+```
+@tab OVERLAYFILE
+```
+ADD OVERLAY standard
+  VERSION 2.0.0
+  ADD OBJECT attribute_standards
+    with keys ATTR-NAMES
+    with values TEXT
+```
+:::
 _Example 7. Code snippet for a Standard Overlay._
 
 #### Cardinality Overlay
@@ -539,17 +686,37 @@ The logic of cardinality intervals is as follows:
 
 Note that `n` and `m` are positive integers.
 
+
+:::code-tabs
+
+@tab OCA Bundle (json)
+
 ```json
 {
-  "digest": "EMWxTY5PLoPOtyb-XgiB3BiRpqlHhxRTW7hqAI50UFsl",
-  "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
-  "type": "spec/overlays/cardinality/2.0.0",
-  "attr_cardinality": {
-    "documentType": "1-2"
-  }
+    "digest": "ED_hM7lUj85WY3WAPqZnESQtWUr_Kc78MPIvn0uP7m_U",
+    "capture_base": "EK-iSsbRjw5CvsGDK9nnCZ2JNVsa8cdQ_VwUgmpsVo_6",
+    "type": "overlay/cardinality/2.0.0",
+    "attribute_cardinality": {
+        "documentType": "1-2"
+    }
 }
 ```
 
+@tab OCAFILE
+```
+ADD Overlay cardinality
+  attribute_cardinality
+    documentType="1-2"
+```
+@tab OVERLAYFILE
+```
+ADD OVERLAY cardinality
+  VERSION 2.0.0
+  ADD OBJECT attribute_cardinality
+    with keys ATTR-NAMES
+    with values TEXT
+```
+:::
 _Example 8. Code snippet for a Cardinality Overlay._
 
 #### Conformance Overlay
@@ -566,23 +733,46 @@ Conformance Overlay MAY include the following attributes:
   the attribute name and the value is the data entry conformance of the
   attribute, which is set to either `M` (mandatory) or `O` (optional).
 
+:::code-tabs
+
+@tab OCA Bundle (json)
+
+
 ```json
 {
-  "digest": "EIP9FA6J_fvw0wjnvjPVQqkoYol627D-NdvkhptxfyDM",
-  "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
-  "type": "spec/overlays/conformance/2.0.0",
-  "attribute_conformance": {
-    "dateOfBirth": "M",
-    "documentNumber": "M",
-    "documentType": "M",
-    "fullName": "M",
-    "height": "O",
-    "issuingState": "M",
-    "photoImage": "M",
-    "sex": "M"
-  }
+    "digest": "EJ4Ns6Fw4BOvoOkQnQ3u_PDMtRtbHwIpiAqdqP3smScd",
+    "capture_base": "EK-iSsbRjw5CvsGDK9nnCZ2JNVsa8cdQ_VwUgmpsVo_6",
+    "type": "overlay/conformance/2.0.0",
+    "attribute_conformance": {
+        "documentType": "M",
+        "fullName": "M",
+        "height": "optional",
+        "issuingState": "O",
+        "photoImage": "M",
+        "sex": "M"
+    }
 }
 ```
+@tab OCAFILE
+```
+ADD Overlay conformance
+  attribute_conformance
+    documentType="M"
+    fullName="M"
+    height="optional"
+    issuingState="O"
+    photoImage="M"
+    sex="M"
+```
+@tab OVERLAYFILE
+```
+ADD OVERLAY conformance
+  VERSION 2.0.0
+  ADD OBJECT attribute_conformance
+    with keys ATTR-NAMES
+    with values TEXT
+```
+:::
 
 _Example 10. Code snippet for a Conformance Overlay._
 
@@ -614,19 +804,49 @@ Overlay MUST include the following attribute:
   key-value pairs. See [Code Tables](#code-tables) for more information on code
   tables.
 
+:::code-tabs
+
+@tab OCA Bundle (json)
+
+
 ```json
 {
-  "digest": "EPiSWiwDzZCVvXSSs2icINxtHC1_S7gKzhFylVz7iGw0",
-  "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
-  "type": "spec/overlays/entry_code/2.0.0",
-  "attribute_entry_codes": {
-    "documentType": ["PE", "PM"],
-    "issuingState": "EGyWgdQR9dW_I5oHlHBMoO9AA_eMeb2p3XzcCRCBbKCM",
-    "sex": ["F", "M", "X"]
-  }
+    "digest": "EOPu5VVCbXdoXzMOveI0FeS_E_lvA7MYCWqIXGw8licR",
+    "capture_base": "EK-iSsbRjw5CvsGDK9nnCZ2JNVsa8cdQ_VwUgmpsVo_6",
+    "type": "overlay/entry_code/2.0.0",
+    "attribute_entry_codes": {
+        "documentType": [
+            "PE",
+            "PM"
+        ],
+        "issuingState": "refs:EGyWgdQR9dW_I5oHlHBMoO9AA_eMeb2p3XzcCRCBbKCM",
+        "sex": [
+            "F",
+            "M",
+            "X"
+        ]
+    }
 }
 ```
 
+@tab OCAFILE
+```
+ADD Overlay entry_code
+  attribute_entry_codes
+    documentType=["PE", "PM"]
+    issuingState=refs:EGyWgdQR9dW_I5oHlHBMoO9AA_eMeb2p3XzcCRCBbKCM
+    sex=["F", "M", "X"]
+```
+@tab OVERLAYFILE
+```
+ADD OVERLAY entry_code
+  VERSION 2.0.0
+  ADD OBJECT attribute_entry_codes
+    with keys ATTR-NAMES
+    with values REF|ARRAY
+      with values TEXT
+```
+:::
 _Example 11. Code snippet for an Entry Code Overlay._
 
 #### Entry Overlay
@@ -661,27 +881,57 @@ In addition to the [Mandatory attributes](#mandatory-attributes), and
   entry keys are taken from an associated Entry Code Overlay. See [Code
   Tables](#code-tables) for more information.
 
+:::code-tabs
+
+@tab OCA Bundle (json)
+
+
 ```json
 {
-  "digest": "EKnniFpc80_9VqcJjHnywYtHZEaq12d5i1Bo6Va6VAiZ",
-  "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
-  "type": "spec/overlays/entry/2.0.0",
-  "language": "en-UK",
-  "attribute_entries": {
-    "documentType": {
-      "PE": "DIPLOMATIC PASSPORT",
-      "PM": "PASSPORT"
-    },
-    "issuingState": "Els6NxGvFfyL5aiBWR3j7YiaS7F4j4O-F0EIlZu-dO0g",
-    "sex": {
-      "F": "Female",
-      "M": "Male",
-      "X": "Unspecified"
+    "digest": "EJcdlwuUmFnRhA6QwrswOrNO9IsRWs2uZVo7Ja1I2NSL",
+    "capture_base": "EK-iSsbRjw5CvsGDK9nnCZ2JNVsa8cdQ_VwUgmpsVo_6",
+    "type": "overlay/entry/2.0.0",
+    "language": "en",
+    "attribute_entries": {
+        "issuingState": "refs:EGyWgdQR9dW_I5oHlHBMoO9AA_eMeb2p3XzcCRCBbKCM",
+        "documentType": {
+            "PE": "Diplomatic Passport",
+            "PM": "Passport",
+            "sex": {
+                "F": "Female",
+                "M": "Male",
+                "X": "Unspecified"
+            }
+        }
     }
-  }
 }
 ```
-
+@tab OCAFILE
+```
+ADD Overlay entry
+  language="en"
+  attribute_entries
+    issuingState=refs:EGyWgdQR9dW_I5oHlHBMoO9AA_eMeb2p3XzcCRCBbKCM
+    documentType
+      PE="Diplomatic Passport"
+      PM="Passport"
+    sex
+      F="Female"
+      M="Male"
+      X="Unspecified"
+```
+@tab OVERLAYFILE
+```
+ADD OVERLAY entry
+  VERSION 2.0.0
+  ADD ATTRIBUTES language=Lang
+  ADD OBJECT attribute_entries
+    with keys ATTR-NAMES
+    with values REF|OBJECT
+      with keys TEXT
+      with values TEXT
+```
+:::
 _Example 12. Code snippet for an Entry Overlay (language: en-UK)._
 
 #### Unit Overlay
@@ -719,18 +969,38 @@ and MUST include the following attribute:
   attribute name and the value is a standard unit of measurement from a known
   metric system.
 
+:::code-tabs
+
+@tab OCA Bundle (json)
+
 ```json
 {
-  "digest": "EC7S-U_CxSesNHEEZ6eZjT1TPxvsJsuND_EeTnbajfW4",
-  "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
-  "type": "spec/overlays/unit/2.0.0",
-  "metric_system": "SI",
-  "attribute_units": {
-    "height": "cm"
-  }
+    "digest": "EDaPKUd7Cx6vHivpy5guT-3mMvUo0yPl2quvIhPnICNg",
+    "capture_base": "EK-iSsbRjw5CvsGDK9nnCZ2JNVsa8cdQ_VwUgmpsVo_6",
+    "type": "overlay/unit/2.0.0",
+    "metric_system": "SI",
+    "attribute_units": {
+        "height": "cm"
+    }
 }
 ```
-
+@tab OCAFILE
+```
+ADD Overlay UNIT
+  metric_system="SI"
+  attribute_units
+    height="cm"
+```
+@tab OVERLAYFILE
+```
+ADD OVERLAY unit
+  VERSION 2.0.0
+  ADD ATTRIBUTES metric_system=Text
+  ADD OBJECT attribute_units
+    with keys ATTR-NAMES
+    with values TEXT
+```
+:::
 _Example 13. Code snippet for a Unit Overlay._
 
 #### Attribute Mapping Overlay
@@ -741,17 +1011,46 @@ tasks, including data transformation or data mediation between a data source and
 a destination or consolidation of multiple databases into a single database and
 identifying redundant columns of data for consolidation or elimination.
 
+:::core-tabs
+
+@tab OCA Bundle (json)
+
 ```json
 {
-  "digest": "EMlNpqhCrG1uGkr6arEAKK_K5VockXzoD6ljMT-nLfxZ",
-  "capture_base": "Ev_RaB-gIOn8VAB3sg40mINxjiYRxdLVQrgce0aZbFcc",
-  "type": "spec/overlays/mapping/2.0.0",
-  "attribute_mapping": {
-    "first_name": "firstName",
-    "last_name": "surname"
-  }
+    "digest": "EGQ0c7771vRDap7-fveJCyc_ssuSt5EretQGm4-fUDBt",
+    "capture_base": "EK-iSsbRjw5CvsGDK9nnCZ2JNVsa8cdQ_VwUgmpsVo_6",
+    "type": "overlay/mapping/2.0.0",
+    "attribute_mapping": {
+        "dateOfBirth": "birth_date",
+        "documentNumber": "document_number",
+        "documentType": "document_type",
+        "fullName": "name",
+        "height": "person_height",
+        "issuingState": "issuing_state"
+    }
 }
 ```
+@tab OCAFILE
+```
+ADD Overlay mapping
+  attribute_mapping
+    dateOfBirth="birth_date"
+    documentNumber="document_number"
+    documentType="document_type"
+    fullName="name"
+    height="person_height"
+    issuingState="issuing_state"
+
+```
+@tab OVERLAYFILE
+```
+ADD OVERLAY mapping
+  VERSION 2.0.0
+  ADD OBJECT attribute_mapping
+    with keys ATTR-NAMES
+    with values TEXT
+```
+:::
 
 _Example 14. Code snippet for an Attribute Mapping Overlay._
 
@@ -760,26 +1059,40 @@ _Example 14. Code snippet for an Attribute Mapping Overlay._
 An Entry Code Mapping Overlay defines the entry key mappings between two
 distinct code tables or datasets.
 
+:::code-tabs
+
+@tab OCA Bundle (json)
+
 ```json
 {
-  "digest": "EBDUBwcC2pbACiGcTSVfGiYZktdl_SHUi7zJlSRSgABb",
-  "capture_base": "Ev_RaB-gIOn8VAB3sg40mINxjiYRxdLVQrgce0aZbFcc",
-  "type": "spec/overlays/entry_code_mapping/2.0.0",
-  "attr_entry_codes_mapping": {
-    "country_code": [
-      "AFG:AF",
-      "ALB:AL",
-      "DZA:DZ",
-      "ASM:AS",
-      "AND:AD",
-      "AGO:AO",
-      "AIA:AI",
-      "ATA:AQ",
-      "ATG:AG",
-    ]
-  }
+    "digest": "EAz_QssBLZN2o-JbDGBExT8unoJG70F2iAYmDv72Xcth",
+    "capture_base": "EK-iSsbRjw5CvsGDK9nnCZ2JNVsa8cdQ_VwUgmpsVo_6",
+    "type": "overlay/entry_code_mapping/2.0.0",
+    "attribute_entry_codes_mapping": {
+        "documentType": [
+            "PE:KE",
+            "PM:ZK"
+        ]
+    }
 }
 ```
+@tab OCAFILE
+
+```
+ADD Overlay entry_code_mapping
+  attribute_entry_codes_mapping
+    documentType=["PE:KE", "PM:ZK"]
+```
+@tab OVERLAYFILE
+```
+ADD OVERLAY entry_code_mapping
+  VERSION 2.0.0
+  ADD OBJECT attribute_entry_codes_mapping
+    with keys TEXT
+    with values REF|ARRAY
+      with values TEXT
+```
+:::
 
 _Example 15. Code snippet for an Entry Code Mapping Overlay._
 
@@ -814,14 +1127,37 @@ following attribute:
 
   The `attributes` attribute is an array of attributes considered sensitive.
 
+:::code-tabs
+
+@tab OCA Bundle (json)
+
 ```json
 {
-  "digest": "EKzY_KAP0U05dQ4_radjWu1TkbBFOh50wIgAEKTNP9R2",
-  "capture_base": "EVyoqPYxoPiZOneM84MN-7D0oOR03vCr5gg1hf3pxnis",
-  "type": "spec/overlays/sensitive/1.0",
-  "attributes": ["first_name", "last_name"]
+    "digest": "ENIH2AYk370-GBVN7unIltcMmIsgfNcWdBwsjRcAiGpZ",
+    "capture_base": "EK-iSsbRjw5CvsGDK9nnCZ2JNVsa8cdQ_VwUgmpsVo_6",
+    "type": "overlay/sensitive/2.0.0",
+    "attributes": [
+        "fullName",
+        "photoImage",
+        "dataOfBirth",
+        "documentNumber"
+    ]
 }
 ```
+@tab OCAFILE
+```
+ADD overlay sensitive
+  attributes=["fullName", "photoImage", "dataOfBirth", "documentNumber"]
+
+```
+@tab OVERLAYFILE
+```
+ADD overlay sensitive
+  VERSION 2.0.0
+  ADD ARRAY attributes
+    with values ATTR-NAMES
+```
+:::
 
 _Example 19. Code snippet for a Sensitive Overlay_
 
