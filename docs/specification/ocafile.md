@@ -6,6 +6,14 @@ description: OCAFile specification
 # OCAFile Technical Specification
 
 <dl>
+    <dt>
+        Version:
+    </dt>
+    <dd>
+        v1.0.0
+    </dd>
+</dl>
+<dl>
   <dt>
 Authors:
   </dt>

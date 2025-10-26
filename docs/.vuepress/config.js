@@ -70,11 +70,11 @@ export default defineUserConfig({
         text: "Specification",
         children: [
           {
-            text: "OCA v2.0.0-rc1",
+            text: "OCA",
             link: "/specification/README.md",
           },
           {
-            text: "OCAFile v1.0.0",
+            text: "OCAFile",
             link: "/specification/ocafile.md",
           },
           {
