@@ -110,6 +110,10 @@ export default defineUserConfig({
             text: "OCA Repository",
             link: "/ecosystem/oca-repository",
           },
+          {
+            text: "Overlays Registry",
+            link: "/ecosystem/overlay-registry",
+          },
         ],
       },
       {
