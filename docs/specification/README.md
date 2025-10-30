@@ -344,9 +344,9 @@ worldwide interchange of text in electronic form.
 In addition to the [Mandatory attributes](#mandatory-attributes), the Character
 Encoding Overlay MUST include the following attributes:
 
-- `attr_character_encoding`
+- `attribute_character_encodings`
 
-  The `attr_character_encoding` attribute maps key-value pairs where the key is
+  The `attribute_character_encodings` attribute maps key-value pairs where the key is
   the attribute name and the value is the character encoding.
 
 There are many encoding standards including Base64
@@ -617,9 +617,9 @@ structure, tag, transmit, manipulate, use, and manage data.
 In addition to the [Mandatory attributes](#mandatory-attributes), the Standard
 Overlay MUST include the following attribute:
 
-- `attr_standards`
+- `attribute_standards`
 
-  The `attr_standards` attribute maps key-value pairs where the key is the
+  The `attribute_standards` attribute maps key-value pairs where the key is the
   attribute name and the value is the standard.
 
 There are many international standards organisations establishing tens of
@@ -672,9 +672,9 @@ minimum and maximum number of relationship targets.
 In addition to the [Mandatory attributes](#mandatory-attributes), the
 Cardinality Overlay MUST include the following attribute:
 
-- `attr_cardinality`
+- `attribute_cardinalities`
 
-  The `attr_cardinality` attribute maps key-value pairs where the key is the
+  The `attribute_cardinalitites` attribute maps key-value pairs where the key is the
   attribute name and the value is the cardinality interval.
 
 The logic of cardinality intervals is as follows:
@@ -727,9 +727,9 @@ mandatory or optional.
 In addition to the [Mandatory attributes](#mandatory-attributes), the
 Conformance Overlay MAY include the following attributes:
 
-- `attribute_conformance `
+- `attribute_conformances`
 
-  The `attribute_conformance` attribute maps key-value pairs where the key is
+  The `attribute_conformances` attribute maps key-value pairs where the key is
   the attribute name and the value is the data entry conformance of the
   attribute, which is set to either `M` (mandatory) or `O` (optional).
 
@@ -792,7 +792,7 @@ learning (ML), and artificial intelligence (AI) algorithms._
 In addition to the [Mandatory attributes](#mandatory-attributes), the Entry Code
 Overlay MUST include the following attribute:
 
-- `attribute_entry_codes `
+- `attribute_entry_codes`
 
   The `attribute_entry_codes` attribute maps key-value pairs where the key is
   the attribute name and the value is either:
@@ -1011,6 +1011,13 @@ tasks, including data transformation or data mediation between a data source and
 a destination or consolidation of multiple databases into a single database and
 identifying redundant columns of data for consolidation or elimination.
 
+In addition to the [Mandatory attributes](#mandatory-attributes), the Attribute Mapping
+Overlay SHOULD include the following attribute:
+
+- `attribute_mappings`
+
+The `attribute_mappings` maps all attributes from `capture base` into other data models.
+
 :::core-tabs
 
 @tab OCA Bundle (json)
@@ -1058,6 +1065,13 @@ _Example 14. Code snippet for an Attribute Mapping Overlay._
 
 An Entry Code Mapping Overlay defines the entry key mappings between two
 distinct code tables or datasets.
+
+In addition to the [Mandatory attributes](#mandatory-attributes), the Entry Code Mapping
+Overlay SHOULD include the following attribute:
+
+- `attribute_entry_codes_mappings`
+
+The `attribute_entry_codes_mappings` maps all entry codes from `entry code` overlay into other entry codes.
 
 :::code-tabs
 
