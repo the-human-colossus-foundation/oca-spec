@@ -42,12 +42,12 @@ Contact:
 ## Conventions and Definitions
 
 Sections marked as non-normative, along with all authoring guidelines, diagrams,
-examples, and notes in this specification, are for informational purposes only
+examples, and notes in this specification, are for informational only
 and are not mandatory for compliance. All other sections of this specification
 are normative and define the required rules and standards that must be followed
 to ensure conformity with the `OverlayFile` Specification.
 
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
+The keywords "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
 "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this
 document are to be interpreted when, and only when, they appear in all capitals,
 as described in RFC 2119 \[[RFC2119](#ref-RFC2119)\].
@@ -56,22 +56,32 @@ as described in RFC 2119 \[[RFC2119](#ref-RFC2119)\].
 
 _This section is informative_
 
-The OverlayFile (.overlayfile) defines structure of an Overlay in the OCA ecosystem. It provides a formal and machine-readable way to describe how overlays are composed, what elements they contain, and how they should be interpreted by OCA ecosystem.
+The OverlayFile (.overlayfile) defines the structure of an overlay in the OCA ecosystem. It provides a formal, machine-readable description of how overlays are composed, the elements they contain, and how the OCA ecosystem should interpret them.
 
-Unlike [OCAFILEs](/specification/ocafile.md), which describe the structure of data capture and its semantic overlays, an `OverlayFile` describes the overlay definition itself — not its instance or usage.
+Unlike [OCAFILEs](/specification/ocafile.md), which describe the structure of data capture and its semantic overlays, an `OverlayFile` describes the overlay definition itself, not its instance or usage.
 This distinction allows for:
 
-- Decoupling of definition from usage, enabling independent community driven governance and development.
+- Decoupling the definition from its usage, which enables independent, community-driven governance and development.
 - Reusable overlay definitions across ecosystems.
 - Tooling support for validation, introspection, and bundle composition.
 
-OverlayFiles can be distributed for example via [Overlay Registries](https://github.com/the-human-colossus-foundation/overlays-repository), which are collections of `OverlayFiles` containing definitions of community or ecosystem-specific overlays. This encourages interoperability and collaboration between different domains.
+`Overlayfiles` can be distributed via [Overlay
+Registries](/ecosystem/overlay-registry.md), which are collections of Overlay
+files containing definitions of community- or ecosystem-specific overlays. This
+encourages interoperability and collaboration between different domains.
+
 
 ## Purpose
 
 _This section is informative_
 
-The primary purpose of the `OverlayFile` is to enable community-driven development of Overlays beyond those defined in the official [OCA specification](/specification/). By decoupling overlay definition from its usage, `OverlayFiles` allow communities and ecosystems to define, share, and evolve their own overlays independently. This separation makes it possible to support and validate community overlays within the broader OCA ecosystem while maintaining compatibility with official OCA tooling and governance models.
+The primary purpose of the `OverlayFile` is to enable the development of
+overlays by the community beyond those defined in the official [OCA
+specification](/specification/). By decoupling the definition of overlays from
+their usage, `Overlayfiles` allow communities and ecosystems to define, share, and
+evolve their own overlays independently. This separation enables the support and
+validation of community overlays within the broader OCA ecosystem, all while
+maintaining compatibility with official OCA tooling and governance models.
 
 ## File Format
 
@@ -91,22 +101,26 @@ ADD OVERLAY hcf:information
 
 ## Syntax Specification
 
-Basic rules:
-- all keywords are matched case-insensitively
-- indentation/whitespace is insignificant
-- overlayfile MUST consist of one or more overlays definitions
-- any attribute or object specify in the definition must appear in final overlay
-- adding optional attributes which validation would not check is possible with ellipsis `...`
-- validator would allow one overlay per bundle unless `UNIQUE KEYS` are speficy
-- overlayfile can consist one or more overlays definitions
-- comments begin with `#` and continue until the end of the line.
+Basic Rules:
+- All keywords are matched case-insensitively.
+- Indentation and whitespace are insignificant.
+- The overlayfile `MUST` consist of one or more overlay definitions.
+- Any attribute or object specified in the definition must appear in the final overlay.
+- Adding optional attributes that the validator would not check is possible with an ellipsis (`...`).
+- The validator would allow one overlay per bundle unless `UNIQUE KEYS` are specified.
+- An `overlayfile` can consist of one or more overlay definitions.
+- Comments begin with `#` and continue until the end of the line.
 
-Overlay definition always starts with `ADD OVERLAY` command followed by `overlay-id` which SHALL consist of human-readable namespace and MUST consist of human-readable name separated by `:`. Followed by newline overlay body MUST consist of:
+The overlay definition always starts with the `ADD OVERLAY` command, followed by
+the `overlay-id`. The overlay id `MUST` consist of a human-readable namespace and a
+human-readable name separated by a colon `:`. The overlay body, followed by a
+newline, `MUST` consist of:
+
 - `VERSION` using [Semantic Versioning](https://semver.org)
 - At least one [element](#element-types)
 
-and MAY contain:
-- `UNIQUE KEY` - A keyword followed by an element name defines a unique key, which would allow multiple overlays with the same name in OCA Bundle. E.g. language attribute in Label overlay allowing for more then one overlay in the bundle.
+and `MAY` contain:
+- `UNIQUE KEY` - A keyword followed by an element name defines a unique key, allowing multiple overlays with the same name in the OCA bundle. For example, the language attribute in the Label overlay allows for more than one overlay in the bundle.
 
 Example:
 ```
@@ -118,38 +132,40 @@ ADD OVERLAY <namespace:name>
 
 ### Supported Element Types
 
-Each overlay definition MUST consist of at least one element that describe its internal structure.
-An element defines what kind of data is expected, what types of values they accept and in case of `OBJECT` which keys are valid.
+Each overlay definition MUST consist of at least one element describing its
+internal structure. An element defines the type of data expected and the types
+of values accepted. In the case of `OBJECT`, it defines the valid keys.
 
-Overlayfile supports of following element types:
-- Attribute - one or more keys with it's type
-- Object - list of key-value pairs
-- Array - list of values
+The `Overlayfile` supports the following element types:
+- Attribute: one or more keys and their types
+- Object: A list of key-value pairs.
+- Arrays: lists of values
 
 #### Attributes
 
-`Attribute` can be defined:
 
-As single key with specific type, for example:
+The `attribute` can be defined as follows:
+
+As a single key with a specific type. For example:
 
 ```
 ADD ATTRIBUTES key=Text
 ```
 
-As list of keys with their respective types, for example:
+As a list of keys with their respective types. For example:
 
 ```
 ADD ATTRIBUTES key1=Text key2=Text
 ```
 
-As array of keys, with values clause, for example:
+As an array of keys, with values clause. For example:
 
 ```
 ADD ATTRIBUTES [key1 key2 key3]
    with values Text
 ```
 
-As an open array with values clause, for example:
+As an open array with values clause. For example:
 
 ```
 ADD ATTRIBUTES [key1 key2 key3 ...]
@@ -160,7 +176,7 @@ ADD ATTRIBUTES [key1 key2 key3 ...]
 
 #### Object
 
-`Object` can be defined:
+`Object` can be defined as follows:
 
 ```
 ADD OBJECT name
@@ -168,7 +184,7 @@ ADD OBJECT name
    with values <values-types>
 ```
 
-Values type supporting object type allows to create nested object, for example:
+Values type supporting object type allows to create nested object. For example:
 
 ```
 ADD OBJECT name
@@ -181,7 +197,7 @@ ADD OBJECT name
 ```
 #### Array
 
-Element of array can be defined:
+Element of array can be defined as follows:
 
 ```
 ADD ARRAY name
@@ -198,21 +214,22 @@ ADD OVERLAY sensitiv
 ```
 ### Keys type
 
-There are two types of keys which can be used in an object:
+There are two types of key that can be used in an object:
 
-- `Text` - any arbitrary string
-- `attr-names` - the key of the object needs to be one of the attribute defined in capture base with which overlay would be used. The validation would check whether the given attribute exists in the capture base; if not, an error would be returned.
+- `text`: any arbitrary string.
+- `attr-names`: the key of the object needs to be one of the attributes defined in the capture base with which the overlay would be used. Validation checks whether the given attribute exists in the capture base. If not, an error is returned.
+
 ### Values Type
 
-Values types are used to validate elements within overlay and they are defined as follows:
+The values of the types are used to validate the elements within the overlay. They are defined as follows:
 
-- `Object` - Validate if attribute is object or nested object with keys type and values type
-- `Array` - Validate if attribute is an array of values
-- `Binary` - Validate if attribute is binary data
-- `Text` - Validate if attribute is any arbitrary string (including numbers and other characters)
-- `Lang` - Validate if attribute is a valid language code according to ISO 639-1 with country code (ISO 3166-1 alpha-2) or ISO 639-3
-- `Ref` - Validate if attribute is a reference in form of SAID to another object
-- `Any` - Allow for any type, validation would be skipped for such element
+Object: Validates if the attribute is an object or a nested object with keys "type" and "values."
+- `array`: Validates if the attribute is an array of values.
+- `binary`: Validate if the attribute is binary data.
+- `text`: Validate if the attribute is an arbitrary string (including numbers and other characters).
+- `lang`: Validates if the attribute is a valid language code according to ISO 639-1, including a country code according to ISO 3166-1 alpha-2 or ISO 639-3.
+- `ref`: Validate if the attribute is a reference in the form of a SAID to another object.
+- `any`: Allow any type; validation would be skipped for such an element.
 
 ## ABNF
 
