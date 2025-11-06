@@ -10,14 +10,15 @@ The OCA Bin is distributed as a standalone executable. You can download the late
 
 ### Overlayfile
 
-**OCA Bin** leverage overlayfile definitions to manage and validate OCAFiles.
-Tool comes with build in core overlays which automatically are available in local registry.
+The **OCA Bin** leverages the overlay file definitions to manage and validate the `OCAfiles`.
+The tool comes with built-in core overlays that are automatically available in the local registry.
 
-You can check where your local registry is located by running `oca-bin config` and search therefore
+You can check the location of your local registry by running the command `oca-bin config`. The output will include the following line:
+
 ```
 overlay_definition_path = '~/.oca/overlay_definitions/'
 ```
-You can modify that path by going to `config.toml` which you can find its location as well in the output of `oca-bin config` command.
+You can modify this path in the `config.toml` file, the location of which is also included in the output of the `oca-bin config` command.
 
 See [Overlayfile](/ecosystem/overlayfile) for more information.
 
