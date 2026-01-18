@@ -10,8 +10,24 @@ description: OCAFile specification
         Version:
     </dt>
     <dd>
-        v1.0.0
+        v2.0.0
     </dd>
+  <dt>
+      Latest published version:
+  </dt>
+  <dd>
+
+  [https://oca.colossi.network/specification/ocafile](/specification/ocafile)
+
+  </dd>
+  <dt>
+      Previous published version:
+  </dt>
+  <dd>
+
+  [https://oca.colossi.network/specification/ocafile-v1.0.0](/specification/ocafile-v1.0.0)
+
+  </dd>
 </dl>
 <dl>
   <dt>
@@ -39,154 +55,352 @@ Contact:
 </dd>
 </dl>
 
+## Conventions and Definitions
+
+Sections marked as non-normative, along with all authoring guidelines, diagrams,
+examples, and notes in this specification, are for informational only
+and are not mandatory for compliance. All other sections of this specification
+are normative and define the required rules and standards that must be followed
+to ensure conformity with the `OverlayFile` Specification.
+
+The keywords "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
+"SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this
+document are to be interpreted when, and only when, they appear in all capitals,
+as described in RFC 2119 \[[RFC2119](#ref-RFC2119)\].
+
+
 ## Introduction
 
 _This section is informative_
 
-This document proposes a novel OCA Bundle long-term maintenance concept: `OCAfile`. It is equipped with a Domain-Specific Language (DSL) to leverage OCA Bundles creation. With proposed DSL, `OCAfile's` can be created by individuals using any type of text editor, as well as by more tailored graphical editors that internally serialize their state into `OCAfile's` syntax.
+This document introduces `OCAfile`, a long-term maintenance and authoring concept
+for `OCA Bundles`. `OCAfile` defines a textual representation of OCA Bundles based
+on a purpose-built Domain-Specific Language (DSL).
+
+The `OCAfile` DSL is designed to support the creation, modification, and
+maintenance of `OCA Bundles` in a deterministic, human-readable, and
+tool-friendly manner. `OCAfiles` MAY be authored directly by individuals using
+general-purpose text editors, or generated and managed by specialized tooling,
+including graphical editors, which serialize their internal state into the
+`OCAfile` syntax.
+
+By providing a canonical, text-based representation, `OCAfile` aims to improve
+long-term maintainability, version control integration, reproducibility, and
+interoperability of `OCA Bundles` across tools and ecosystems.
 
 ## Purpose
 
 _This section is informative_
 
-Define OCAFile syntax to create OCA Bundles. Syntax consists of text-based operations that are pleasant to read and write and are at the same time, machine readable.
+The purpose of this specification is to define the `OCAfile` syntax for the
+creation and maintenance of `OCA Bundles`.
+
+The `OCAfile` syntax consists of text-based operations that are designed to be
+both human-readable and machine-readable. The syntax prioritizes clarity,
+composability, and determinism, enabling authors to express `OCA Bundle`
+structure and semantics in a concise and unambiguous form.
+
+By standardizing this syntax, the specification aims to facilitate consistent
+`OCA Bundle` authoring across manual workflows and automated tooling, while
+supporting long-term maintenance, review, and version control practices.
+
 
 ## Main characteristics
 
 _This section is informative_
 
-### Deterministic through layered architecture
+### Determinism Through Layered Architecture
 
-The OCAfile benefits from the concept of versioning each new operation by building a provenance log of all commands. Recall that a provenance log is an append-only log that consists of items, where each new item is defined as follows: `digest(previous item) | current item`. Calculating the digest upon it gives the current item (layer) digest.
+`OCAfile` employs a deterministic, layered architecture based on an append-only
+provenance log. Each operation applied to an `OCA Bundle` is recorded as a new
+log entry, forming an immutable history of bundle evolution.
 
-As digests determine layers, any new OCA Bundle construct might already benefit from a previously defined OCA Bundle. That is because both OCA Bundles might involve the same attribute names, for example. The directed acyclic graph keeps the layers in vertices (their digests). It ensures the unambiguous resolution of any layer.
+Each log entry is defined as:
 
-### Text based format
+```
+digest(previous entry) | current entry
+```
+The cryptographic digest of this concatenation uniquely identifies the
+resulting layer. As a consequence, each layer is deterministically derived from
+all preceding layers.
 
-The OCAfile remains text based for readability
+Layer digests serve as vertices in a directed acyclic graph (DAG), enabling
+unambiguous resolution and reuse of previously defined layers. This structure
+allows newly constructed `OCA Bundles` to reference or implicitly benefit from
+existing bundles when shared components—such as attribute definitions—are
+identical. Determinism is therefore preserved across independent authoring
+workflows.
 
-### Pleasant DSL
+### Text-Based Format
 
-The OCAfile relies on a domain-specific language (DSL) that is human and machine-readable to achieve deterministic layering. The DSL enables the creation and manipulation of the OCA Bundle during its lifetime.
+`OCAfile` uses a text-based representation to ensure readability, inspectability,
+and ease of authoring. The textual format supports both manual editing and
+automated generation without loss of semantic fidelity.
 
-### Version control system compliant
+### Domain-Specific Language (DSL)
 
-As opposed to binary files, text files enable meaningful changes control under a version control system (VCS).
+`OCAfile` defines a dedicated domain-specific language (DSL) that is both
+human-readable and machine-readable. The DSL provides explicit constructs for
+creating and modifying `OCA Bundles` while preserving deterministic layering
+semantics.
+
+The DSL is designed to support the full lifecycle of an `OCA Bundle`, enabling
+incremental construction, modification, and long-term maintenance through
+ordered operations.
+
+### Version Control System Compatibility
+
+As a text-based format, `OCAfile` is inherently compatible with version control
+systems (VCS). This enables meaningful diffing, history tracking, branching,
+and merging, which are not feasible with binary representations. VCS
+compatibility supports collaborative development and long-term stewardship of
+`OCA Bundles`.
 
 ## OCAfile DSL
 
-OCAfile has the exhaustive grammar available [here](https://raw.githubusercontent.com/THCLab/oca-rs/main/oca-file/src/ocafile.pest).
+### Grammar
 
-### Preprocessor directives
+_This section is informative_
 
-Each OCAfile MAY have preprocessor directives defined at the beginning of each file. Preprocessor directives terminate with either a newline character or the command. They define additional metadata of the OCAfile. Each directive MUST consist of a key, followed by a value: `# directive=value`. Both must match `[a-zA-Z0-9\-]+` regular expression.
+This specification defines a formal grammar for `OCAfile`. The complete and
+authoritative grammar definition is provided separately and SHALL be used as
+the reference for parsing and validation. It can be found
+[here](https://raw.githubusercontent.com/THCLab/oca-rs/refs/heads/v2/oca-file/src/ocafile.pest)
 
-The OCAfile MUST support the following directives:
+### Preprocessor Directives
 
-- The `escape` directive sets the character used to escape characters in an OCAfile. If not specified, the default escape character is `\`.
-- The `newline` directive sets the line separation character in the OCAfile. If not specified, the default escape character is `\n`.
+An `OCAfile` MAY declare preprocessor directives at the beginning of the file.
+Preprocessor directives provide file-level configuration and metadata that
+influence how the `OCAfile` is interpreted.
 
-### Meta directives
+Each preprocessor directive:
+- MUST appear before any non-directive content
+- MUST terminate with a newline character
+- MUST consist of a key-value pair in the following form:
 
-Each OCAfile MAY have meta directives defined at the beginning of each file. Meta directives terminate with a newline character. They define additional metadata of the OCAfile. Each directive MUST consist of a key, followed by a value: `-- directive=value`. Both must match `[a-zA-Z0-9\-]+` regular expression.
+```
+# directive=value
+```
+Both directive and value MUST match the regular expression:
 
-- The `name` directive sets the human meaningful name of the OCAfile. It is a named reference to be used along with the `refn` prefix when defining references (see below for Reference).
-- The `version` directive sets the version of the OCAfile.
+```
+[a-zA-Z0-9\-]+
+```
+#### Supported Preprocessor Directives
+
+An `OCAfile` implementation MUST support the following preprocessor directives:
+
+- `escape`: Defines the character used to escape other characters within the
+`OCAfile`. If not specified, the default escape character is `\`.
+
+- `newline`: Defines the line separation character used within the `OCAfile`. If not
+specified, the default newline character is `\n`.
+
+:::code-tabs
+
+@tab OCAFILE
+```
+# escape=\
+# newline=\
+--name=passport-example
+ADD ATTRIBUTE dateOfBirth=DateTime documentNumber=Text $
+               documentType=[ Text ] fullName=Text $
+               height=Numeric issuingState=Text photoImage=Binary $
+               sex=Text ocrTextLines=[[ Text ]]
+```
+:::
+
+_Example 2. Code snippet presenting preprocessor directives _
+
+### Meta Directives
+
+An `OCAfile` SHOULD declare meta directives at the beginning of the file. Meta
+directives define descriptive metadata associated with the `OCAfile` itself.
+
+Each meta directive:
+- MUST appear before any non-directive content
+- MUST terminate with a newline character
+- MUST consist of a key-value pair in the following form:
+
+```
+-- directive=value
+```
+Both directive and value MUST match the regular expression:
+
+```
+[a-zA-Z0-9\-]+
+```
+
+:::code-tabs
+
+@tab OCAFILE
+```
+--name=passport-example
+--version=2.0
+ADD ATTRIBUTE dateOfBirth=DateTime documentNumber=Text $
+               documentType=[ Text ] fullName=Text $
+               height=Numeric issuingState=Text photoImage=Binary $
+               sex=Text ocrTextLines=[[ Text ]]
+```
+:::
+
+
+### Supported Meta Directives
+
+The following meta directives are defined by this specification:
+
+- `name`: Defines a human-meaningful name for the OCAfile. This name MAY be used as
+a named reference in conjunction with the refn prefix when defining references
+(see References).
+TODO: example
+
+- `version`: Defines the version identifier of the OCAfile.
+TODO: example
+
 
 ### Commands
 
-A `Command` is defined as:
+All `OCAfile` commands are case-insensitive.
+
+A command represents an operation applied to an `OCA Bundle`. Commands are used
+to:
+
+- Define the base OCA Bundle from which a new bundle is derived
+- Add new objects
+- Modify existing objects
+- Remove existing objects
+
+Commands are processed sequentially and contribute to the provenance log of the
+`OCA Bundle`.
+
+#### `FROM` Operation
+
+The `FROM` operation is used to bootstrap an `OCAfile` from an existing `OCA Bundle`.
+It establishes the base bundle upon which all subsequent commands operate.
 
 ```
-[OPERATION] [OCA OBJECT] [ARGUMENTS]
+FROM <SAID>
 ```
 
-`Command` MUST be case-insensitive. A `Command` starts from one of the keywords specified below and terminates with the `newline` character.
+- `<SAID>` identifies the base `OCA Bundle` using its Self-Addressing Identifier.
 
-#### `Command` operation
+If present, the FROM command MUST be the first command in the OCAfile.
 
-- `ADD <ATTRIBUTE | FLAGGED_ATTRIBUTES | CLASSIFICATION | OCA OBJECT>` – adds the new element in the given object
-- `ALTER <ATTRIBUTE | FLAGGED_ATTRIBUTES | CLASSIFICATION | OCA OBJECT>` – modifies existing elements to keep a provenance log of a specific attribute
-- `REMOVE <ATTRIBUTE | FLAGGED_ATTRIBUTES | CLASSIFICATION | OCA OBJECT>` – removes element in a given object. If it does not exist, it must throw an error
-- `FROM <SAID>` – sets the base `OCA Bundle` for subsequent instructions using its SAID. If in use, the command with `FROM` must be the first command in OCAFile.
+An `OCAfile` MAY omit the FROM command, in which case a new OCA Bundle is created
+from an empty base.
 
-#### `Command` support for OCA objects
 
-The following OCA objects have the OCAFile equivalent:
+#### `ADD` Operation
 
-- capture base
-  - attributes management
-  ```
-  <Operation> ATTRIBUTE <Attribute Name>=<Attribute Type>
-  ```
-  - PII's management
-  ```
-  <Operation> FLAGGED_ATTRIBUTES <Attribute Name 1> <Attribute Name 2> <Attribute Name N>
-  ```
-  - Classification management
-  ```
-  <Operation> CLASSIFICATION <Classification Name>
-  ```
-- character-econding
-  ```
-  <Operation> CHARACTER_ENCODING ATTRS <Attribute Name>="<Encoding>"
-  ```
-- format
-  ```
-  <Operation> FORMAT ATTR <Attribute Name>="<Content Type>"
-  ```
-- label
-  ```
-  <Operation> LABEL <ISO-639 country code> ATTRS <Attribute Name>="<Localized Label>"
-  ```
-- meta
-  ```
-  <Operation> META <2-chars country code>
-  PROPS
-    description="<OCA Bundle description>"
-    name="<Meaningful name of the Bundle>"
-  ```
-- cardinality
-  ```
-  <Operation> CARDINALITY ATTRS <Attribute Name>="<X-Y>"
-  ```
-- conformance
-  ```
-  <Operation> CONFORMANCE ATTRS <Attribute Name>="<M|O>"
-  ```
-  The default value is `O`.
-- entry-code
-  ```
-  <Operation> ENTRY_CODE ATTRS <Attribute Name>=["Option 1", "Option 2", "Option N"]
-  ```
-- entry
-  ```
-  <Operation> ENTRY <ISO-639 country code> ATTRS <Attribute Name>={"Option 1": "Localized Label 1", "Option 2": "Localized Label 2", "Option N": "Localized Label N"}
-  ```
-- unit
-  ```
-  <Operation> UNIT <metric system> ATTRS <Attribute Name>="<Unit>"
-  ```
+The `ADD` operation introduces new elements into the `OCA Bundle`.
 
-#### Available attribute types
+```
+ADD <ATTRIBUTE | OVERLAY>
+```
 
-##### Primitive types
+Where:
 
-- `Binary`
-- `Boolean`
-- `DateTime`
-- `Numeric`
-- `Text`
+-`ATTRIBUTE` adds one or more attributes to the capture base (see Attribute
+Object).
+- `OVERLAY` adds a new overlay to the `OCA Bundle` (see Overlay).
 
-##### Collection types
+#### `ALTER` Operation
 
-Collection types allow for the definition of arrays of elements. The following collection types are available:
+The `ALTER` operation modifies existing elements while preserving provenance.
 
-- `Array[<Collection type> | <Primitive type> | <Reference>]`
+```
+ALTER <ATTRIBUTE | OVERLAY>
+```
 
-##### References
+The targeted element `MUST` already exist in the `OCA Bundle`.
 
-References are used to refer to other OCA objects. The following reference types are available:
+If the referenced element does not exist, the processor `MUST` raise an error.
 
-- `refn` refers to a named reference. It MUST start with the `refn` prefix: `refn:<human readable reference name>`. `refn` MUST point to a named reference defined in the `name` directive.
-- `refs` refers to a SAID-based reference. It MUST start with the `refs` prefix: `refs:<OCA object SAID>`.
+Each `ALTER` operation results in a new layer in the provenance log.
+
+#### `REMOVE` Operation
+
+The `REMOVE` operation deletes an existing element from the `OCA Bundle`.
+
+```
+REMOVE <ATTRIBUTE | OVERLAY>
+```
+
+The targeted element `MUST` already exist in the `OCA Bundle`.
+
+If the referenced element does not exist, the processor `MUST` raise an error.
+
+Removal operations are recorded in the provenance log.
+
+### Attribute Object
+
+An Attribute object represents an attribute in the capture base. It defines the
+attribute name and its associated type.
+
+Example:
+```
+ADD ATTRIBUTE name=Text age=Numeric
+```
+
+### Attribute Types
+
+Attribute types MUST be selected from the types defined by the OCA
+specification.
+
+### Primitive Types
+
+The following primitive attribute types are supported as per [OCA
+specification](/specification/readme.md#attribute-type):
+
+- Binary: Represents binary values, such as images or encoded data.
+- Boolean: Represents a boolean value (true or false).
+- DateTime: Represents a date, time, or combined date-time value.
+- Numeric: Represents any numeric value.
+- Text: Represents arbitrary textual content.
+
+### References
+
+References are used to refer to other OCA objects.
+
+The following reference types are defined:
+
+- Named reference (`refn`) A human-readable reference that `MUST` use the following
+form:
+```
+refn:<name>
+```
+
+The referenced name MUST be defined using the name meta directive.
+
+SAID-based reference (`refs`) A cryptographic reference that MUST use the
+following form:
+
+```
+refs:<OCA object SAID>
+```
+
+### Collection Types
+
+Collection types allow the definition of ordered collections of elements.
+
+The following collection type is defined:
+
+```
+Array[<Collection type> | <Primitive type> | <Reference>]
+```
+
+Collections MAY contain primitive types, references, or nested collection types.
+
+## References
+
+### Informative References
+
+<dt id="ref-RFC2119">
+[RFC2119]
+</dt>
+<dd>
+
+Bradner, S. Key words for use in RFCs to Indicate Requirement Levels, BCP 14, RFC 2119, DOI 10.17487/RFC2119 (March 1997) [https://www.rfc-editor.org/rfc/rfc2119](https://www.rfc-editor.org/rfc/rfc2119)
+
+</dd>
+
