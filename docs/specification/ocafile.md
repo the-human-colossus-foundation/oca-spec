@@ -167,51 +167,6 @@ authoritative grammar definition is provided separately and SHALL be used as
 the reference for parsing and validation. It can be found
 [here](https://raw.githubusercontent.com/THCLab/oca-rs/refs/heads/v2/oca-file/src/ocafile.pest)
 
-### Preprocessor Directives
-
-An `OCAfile` MAY declare preprocessor directives at the beginning of the file.
-Preprocessor directives provide file-level configuration and metadata that
-influence how the `OCAfile` is interpreted.
-
-Each preprocessor directive:
-- MUST appear before any non-directive content
-- MUST terminate with a newline character
-- MUST consist of a key-value pair in the following form:
-
-```
-# directive=value
-```
-Both directive and value MUST match the regular expression:
-
-```
-[a-zA-Z0-9\-]+
-```
-#### Supported Preprocessor Directives
-
-An `OCAfile` implementation MUST support the following preprocessor directives:
-
-- `escape`: Defines the character used to escape other characters within the
-`OCAfile`. If not specified, the default escape character is `\`.
-
-- `newline`: Defines the line separation character used within the `OCAfile`. If not
-specified, the default newline character is `\n`.
-
-:::code-tabs
-
-@tab OCAFILE
-```
-# escape=\
-# newline=\
---name=passport-example
-ADD ATTRIBUTE dateOfBirth=DateTime documentNumber=Text $
-               documentType=[ Text ] fullName=Text $
-               height=Numeric issuingState=Text photoImage=Binary $
-               sex=Text ocrTextLines=[[ Text ]]
-```
-:::
-
-_Example 2. Code snippet presenting preprocessor directives _
-
 ### Meta Directives
 
 An `OCAfile` SHOULD declare meta directives at the beginning of the file. Meta
