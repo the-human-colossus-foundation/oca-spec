@@ -186,6 +186,15 @@ Both directive and value MUST match the regular expression:
 [a-zA-Z0-9\-]+
 ```
 
+### Supported Meta Directives
+
+The following meta directives are defined by this specification:
+
+- `name`: Defines a human-meaningful name for the OCAfile. This name MAY be used as
+a named reference in conjunction with the refn prefix when defining references
+(see References).
+- `version`: Defines the version identifier of the OCAfile.
+
 :::code-tabs
 
 @tab OCAFILE
@@ -199,19 +208,7 @@ ADD ATTRIBUTE dateOfBirth=DateTime documentNumber=Text $
 ```
 :::
 
-
-### Supported Meta Directives
-
-The following meta directives are defined by this specification:
-
-- `name`: Defines a human-meaningful name for the OCAfile. This name MAY be used as
-a named reference in conjunction with the refn prefix when defining references
-(see References).
-TODO: example
-
-- `version`: Defines the version identifier of the OCAfile.
-TODO: example
-
+_Example 1. Code snippet presenting usage of meta directives name and version_
 
 ### Commands
 
@@ -236,6 +233,54 @@ It establishes the base bundle upon which all subsequent commands operate.
 ```
 FROM <SAID>
 ```
+
+:::code-tabs
+
+@tab OCAFILE (BMI)
+```
+--name=patient-bmi
+# from patient.ocafile
+FROM EJnT654wrORxfcNJ1yqVhqd0uRHihOSfepmB0OR1jPxf
+ADD ATTRIBUTE wgt=Numeric hgt=Numeric
+
+# Add meta data
+ADD Overlay Meta
+  language="en"
+  name="Patient BMI"
+  description="Standard 1 Patient BMI"
+
+# Add character encoding
+ADD Overlay CHARACTER_ENCODING
+  attribute_character_encodings
+    wgt="utf-8"
+    hgt="utf-8"
+```
+
+@tab OCAFILE (Patient)
+```
+--name=patient
+ADD ATTRIBUTE first_name=Text last_name=Text
+
+# Add meta data
+ADD Overlay Meta
+  language="en"
+  name="Patient Record"
+  description="Standard 1 Patient record"
+
+# Add character encoding
+ADD Overlay CHARACTER_ENCODING
+  attribute_character_encodings
+    first_name="utf-8"
+    last_name="utf-8"
+
+ADD OVERLAY LABEL
+  language="en"
+  attribute_labels
+    first_name="First Name"
+    last_name="Last Name"
+```
+:::
+_Example 2: OCAFILE presenting usage of FROM command_
 
 - `<SAID>` identifies the base `OCA Bundle` using its Self-Addressing Identifier.
 
@@ -307,11 +352,13 @@ specification.
 The following primitive attribute types are supported as per [OCA
 specification](/specification/readme.md#attribute-type):
 
-- Binary: Represents binary values, such as images or encoded data.
-- Boolean: Represents a boolean value (true or false).
-- DateTime: Represents a date, time, or combined date-time value.
-- Numeric: Represents any numeric value.
-- Text: Represents arbitrary textual content.
+- `Binary`: Represents binary values, such as images or encoded data.
+- `Boolean`: Represents a boolean value (true or false).
+- `DateTime`: Represents a date, time, or combined date-time value.
+- `Numeric`: Represents any numeric value.
+- `Text`: Represents arbitrary textual content.
+- `Reference`: Reference to another object
+- `[<data type>]`: Arrray of supported data type
 
 ### References
 
@@ -333,6 +380,39 @@ following form:
 ```
 refs:<OCA object SAID>
 ```
+
+:::code-tabs
+
+@tab OCAFILE
+```
+--name=patient-record
+ADD ATTRIBUTE patient=refn:patient bmi=refs:EPFtQVmMXhqy8wj07JYPjfTc4zCyRsNRB7141nE22CaV date=DateTime author=Text
+
+ADD OVERLAY META
+  language="en"
+  name="Patient record"
+  description="Patient medical records with BMI calculation"
+
+ADD OVERLAY LABEL
+  language="en"
+  attribute_labels
+    patient="Patient"
+    bmi="Body Mass Index"
+    date="Date"
+    author="Author"
+
+ADD OVERLAY LABEL
+  language="pl"
+  attribute_labels
+    patient="Pacjent"
+    bmi="Wskaźnik BMI"
+    date="Data"
+    author="Autor"
+
+```
+:::
+
+_Example 3: OCAFILE presenting usage of refs and refn as a linked object_
 
 ### Collection Types
 
