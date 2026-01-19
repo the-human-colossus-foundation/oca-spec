@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="generator" content="VuePress 2.0.0-rc.26" />
+    <style>
+      :root {
+        --vp-c-bg: #fff;
+      }
+
+      [data-theme='dark'] {
+        --vp-c-bg: #1b1b1f;
+      }
+
+      html,
+      body {
+        background-color: var(--vp-c-bg);
+      }
+    </style>
+    <script>
+      const useChoice = localStorage.getItem('vuepress-color-scheme')
+      const systemStatus =
+        'matchMedia' in window
+          ? window.matchMedia('(prefers-color-scheme: dark)').matches
+          : false
+
+      if (useChoice === 'light') {
+        document.documentElement.dataset.theme = 'light'
+      } else if (useChoice === 'dark' || systemStatus) {
+        document.documentElement.dataset.theme = 'dark'
+      }
+    </script>
+    <title>Overlays Capture Architecture</title><meta name="description" content="Official OCA resources">
+    <link rel="preload" href="/assets/style-CrI-1ruH.css" as="style"><link rel="stylesheet" href="/assets/style-CrI-1ruH.css">
+    <link rel="modulepreload" href="/assets/app-CDwp_fGw.js"><link rel="modulepreload" href="/assets/404.html-0uY4_EBu.js">
+    <link rel="prefetch" href="/assets/index.html-DtafNhth.js" as="script"><link rel="prefetch" href="/assets/community.html-BfZtqC2q.js" as="script"><link rel="prefetch" href="/assets/contribute.html-D3NwLW08.js" as="script"><link rel="prefetch" href="/assets/oca-bin.html-gCj2SUhs.js" as="script"><link rel="prefetch" href="/assets/oca-browser.html-CQGoI88H.js" as="script"><link rel="prefetch" href="/assets/oca-bundle.html-BElNmdNS.js" as="script"><link rel="prefetch" href="/assets/oca-data-vault.html-BOWuagW1.js" as="script"><link rel="prefetch" href="/assets/oca-file.html-Ci0Igy99.js" as="script"><link rel="prefetch" href="/assets/oca-parser.html-Cxegg5cI.js" as="script"><link rel="prefetch" href="/assets/oca-presenter.html-DwA3eLby.js" as="script"><link rel="prefetch" href="/assets/oca-repository.html-C9oVOvrx.js" as="script"><link rel="prefetch" href="/assets/oca-validator.html-BeBZCF3-.js" as="script"><link rel="prefetch" href="/assets/ocafile.html-B7Y6mm0x.js" as="script"><link rel="prefetch" href="/assets/overlay-registry.html-Dj5_kdws.js" as="script"><link rel="prefetch" href="/assets/overlayfile.html-KZudOZGa.js" as="script"><link rel="prefetch" href="/assets/faq.html-Bziib1Aa.js" as="script"><link rel="prefetch" href="/assets/introduction.html-6Tyd8dbP.js" as="script"><link rel="prefetch" href="/assets/oca-vs-others-comparison.html-B41fJdcQ.js" as="script"><link rel="prefetch" href="/assets/references.html-GTR94Eo9.js" as="script"><link rel="prefetch" href="/assets/index.html-DfOv7rxh.js" as="script"><link rel="prefetch" href="/assets/ocafile.html-DFOPNjig.js" as="script"><link rel="prefetch" href="/assets/overlayfile.html-C8cOULWN.js" as="script"><link rel="prefetch" href="/assets/v1.0.1.html-CC7zVpFU.js" as="script"><link rel="prefetch" href="/assets/index.html-CY1YoLCt.js" as="script"><link rel="prefetch" href="/assets/swiss-passport-example.html-DyFe6MT3.js" as="script"><link rel="prefetch" href="/assets/getting-started.html-DHC7KzuD.js" as="script">
+  </head>
+  <body>
+    <div id="app"><!--[--><div class="vp-theme-container" vp-container data-v-33d3430e><main class="page" data-v-33d3430e><div vp-content data-v-33d3430e><h1 data-v-33d3430e>404</h1><blockquote data-v-33d3430e>There&#39;s nothing here.</blockquote><a class="route-link" href="/" data-v-33d3430e>Take me home</a></div></main></div><!--[--><!----><!--]--><!--]--></div>
+    <script type="module" src="/assets/app-CDwp_fGw.js" defer></script>
+  </body>
+</html>
