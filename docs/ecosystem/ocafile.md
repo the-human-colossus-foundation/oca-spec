@@ -1,46 +1,205 @@
 # OCA File
 
-The **OCA File** is a concept that enables the expression of OCA Objects using a Domain Specific Language (DSL). The [specification](/specification/ocafile.md) informative sections elaborate on the demand for a human-readable and machine-actionable language.
+The **OCA File** is a concept that enables the expression of OCA Objects using
+a Domain Specific Language (DSL). The
+[specification](/specification/ocafile.md) informative sections elaborate on
+the demand for a human-readable and machine-actionable language.
 
-OCAFile conceptually encompasses the [OCA Bundle](/ecosystem/oca-bundle.md) concept and enables the creation and manipulation of it.
+OCAFile conceptually encompasses the [OCA Bundle](/ecosystem/oca-bundle.md)
+concept and enables the creation and manipulation of it.
+
+## Examples
+
+As a reference, the community maintains example OCAFILEs at
+[https://github.com/THCLab/ocafile-examples/](https://github.com/THCLab/ocafile-examples/)
 
 ## Usage
 
-OCAFile provides instructions for creating OCA Objects, such as Capture Bases and Overlays. The instructions reflect the [OCA specification](/specification/README.md).
+OCAFile provides instructions for creating OCA Objects, such as Capture Bases
+and Overlays. The instructions reflect the [OCA
+specification](/specification/README.md).
 
 ### OCAFile in a nutshell
 
-The construction of an OCAfile begins with the pivotal step of creating a Capture Base through the `ADD ATTRIBUTE` command. This step is foundational, setting the stage for the schema's development. The subsequent use of `ADD <overlay-type> ATTRS` for binding overlay types to the capture base introduces additional layers of complexity and functionality. Together, these commands form the bedrock of the OCAfile, enabling the creation of robust, multifaceted schemas that are capable of capturing and representing complex data structures and relationships within the OCA framework.
+The construction of an OCAfile begins with the pivotal step of creating a
+Capture Base through the `ADD ATTRIBUTE` command. This step is foundational,
+setting the stage for the schema's development. The subsequent use of
+`ADD <overlay-type>` for binding overlay types to the capture base introduces
+additional layers of complexity and functionality. Together, these commands
+form the bedrock of the OCAfile, enabling the creation of robust, multifaceted
+schemas that are capable of capturing and representing complex data structures
+and relationships within the OCA framework.
 
 ### Create an OCAFile
 
-Let's start with an example and then discuss instructions step by step. The following example is a simple `Entrance Credential` example:
+Let's start with an example and then discuss instructions step by step. The
+following example is a simple `Entrance Credential` example:
+
+:::code-tabs
+
+@tab OCAFILE
 
 ```ocafile
 --name=EntranceCredential
 ADD ATTRIBUTE d=Text i=Text passed=Boolean
-ADD META en PROPS name="Entrance credential" description="Entrance credential"
-ADD CHARACTER_ENCODING ATTRS d=utf-8 i=utf-8 passed=utf-8
-ADD CONFORMANCE ATTRS d=M i=M passed=M
-ADD LABEL en ATTRS d="Schema digest" i="Credential Issuee" passed="Passed"
-ADD LABEL pl ATTRS d="Identyfikator" i="Wydawca" passed="Pozwolenie"
+ADD OVERLAY META
+    language="en"
+    name="Entrance credential"
+    description="Entrance credential"
+
+ADD OVERLAY CHARACTER_ENCODING
+    attribute_character_encodings
+      d="utf-8"
+      i="utf-8"
+      passed="utf-8"
+
+ADD OVERLAY LABEL
+    language="en"
+    attribute_labels
+      d="Schema digest"
+      i="Credential Issuee"
+      passed="Passed"
+
+ADD OVERLAY LABEL
+    language="pl"
+    attribute_labels
+      d="Identyfikator"
+      i="Wydawca"
+      passed="Pozwolenie"
+
 ADD ATTRIBUTE select=Text
-ADD ENTRY_CODE ATTRS select=["o1", "o2", "o3"]
-ADD ENTRY en ATTRS select={"o1": "Adult", "o2": "Childe", "o3": "Veteran"}
-ADD ENTRY pl ATTRS select={"o1": "Dorosły", "o2": "Dziecko", "o3": "Weteran"}
+
+ADD OVERLAY ENTRY_CODE
+    attribute_entry_codes
+      select=["o1", "o2", "o3"]
+
+ADD OVERLAY ENTRY
+    language="en"
+    attribute_entries
+        select
+          "o1"="Adult"
+          "o2"="Childe"
+          "o3"="Veteran"
+
+ADD OVERLAY ENTRY
+    language="pl"
+    attribute_entries
+      select
+        "o1"="Dorosły"
+        "o2"="Dziecko"
+        "o3"="Weteran"
+
 ```
 
-_Source: [entrance-credential.ocafile](https://github.com/THCLab/ocafile-examples/blob/main/entrance-credential.ocafile)_
+@tab OCA Bundle
+```json
+{
+  "v": "OCAS02JSON000779_",
+  "digest": "EBT1L4uMvzLqfqNfJHWa5csmFdhuKpnGl8CZ2Zg_Di2N",
+  "capture_base": {
+    "digest": "EB6HHwQ08-Ri0r31WhMeC9YEc-1Mnexqv24uomb9lvMK",
+    "type": "capture_base/2.0.0",
+    "attributes": {
+      "d": "Text",
+      "i": "Text",
+      "passed": "Boolean",
+      "select": "Text"
+    }
+  },
+  "overlays": [
+    {
+      "digest": "ECRBbLUFUph6fyzjTd8FYfJnl0bBgPhnDj17jT2tZScz",
+      "capture_base": "EB6HHwQ08-Ri0r31WhMeC9YEc-1Mnexqv24uomb9lvMK",
+      "type": "overlay/meta/2.0.0",
+      "language": "en",
+      "description": "Entrance credential",
+      "name": "Entrance credential"
+    },
+    {
+      "digest": "EDOAghIdFd69D3sbja3B0YuJ4uUMZhG8JVwEz8n2U8ff",
+      "capture_base": "EB6HHwQ08-Ri0r31WhMeC9YEc-1Mnexqv24uomb9lvMK",
+      "type": "overlay/character_encoding/2.0.0",
+      "attribute_character_encodings": {
+        "d": "utf-8",
+        "i": "utf-8",
+        "passed": "utf-8"
+      }
+    },
+    {
+      "digest": "EPXsr4aNXltHt5cW6eia5GtqRLum_IP-TuOHK2152p5y",
+      "capture_base": "EB6HHwQ08-Ri0r31WhMeC9YEc-1Mnexqv24uomb9lvMK",
+      "type": "overlay/label/2.0.0",
+      "language": "en",
+      "attribute_labels": {
+        "d": "Schema digest",
+        "i": "Credential Issuee",
+        "passed": "Passed"
+      }
+    },
+    {
+      "digest": "EP9qv4L-S3c7oDtwtucY4_MSKnleEX90VB2K5N0G63KT",
+      "capture_base": "EB6HHwQ08-Ri0r31WhMeC9YEc-1Mnexqv24uomb9lvMK",
+      "type": "overlay/label/2.0.0",
+      "language": "pl",
+      "attribute_labels": {
+        "d": "Identyfikator",
+        "i": "Wydawca",
+        "passed": "Pozwolenie"
+      }
+    },
+    {
+      "digest": "EHloPRRj5Yp8yUQ27rs1C-betjKO3H8PWPQgSIQ9TTPI",
+      "capture_base": "EB6HHwQ08-Ri0r31WhMeC9YEc-1Mnexqv24uomb9lvMK",
+      "type": "overlay/entry_code/2.0.0",
+      "attribute_entry_codes": {
+        "select": [
+          "o1",
+          "o2",
+          "o3"
+        ]
+      }
+    },
+    {
+      "digest": "ECHC9jkzeLKlJ_j2svVt2HLTJCHzMBvQl4WUI_TOcHIO",
+      "capture_base": "EB6HHwQ08-Ri0r31WhMeC9YEc-1Mnexqv24uomb9lvMK",
+      "type": "overlay/entry/2.0.0",
+      "language": "en",
+      "attribute_entries": {
+        "select": {
+          "o1": "Adult",
+          "o2": "Childe",
+          "o3": "Veteran"
+        }
+      }
+    },
+    {
+      "digest": "EMzDRU7yBEp0sdVFj5fIZScZ5_u_eI3rDvboAsAY20WX",
+      "capture_base": "EB6HHwQ08-Ri0r31WhMeC9YEc-1Mnexqv24uomb9lvMK",
+      "type": "overlay/entry/2.0.0",
+      "language": "pl",
+      "attribute_entries": {
+        "select": {
+          "o1": "Dorosły",
+          "o2": "Dziecko",
+          "o3": "Weteran"
+        }
+      }
+    }
+  ]
+}
+```
+:::
+
+_Source: [entrance-credential.ocafile](https://github.com/THCLab/ocafile-examples/blob/main/2.0/entrance_credential.ocafile)_
 
 Explanation:
 
 - The `ADD ATTRIBUTE` command defines the attributes of the OCA Capture Base.
-- The `ADD META` command defines the OCA Bundle's metadata.
-- The `ADD CHARACTER_ENCODING` command defines the character encoding of the attributes (`Character Encoding Overlay`).
-- The `ADD CONFORMANCE` command defines the conformance of the attributes (`Conformance Overlay`).
-- The `ADD LABEL` command defines the labels for the attributes (`Label Overlay`).
-- The `ADD ENTRY_CODE` command defines the entry code for the attributes (`Entry Code Overlay`).
-- The `ADD ENTRY` command defines the entries for the attributes (`Entry Overlay`).
+- The `ADD OVERLAY META` command adds overlay which enahnce the OCA Bundle's metadata.
+- The `ADD OVERLAY CHARACTER_ENCODING` command adds overlay which defines the character encoding of the attributes (`Character Encoding Overlay`).
+- The `ADD OVERLAY LABEL` command adds overlay which defines the labels for the attributes (`Label Overlay`).
+- The `ADD OVERLAY ENTRY_CODE` command adds overlay which defines the entry code for the attributes (`Entry Code Overlay`).
+- The `ADD OVERLAY ENTRY` command adds overlay which defines the entries for the attributes (`Entry Overlay`).
 
 ### Build an OCAFile
 
@@ -49,7 +208,7 @@ You can build an OCAFile using the OCA Bin. The following command builds the `En
 ```bash
 $ ./oca build --ocafile entrance-credential.ocafile
 
-# OCA bundle created in local repository with SAID: EKvrSBy4Nu29oFF-q4NubgvTLWe4G3yRcEo3zoFjr9hd
+# OCA bundle created in local repository with SAID: EBT1L4uMvzLqfqNfJHWa5csmFdhuKpnGl8CZ2Zg_Di2N
 # and name: EntranceCredential
 ```
 
@@ -59,21 +218,27 @@ You can alter an OCAFile and add instructions to modify or extend an existing Bu
 
 ```ocafile
 --name=ExpiringEntranceCredential
-FROM EKvrSBy4Nu29oFF-q4NubgvTLWe4G3yRcEo3zoFjr9hd # This is the SAID of the EntranceCredential
+FROM EBAv1B7UV1Du-80pvb78UU4cj68LtHJPidFChkgIFpsH # This is the SAID of the EntranceCredential
 ADD ATTRIBUTE expires=DateTime
-ADD CONFORMANCE ATTRS expires=M
-ADD LABEL en ATTRS expires="Expiration date"
-ADD LABEL pl ATTRS expires="Data wygaśnięcia"
+ADD OVERLAY LABEL
+    language="en"
+    attribute_labels
+        expires="Expiration date"
+
+ADD OVERLAY LABEL
+    language="pl"
+    attribute_labels
+        expires="Data wygaśnięcia"
 ```
 
-_Source: `expiring-entrance-credential.ocafile`_
+_Source: [expiring_entrance_credential.ocafile](https://github.com/THCLab/ocafile-examples/blob/main/2.0/expiring_entrance_credential.ocafile)_
 
 Let's now build the `Expiring Entrance Credential`:
 
 ```bash
 $ ./oca build --ocafile expiring-entrance-credential.ocafile
 
-# OCA bundle created in local repository with SAID: EHGzoceOvAbrgDHZZXTPAOD_zzVhuVjTwF9DAXEmynfE
+# OCA bundle created in local repository with SAID: EIu4f-p5tIMPuJ0LnQ1DqaxAPS3liknremFRUOrTqWcy
 # and name: ExpiringEntranceCredential
 ```
 
@@ -96,117 +261,6 @@ ADD ATTRIBUTE d=Text i=Text passed=Boolean
 ```
 
 _Example: `ADD ATTRIBUTE`_
-
-#### ADD FLAGGED_ATTRIBUTES
-
-Adds flagged attributes, so-called [ PIIs ](https://en.wikipedia.org/wiki/Personal_data), to the Capture Base. Supports adding multiple attributes at once:
-
-```ocafile
-ADD FLAGGED_ATTRIBUTES name surname email
-```
-
-_Example: `ADD FLAGGED_ATTRIBUTES`_
-
-#### ADD CHARACTER_ENCODING
-
-Adds character encoding to the attributes. Supports adding multiple attributes at once.
-
-```ocafile
-ADD CHARACTER_ENCODING ATTRS d=utf-8 i=utf-8 passed=utf-8
-```
-
-_Example: `ADD CHARACTER_ENCODING`_
-
-Supported encodings:
-
-- `base64`
-- `utf-8`
-- `iso-8859-1`
-- `utf-16`
-- `utf-16be`
-- `utf-16le`
-
-#### ADD FORMAT
-
-Specifies attribute format. Useful, i.e., for binary data.
-
-```ocafile
-ADD ATTRIBUTE image=Binary
-ADD FORMAT ATTR image="image/png"
-```
-
-_Example: `ADD FORMAT`_
-
-#### ADD LABEL
-
-Adds localized human-readable labels to the attributes. Supports adding multiple attributes at once.
-
-The `LABEL` command is localized and expects the `ISO 639` language code in the command input.
-
-```ocafile
-ADD LABEL en ATTRS d="Schema digest" i="Credential Issuee" passed="Passed"
-ADD LABEL pl ATTRS d="Identyfikator" i="Wystawca" passed="Pozwolenie"
-```
-
-_Example: `ADD LABEL`_
-
-#### ADD META
-
-Adds localized human-readable metadata to the OCA Bundle. Support `name` and `description` properties.
-
-The `META` command is localized and expects the `ISO 639` language code in the command input.
-
-```ocafile
-ADD META en PROPS name="Entrance credential" description="Entrance credential"
-```
-
-_Example: `ADD META`_
-
-#### ADD CARDINALITY
-
-Adds [ cardinality ](https://en.wikipedia.org/wiki/Cardinality) property to the attributes. Supports adding multiple attributes at once.
-
-```ocafile
-ADD ATTRIBUTE tools=Array[Text]
-ADD CARDINALITY ATTRS tools="1-"
-```
-
-_Example: `ADD CARDINALITY`_
-
-See [the spec](/specification/README.md#cardinality-overlay) for the available cardinality options.
-
-#### ADD CONFORMANCE
-
-Adds conformance property to the attributes. Supports adding multiple attributes at once.
-
-```ocafile
-ADD CONFORMANCE ATTRS passed=M
-```
-
-_Example: `ADD CARDINALITY`_
-
-The attribute conformance can be set to either M (mandatory) or O (optional).
-
-#### ADD ENTRY_CODE
-
-Adds entry codes to the attribute. Supports adding multiple attributes at once.
-
-```ocafile
-ADD ENTRY_CODE ATTRS gender=["m", "f", "o"]
-```
-
-_Example: `ADD ENTRY_CODE`_
-
-#### ADD ENTRY
-
-Adds entries to the attribute. Supports adding multiple attributes at once.
-
-```ocafile
-ADD ENTRY en ATTRS gender={"m": "Male", "f": "Female", "o": "Other"}
-ADD ENTRY pl ATTRS gender={"m": "Mężczyzna", "f": "Kobieta", "o": "Inne"}
-```
-
-_Example: `ADD ENTRY`_
 
 ### FROM
 
@@ -284,8 +338,17 @@ _`customer.ocafile`_
 ```ocafile
 --name=Customer
 ADD ATTRIBUTE name=Text address=Text
-ADD LABEL en ATTRS name="Name" address="Address"
-ADD LABEL pl ATTRS name="Nazwa klienta" address="Adres"
+ADD OVERLAY LABEL
+    language="en"
+    attribute_labels
+        name="Name"
+        address="Address"
+
+ADD OVERLAY LABEL
+    language="pl"
+    attribute_labels
+        name="Nazwa klienta"
+        address="Adres"
 ```
 
 _`invoice.ocafile`_
@@ -293,28 +356,38 @@ _`invoice.ocafile`_
 ```ocafile
 --name=Invoice
 ADD ATTRIBUTE issued=DateTime customer=refn:Customer
-ADD CONFORMANCE ATTRS issued=M
-ADD LABEL en ATTRS issued="Issued date"
-ADD LABEL pl ATTRS issued="Data wystawienia"
-ADD LABEL en ATTRS customer="Customer"
-ADD LABEL pl ATTRS customer="Klient"
+ADD OVERLAY LABEL
+    language="en"
+    attribute_labels
+        issued="Issued date"
+        customer="Customer"
+
+ADD OVERLAY LABEL
+    language="pl"
+    attribute_labels
+        issued="Data wystawienia"
+        customer="Klient"
 ```
 
 Running the `OCA Bin`:
 
 ```bash
 $ ./oca build  --ocafile customer.ocafile
-# OCA bundle created in local repository with SAID: ENqVB-2SpRIJTaqeaGfQNKQ580rvDc1QUJUswJYyze7Y
+# OCA bundle created in local repository with SAID: ELu_Ye6niycz1wtMWpXYtUNVQTD8x65BcB5B33Z9XvDL
 # and name: Customer
 
 $ ./oca build  --ocafile invoice.ocafile
-# OCA bundle created in local repository with SAID: EC2TrdZ8koM8w-zUZm1r0LUcUp9VHFrcuMOrs7WmsD0Z
+# OCA bundle created in local repository with SAID: EMla9w8NDb2RLInJNHEOuPJ4SQ6ifMeh83bTJmxiCeNL
 # and name: Invoice
 ```
 
-We have two OCAFiles: `customer.ocafile` and `invoice.ocafile`. The `customer.ocafile` defines a unique name using the `--name=Customer` directive.
+We have two OCAFiles: `customer.ocafile` and `invoice.ocafile`. The
+`customer.ocafile` defines a unique name using the `--name=Customer` directive.
 
-The `invoice.ocafile` defines the `customer` attribute as `customer=refn:Customer`. It establishes a relationship between the `Invoice` and `Customer` OCA Bundles and specifically says that `Invoice has one Customer`.
+The `invoice.ocafile` defines the `customer` attribute as
+`customer=refn:Customer`. It establishes a relationship between the `Invoice`
+and `Customer` OCA Bundles and specifically says that `Invoice has one
+Customer`.
 
 #### Has many
 
@@ -323,9 +396,25 @@ Let's define the `Line Item` OCAFile for the invoice:
 ```ocafile
 --name=LineItem
 ADD ATTRIBUTE product=Text quantity=Numeric price=Numeric
-ADD CONFORMANCE ATTRS product=M quantity=M price=M
-ADD LABEL en ATTRS product="Product" quantity="Quantity" price="Price"
-ADD LABEL pl ATTRS product="Produkt" quantity="Ilość" price="Cena"
+ADD OVERLAY CONFORMANCE
+    attribute_conformances
+      product=M
+      quantity=M
+      price=M
+
+ADD OVERLAY LABEL
+    language="en"
+    attribute_labels
+        product="Product"
+        quantity="Quantity"
+        price="Price"
+
+ADD OVERLAY LABEL
+    language="pl"
+    attribute_labels
+        product="Produkt"
+        quantity="Ilość"
+        price="Cena"
 ```
 
 _`line-item.ocafile`_
@@ -334,13 +423,22 @@ and extend the `invoice.ocafile` from [Has one](#has-one) section:
 
 ```ocafile
 -- name=InvoiceWithLineItems
-# FROM currently lacks the `refn` support :-(
-FROM EC2TrdZ8koM8w-zUZm1r0LUcUp9VHFrcuMOrs7WmsD0Z # This is the SAID of the Invoice
+FROM EMla9w8NDb2RLInJNHEOuPJ4SQ6ifMeh83bTJmxiCeNL
 
 ADD ATTRIBUTE lineItems=Array[refn:LineItem]
-ADD LABEL en ATTRS lineItems="Line Items"
-ADD LABEL pl ATTRS lineItems="Pozycje"
-ADD CARDINALITY ATTRS lineItems="1-"
+ADD OVERLAY LABEL
+    language="en"
+    attribute_labels
+        lineItems="Line Items"
+
+ADD OVERLAY LABEL
+    language="pl"
+    attribute_labels
+        lineItems="Pozycje"
+
+ADD OVERLAY CARDINALITY
+    attribute_carinalities
+        lineItems="1-"
 ```
 
 _`invoice-with-line-items.ocafile`_
@@ -350,12 +448,15 @@ Running the `OCA Bin`:
 ```bash
 $ ./oca build  --ocafile line-item.ocafile
 
-# OCA bundle created in local repository with SAID: ED-lSEZPr1W5M7zRgYEWbnBwhNawOgnesrXUB34_mD6o
+# OCA bundle created in local repository with SAID: EHeMfChSsMV771D0skqpqYp5A-h8JH41scQ45Lv3Co36
 # and name: LineItem
 
 $ ./oca build  --ocafile invoice-with-line-items.ocafile
-# OCA bundle created in local repository with SAID: EEYxTLl68T_Yl1EYzcW40bqefsvrggw5-6cWYqFUmIAz
+# OCA bundle created in local repository with SAID: EPgR99LHRtfc2odbCR_Fw4D38G090CmVJYeZVaRwaWjU
 # and name: InvoiceWithLineItems
 ```
 
-The `invoice-with-line-items.ocafile` extends the `Invoice` OCA Bundle with the `lineItems` attribute, an array of `LineItem`. It establishes a relationship between the `Invoice` and `LineItem` OCA Bundles and says that `Invoice has many Line Items`.
+The `invoice-with-line-items.ocafile` extends the `Invoice` OCA Bundle with the
+`lineItems` attribute, an array of `LineItem`. It establishes a relationship
+between the `Invoice` and `LineItem` OCA Bundles and says that `Invoice has
+many Line Items`.
