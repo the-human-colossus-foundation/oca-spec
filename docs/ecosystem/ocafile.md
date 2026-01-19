@@ -216,9 +216,12 @@ $ ./oca build --ocafile entrance-credential.ocafile
 
 You can alter an OCAFile and add instructions to modify or extend an existing Bundle. You can do it by appending the `entrance-credential.ocafile` from above or using the `FROM` command. We demonstrate the latter approach. Let's add a new attribute to the `Entrance Credential` example:
 
+:::code-tabs
+@tab OCAFILE
+
 ```ocafile
 --name=ExpiringEntranceCredential
-FROM EBAv1B7UV1Du-80pvb78UU4cj68LtHJPidFChkgIFpsH # This is the SAID of the EntranceCredential
+FROM EBT1L4uMvzLqfqNfJHWa5csmFdhuKpnGl8CZ2Zg_Di2N # This is the SAID of the EntranceCredential
 ADD ATTRIBUTE expires=DateTime
 ADD OVERLAY LABEL
     language="en"
@@ -231,6 +234,125 @@ ADD OVERLAY LABEL
         expires="Data wygaśnięcia"
 ```
 
+@tab OCA Bundle
+```json
+{
+  "v": "OCAS02JSON00093d_",
+  "digest": "EDWputKwHb5SfDScms6HQ8Ny4DgwtA5bsCFaTFlIQrBV",
+  "capture_base": {
+    "digest": "EOgc4oeLrGhWCUODZbvTDEtgcJiBQUJ1tbWnkah4T7i_",
+    "type": "capture_base/2.0.0",
+    "attributes": {
+      "d": "Text",
+      "expires": "DateTime",
+      "i": "Text",
+      "passed": "Boolean",
+      "select": "Text"
+    }
+  },
+  "overlays": [
+    {
+      "digest": "EE1XquRKeAnixgitNk83mjHYMl-VNiYRunWPfpfaQsKV",
+      "capture_base": "EOgc4oeLrGhWCUODZbvTDEtgcJiBQUJ1tbWnkah4T7i_",
+      "type": "overlay/meta/2.0.0",
+      "language": "en",
+      "description": "Entrance credential",
+      "name": "Entrance credential"
+    },
+    {
+      "digest": "EO7poGBjsfDDrCvdStK3IpsNLOS_8Jrljnxnxm5eT1PC",
+      "capture_base": "EOgc4oeLrGhWCUODZbvTDEtgcJiBQUJ1tbWnkah4T7i_",
+      "type": "overlay/character_encoding/2.0.0",
+      "attribute_character_encodings": {
+        "d": "utf-8",
+        "i": "utf-8",
+        "passed": "utf-8"
+      }
+    },
+    {
+      "digest": "EPg1zJjJRuAVqjaH2fq0-jkX0kis-NK27NVtbvOfXRUu",
+      "capture_base": "EOgc4oeLrGhWCUODZbvTDEtgcJiBQUJ1tbWnkah4T7i_",
+      "type": "overlay/label/2.0.0",
+      "language": "en",
+      "attribute_labels": {
+        "d": "Schema digest",
+        "i": "Credential Issuee",
+        "passed": "Passed"
+      }
+    },
+    {
+      "digest": "EJaCCwwlChfsbovu0Jfv8LL0XBuIjmJb28tLB0VWvdZF",
+      "capture_base": "EOgc4oeLrGhWCUODZbvTDEtgcJiBQUJ1tbWnkah4T7i_",
+      "type": "overlay/label/2.0.0",
+      "language": "pl",
+      "attribute_labels": {
+        "d": "Identyfikator",
+        "i": "Wydawca",
+        "passed": "Pozwolenie"
+      }
+    },
+    {
+      "digest": "EBLqjLMDVEx5JLpIz6lLFXYl6BYjEN1xL4k_oF6y24fC",
+      "capture_base": "EOgc4oeLrGhWCUODZbvTDEtgcJiBQUJ1tbWnkah4T7i_",
+      "type": "overlay/entry_code/2.0.0",
+      "attribute_entry_codes": {
+        "select": [
+          "o1",
+          "o2",
+          "o3"
+        ]
+      }
+    },
+    {
+      "digest": "EMl5a5d-jg7y5wCpy1eHD3IeZOgRVRc5SDp0SoahFduI",
+      "capture_base": "EOgc4oeLrGhWCUODZbvTDEtgcJiBQUJ1tbWnkah4T7i_",
+      "type": "overlay/entry/2.0.0",
+      "language": "en",
+      "attribute_entries": {
+        "select": {
+          "o1": "Adult",
+          "o2": "Childe",
+          "o3": "Veteran"
+        }
+      }
+    },
+    {
+      "digest": "EII5wVckH6LMhSFlRPTeXABcYe0YBCE9eNX2K0ekFWSL",
+      "capture_base": "EOgc4oeLrGhWCUODZbvTDEtgcJiBQUJ1tbWnkah4T7i_",
+      "type": "overlay/entry/2.0.0",
+      "language": "pl",
+      "attribute_entries": {
+        "select": {
+          "o1": "Dorosły",
+          "o2": "Dziecko",
+          "o3": "Weteran"
+        }
+      }
+    },
+    {
+      "digest": "EAbRj5YEbsLxjRlCsdpi2d3v88tWwuGVM0xLGLJchH7y",
+      "capture_base": "EOgc4oeLrGhWCUODZbvTDEtgcJiBQUJ1tbWnkah4T7i_",
+      "type": "overlay/label/2.0.0",
+      "language": "en",
+      "attribute_labels": {
+        "expires": "Expiration date"
+      }
+    },
+    {
+      "digest": "EPvfzyNLdi9qlVSy8go7y8pDi1TzEuKLg_ZZgfp3FnPN",
+      "capture_base": "EOgc4oeLrGhWCUODZbvTDEtgcJiBQUJ1tbWnkah4T7i_",
+      "type": "overlay/label/2.0.0",
+      "language": "pl",
+      "attribute_labels": {
+        "expires": "Data wygaśnięcia"
+      }
+    }
+  ]
+}
+```
+
+:::
+
 _Source: [expiring_entrance_credential.ocafile](https://github.com/THCLab/ocafile-examples/blob/main/2.0/expiring_entrance_credential.ocafile)_
 
 Let's now build the `Expiring Entrance Credential`:
@@ -238,7 +360,7 @@ Let's now build the `Expiring Entrance Credential`:
 ```bash
 $ ./oca build --ocafile expiring-entrance-credential.ocafile
 
-# OCA bundle created in local repository with SAID: EIu4f-p5tIMPuJ0LnQ1DqaxAPS3liknremFRUOrTqWcy
+# OCA bundle created in local repository with SAID: EDWputKwHb5SfDScms6HQ8Ny4DgwtA5bsCFaTFlIQrBV
 # and name: ExpiringEntranceCredential
 ```
 
@@ -333,8 +455,9 @@ The `refn` directive works solely in a local environment in collaboration with t
 
 Let's consider the following OCAFiles as an example:
 
-_`customer.ocafile`_
+:::code-tabs
 
+@tab _`customer.ocafile`_
 ```ocafile
 --name=Customer
 ADD ATTRIBUTE name=Text address=Text
@@ -351,8 +474,48 @@ ADD OVERLAY LABEL
         address="Adres"
 ```
 
-_`invoice.ocafile`_
+@tab OCA Bundle
+```json
+{
+  "v": "OCAS02JSON0002b0_",
+  "digest": "ELu_Ye6niycz1wtMWpXYtUNVQTD8x65BcB5B33Z9XvDL",
+  "capture_base": {
+    "digest": "EM_daGYI-A6Gj3skUbrgnH7C4OTA1OJdVh3wVfgU88nt",
+    "type": "capture_base/2.0.0",
+    "attributes": {
+      "address": "Text",
+      "name": "Text"
+    }
+  },
+  "overlays": [
+    {
+      "digest": "EP7HWgtcJt4anlWhEvekruY3xMZk-3IyC8JV1fgCiziC",
+      "capture_base": "EM_daGYI-A6Gj3skUbrgnH7C4OTA1OJdVh3wVfgU88nt",
+      "type": "overlay/label/2.0.0",
+      "language": "en",
+      "attribute_labels": {
+        "name": "Name",
+        "address": "Address"
+      }
+    },
+    {
+      "digest": "ENNNaBjV7wzQEy53pPANNn8DfowHzR-f5TS4tC_o3zAi",
+      "capture_base": "EM_daGYI-A6Gj3skUbrgnH7C4OTA1OJdVh3wVfgU88nt",
+      "type": "overlay/label/2.0.0",
+      "language": "pl",
+      "attribute_labels": {
+        "name": "Nazwa klienta",
+        "address": "Adres"
+      }
+    }
+  ]
+}
+```
+:::
 
+:::code-tabs
+
+@tab _`invoice.ocafile`_
 ```ocafile
 --name=Invoice
 ADD ATTRIBUTE issued=DateTime customer=refn:Customer
@@ -368,6 +531,44 @@ ADD OVERLAY LABEL
         issued="Data wystawienia"
         customer="Klient"
 ```
+@tab OCA Bundle
+```json
+{
+  "v": "OCAS02JSON0002f6_",
+  "digest": "EMla9w8NDb2RLInJNHEOuPJ4SQ6ifMeh83bTJmxiCeNL",
+  "capture_base": {
+    "digest": "EPeWPKN-JK84-70dvAMcPBzq4DZ7aWjk1VjGade2dh_g",
+    "type": "capture_base/2.0.0",
+    "attributes": {
+      "customer": "refs:ELu_Ye6niycz1wtMWpXYtUNVQTD8x65BcB5B33Z9XvDL",
+      "issued": "DateTime"
+    }
+  },
+  "overlays": [
+    {
+      "digest": "EDoBqbm1nEPY_81lXjW6poG2SAuVmXTasNXgvUXgsTpQ",
+      "capture_base": "EPeWPKN-JK84-70dvAMcPBzq4DZ7aWjk1VjGade2dh_g",
+      "type": "overlay/label/2.0.0",
+      "language": "en",
+      "attribute_labels": {
+        "issued": "Issued date",
+        "customer": "Customer"
+      }
+    },
+    {
+      "digest": "EJKk59mihsQcz6sUQhycizSFvkqGMecgVLfLhpffof8a",
+      "capture_base": "EPeWPKN-JK84-70dvAMcPBzq4DZ7aWjk1VjGade2dh_g",
+      "type": "overlay/label/2.0.0",
+      "language": "pl",
+      "attribute_labels": {
+        "issued": "Data wystawienia",
+        "customer": "Klient"
+      }
+    }
+  ]
+}
+```
+:::
 
 Running the `OCA Bin`:
 
@@ -393,6 +594,9 @@ Customer`.
 
 Let's define the `Line Item` OCAFile for the invoice:
 
+:::code-tabs
+
+@tab OCAFILE
 ```ocafile
 --name=LineItem
 ADD ATTRIBUTE product=Text quantity=Numeric price=Numeric
@@ -416,11 +620,66 @@ ADD OVERLAY LABEL
         quantity="Ilość"
         price="Cena"
 ```
+@tab OCA Bundle
+```json
+{
+  "v": "OCAS02JSON0003cf_",
+  "digest": "EHeMfChSsMV771D0skqpqYp5A-h8JH41scQ45Lv3Co36",
+  "capture_base": {
+    "digest": "EMNxxfHLhu-kiUi9KAjRjlJVp34grMIFseM0TF_TyyFG",
+    "type": "capture_base/2.0.0",
+    "attributes": {
+      "price": "Numeric",
+      "product": "Text",
+      "quantity": "Numeric"
+    }
+  },
+  "overlays": [
+    {
+      "digest": "EB81bX9KoljS-9L0t-6sBmvjSTZyVmzsPaGQ7VHrjGF3",
+      "capture_base": "EMNxxfHLhu-kiUi9KAjRjlJVp34grMIFseM0TF_TyyFG",
+      "type": "overlay/conformance/2.0.0",
+      "attribute_conformances": {
+        "product": "M",
+        "quantity": "M",
+        "price": "M"
+      }
+    },
+    {
+      "digest": "EHWYQaE_fLljHqraMFILENmQds61tMj-GMU8ibX95KE_",
+      "capture_base": "EMNxxfHLhu-kiUi9KAjRjlJVp34grMIFseM0TF_TyyFG",
+      "type": "overlay/label/2.0.0",
+      "language": "en",
+      "attribute_labels": {
+        "product": "Product",
+        "quantity": "Quantity",
+        "price": "Price"
+      }
+    },
+    {
+      "digest": "EGqP2XL_-5CFGegXi4spJjQCY1lTX7MBfkP3GbobAk-N",
+      "capture_base": "EMNxxfHLhu-kiUi9KAjRjlJVp34grMIFseM0TF_TyyFG",
+      "type": "overlay/label/2.0.0",
+      "language": "pl",
+      "attribute_labels": {
+        "product": "Produkt",
+        "quantity": "Ilość",
+        "price": "Cena"
+      }
+    }
+  ]
+}
+
+```
+:::
 
 _`line-item.ocafile`_
 
 and extend the `invoice.ocafile` from [Has one](#has-one) section:
 
+:::code-tabs
+
+@tab OCAFILE
 ```ocafile
 -- name=InvoiceWithLineItems
 FROM EMla9w8NDb2RLInJNHEOuPJ4SQ6ifMeh83bTJmxiCeNL
@@ -439,6 +698,73 @@ ADD OVERLAY LABEL
 ADD OVERLAY CARDINALITY
     attribute_carinalities
         lineItems="1-"
+```
+
+@tab OCA Bundle
+```json
+{
+  "v": "OCAS02JSON0005a3_",
+  "digest": "EPgR99LHRtfc2odbCR_Fw4D38G090CmVJYeZVaRwaWjU",
+  "capture_base": {
+    "digest": "EJC-QUI2SczwvHANjb3bgHee7ploy1dCtGD_8ZfwTH7T",
+    "type": "capture_base/2.0.0",
+    "attributes": {
+      "customer": "refs:ELu_Ye6niycz1wtMWpXYtUNVQTD8x65BcB5B33Z9XvDL",
+      "issued": "DateTime",
+      "lineItems": [
+        "refs:EHeMfChSsMV771D0skqpqYp5A-h8JH41scQ45Lv3Co36"
+      ]
+    }
+  },
+  "overlays": [
+    {
+      "digest": "EB8guGf0-ZWzIjnexo1iOTVEWlvlbS0x3lwQJOk6298I",
+      "capture_base": "EJC-QUI2SczwvHANjb3bgHee7ploy1dCtGD_8ZfwTH7T",
+      "type": "overlay/label/2.0.0",
+      "language": "en",
+      "attribute_labels": {
+        "issued": "Issued date",
+        "customer": "Customer"
+      }
+    },
+    {
+      "digest": "EORza6Wn55MaMlD5NyQTe_3QRrnVQZ5tqjYXbKgIe6CT",
+      "capture_base": "EJC-QUI2SczwvHANjb3bgHee7ploy1dCtGD_8ZfwTH7T",
+      "type": "overlay/label/2.0.0",
+      "language": "pl",
+      "attribute_labels": {
+        "issued": "Data wystawienia",
+        "customer": "Klient"
+      }
+    },
+    {
+      "digest": "EDLKo0HjHHtNjr07wxvT5yzG13o0BRfoZwhlArYpGbx8",
+      "capture_base": "EJC-QUI2SczwvHANjb3bgHee7ploy1dCtGD_8ZfwTH7T",
+      "type": "overlay/label/2.0.0",
+      "language": "en",
+      "attribute_labels": {
+        "lineItems": "Line Items"
+      }
+    },
+    {
+      "digest": "EJTOn420Tpc7_xKXpBbAMBY06ONschL-OyaPfEJDxi29",
+      "capture_base": "EJC-QUI2SczwvHANjb3bgHee7ploy1dCtGD_8ZfwTH7T",
+      "type": "overlay/label/2.0.0",
+      "language": "pl",
+      "attribute_labels": {
+        "lineItems": "Pozycje"
+      }
+    },
+    {
+      "digest": "EP5De0K7epTy5GMZCrDvZD_hBCP6QXuwB3mh9pkGvZid",
+      "capture_base": "EJC-QUI2SczwvHANjb3bgHee7ploy1dCtGD_8ZfwTH7T",
+      "type": "overlay/cardinality/2.0.0",
+      "attribute_cardinalities": {
+        "lineItems": "1-"
+      }
+    }
+  ]
+}
 ```
 
 _`invoice-with-line-items.ocafile`_
