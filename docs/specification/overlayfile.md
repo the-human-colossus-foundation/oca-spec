@@ -107,7 +107,7 @@ Basic Rules:
 - The overlayfile `MUST` consist of one or more overlay definitions.
 - Any attribute or object specified in the definition must appear in the final overlay.
 - Adding optional attributes that the validator would not check is possible with an ellipsis (`...`).
-- The validator would allow one overlay per bundle unless `UNIQUE KEYS` are specified.
+- The validator allows only one overlay per bundle unless `UNIQUE KEYS` are specified.
 - An `overlayfile` can consist of one or more overlay definitions.
 - Comments begin with `#` and continue until the end of the line.
 
@@ -120,13 +120,14 @@ newline, `MUST` consist of:
 - At least one [element](#element-types)
 
 and `MAY` contain:
-- `UNIQUE KEY` - A keyword followed by an element name defines a unique key, allowing multiple overlays with the same name in the OCA bundle. For example, the language attribute in the Label overlay allows for more than one overlay in the bundle.
+- `UNIQUE KEYS` - A keyword followed by one or more element names defines the uniqueness signature for overlays of the same type in a bundle. When present, multiple overlays with the same name are allowed, but the values of the unique key elements must be distinct across those overlays. If any unique key element is missing from an overlay instance, validation fails.
 
 Example:
 ```
 ADD OVERLAY <namespace:name>
   VERSION <semver>
   UNIQUE KEYS <element-name>
+  UNIQUE KEYS [<element-name>, <element-name>, ...]
   <ELEMENT_BLOCKS>
 ```
 
