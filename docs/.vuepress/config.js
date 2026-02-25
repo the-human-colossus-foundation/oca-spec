@@ -114,6 +114,10 @@ export default defineUserConfig({
             text: "Overlays Registry",
             link: "/ecosystem/overlay-registry",
           },
+          {
+            text: "OCA Browser",
+            link: "/ecosystem/oca-browser",
+          },
         ],
       },
       {
