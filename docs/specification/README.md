@@ -725,13 +725,12 @@ A Conformance Overlay indicates whether data entry for each attribute is
 mandatory or optional.
 
 In addition to the [Mandatory attributes](#mandatory-attributes), the
-Conformance Overlay MAY include the following attributes:
+Conformance Overlay MUST include the following attributes:
 
 - `attribute_conformances`
 
-  The `attribute_conformances` attribute maps key-value pairs where the key is
-  the attribute name and the value is the data entry conformance of the
-  attribute, which is set to either `M` (mandatory) or `O` (optional).
+  The `attribute_conformances` attribute is an array of attributes being
+  mandatory any attribute which is not on the list is considered optional
 
 :::code-tabs
 
@@ -740,37 +739,30 @@ Conformance Overlay MAY include the following attributes:
 
 ```json
 {
-    "digest": "EJ4Ns6Fw4BOvoOkQnQ3u_PDMtRtbHwIpiAqdqP3smScd",
+    "digest": "EBuqHs3r_gqEL5Zt7b3Fpo64e3pS-phTYZAZ-xb5wcg1",
     "capture_base": "EK-iSsbRjw5CvsGDK9nnCZ2JNVsa8cdQ_VwUgmpsVo_6",
     "type": "overlay/conformance/2.0.0",
-    "attribute_conformance": {
-        "documentType": "M",
-        "fullName": "M",
-        "height": "optional",
-        "issuingState": "O",
-        "photoImage": "M",
-        "sex": "M"
-    }
+    "attribute_conformances": [
+        "documentType",
+        "fullName",
+        "height",
+        "issuingState",
+        "photoImage",
+        "sex"
+    ]
 }
 ```
 @tab OCAFILE
 ```
 ADD Overlay conformance
-  attribute_conformance
-    documentType="M"
-    fullName="M"
-    height="optional"
-    issuingState="O"
-    photoImage="M"
-    sex="M"
+  attribute_conformance=["documentType","fullName", "height", "issuingState", "photoImage", "sex"]
 ```
 @tab OVERLAYFILE
 ```
 ADD OVERLAY conformance
   VERSION 2.0.0
-  ADD OBJECT attribute_conformance
-    with keys ATTR-NAMES
-    with values TEXT
+  ADD ARRAY attribute_conformance
+    with values ATTR-NAMES
 ```
 :::
 
