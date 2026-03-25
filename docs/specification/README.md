@@ -10,7 +10,7 @@ description: Official OCA specification
         Version:
     </dt>
     <dd>
-        v2.0.0-rc1
+        v2.0.0
     </dd>
   <dt>
       Latest published version:
