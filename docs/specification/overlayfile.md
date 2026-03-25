@@ -10,7 +10,7 @@ description: Overlayfile specification
         Version:
     </dt>
     <dd>
-        v1.0.0-rc1
+        v1.0.0
     </dd>
 </dl>
 <dl>
